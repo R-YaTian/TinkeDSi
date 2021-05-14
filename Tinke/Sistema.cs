@@ -1800,7 +1800,7 @@ namespace Tinke
             o.DefaultExt = ".nds";
             o.Filter = "Nintendo DS ROM (*.nds)|*.nds";
             o.OverwritePrompt = true;
-        Open_Dialog:
+            Open_Dialog:
             if (o.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 if (o.FileName == accion.ROMFile)
@@ -1810,8 +1810,8 @@ namespace Tinke
                 }
 
                 espera = new Thread(ThreadEspera);
-                if (!isMono)
-                    espera.Start("S06");
+                //if (!isMono)
+                    //espera.Start("S06");
 
                 Console.WriteLine(Tools.Helper.GetTranslation("Messages", "S0D"), o.FileName);
                 bw = new BinaryWriter(new FileStream(o.FileName, FileMode.Create));
@@ -1846,7 +1846,7 @@ namespace Tinke
                 Console.WriteLine("<b>" + Tools.Helper.GetTranslation("Messages", "S09") + "</b>", new FileInfo(o.FileName).Length);
                 accion.IsNewRom = false;
             }
-
+            
             // Borramos archivos ya innecesarios
             File.Delete(header_file);
             File.Delete(arm9Binary);
@@ -1857,7 +1857,7 @@ namespace Tinke
             File.Delete(fileFAT);
             File.Delete(banner);
             File.Delete(files);
-
+            
             if (!isMono)
             {
                 espera.Abort();
