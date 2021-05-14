@@ -283,7 +283,7 @@ namespace Tinke.Tools.Cryptography
 
         uint[] arg2 = new uint[3];
         uint[] card_hash = new uint[0x412];
-        int cardheader_devicetype = 0;
+        //int cardheader_devicetype = 0;
         uint global3_x00, global3_x04;   // RTC value
         uint global3_rand1;
         uint global3_rand3;
