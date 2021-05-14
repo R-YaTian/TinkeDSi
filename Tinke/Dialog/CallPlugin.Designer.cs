@@ -70,7 +70,7 @@ namespace Tinke.Dialog
             this.comboPlugin.FormattingEnabled = true;
             this.comboPlugin.Location = new System.Drawing.Point(78, 15);
             this.comboPlugin.Name = "comboPlugin";
-            this.comboPlugin.Size = new System.Drawing.Size(121, 21);
+            this.comboPlugin.Size = new System.Drawing.Size(121, 20);
             this.comboPlugin.TabIndex = 0;
             // 
             // label1
@@ -78,7 +78,7 @@ namespace Tinke.Dialog
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 18);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(39, 13);
+            this.label1.Size = new System.Drawing.Size(47, 12);
             this.label1.TabIndex = 1;
             this.label1.Text = "Plugin:";
             // 
@@ -87,7 +87,7 @@ namespace Tinke.Dialog
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(12, 61);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 13);
+            this.label2.Size = new System.Drawing.Size(65, 12);
             this.label2.TabIndex = 2;
             this.label2.Text = "Extension:";
             // 
@@ -96,7 +96,7 @@ namespace Tinke.Dialog
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(12, 87);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(45, 13);
+            this.label3.Size = new System.Drawing.Size(47, 12);
             this.label3.TabIndex = 3;
             this.label3.Text = "Header:";
             // 
@@ -104,7 +104,7 @@ namespace Tinke.Dialog
             // 
             this.txtExt.Location = new System.Drawing.Point(99, 58);
             this.txtExt.Name = "txtExt";
-            this.txtExt.Size = new System.Drawing.Size(100, 20);
+            this.txtExt.Size = new System.Drawing.Size(100, 21);
             this.txtExt.TabIndex = 4;
             // 
             // txtHeader
@@ -112,7 +112,7 @@ namespace Tinke.Dialog
             this.txtHeader.Location = new System.Drawing.Point(99, 84);
             this.txtHeader.MaxLength = 4;
             this.txtHeader.Name = "txtHeader";
-            this.txtHeader.Size = new System.Drawing.Size(100, 20);
+            this.txtHeader.Size = new System.Drawing.Size(100, 21);
             this.txtHeader.TabIndex = 5;
             this.txtHeader.TextChanged += new System.EventHandler(this.txtHeader_TextChanged);
             // 
@@ -134,7 +134,7 @@ namespace Tinke.Dialog
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(205, 18);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(40, 13);
+            this.label4.Size = new System.Drawing.Size(47, 12);
             this.label4.TabIndex = 7;
             this.label4.Text = "Action:";
             // 
@@ -150,14 +150,14 @@ namespace Tinke.Dialog
             "Get format"});
             this.comboAction.Location = new System.Drawing.Point(251, 15);
             this.comboAction.Name = "comboAction";
-            this.comboAction.Size = new System.Drawing.Size(121, 21);
+            this.comboAction.Size = new System.Drawing.Size(121, 20);
             this.comboAction.TabIndex = 8;
             // 
             // txtHeaderHex
             // 
             this.txtHeaderHex.Location = new System.Drawing.Point(272, 84);
             this.txtHeaderHex.Name = "txtHeaderHex";
-            this.txtHeaderHex.Size = new System.Drawing.Size(100, 20);
+            this.txtHeaderHex.Size = new System.Drawing.Size(100, 21);
             this.txtHeaderHex.TabIndex = 9;
             this.txtHeaderHex.TextChanged += new System.EventHandler(this.txtHeaderHex_TextChanged);
             // 
@@ -166,16 +166,16 @@ namespace Tinke.Dialog
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(205, 87);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(68, 13);
+            this.label5.Size = new System.Drawing.Size(65, 12);
             this.label5.TabIndex = 10;
-            this.label5.Text = "hex           0x";
+            this.label5.Text = "hex:    0x";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(205, 61);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(21, 13);
+            this.label6.Size = new System.Drawing.Size(23, 12);
             this.label6.TabIndex = 11;
             this.label6.Text = "ID:";
             // 
@@ -189,7 +189,7 @@ namespace Tinke.Dialog
             0,
             0});
             this.numericID.Name = "numericID";
-            this.numericID.Size = new System.Drawing.Size(100, 20);
+            this.numericID.Size = new System.Drawing.Size(100, 21);
             this.numericID.TabIndex = 12;
             // 
             // CallPlugin
