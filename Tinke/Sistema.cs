@@ -74,7 +74,7 @@ namespace Tinke
                                  "\n    <InstantSearch>True</InstantSearch>" +
                                  "\n    <WindowDebug>True</WindowDebug>" +
                                  "\n    <WindowInformation>True</WindowInformation>" +
-                                 "\n    <ModeWindow>False</ModeWindow>" +
+                                 //"\n    <ModeWindow>False</ModeWindow>" +
                                  "\n  </Options>\n</Tinke>",
                                  Encoding.UTF8);
             }
@@ -84,12 +84,12 @@ namespace Tinke
                 if (!langFile.EndsWith(".xml"))
                     continue; ;
 
-                string flag = Application.StartupPath + Path.DirectorySeparatorChar + "langs" + Path.DirectorySeparatorChar + langFile.Substring(langFile.Length - 9, 5) + ".png";
-                Image iFlag;
-                if (File.Exists(flag))
-                    iFlag = Image.FromFile(flag);
-                else
-                    iFlag = iconos.Images[1];
+                //string flag = Application.StartupPath + Path.DirectorySeparatorChar + "langs" + Path.DirectorySeparatorChar + langFile.Substring(langFile.Length - 9, 5) + ".png";
+                //Image iFlag;
+                //if (File.Exists(flag))
+                    //iFlag = Image.FromFile(flag);
+                //else
+                    //iFlag = iconos.Images[1];
 
                 XElement xLang = XElement.Load(langFile);
                 if (xLang.Name != "Language")
@@ -97,7 +97,7 @@ namespace Tinke
 
                 toolStripLanguage.DropDownItems.Add(
                     xLang.Attribute("name").Value,
-                    iFlag,
+                    null,
                     ToolStripLang_Click);
             }
 
@@ -190,7 +190,7 @@ namespace Tinke
                 xml.Element("WindowDebug").Value = toolStripDebug.Checked.ToString();
                 xml.Element("WindowInformation").Value = toolStripInfoRom.Checked.ToString();
                 xml.Element("InstantSearch").Value = checkSearch.Checked.ToString();
-                xml.Element("ModeWindow").Value = toolStripVentana.Checked.ToString();
+               //xml.Element("ModeWindow").Value = toolStripVentana.Checked.ToString();
 
                 xml = xml.Parent;
                 xml.Save(Application.StartupPath + Path.DirectorySeparatorChar + "Tinke.xml");
@@ -545,8 +545,8 @@ namespace Tinke
                 }
                 if (xml.Element("InstantSearch").Value == "True")
                     checkSearch.Checked = true;
-                if (xml.Element("ModeWindow").Value == "True")
-                    toolStripVentana.Checked = true;
+                //if (xml.Element("ModeWindow").Value == "True")
+                    //toolStripVentana.Checked = true;
             }
             catch { MessageBox.Show(Tools.Helper.GetTranslation("Sistema", "S38"), Tools.Helper.GetTranslation("Sistema", "S3A")); }
         }
@@ -560,7 +560,7 @@ namespace Tinke
                 toolStripOpen.Text = xml.Element("S01").Value;
                 toolStripInfoRom.Text = xml.Element("S02").Value;
                 toolStripDebug.Text = xml.Element("S03").Value;
-                toolStripVentana.Text = xml.Element("S04").Value;
+                //toolStripVentana.Text = xml.Element("S04").Value;
                 //toolStripPlugin.Text = xml.Element("S05").Value;
                 //recargarPluginsToolStripMenuItem.Text = xml.Element("S06").Value;
                 toolStripLanguage.Text = xml.Element("S1E").Value;
@@ -590,6 +590,7 @@ namespace Tinke
                 btnSee.Text = xml.Element("S1C").Value;
                 btnHex.Text = xml.Element("S1D").Value;
                 checkSearch.Text = xml.Element("S2E").Value;
+                label1.Text = xml.Element("S2F").Value;
                 toolTipSearch.ToolTipTitle = xml.Element("S2F").Value;
 
                 toolTipSearch.SetToolTip(txtSearch,
@@ -617,6 +618,7 @@ namespace Tinke
                 toolStripAbrirFat.Text = xml.Element("S3D").Value;
                 btnPack.Text = xml.Element("S42").Value;
                 stripRefreshMsg.Text = xml.Element("S45").Value;
+                btnImport1.Text = xml.Element("S46").Value;
             }
             catch { throw new NotSupportedException("There was an error reading the language file"); }
         }
@@ -1130,15 +1132,15 @@ namespace Tinke
         private void BtnSee(object sender, EventArgs e)
         {
             this.Cursor = Cursors.WaitCursor;
-            if (toolStripVentana.Checked)
-            {
-                Visor visor = new Visor();
-                visor.Controls.Add(accion.See_File());
-                visor.Text += " - " + accion.Selected_File().name;
-                visor.Show();
-            }
-            else
-            {
+            //if (toolStripVentana.Checked)
+            //{
+                //Visor visor = new Visor();
+                //visor.Controls.Add(accion.See_File());
+                //visor.Text += " - " + accion.Selected_File().name;
+                //visor.Show();
+            //}
+            //else
+            //{
                 for (int i = 0; i < panelObj.Controls.Count; i++)
                     panelObj.Controls[i].Dispose();
                 panelObj.Controls.Clear();
@@ -1153,7 +1155,7 @@ namespace Tinke
                 else
                     if (btnDesplazar.Text == "<<<<<")
                         btnDesplazar.PerformClick();
-            }
+            //}
             this.Cursor = Cursors.Default;
 
             if (!isMono)
@@ -1865,10 +1867,12 @@ namespace Tinke
         }
         private void btnImport_Click(object sender, EventArgs e)
         {
-            OpenFileDialog o = new OpenFileDialog();
-            o.CheckFileExists = true;
-            o.CheckPathExists = true;
-            o.Multiselect = true;
+            OpenFileDialog o = new OpenFileDialog
+            {
+                CheckFileExists = true,
+                CheckPathExists = true,
+                Multiselect = true
+            };
             if (o.ShowDialog() != System.Windows.Forms.DialogResult.OK)
                 return;
 
@@ -1949,7 +1953,7 @@ namespace Tinke
         {
             System.Diagnostics.Process.Start(Application.ExecutablePath);
         }
-        private void toolStripVentana_Click(object sender, EventArgs e)
+        /*private void toolStripVentana_Click(object sender, EventArgs e)
         {
             if (toolStripVentana.Checked)
             {
@@ -1968,7 +1972,7 @@ namespace Tinke
                 btnDesplazar.Text = ">>>>>";
             }
 
-        }
+        }*/
         void romInfo_FormClosing(object sender, FormClosingEventArgs e)
         {
             toolStripInfoRom.Checked = romInfo.Visible;
@@ -1982,6 +1986,7 @@ namespace Tinke
         #region Menu-> Open as...
         private void ShowControl(Control control, string name)
         {
+            /*
             if (toolStripVentana.Checked)
             {
                 Visor visor = new Visor();
@@ -1989,7 +1994,8 @@ namespace Tinke
                 visor.Text += " - " + name;
                 visor.Show();
             }
-            else if (control is Control)
+            */
+            if (control is Control)
             {
                 panelObj.Controls.Clear();
 
@@ -2202,15 +2208,15 @@ namespace Tinke
                     if (action == null)
                         break;
 
-                    if (toolStripVentana.Checked)
-                    {
-                        Visor visor = new Visor();
-                        visor.Controls.Add((Control)action);
-                        visor.Text += " - " + opFile.name;
-                        visor.Show();
-                    }
-                    else
-                    {
+                    //if (toolStripVentana.Checked)
+                    //{
+                        //Visor visor = new Visor();
+                        //visor.Controls.Add((Control)action);
+                        //visor.Text += " - " + opFile.name;
+                       // visor.Show();
+                   // }
+                    //else
+                    //{
                         for (int i = 0; i < panelObj.Controls.Count; i++)
                             panelObj.Controls[i].Dispose();
                         panelObj.Controls.Clear();
@@ -2225,7 +2231,7 @@ namespace Tinke
                         else
                             if (btnDesplazar.Text == "<<<<<")
                                 btnDesplazar.PerformClick();
-                    }
+                    //}
                     break;
 
                 case 2:     // Unpack
@@ -2414,6 +2420,79 @@ namespace Tinke
                 btnDesplazar.Text = ">>>>>";
             }
         }
+        private void btnImport1_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog FBD = new FolderBrowserDialog
+            {
+                Description = Tools.Helper.GetTranslation("Sistema", "S47"),
+                ShowNewFolderButton = false
+            };
+            if (FBD.ShowDialog() != DialogResult.OK)
+                return;
+            Console.WriteLine(FBD.SelectedPath);
+            List<string> files = new List<string>();
+            files = GetAllSubFiles(FBD.SelectedPath, files);
+            foreach (string currFile in files)
+            {
+                string nstr;
+                int index;
+                nstr = currFile.Replace("\\", "/");
+                index = nstr.IndexOf("root");
+                nstr = nstr.Remove(0, index + 4);
 
+                sFolder filesWithSameName = new sFolder();
+                filesWithSameName = accion.Search_FileName(Path.GetFileName(currFile));
+
+                sFile fileToBeChanged;
+                if (filesWithSameName.files.Count == 0)
+                    continue;
+                else if (filesWithSameName.files.Count == 1)
+                    fileToBeChanged = filesWithSameName.files[0];
+                else
+                {
+                    int i;
+                    for (i = 0; i < filesWithSameName.files.Count; i++)
+                    {
+                        sFile file = filesWithSameName.files[i];
+                        string tmpstr;
+                        file.tag = accion.Get_RelativePath(filesWithSameName.files[i].id, "", accion.Root);
+                        tmpstr = (String)file.tag + '/' + file.name;
+                        if (string.Equals(nstr, tmpstr) == true)
+                        {
+                            filesWithSameName.files[i] = file;
+                            break;
+                        }
+                    }
+                    if (i != filesWithSameName.files.Count)
+                    {
+                        fileToBeChanged = filesWithSameName.files[i];
+                    }
+                    else
+                    {
+                        continue;
+                    }
+                }
+                accion.Change_File(fileToBeChanged.id, currFile);
+                Console.WriteLine(currFile);
+            }
+        }
+        public static List<string> GetAllSubFiles(string directoryPath, List<string> files)
+        {
+            DirectoryInfo currentDirectoryInfo = new DirectoryInfo(directoryPath);
+
+            FileInfo[] currentFileInfos = currentDirectoryInfo.GetFiles();
+            foreach (FileInfo f in currentFileInfos)
+            {
+                files.Add(f.FullName);
+            }
+
+            DirectoryInfo[] subDirectoryInfos = currentDirectoryInfo.GetDirectories();
+
+            foreach (DirectoryInfo d in subDirectoryInfos)
+            {
+                GetAllSubFiles(d.FullName, files);
+            }
+            return files;
+        }
     }
 }

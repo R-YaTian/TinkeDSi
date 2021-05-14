@@ -71,7 +71,6 @@ namespace Tinke
             this.toolStripOpen = new System.Windows.Forms.ToolStripButton();
             this.toolStripInfoRom = new System.Windows.Forms.ToolStripButton();
             this.toolStripDebug = new System.Windows.Forms.ToolStripButton();
-            this.toolStripVentana = new System.Windows.Forms.ToolStripButton();
             this.toolStripLanguage = new System.Windows.Forms.ToolStripSplitButton();
             this.stripRefreshMsg = new System.Windows.Forms.ToolStripButton();
             this.btnUnpack = new System.Windows.Forms.Button();
@@ -96,6 +95,7 @@ namespace Tinke
             this.btnSaveROM = new System.Windows.Forms.Button();
             this.btnPack = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnImport1 = new System.Windows.Forms.Button();
             this.toolStrip1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
             this.SuspendLayout();
@@ -220,7 +220,6 @@ namespace Tinke
             this.toolStripOpen,
             this.toolStripInfoRom,
             this.toolStripDebug,
-            this.toolStripVentana,
             this.toolStripLanguage,
             this.stripRefreshMsg});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
@@ -235,7 +234,7 @@ namespace Tinke
             this.toolStripOpen.Image = ((System.Drawing.Image)(resources.GetObject("toolStripOpen.Image")));
             this.toolStripOpen.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripOpen.Name = "toolStripOpen";
-            this.toolStripOpen.Size = new System.Drawing.Size(45, 22);
+            this.toolStripOpen.Size = new System.Drawing.Size(49, 22);
             this.toolStripOpen.Text = "S01";
             this.toolStripOpen.Click += new System.EventHandler(this.toolStripOpen_Click);
             // 
@@ -245,7 +244,7 @@ namespace Tinke
             this.toolStripInfoRom.Image = ((System.Drawing.Image)(resources.GetObject("toolStripInfoRom.Image")));
             this.toolStripInfoRom.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripInfoRom.Name = "toolStripInfoRom";
-            this.toolStripInfoRom.Size = new System.Drawing.Size(45, 22);
+            this.toolStripInfoRom.Size = new System.Drawing.Size(49, 22);
             this.toolStripInfoRom.Text = "S02";
             this.toolStripInfoRom.Click += new System.EventHandler(this.toolStripInfoRom_Click);
             // 
@@ -255,26 +254,16 @@ namespace Tinke
             this.toolStripDebug.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDebug.Image")));
             this.toolStripDebug.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDebug.Name = "toolStripDebug";
-            this.toolStripDebug.Size = new System.Drawing.Size(45, 22);
+            this.toolStripDebug.Size = new System.Drawing.Size(49, 22);
             this.toolStripDebug.Text = "S03";
             this.toolStripDebug.Click += new System.EventHandler(this.toolStripDebug_Click);
-            // 
-            // toolStripVentana
-            // 
-            this.toolStripVentana.CheckOnClick = true;
-            this.toolStripVentana.Image = ((System.Drawing.Image)(resources.GetObject("toolStripVentana.Image")));
-            this.toolStripVentana.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripVentana.Name = "toolStripVentana";
-            this.toolStripVentana.Size = new System.Drawing.Size(45, 22);
-            this.toolStripVentana.Text = "S04";
-            this.toolStripVentana.Click += new System.EventHandler(this.toolStripVentana_Click);
             // 
             // toolStripLanguage
             // 
             this.toolStripLanguage.Image = ((System.Drawing.Image)(resources.GetObject("toolStripLanguage.Image")));
             this.toolStripLanguage.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripLanguage.Name = "toolStripLanguage";
-            this.toolStripLanguage.Size = new System.Drawing.Size(57, 22);
+            this.toolStripLanguage.Size = new System.Drawing.Size(61, 22);
             this.toolStripLanguage.Text = "S1E";
             // 
             // stripRefreshMsg
@@ -282,7 +271,7 @@ namespace Tinke
             this.stripRefreshMsg.Image = ((System.Drawing.Image)(resources.GetObject("stripRefreshMsg.Image")));
             this.stripRefreshMsg.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.stripRefreshMsg.Name = "stripRefreshMsg";
-            this.stripRefreshMsg.Size = new System.Drawing.Size(45, 22);
+            this.stripRefreshMsg.Size = new System.Drawing.Size(49, 22);
             this.stripRefreshMsg.Text = "S45";
             this.stripRefreshMsg.Click += new System.EventHandler(this.stripRefreshMsg_Click);
             // 
@@ -332,7 +321,7 @@ namespace Tinke
             this.toolStrip2.Name = "toolStrip2";
             this.toolStrip2.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.toolStrip2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.toolStrip2.Size = new System.Drawing.Size(55, 23);
+            this.toolStrip2.Size = new System.Drawing.Size(59, 24);
             this.toolStrip2.TabIndex = 11;
             this.toolStrip2.Text = "toolStrip2";
             // 
@@ -351,14 +340,14 @@ namespace Tinke
             this.toolStripOpenAs.Image = global::Tinke.Properties.Resources.zoom;
             this.toolStripOpenAs.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripOpenAs.Name = "toolStripOpenAs";
-            this.toolStripOpenAs.Size = new System.Drawing.Size(54, 20);
+            this.toolStripOpenAs.Size = new System.Drawing.Size(58, 21);
             this.toolStripOpenAs.Text = "S16";
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem1.Image")));
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(137, 22);
             this.toolStripMenuItem1.Text = "S17";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.toolAbrirComoItemPaleta_Click);
             // 
@@ -366,7 +355,7 @@ namespace Tinke
             // 
             this.toolStripMenuItem2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem2.Image")));
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(137, 22);
             this.toolStripMenuItem2.Text = "S18";
             this.toolStripMenuItem2.Click += new System.EventHandler(this.toolAbrirComoItemTile_Click);
             // 
@@ -374,7 +363,7 @@ namespace Tinke
             // 
             this.toolStripMenuItem3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem3.Image")));
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(137, 22);
             this.toolStripMenuItem3.Text = "S19";
             this.toolStripMenuItem3.Click += new System.EventHandler(this.toolAbrirComoItemScreen_Click);
             // 
@@ -382,7 +371,7 @@ namespace Tinke
             // 
             this.toolStripMenuComprimido.Image = global::Tinke.Properties.Resources.compress;
             this.toolStripMenuComprimido.Name = "toolStripMenuComprimido";
-            this.toolStripMenuComprimido.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuComprimido.Size = new System.Drawing.Size(137, 22);
             this.toolStripMenuComprimido.Text = "S2A";
             this.toolStripMenuComprimido.Click += new System.EventHandler(this.s2AToolStripMenuItem_Click);
             // 
@@ -390,7 +379,7 @@ namespace Tinke
             // 
             this.toolStripAbrirFat.Image = global::Tinke.Properties.Resources.package;
             this.toolStripAbrirFat.Name = "toolStripAbrirFat";
-            this.toolStripAbrirFat.Size = new System.Drawing.Size(152, 22);
+            this.toolStripAbrirFat.Size = new System.Drawing.Size(137, 22);
             this.toolStripAbrirFat.Text = "S3D";
             this.toolStripAbrirFat.Click += new System.EventHandler(this.toolStripAbrirFat_Click);
             // 
@@ -398,7 +387,7 @@ namespace Tinke
             // 
             this.toolStripAbrirTexto.Image = global::Tinke.Properties.Resources.page_white_text;
             this.toolStripAbrirTexto.Name = "toolStripAbrirTexto";
-            this.toolStripAbrirTexto.Size = new System.Drawing.Size(152, 22);
+            this.toolStripAbrirTexto.Size = new System.Drawing.Size(137, 22);
             this.toolStripAbrirTexto.Text = "S26";
             this.toolStripAbrirTexto.Click += new System.EventHandler(this.toolStripAbrirTexto_Click);
             // 
@@ -406,7 +395,7 @@ namespace Tinke
             // 
             this.callPluginToolStripMenuItem.Image = global::Tinke.Properties.Resources.plugin_go;
             this.callPluginToolStripMenuItem.Name = "callPluginToolStripMenuItem";
-            this.callPluginToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.callPluginToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.callPluginToolStripMenuItem.Text = "Call plugin";
             this.callPluginToolStripMenuItem.Click += new System.EventHandler(this.callPluginToolStripMenuItem_Click);
             // 
@@ -428,7 +417,7 @@ namespace Tinke
             this.txtSearch.ForeColor = System.Drawing.Color.Black;
             this.txtSearch.Location = new System.Drawing.Point(409, 239);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(183, 20);
+            this.txtSearch.Size = new System.Drawing.Size(183, 21);
             this.txtSearch.TabIndex = 14;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             this.txtSearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyUp);
@@ -449,7 +438,7 @@ namespace Tinke
             this.checkSearch.AutoSize = true;
             this.checkSearch.Location = new System.Drawing.Point(409, 265);
             this.checkSearch.Name = "checkSearch";
-            this.checkSearch.Size = new System.Drawing.Size(46, 17);
+            this.checkSearch.Size = new System.Drawing.Size(42, 16);
             this.checkSearch.TabIndex = 16;
             this.checkSearch.Text = "S2E";
             this.checkSearch.UseVisualStyleBackColor = true;
@@ -516,15 +505,29 @@ namespace Tinke
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(409, 223);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 13);
+            this.label1.Size = new System.Drawing.Size(29, 12);
             this.label1.TabIndex = 21;
-            this.label1.Text = "Buscar:";
+            this.label1.Text = "S2D:";
+            // 
+            // btnImport1
+            // 
+            this.btnImport1.ImageIndex = 18;
+            this.btnImport1.ImageList = this.iconos;
+            this.btnImport1.Location = new System.Drawing.Point(525, 363);
+            this.btnImport1.Name = "btnImport1";
+            this.btnImport1.Size = new System.Drawing.Size(110, 40);
+            this.btnImport1.TabIndex = 22;
+            this.btnImport1.Text = "S46";
+            this.btnImport1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnImport1.UseVisualStyleBackColor = true;
+            this.btnImport1.Click += new System.EventHandler(this.btnImport1_Click);
             // 
             // Sistema
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(644, 547);
+            this.Controls.Add(this.btnImport1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnPack);
             this.Controls.Add(this.btnSaveROM);
@@ -577,7 +580,6 @@ namespace Tinke
         private System.Windows.Forms.ToolStripButton toolStripDebug;
         private System.Windows.Forms.ToolStripButton toolStripOpen;
         private System.Windows.Forms.Button btnUnpack;
-        private System.Windows.Forms.ToolStripButton toolStripVentana;
         private System.Windows.Forms.Button btnDesplazar;
         private System.Windows.Forms.Panel panelObj;
         private System.Windows.Forms.ToolStrip toolStrip2;
@@ -601,7 +603,7 @@ namespace Tinke
         private System.Windows.Forms.ToolStripButton stripRefreshMsg;
         private System.Windows.Forms.ToolStripMenuItem callPluginToolStripMenuItem;
         private System.Windows.Forms.Label label1;
-
+        private System.Windows.Forms.Button btnImport1;
     }
 }
 
