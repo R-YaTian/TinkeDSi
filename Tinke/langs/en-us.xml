@@ -150,7 +150,11 @@
     <S38>Reserved</S38>
     <S39>Invalid</S39>
     <S3A>Transparency</S3A>
-    <S3B>Edit</S3B>
+    <S3B>Edit header and banner</S3B>
+    <S3C>Chinese</S3C>
+    <S3D>Korean</S3D>
+    <S3E>Dump icon data</S3E>
+    <S3F>Dump animation data</S3F>
   </RomInfo>
   <Autores>
     <S01>About</S01>
@@ -236,6 +240,12 @@
     <S24>All the colors are used by the image.</S24>
     <S25>Nothing to do.</S25>
     <S26>Clear log</S26>
+    <S27>The Version 2 Banner is good!</S27>
+    <S28>The Version 2 Banner is incomplete or corrupted.</S28>
+    <S29>The Version 3 Banner is good!</S29>
+    <S2A>The Version 3 Banner is incomplete or corrupted.</S2A>
+    <S2B>The DSi Banner is good!</S2B>
+    <S2C>The DSi Banner is incomplete or corrupted.</S2C>
   </Messages>
   <DSDecmp>
     <!-- LZ10 -->
@@ -326,12 +336,12 @@
     <S0B>German</S0B>
     <S0C>Italian</S0C>
     <S0D>Spanish</S0D>
-    <S0E>Reserved(28 bytes Hexadecimal):</S0E>
+    <S0E>Reserved(22 bytes Hexadecimal):</S0E>
     <S0F>Game title:</S0F>
     <S10>Game code:</S10>
     <S11>Maker code:</S11>
     <S12>Device code:</S12>
-    <S13>Reserved(9 bytes Hexadecimal):</S13>
+    <S13>Reserved(7 bytes Hexadecimal):</S13>
     <S14>ROM version:</S14>
     <S15>Internal flags:</S15>
     <S16>ARM9 entry address:</S16>
@@ -358,6 +368,9 @@
     <S28>Code</S28>
     <S29>Company</S29>
     <S2A>Company codes</S2A>
+    <S2B>Chinese</S2B>
+    <S2C>Korean</S2C>
+    <S2D>Import animation data</S2D>
   </EditRomInfo>
   <Dialog>
     <!-- Select Mode Color-->
