@@ -41,17 +41,17 @@ namespace Tinke
             ReadPlugins();
         }
 
-        public string AssemblyTitle
+        public string AssemblyProduct
         {
             get
             {
-                object[] attributes = Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(AssemblyTitleAttribute), false);
+                object[] attributes = Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(AssemblyProductAttribute), false);
                 if (attributes.Length > 0)
                 {
-                    AssemblyTitleAttribute titleAttribute = (AssemblyTitleAttribute)attributes[0];
-                    if (titleAttribute.Title != "")
+                    AssemblyProductAttribute titleAttribute = (AssemblyProductAttribute)attributes[0];
+                    if (titleAttribute.Product != "")
                     {
-                        return titleAttribute.Title;
+                        return titleAttribute.Product;
                     }
                 }
                 return System.IO.Path.GetFileNameWithoutExtension(Assembly.GetExecutingAssembly().CodeBase);
@@ -92,9 +92,9 @@ namespace Tinke
             {
                 System.Xml.Linq.XElement xml = Tools.Helper.GetTranslation("Autores");
 
-                this.Text = xml.Element("S01").Value + ' ' + AssemblyTitle;
+                this.Text = xml.Element("S01").Value + ' ' + AssemblyProduct;
 
-                label1.Text = "Tinke  " + xml.Element("S02").Value + ' ' + AssemblyVersion;
+                label1.Text = "TinkeDSi " + xml.Element("S02").Value + ' ' + AssemblyVersion;
                 label2.Text = xml.Element("S03").Value;
                 label4.Text = xml.Element("S04").Value;
                 lblTrad.Text = xml.Element("S0C").Value;
@@ -137,6 +137,18 @@ namespace Tinke
                 }
                 catch { continue; }
             }
+        }
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/pleonex/tinke");
+        }
+        private void linkLabel2_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/MetLob/tinke/tree/DSi");
+        }
+        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/R-YaTian/TinkeDSi");
         }
     }
 }

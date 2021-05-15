@@ -2,8 +2,8 @@
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyTitle("Viewer and editor for files of NDS(i) games")]
-[assembly: AssemblyDescription("Viewer and editor for files of NDS(i) games")]
+[assembly: AssemblyTitle("Viewer and editor for files of DS(i) games")]
+[assembly: AssemblyDescription("Viewer and editor for files of DS(i) games")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("TinkeDSi")]

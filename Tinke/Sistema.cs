@@ -54,10 +54,10 @@ namespace Tinke
         public Sistema()
         {
             InitializeComponent();
-            this.Text = "Tinke " + Application.ProductVersion + " - romhacking by pleoNeX";
+            this.Text = "TinkeDSi " + Application.ProductVersion + " - by pleoNeX&MetLob&R-YaTian";
 
             // The IE control of the Debug windows doesn't work in Mono
-            isMono = (Type.GetType("Mono.Runtime") != null) ? true : false;
+            isMono = (Type.GetType("Mono.Runtime") != null);
 
             sb = new StringBuilder();
             TextWriter tw = new StringWriter(sb);
