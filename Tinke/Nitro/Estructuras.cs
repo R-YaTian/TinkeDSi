@@ -184,19 +184,64 @@ namespace Tinke.Nitro
             public string germanTitle;  // 256 bytes
             public string italianTitle; // 256 bytes
             public string spanishTitle; // 256 bytes
-
-            // DSi Enchansed
-            public string cnineseTitle; // 256 bytes
+            // Version 2-3
+            public string chineseTitle; // 256 bytes
             public string koreanTitle;  // 256 bytes
+            // DSi Enchansed
             public byte[] reservedDsi;  // 0x800 bytes reserved for Title 8..15
             public byte[] aniIconData;  // 0x1180 bytes (8 * tiles + 8 * palette + 8 * 16 bytes of animation sequence)
+            // padding bytes
+            //public byte[] padding1;   // 1C0h Unused/padding (FFh-filled) in Version 0001h
+            public byte[] padding2;     // C0h  Unused/padding (FFh-filled) in Version 0002h
+            public byte[] padding3;     // 1C0h Unused/padding (FFh-filled) in Version 0003h
+            //public byte[] padding4;   // 40h  Unused/padding (FFh-filled) in Version 0103h
 
             public uint GetDefSize(uint hardBannerSize = 0)
             {
                 if (this.version == 1) return 0x840;
-                if (this.version == 2) return 0x940;
-                if (this.version == 3) return 0xA40;
-                if (this.version == 0x0103) return (hardBannerSize > 0 && (int)hardBannerSize != -1) ? hardBannerSize : 0x23C0;
+                string tmpstr;
+                if (this.version == 2)
+                {
+                    tmpstr = Ekona.Helper.BitsConverter.BytesToHexString(padding2);
+                    if (System.Text.RegularExpressions.Regex.IsMatch(tmpstr, "^F"))
+                    {
+                        Console.WriteLine(Tools.Helper.GetTranslation("Messages", "S27"));
+                        return 0x940;
+                    }
+                    else
+                    {
+                        Console.WriteLine(Tools.Helper.GetTranslation("Messages", "S28"));
+                        return 0x840;
+                    }
+                }
+                if (this.version == 3)
+                {
+                    tmpstr = Ekona.Helper.BitsConverter.BytesToHexString(padding3);
+                    if (System.Text.RegularExpressions.Regex.IsMatch(tmpstr, "^F"))
+                    {
+                        Console.WriteLine(Tools.Helper.GetTranslation("Messages", "S29"));
+                        return 0xA40;
+                    }
+                    else
+                    {
+                        Console.WriteLine(Tools.Helper.GetTranslation("Messages", "S2A"));
+                        return 0x840;
+                    }
+                }
+                if (this.version == 0x0103)
+                {
+                    tmpstr = Ekona.Helper.BitsConverter.BytesToHexString(reservedDsi);
+                    if (System.Text.RegularExpressions.Regex.IsMatch(tmpstr, "^0"))
+                    {
+                        Console.WriteLine(Tools.Helper.GetTranslation("Messages", "S2B"));
+                        return (hardBannerSize > 0 && (int)hardBannerSize != -1) ? hardBannerSize : 0x23C0;
+                    }
+                    else
+                    {
+                        Console.WriteLine(Tools.Helper.GetTranslation("Messages", "S2C"));
+                        return 0x840;
+                    }
+                }
                 return 0x840;
             }
         }

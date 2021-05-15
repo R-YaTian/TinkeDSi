@@ -474,10 +474,13 @@ namespace Tinke.Nitro
             bn.italianTitle = TitleToString(br.ReadBytes(0x100));
             bn.spanishTitle = TitleToString(br.ReadBytes(0x100));
 
+            // Version 2-3
+            //byte v = (byte)(bn.version & 0xFF);
+            if (bn.version >= 2) bn.chineseTitle = TitleToString(br.ReadBytes(0x100));
+            if (bn.version >= 3) bn.koreanTitle = TitleToString(br.ReadBytes(0x100));
+            if (bn.version == 2) bn.padding2 = br.ReadBytes(0xC0);
+            if (bn.version == 3) bn.padding3 = br.ReadBytes(0x1C0);
             // DSi Enhanced
-            byte v = (byte)(bn.version & 0xFF);
-            if (v >= 2) bn.cnineseTitle = TitleToString(br.ReadBytes(0x100));
-            if (v >= 3) bn.koreanTitle = TitleToString(br.ReadBytes(0x100));
             if (bn.version >> 8 == 1)
             {
                 bn.reservedDsi = br.ReadBytes(0x800);
@@ -486,7 +489,7 @@ namespace Tinke.Nitro
             }
 
             br.BaseStream.Position = offset + 0x20;
-            bn.checkCRC = (CRC16.Calculate(br.ReadBytes(0x820)) == bn.CRC16) ? true : false;
+            bn.checkCRC = (CRC16.Calculate(br.ReadBytes(0x820)) == bn.CRC16);
             br.Close();
 
             Console.WriteLine(bn.englishTitle.Replace("\0", ""));
@@ -513,24 +516,25 @@ namespace Tinke.Nitro
             bw.Write(StringToTitle(banner.italianTitle));
             bw.Write(StringToTitle(banner.spanishTitle));
 
-            // DSi Enchansed
-            if (banner.version >= 2) bw.Write(StringToTitle(banner.cnineseTitle));
+            // Version 2-3
+            if (banner.version >= 2) bw.Write(StringToTitle(banner.chineseTitle));
             if (banner.version >= 3) bw.Write(StringToTitle(banner.koreanTitle));
+            // DSi Enchansed
             if ((banner.version >> 8) == 1)
             {
-                bw.Write(banner.reservedDsi);
+                //bw.Write(banner.reservedDsi);
+                byte[] zbyte = new byte[0x800];
+                bw.Write(zbyte);
                 bw.Write(banner.aniIconData);
             }
 
             uint size = (uint)bw.BaseStream.Position;
             int rem = (int)bw.BaseStream.Position % 0x200;
-            //if (rem != 0)
+            // Write padding bytes...
+            while (rem < 0x200)
             {
-                while (rem < 0x200)
-                {
-                    bw.Write((byte)0xFF);
-                    rem++;
-                }
+                bw.Write((byte)0xFF);
+                rem++;
             }
             
             Console.WriteLine(Tools.Helper.GetTranslation("Messages", "S09"), bw.BaseStream.Length);
@@ -731,6 +735,7 @@ namespace Tinke.Nitro
             diccionario.Add("FH", "Foreign Media Games");
             diccionario.Add("FK", "The Game Factory");
             diccionario.Add("FP", "Mastiff");
+            diccionario.Add("FQ", "iQue");
             diccionario.Add("FR", "dtp young");
             diccionario.Add("G9", "D3Publisher of America");
             diccionario.Add("GD", "SQUARE ENIX");
