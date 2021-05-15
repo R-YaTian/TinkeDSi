@@ -30,7 +30,7 @@
     <S1B>Extraire</S1B>
     <S1C>Voir</S1C>
     <S1D>Hexadécimal</S1D>
-    <S1E>Languages</S1E>
+    <S1E>Language</S1E>
     <S1F>Répertoire</S1F>
     <S20>Palette</S20>
     <S21>Tuiles (Tiles)</S21>
@@ -87,16 +87,16 @@
       Désolé, vous ne pouvez pas écraser l'archive
       ouverte actuellement.
     </S44>
-    <S45>Rafraïchir les messages</S45>
+    <S45>Rafraïchir message</S45>
     <S46>Change by dir</S46>
     <S47>The selected folder should be "root".</S47>
   </Sistema>
   <RomInfo>
     <S01>Informations de la ROM</S01>
     <S02>Bannière</S02>
-    <S03>Enregistrer sous...</S03>
-    <S04>Version :</S04>
-    <S05>Réserver :</S05>
+    <S03>Sauvegarder...</S03>
+    <S04>Version:</S04>
+    <S05>Réserver:</S05>
     <S06>Japonais</S06>
     <S07>Anglais</S07>
     <S08>Français</S08>
@@ -150,13 +150,13 @@
     <S38>Réservé</S38>
     <S39>Non valide</S39>
     <S3A>Transparence</S3A>
-    <S3B>Éditer En-tête et bannière</S3B>
+    <S3B>Éditer En-tête/bannière</S3B>
     <S3C>Chinese</S3C>
     <S3D>Korean</S3D>
     <S3E>Dump icon data</S3E>
     <S3F>Dump animation data</S3F>
     <S40>Dump donor iheader</S40>
-    <S41>Titres du jeu :</S41>
+    <S41>Titres du jeu:</S41>
   </RomInfo>
   <Autores>
     <S01>À propos de</S01>
@@ -164,8 +164,13 @@
     <S03>Programmé par :</S03>
     <S04>Traduit en français par :</S04>
     <S05>Code source :</S05>
-    <S06>Ce logiciel est sous les termes de la license GPL V3.</S06>
-    <S07>Ce lociciel a pu être realisé grâce à l'information et les outils open source trouvés sous :</S07>
+    <S06>
+    Ce logiciel est sous les termes de la license GPL V3.
+    </S06>
+    <S07>
+    Ce lociciel a pu être realisé grâce à l'information
+    et les outils open source trouvés sous:
+    </S07>
     <S08>Bibliothèque de décompression de formats</S08>
     <S09>Informations techniques sur la structure des ROMs.</S09>
     <S0A>Informations sur la structure de formats de Nintendo.</S0A>
@@ -449,7 +454,7 @@
   </DSDecmp>
   <EditRomInfo>
     <S00>En-tête et éditeur de bannière</S00>
-    <S01>Sauvegarder</S01>
+    <S01>OK</S01>
     <S02>Annuler</S02>
     <S03>En-tête (Header)</S03>
     <S04>Bannière</S04>

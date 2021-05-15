@@ -168,7 +168,9 @@
       This program is free software under the terms of the GNU
       General Public License version 3.
     </S06>
-    <S07>This program is made with the help from following webs pages.</S07>
+    <S07>
+    This program is made with the help from following webs pages:
+    </S07>
     <S08>Library for decompressing files</S08>
     <S09>Information about rom header.</S09>
     <S0A>Information about Nintendo files format.</S0A>
