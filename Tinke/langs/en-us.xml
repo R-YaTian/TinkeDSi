@@ -155,6 +155,8 @@
     <S3D>Korean</S3D>
     <S3E>Dump icon data</S3E>
     <S3F>Dump animation data</S3F>
+    <S40>Dump donor iheader</S40>
+    <S41>Game titles:</S41>
   </RomInfo>
   <Autores>
     <S01>About</S01>
@@ -371,6 +373,7 @@
     <S2B>Chinese</S2B>
     <S2C>Korean</S2C>
     <S2D>Import animation data</S2D>
+    <S2E>Import donor iheader</S2E>
   </EditRomInfo>
   <Dialog>
     <!-- Select Mode Color-->
