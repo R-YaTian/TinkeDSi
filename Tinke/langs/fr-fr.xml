@@ -30,7 +30,7 @@
     <S1B>Extraire</S1B>
     <S1C>Voir</S1C>
     <S1D>Hexadécimal</S1D>
-    <S1E>Languages</S1E>
+    <S1E>Language</S1E>
     <S1F>Répertoire</S1F>
     <S20>Palette</S20>
     <S21>Tuiles (Tiles)</S21>
@@ -87,16 +87,16 @@
       Désolé, vous ne pouvez pas écraser l'archive
       ouverte actuellement.
     </S44>
-    <S45>Rafraïchir les messages</S45>
+    <S45>Rafraïchir message</S45>
     <S46>Change by dir</S46>
     <S47>The selected folder should be "root".</S47>
   </Sistema>
   <RomInfo>
     <S01>Informations de la ROM</S01>
     <S02>Bannière</S02>
-    <S03>Enregistrer sous...</S03>
-    <S04>Version :</S04>
-    <S05>Réserver :</S05>
+    <S03>Sauvegarder...</S03>
+    <S04>Version:</S04>
+    <S05>Réserver:</S05>
     <S06>Japonais</S06>
     <S07>Anglais</S07>
     <S08>Français</S08>
@@ -150,7 +150,13 @@
     <S38>Réservé</S38>
     <S39>Non valide</S39>
     <S3A>Transparence</S3A>
-    <S3B>Éditer</S3B>
+    <S3B>Éditer En-tête/bannière</S3B>
+    <S3C>Chinese</S3C>
+    <S3D>Korean</S3D>
+    <S3E>Dump icon data</S3E>
+    <S3F>Dump animation data</S3F>
+    <S40>Dump donor iheader</S40>
+    <S41>Titres du jeu:</S41>
   </RomInfo>
   <Autores>
     <S01>À propos de</S01>
@@ -158,8 +164,13 @@
     <S03>Programmé par :</S03>
     <S04>Traduit en français par :</S04>
     <S05>Code source :</S05>
-    <S06>Ce logiciel est sous les termes de la license GPL V3.</S06>
-    <S07>Ce lociciel a pu être realisé grâce à l'information et les outils open source trouvés sous :</S07>
+    <S06>
+    Ce logiciel est sous les termes de la license GPL V3.
+    </S06>
+    <S07>
+    Ce lociciel a pu être realisé grâce à l'information
+    et les outils open source trouvés sous:
+    </S07>
     <S08>Bibliothèque de décompression de formats</S08>
     <S09>Informations techniques sur la structure des ROMs.</S09>
     <S0A>Informations sur la structure de formats de Nintendo.</S0A>
@@ -233,6 +244,12 @@
     <S24>Toutes les couleurs sont utilisées par l'image.</S24>
     <S25>Rien à faire.</S25>
     <S26>Effacer le registre</S26>
+    <S27>The Version 2 Banner is good!</S27>
+    <S28>The Version 2 Banner is incomplete or corrupted.</S28>
+    <S29>The Version 3 Banner is good!</S29>
+    <S2A>The Version 3 Banner is incomplete or corrupted.</S2A>
+    <S2B>The DSi Banner is good!</S2B>
+    <S2C>The DSi Banner is incomplete or corrupted.</S2C>
   </Messages>
   <NCLR>
     <S01>Nombre de la palette :</S01>
@@ -437,7 +454,7 @@
   </DSDecmp>
   <EditRomInfo>
     <S00>En-tête et éditeur de bannière</S00>
-    <S01>Sauvegarder</S01>
+    <S01>OK</S01>
     <S02>Annuler</S02>
     <S03>En-tête (Header)</S03>
     <S04>Bannière</S04>
@@ -450,12 +467,12 @@
     <S0B>Allemand</S0B>
     <S0C>Italien</S0C>
     <S0D>Espagnol</S0D>
-    <S0E>Réservé (28 octets Hexadécimal) :</S0E>
+    <S0E>Réservé(22 octets Hexadécimal):</S0E>
     <S0F>Titre du jeu :</S0F>
     <S10>Code du jeu :</S10>
     <S11>Code du créateur :</S11>
     <S12>Code de console :</S12>
-    <S13>Réservé (9 octets Hexadécimal) :</S13>
+    <S13>Réservé(7 octets Hexadécimal):</S13>
     <S14>Version de la ROM :</S14>
     <S15>Indicateurs internes :</S15>
     <S16>Adresse entrée ARM9 :</S16>
@@ -467,8 +484,8 @@
     <S1C>Montrer tous les codes du créateur</S1C>
     <S1D>Délai de transfert sécurisé :</S1D>
     <S1E>Sécurité désactivée :</S1E>
-    <S1F>Réservé 3 (4 octets Hexadécimal) :</S1F>
-    <S20>Réservé 2 (56 octets Hexadécimal) :</S20>
+    <S1F>Réservé 3(4 octets Hexadécimal):</S1F>
+    <S20>Réservé 2(56 octets Hexadécimal):</S20>
     <S21>Auto-charger ARM9 :</S21>
     <S22>Auto-charger ARM7 :</S22>
     <S23>Offset de debug de la ROM :</S23>
@@ -482,6 +499,10 @@
     <S28>Code</S28>
     <S29>Compagnie</S29>
     <S2A>Codes de la Compagnie</S2A>
+    <S2B>Chinese</S2B>
+    <S2C>Korean</S2C>
+    <S2D>Import animation data</S2D>
+    <S2E>Import donor iheader</S2E>
   </EditRomInfo>
   <Dialog>
     <!-- Select Mode Color -->

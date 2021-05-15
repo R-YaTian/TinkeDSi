@@ -150,7 +150,13 @@
     <S38>Riservato</S38>
     <S39>Invalido</S39>
     <S3A>Trasparenza</S3A>
-    <S3B>Modifica</S3B>
+    <S3B>Modifica header e banner</S3B>
+    <S3C>Chinese</S3C>
+    <S3D>Korean</S3D>
+    <S3E>Dump icon data</S3E>
+    <S3F>Dump animation data</S3F>
+    <S40>Dump donor iheader</S40>
+    <S41>Titoli di gioco:</S41>
   </RomInfo>
   <Autores>
     <S01>About</S01>
@@ -162,7 +168,9 @@
       This program is free software under the terms of the GNU
       General Public License version 3.
     </S06>
-    <S07>Programma creato con l'aiuto delle seguenti pagine web.</S07>
+    <S07>
+    Programma creato con l'aiuto delle seguenti pagine web.
+    </S07>
     <S08>Librerie per decomprimere i files</S08>
     <S09>Informazioni sull'header rom.</S09>
     <S0A>Informazioni sui formati dei files Nintendo.</S0A>
@@ -236,6 +244,12 @@
     <S24>All the colors are used by the image.</S24>
     <S25>Nothing to do.</S25>
     <S26>Clear log</S26>
+    <S27>The Version 2 Banner is good!</S27>
+    <S28>The Version 2 Banner is incomplete or corrupted.</S28>
+    <S29>The Version 3 Banner is good!</S29>
+    <S2A>The Version 3 Banner is incomplete or corrupted.</S2A>
+    <S2B>The DSi Banner is good!</S2B>
+    <S2C>The DSi Banner is incomplete or corrupted.</S2C>
   </Messages>
   <NANR>
     <S01>Intervallo:</S01>
@@ -358,12 +372,12 @@
     <S0B>Tedesco</S0B>
     <S0C>Italiano</S0C>
     <S0D>Spagnolo</S0D>
-    <S0E>Riservato (28 bytes Hexadecimal):</S0E>
+    <S0E>Riservato(22 bytes Hex):</S0E>
     <S0F>Titolo di gioco:</S0F>
     <S10>Codice di gioco:</S10>
     <S11>Codice produttore:</S11>
     <S12>Codice dispositivo:</S12>
-    <S13>Riservato (9 bytes Hexadecimal):</S13>
+    <S13>Riservato(7 bytes Hex):</S13>
     <S14>ROM versione:</S14>
     <S15>Flag interni:</S15>
     <S16>ARM9 entry address:</S16>
@@ -375,8 +389,8 @@
     <S1C>Mostra tutti i codici produttore</S1C>
     <S1D>Secure transfer timeout:</S1D>
     <S1E>Secure disable:</S1E>
-    <S1F>Riservato 3 (4 bytes Hexadecimal):</S1F>
-    <S20>Riservato 2 (56 bytes Hexadecimal):</S20>
+    <S1F>Riservato 3(4 bytes Hex):</S1F>
+    <S20>Riservato 2(56 bytes Hex):</S20>
     <S21>ARM9 autoload:</S21>
     <S22>ARM7 autoload:</S22>
     <S23>Debug ROM offset:</S23>
@@ -390,6 +404,10 @@
     <S28>Codice</S28>
     <S29>Compagnia</S29>
     <S2A>Codici compagnia</S2A>
+    <S2B>Chinese</S2B>
+    <S2C>Korean</S2C>
+    <S2D>Import animation data</S2D>
+    <S2E>Import donor iheader</S2E>
   </EditRomInfo>
   <Dialog>
     <!-- Select Mode Color-->

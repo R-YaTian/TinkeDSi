@@ -155,6 +155,8 @@
     <S3D>Korean</S3D>
     <S3E>Dump icon data</S3E>
     <S3F>Dump animation data</S3F>
+    <S40>Dump donor iheader</S40>
+    <S41>Game titles:</S41>
   </RomInfo>
   <Autores>
     <S01>About</S01>
@@ -166,7 +168,9 @@
       This program is free software under the terms of the GNU
       General Public License version 3.
     </S06>
-    <S07>This program is made with the help from following webs pages.</S07>
+    <S07>
+    This program is made with the help from following webs pages:
+    </S07>
     <S08>Library for decompressing files</S08>
     <S09>Information about rom header.</S09>
     <S0A>Information about Nintendo files format.</S0A>
@@ -371,6 +375,7 @@
     <S2B>Chinese</S2B>
     <S2C>Korean</S2C>
     <S2D>Import animation data</S2D>
+    <S2E>Import donor iheader</S2E>
   </EditRomInfo>
   <Dialog>
     <!-- Select Mode Color-->
