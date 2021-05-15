@@ -113,6 +113,7 @@ namespace Tinke
             this.txtImage = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.btnImportAdata = new System.Windows.Forms.Button();
             this.groupHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericEncryptionSeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericDebugRamAddress)).BeginInit();
@@ -724,7 +725,7 @@ namespace Tinke
             this.groupBanner.Controls.Add(this.txtImage);
             this.groupBanner.Location = new System.Drawing.Point(610, 12);
             this.groupBanner.Name = "groupBanner";
-            this.groupBanner.Size = new System.Drawing.Size(198, 337);
+            this.groupBanner.Size = new System.Drawing.Size(199, 372);
             this.groupBanner.TabIndex = 3;
             this.groupBanner.TabStop = false;
             this.groupBanner.Text = "S04";
@@ -745,28 +746,28 @@ namespace Tinke
             // txtBanReserved
             // 
             this.txtBanReserved.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtBanReserved.Location = new System.Drawing.Point(9, 252);
+            this.txtBanReserved.Location = new System.Drawing.Point(9, 318);
             this.txtBanReserved.MaxLength = 83;
             this.txtBanReserved.Multiline = true;
             this.txtBanReserved.Name = "txtBanReserved";
-            this.txtBanReserved.Size = new System.Drawing.Size(171, 75);
+            this.txtBanReserved.Size = new System.Drawing.Size(171, 48);
             this.txtBanReserved.TabIndex = 8;
             this.txtBanReserved.Leave += new System.EventHandler(this.txtBanReserved_Leave);
             // 
             // txtTitles
             // 
             this.txtTitles.Location = new System.Drawing.Point(9, 159);
-            this.txtTitles.MaxLength = 50;
+            this.txtTitles.MaxLength = 128;
             this.txtTitles.Multiline = true;
             this.txtTitles.Name = "txtTitles";
-            this.txtTitles.Size = new System.Drawing.Size(171, 62);
+            this.txtTitles.Size = new System.Drawing.Size(171, 141);
             this.txtTitles.TabIndex = 7;
             this.txtTitles.TextChanged += new System.EventHandler(this.txtTitles_TextChanged);
             // 
             // lblBanReserved
             // 
             this.lblBanReserved.AutoSize = true;
-            this.lblBanReserved.Location = new System.Drawing.Point(6, 236);
+            this.lblBanReserved.Location = new System.Drawing.Point(7, 303);
             this.lblBanReserved.Name = "lblBanReserved";
             this.lblBanReserved.Size = new System.Drawing.Size(23, 12);
             this.lblBanReserved.TabIndex = 6;
@@ -855,11 +856,25 @@ namespace Tinke
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // btnImportAdata
+            // 
+            this.btnImportAdata.Image = global::Tinke.Properties.Resources.plugin_go;
+            this.btnImportAdata.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnImportAdata.Location = new System.Drawing.Point(610, 394);
+            this.btnImportAdata.Name = "btnImportAdata";
+            this.btnImportAdata.Size = new System.Drawing.Size(187, 30);
+            this.btnImportAdata.TabIndex = 47;
+            this.btnImportAdata.Text = "S2D";
+            this.btnImportAdata.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnImportAdata.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnImportAdata.UseVisualStyleBackColor = true;
+            // 
             // EditRomInfo
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.ClientSize = new System.Drawing.Size(808, 472);
+            this.ClientSize = new System.Drawing.Size(811, 472);
+            this.Controls.Add(this.btnImportAdata);
             this.Controls.Add(this.groupBanner);
             this.Controls.Add(this.groupHeader);
             this.Controls.Add(this.btnCancel);
@@ -958,5 +973,6 @@ namespace Tinke
         private System.Windows.Forms.NumericUpDown numericDebugRamAddress;
         private System.Windows.Forms.Label lblEncryptionSeed;
         private System.Windows.Forms.NumericUpDown numericEncryptionSeed;
+        private System.Windows.Forms.Button btnImportAdata;
     }
 }

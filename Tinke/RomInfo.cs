@@ -65,6 +65,10 @@ namespace Tinke
             }
 
             LeerIdioma();
+            if (banner.version >= 2)
+                this.comboBannerLang.Items.Add(Tools.Helper.GetTranslation("RomInfo", "S3C"));
+            if (banner.version >= 3)
+                this.comboBannerLang.Items.Add(Tools.Helper.GetTranslation("RomInfo", "S3D"));
         }
 
         public void LeerIdioma()
@@ -77,7 +81,7 @@ namespace Tinke
             label2.Text = xml.Element("S04").Value;
             label4.Text = xml.Element("S05").Value;
             lblGameTitle.Text = xml.Element("S0F").Value;
-            comboBannerLang.Text = xml.Element("S06").Value;
+            //comboBannerLang.Text = xml.Element("S06").Value;
             comboBannerLang.Items[0] = xml.Element("S06").Value;
             comboBannerLang.Items[1] = xml.Element("S07").Value;
             comboBannerLang.Items[2] = xml.Element("S08").Value;
@@ -131,7 +135,8 @@ namespace Tinke
             listInfo.Items[41].SubItems[1].Text = xml.Element("S38").Value;
             checkTrans.Text = xml.Element("S3A").Value;
             btnEdit.Text = xml.Element("S3B").Value;
-
+            btnDumpicondata.Text = xml.Element("S3E").Value;
+            btnDumpAdata.Text = xml.Element("S3F").Value;
         }
         private void Mostrar_Informacion(Nitro.Estructuras.ROMHeader cabecera, Nitro.Estructuras.Banner banner)
         {
@@ -209,12 +214,19 @@ namespace Tinke
             picBanner = Nitro.NDS.IconoToBitmap(banner.tileData, banner.palette);
             picIcon.Image = picBanner;
 
-            txtBannerVer.Text = banner.version.ToString();
+            txtBannerVer.Text = banner.version.ToString("X");
             txtBannerCRC.Text = String.Format("{0:X}", banner.CRC16) + " (" +
                 (banner.checkCRC ? "OK)" : Tools.Helper.GetTranslation("RomInfo", "S39") + ')');
             txtBannerReserved.Text = BitsConverter.BytesToHexString(banner.reserved);
 
-            titulos = new string[] { banner.japaneseTitle, banner.englishTitle, banner.frenchTitle, banner.germanTitle, banner.italianTitle, banner.spanishTitle };
+            if (banner.version >= 3)
+                titulos = new string[] { banner.japaneseTitle, banner.englishTitle, banner.frenchTitle, banner.germanTitle,
+                    banner.italianTitle, banner.spanishTitle, banner.chineseTitle, banner.koreanTitle };
+            else if (banner.version == 2)
+                titulos = new string[] { banner.japaneseTitle, banner.englishTitle, banner.frenchTitle, banner.germanTitle,
+                    banner.italianTitle, banner.spanishTitle, banner.chineseTitle };
+            else
+                titulos = new string[] { banner.japaneseTitle, banner.englishTitle, banner.frenchTitle, banner.germanTitle, banner.italianTitle, banner.spanishTitle};
             txtBannerTitle.Text = titulos[0];
             comboBannerLang.SelectedIndex = 0;
             #endregion
@@ -264,6 +276,12 @@ namespace Tinke
                 case 5:
                     txtBannerTitle.Text = titulos[5];
                     break;
+                case 6:
+                    txtBannerTitle.Text = titulos[6];
+                    break;
+                case 7:
+                    txtBannerTitle.Text = titulos[7];
+                    break;
             }
         }
 
@@ -295,12 +313,20 @@ namespace Tinke
             banner = editor.Banner;
 
             Mostrar_Informacion(cabecera, banner);
+            if (checkTrans.Checked)
+            {
+                Bitmap imagen = (Bitmap)picBanner.Clone();
+                imagen.MakeTransparent(Ekona.Images.Actions.BGR555ToColor(banner.palette)[0]);
+                picIcon.Image = imagen;
+            }
+            else
+                picIcon.Image = picBanner;
         }
 
-        private void RomInfo_Resize(object sender, EventArgs e)
-        {
-            btnEdit.Location = new Point(groupBanner.Location.X + 5, 313);
-        }
+        //private void RomInfo_Resize(object sender, EventArgs e)
+        //{
+            //btnEdit.Location = new Point(groupBanner.Location.X + 5, 313);
+        //}
 
         private void RomInfo_FormClosing(object sender, FormClosingEventArgs e)
         {

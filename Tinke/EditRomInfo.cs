@@ -52,6 +52,10 @@ namespace Tinke
             this.header = header;
             this.banner = banner;
             LoadValues();
+            if (banner.version >= 2)
+                this.comboBanTitles.Items.Add(Tools.Helper.GetTranslation("EditRomInfo", "S2B"));
+            if (banner.version >= 3)
+                this.comboBanTitles.Items.Add(Tools.Helper.GetTranslation("EditRomInfo", "S2C"));
             comboBanTitles.SelectedIndex = 0;
         }
         private void ReadLanguage()
@@ -64,6 +68,7 @@ namespace Tinke
             groupHeader.Text = xml.Element("S03").Value;
             groupBanner.Text = xml.Element("S04").Value;
             btnImage.Text = xml.Element("S05").Value;
+            btnImportAdata.Text = xml.Element("S2D").Value;
             lblBanVer.Text = xml.Element("S06").Value;
             lblBanTitles.Text = xml.Element("S07").Value;
             comboBanTitles.Items[0] = xml.Element("S08").Value;
@@ -150,15 +155,30 @@ namespace Tinke
             BinaryReader br = new BinaryReader(File.OpenRead(tempBanner));
             br.BaseStream.Position = 0x20;
             banner.CRC16 = (ushort)CRC16.Calculate(br.ReadBytes(0x820));
+            banner.CRC162 = 0;
+            banner.CRC163 = 0;
+            banner.CRC16i = 0;
             banner.checkCRC = true;
-            if (this.header.banner_size > 0 && this.header.banner_size < 0xFFFFFFFF)
+            if (this.banner.version == 2)
             {
                 br.BaseStream.Position = 0x20;
-                if (this.banner.version >= 2) banner.CRC162 = (ushort)CRC16.Calculate(br.ReadBytes(0x920));
+                banner.CRC162 = (ushort)CRC16.Calculate(br.ReadBytes(0x920));
+            }
+            if (this.banner.version == 3)
+            {
                 br.BaseStream.Position = 0x20;
-                if (this.banner.version >= 3) banner.CRC163 = (ushort)CRC16.Calculate(br.ReadBytes(0xA20));
+                banner.CRC162 = (ushort)CRC16.Calculate(br.ReadBytes(0x920));
+                br.BaseStream.Position = 0x20;
+                banner.CRC163 = (ushort)CRC16.Calculate(br.ReadBytes(0xA20));
+            }
+            if ((this.banner.version >> 8) >= 1)
+            {
+                br.BaseStream.Position = 0x20;
+                banner.CRC162 = (ushort)CRC16.Calculate(br.ReadBytes(0x920));
+                br.BaseStream.Position = 0x20;
+                banner.CRC163 = (ushort)CRC16.Calculate(br.ReadBytes(0xA20));
                 br.BaseStream.Position = 0x1240;
-                if ((this.banner.version >> 8) >= 1) banner.CRC16i = (ushort)CRC16.Calculate(br.ReadBytes(0x1180));
+                banner.CRC16i = (ushort)CRC16.Calculate(br.ReadBytes(0x1180));
             }
             
             br.Close();
@@ -185,12 +205,12 @@ namespace Tinke
         // Control events
         private void txtBanReserved_Leave(object sender, EventArgs e)
         {
-            banner.reserved = BitsConverter.StringToBytes(txtBanReserved.Text, 28);
+            banner.reserved = BitsConverter.StringToBytes(txtBanReserved.Text, 22);
             txtBanReserved.Text = BitConverter.ToString(banner.reserved);
         }
         private void txtReserved_Leave(object sender, EventArgs e)
         {
-            header.reserved = BitsConverter.StringToBytes(txtReserved.Text, 9);
+            header.reserved = BitsConverter.StringToBytes(txtReserved.Text, 7);
             txtReserved.Text = BitConverter.ToString(header.reserved);
         }
         private void txtReserved2_Leave(object sender, EventArgs e)
@@ -221,6 +241,12 @@ namespace Tinke
                 case 5:
                     banner.spanishTitle = txtTitles.Text;
                     break;
+                case 6:
+                    banner.chineseTitle = txtTitles.Text;
+                    break;
+                case 7:
+                    banner.koreanTitle = txtTitles.Text;
+                    break;
             }
         }
         private void comboBanTitles_SelectedIndexChanged(object sender, EventArgs e)
@@ -245,6 +271,12 @@ namespace Tinke
                 case 5:
                     txtTitles.Text = banner.spanishTitle;
                     break;
+                case 6:
+                    txtTitles.Text = banner.chineseTitle;
+                    break;
+                case 7:
+                    txtTitles.Text = banner.koreanTitle;
+                    break;
             }
         }
 
@@ -253,7 +285,7 @@ namespace Tinke
             OpenFileDialog o = new OpenFileDialog();
             o.CheckFileExists = true;
             o.DefaultExt = "bmp";
-            o.Filter = "BitMaP (*.bmp)|*.bmp";
+            o.Filter = "Bitmap (*.bmp)|*.bmp";
             if (o.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 try
