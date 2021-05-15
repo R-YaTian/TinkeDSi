@@ -155,7 +155,6 @@ namespace Tinke
             // lblDescription
             // 
             this.lblDescription.AutoSize = true;
-            this.lblDescription.Font = new System.Drawing.Font("宋体", 9F);
             this.lblDescription.Location = new System.Drawing.Point(12, 157);
             this.lblDescription.Name = "lblDescription";
             this.lblDescription.Size = new System.Drawing.Size(23, 12);
