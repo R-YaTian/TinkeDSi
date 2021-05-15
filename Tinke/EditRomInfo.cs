@@ -69,6 +69,7 @@ namespace Tinke
             groupBanner.Text = xml.Element("S04").Value;
             btnImage.Text = xml.Element("S05").Value;
             btnImportAdata.Text = xml.Element("S2D").Value;
+            btnImportiheader.Text = xml.Element("S2E").Value;
             lblBanVer.Text = xml.Element("S06").Value;
             lblBanTitles.Text = xml.Element("S07").Value;
             comboBanTitles.Items[0] = xml.Element("S08").Value;

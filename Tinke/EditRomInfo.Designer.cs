@@ -114,6 +114,7 @@ namespace Tinke
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnImportAdata = new System.Windows.Forms.Button();
+            this.btnImportiheader = new System.Windows.Forms.Button();
             this.groupHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericEncryptionSeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericDebugRamAddress)).BeginInit();
@@ -139,6 +140,7 @@ namespace Tinke
             // 
             // groupHeader
             // 
+            this.groupHeader.Controls.Add(this.btnImportiheader);
             this.groupHeader.Controls.Add(this.lblEncryptionSeed);
             this.groupHeader.Controls.Add(this.numericEncryptionSeed);
             this.groupHeader.Controls.Add(this.lblDebugRamAddress);
@@ -422,7 +424,7 @@ namespace Tinke
             // 
             // btnShowMakerCode
             // 
-            this.btnShowMakerCode.Location = new System.Drawing.Point(324, 408);
+            this.btnShowMakerCode.Location = new System.Drawing.Point(361, 406);
             this.btnShowMakerCode.Name = "btnShowMakerCode";
             this.btnShowMakerCode.Size = new System.Drawing.Size(169, 34);
             this.btnShowMakerCode.TabIndex = 26;
@@ -869,6 +871,15 @@ namespace Tinke
             this.btnImportAdata.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnImportAdata.UseVisualStyleBackColor = true;
             // 
+            // btnImportiheader
+            // 
+            this.btnImportiheader.Location = new System.Drawing.Point(361, 366);
+            this.btnImportiheader.Name = "btnImportiheader";
+            this.btnImportiheader.Size = new System.Drawing.Size(169, 34);
+            this.btnImportiheader.TabIndex = 47;
+            this.btnImportiheader.Text = "S2E";
+            this.btnImportiheader.UseVisualStyleBackColor = true;
+            // 
             // EditRomInfo
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
@@ -974,5 +985,6 @@ namespace Tinke
         private System.Windows.Forms.Label lblEncryptionSeed;
         private System.Windows.Forms.NumericUpDown numericEncryptionSeed;
         private System.Windows.Forms.Button btnImportAdata;
+        private System.Windows.Forms.Button btnImportiheader;
     }
 }

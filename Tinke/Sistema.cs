@@ -164,8 +164,19 @@ namespace Tinke
 
             if (!isMono)
             {
-                espera.Abort();
-
+                try
+                {
+                }
+                catch (ThreadAbortException)
+                {        
+                }
+                catch (Exception)
+                {
+                }
+                finally
+                {
+                    espera.Abort();
+                }
                 debug = new Debug();
                 debug.FormClosing += new FormClosingEventHandler(debug_FormClosing);
                 debug.Add_Text(sb.ToString());
@@ -1265,7 +1276,19 @@ namespace Tinke
 
             if (!isMono)
             {
-                espera.Abort();
+                try
+                {
+                }
+                catch (ThreadAbortException)
+                {
+                }
+                catch (Exception)
+                {
+                }
+                finally
+                {
+                    espera.Abort();
+                }
                 debug.Add_Text(sb.ToString());
             }
             sb.Length = 0;
@@ -1358,10 +1381,22 @@ namespace Tinke
                     espera.Start("S03");
                 RecursivoExtractFolder(folderSelect, o.SelectedPath + Path.DirectorySeparatorChar + folderSelect.name);
                 if (!isMono)
-                    espera.Abort();
-
+                {
+                    try
+                    {
+                    }
+                    catch (ThreadAbortException)
+                    {
+                    }
+                    catch (Exception)
+                    {
+                    }
+                    finally
+                    {
+                        espera.Abort();
+                    }
+                }
             }
-
         }
         private void RecursivoExtractFolder(sFolder currFolder, String path)
         {
@@ -1793,8 +1828,21 @@ namespace Tinke
             #endregion
 
             if (!isMono)
-                espera.Abort();
-
+            {
+                try
+                {
+                }
+                catch (ThreadAbortException)
+                {
+                }
+                catch (Exception)
+                {
+                }
+                finally
+                {
+                    espera.Abort();
+                }
+            }
 
             // Obtenemos el nuevo archivo para guardar
             SaveFileDialog o = new SaveFileDialog();
@@ -1812,8 +1860,8 @@ namespace Tinke
                 }
 
                 espera = new Thread(ThreadEspera);
-                //if (!isMono)
-                    //espera.Start("S06");
+                if (!isMono)
+                    espera.Start("S06");
 
                 Console.WriteLine(Tools.Helper.GetTranslation("Messages", "S0D"), o.FileName);
                 bw = new BinaryWriter(new FileStream(o.FileName, FileMode.Create));
@@ -1862,7 +1910,19 @@ namespace Tinke
             
             if (!isMono)
             {
-                espera.Abort();
+                try
+                {
+                }
+                catch (ThreadAbortException)
+                {
+                }
+                catch (Exception)
+                {
+                }
+                finally
+                {
+                    espera.Abort();
+                }
                 debug.Add_Text(sb.ToString());
             }
             sb.Length = 0;

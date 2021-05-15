@@ -137,10 +137,6 @@ namespace Tinke
                 }
                 catch { continue; }
             }
-
         }
-
-
-
     }
 }

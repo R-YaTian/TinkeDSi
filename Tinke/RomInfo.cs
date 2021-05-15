@@ -80,7 +80,7 @@ namespace Tinke
             btnBannerGuardar.Text = xml.Element("S03").Value;
             label2.Text = xml.Element("S04").Value;
             label4.Text = xml.Element("S05").Value;
-            lblGameTitle.Text = xml.Element("S0F").Value;
+            lblGameTitle.Text = xml.Element("S41").Value;
             //comboBannerLang.Text = xml.Element("S06").Value;
             comboBannerLang.Items[0] = xml.Element("S06").Value;
             comboBannerLang.Items[1] = xml.Element("S07").Value;
@@ -137,6 +137,7 @@ namespace Tinke
             btnEdit.Text = xml.Element("S3B").Value;
             btnDumpicondata.Text = xml.Element("S3E").Value;
             btnDumpAdata.Text = xml.Element("S3F").Value;
+            btnDumpiheader.Text = xml.Element("S40").Value;
         }
         private void Mostrar_Informacion(Nitro.Estructuras.ROMHeader cabecera, Nitro.Estructuras.Banner banner)
         {
