@@ -1859,10 +1859,6 @@ namespace Tinke
                     goto Open_Dialog;
                 }
 
-                espera = new Thread(ThreadEspera);
-                if (!isMono)
-                    espera.Start("S06");
-
                 Console.WriteLine(Tools.Helper.GetTranslation("Messages", "S0D"), o.FileName);
                 bw = new BinaryWriter(new FileStream(o.FileName, FileMode.Create));
                 Ekona.Helper.IOutil.Append(ref bw, header_file);
@@ -1907,24 +1903,9 @@ namespace Tinke
             File.Delete(fileFAT);
             File.Delete(banner);
             File.Delete(files);
-            
+
             if (!isMono)
-            {
-                try
-                {
-                }
-                catch (ThreadAbortException)
-                {
-                }
-                catch (Exception)
-                {
-                }
-                finally
-                {
-                    espera.Abort();
-                }
                 debug.Add_Text(sb.ToString());
-            }
             sb.Length = 0;
         }
         private void btnImport_Click(object sender, EventArgs e)
