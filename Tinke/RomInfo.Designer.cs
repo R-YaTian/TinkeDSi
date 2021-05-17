@@ -177,6 +177,7 @@ namespace Tinke
             "S38"}, -1);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RomInfo));
             this.groupBanner = new System.Windows.Forms.GroupBox();
+            this.btnDumpiheader = new System.Windows.Forms.Button();
             this.btnDumpAdata = new System.Windows.Forms.Button();
             this.btnDumpicondata = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
@@ -196,7 +197,6 @@ namespace Tinke
             this.columnPosicion = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnCampo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnValor = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.btnDumpiheader = new System.Windows.Forms.Button();
             this.groupBanner.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picIcon)).BeginInit();
             this.SuspendLayout();
@@ -228,6 +228,19 @@ namespace Tinke
             this.groupBanner.TabStop = false;
             this.groupBanner.Text = "S02";
             // 
+            // btnDumpiheader
+            // 
+            this.btnDumpiheader.Image = global::Tinke.Properties.Resources.package;
+            this.btnDumpiheader.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDumpiheader.Location = new System.Drawing.Point(9, 413);
+            this.btnDumpiheader.Name = "btnDumpiheader";
+            this.btnDumpiheader.Size = new System.Drawing.Size(184, 28);
+            this.btnDumpiheader.TabIndex = 9;
+            this.btnDumpiheader.Text = "S40";
+            this.btnDumpiheader.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDumpiheader.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDumpiheader.UseVisualStyleBackColor = true;
+            // 
             // btnDumpAdata
             // 
             this.btnDumpAdata.Image = global::Tinke.Properties.Resources.picture_go;
@@ -253,6 +266,7 @@ namespace Tinke
             this.btnDumpicondata.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDumpicondata.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDumpicondata.UseVisualStyleBackColor = true;
+            this.btnDumpicondata.Click += new System.EventHandler(this.btnDumpicondata_Click);
             // 
             // btnEdit
             // 
@@ -464,19 +478,6 @@ namespace Tinke
             // 
             this.columnValor.Text = "S0E";
             this.columnValor.Width = 214;
-            // 
-            // btnDumpiheader
-            // 
-            this.btnDumpiheader.Image = global::Tinke.Properties.Resources.package;
-            this.btnDumpiheader.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDumpiheader.Location = new System.Drawing.Point(9, 413);
-            this.btnDumpiheader.Name = "btnDumpiheader";
-            this.btnDumpiheader.Size = new System.Drawing.Size(184, 28);
-            this.btnDumpiheader.TabIndex = 9;
-            this.btnDumpiheader.Text = "S40";
-            this.btnDumpiheader.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDumpiheader.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnDumpiheader.UseVisualStyleBackColor = true;
             // 
             // RomInfo
             // 

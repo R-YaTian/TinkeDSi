@@ -22,6 +22,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -65,10 +66,6 @@ namespace Tinke
             }
 
             LeerIdioma();
-            if (banner.version >= 2)
-                this.comboBannerLang.Items.Add(Tools.Helper.GetTranslation("RomInfo", "S3C"));
-            if (banner.version >= 3)
-                this.comboBannerLang.Items.Add(Tools.Helper.GetTranslation("RomInfo", "S3D"));
         }
 
         public void LeerIdioma()
@@ -138,6 +135,11 @@ namespace Tinke
             btnDumpicondata.Text = xml.Element("S3E").Value;
             btnDumpAdata.Text = xml.Element("S3F").Value;
             btnDumpiheader.Text = xml.Element("S40").Value;
+            //Place these code here to fix compilation error...
+            if (banner.version >= 2)
+                this.comboBannerLang.Items.Add(Tools.Helper.GetTranslation("RomInfo", "S3C"));
+            if (banner.version >= 3)
+                this.comboBannerLang.Items.Add(Tools.Helper.GetTranslation("RomInfo", "S3D"));
         }
         private void Mostrar_Informacion(Nitro.Estructuras.ROMHeader cabecera, Nitro.Estructuras.Banner banner)
         {
@@ -333,6 +335,25 @@ namespace Tinke
         {
             e.Cancel = true;
             this.Hide();
+        }
+
+        private void btnDumpicondata_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog o = new SaveFileDialog();
+            o.AddExtension = true;
+            o.CheckPathExists = true;
+            o.DefaultExt = ".idat";
+            o.OverwritePrompt = true;
+            o.Filter = "Tinke icon data (*.idat)|*.idat";
+            if (o.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                BinaryWriter bw;
+                bw = new BinaryWriter(new FileStream(o.FileName, FileMode.Create));
+                bw.Write(banner.tileData);
+                bw.Write(banner.palette);
+                bw.Flush();
+                bw.Close();
+            }
         }
     }
 }

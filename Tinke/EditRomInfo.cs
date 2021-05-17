@@ -285,21 +285,22 @@ namespace Tinke
         {
             OpenFileDialog o = new OpenFileDialog();
             o.CheckFileExists = true;
-            o.DefaultExt = "bmp";
-            o.Filter = "Bitmap (*.bmp)|*.bmp";
+            o.DefaultExt = "idat";
+            o.Filter = "Tinke icon data (*.idat)|*.idat";
             if (o.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 try
                 {
+                    BinaryReader br = new BinaryReader(File.OpenRead(o.FileName));
+                    banner.tileData = br.ReadBytes(0x200);
+                    banner.palette = br.ReadBytes(0x20);
+                    br.Close();
                     //PluginInterface.NCGR tile = Imagen_NCGR.BitmapToTile(o.FileName, PluginInterface.TileOrder.Horizontal);
                     //if (tile.rahc.depth == ColorDepth.Depth8Bit)
                     //    throw new NotSupportedException(Tools.Helper.GetTranslation("EditRomInfo", "S26"));
-
                     //banner.tileData = Convertir.TilesToBytes(tile.rahc.tileData.tiles);
                     //banner.tileData = Tools.Helper.Bits4ToBits8(banner.tileData);
-
                     //// TODO: banner.palette = Convertir.ColorToBGR555(Imagen_NCLR.BitmapToPalette(o.FileName).pltt.palettes[0].colors);
-
                     //txtImage.BackColor = Color.LightGreen;
                 }
                 catch (Exception ex)
