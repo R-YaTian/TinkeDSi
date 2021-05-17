@@ -75,6 +75,7 @@ namespace Tinke
             this.label9 = new System.Windows.Forms.Label();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.linkLabel3 = new System.Windows.Forms.LinkLabel();
+            this.label10 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureImage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -282,9 +283,9 @@ namespace Tinke
             this.listPlugin.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listPlugin.FormattingEnabled = true;
             this.listPlugin.ItemHeight = 15;
-            this.listPlugin.Location = new System.Drawing.Point(506, 8);
+            this.listPlugin.Location = new System.Drawing.Point(506, 23);
             this.listPlugin.Name = "listPlugin";
-            this.listPlugin.Size = new System.Drawing.Size(299, 347);
+            this.listPlugin.Size = new System.Drawing.Size(299, 332);
             this.listPlugin.TabIndex = 21;
             // 
             // linkHexEditor
@@ -329,12 +330,22 @@ namespace Tinke
             this.linkLabel3.Text = "https://github.com/R-YaTian/TinkeDSi";
             this.linkLabel3.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel3_LinkClicked);
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(504, 8);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(23, 12);
+            this.label10.TabIndex = 26;
+            this.label10.Text = "S0F";
+            // 
             // Autores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(810, 360);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.linkLabel3);
             this.Controls.Add(this.linkLabel2);
             this.Controls.Add(this.label9);
@@ -402,5 +413,6 @@ namespace Tinke
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.LinkLabel linkLabel2;
         private System.Windows.Forms.LinkLabel linkLabel3;
+        private System.Windows.Forms.Label label10;
     }
 }

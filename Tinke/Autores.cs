@@ -109,6 +109,7 @@ namespace Tinke
                 lblfamfamfam.Text = xml.Element("S0B").Value;
                 label7.Text = xml.Element("S0D").Value;
                 label9.Text = String.Format(xml.Element("S0E").Value, "Bernhard Elbl");
+                label10.Text = xml.Element("S0F").Value;
             }
             catch { throw new NotSupportedException("There was an error reading the language file"); }
         }
