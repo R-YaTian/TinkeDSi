@@ -2,7 +2,7 @@
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyTitle("Viewer and editor for files of DS(i) games")]
+[assembly: AssemblyTitle("TinkeDSi - Nintendo DS(i) romhacking")]
 [assembly: AssemblyDescription("Viewer and editor for files of DS(i) games")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
