@@ -75,10 +75,10 @@ namespace Tinke
 
         private void LeerIdioma()
         {
-                System.Xml.Linq.XElement xml = Tools.Helper.GetTranslation("Espera");
+            System.Xml.Linq.XElement xml = Tools.Helper.GetTranslation("Espera");
 
-                this.Text = xml.Element("S01").Value;
-                label1.Text = xml.Element("S01").Value;
+            this.Text = xml.Element("S01").Value;
+            label1.Text = xml.Element("S01").Value;
         }
     }
 }

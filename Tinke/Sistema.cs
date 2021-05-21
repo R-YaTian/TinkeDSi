@@ -50,6 +50,7 @@ namespace Tinke
         bool isMono;
         Keys keyDown;
         bool stop;
+        Espera espera;
 
         public Sistema()
         {
@@ -150,9 +151,12 @@ namespace Tinke
                 Array.Copy(Environment.GetCommandLineArgs(), 1, filesToRead, 0, filesToRead.Length);
             }
 
-            Thread espera = new System.Threading.Thread(ThreadEspera);
+            Thread loadrom = new Thread(ThreadEspera)
+            {
+                IsBackground = true
+            };
             if (!isMono)
-                espera.Start("S02");
+                loadrom.Start("S02");
 
             if (filesToRead.Length == 1 &&
                 (Path.GetFileName(filesToRead[0]).ToUpper().EndsWith(".NDS") || Path.GetFileName(filesToRead[0]).ToUpper().EndsWith(".SRL")))
@@ -164,19 +168,7 @@ namespace Tinke
 
             if (!isMono)
             {
-                try
-                {
-                }
-                catch (ThreadAbortException)
-                {        
-                }
-                catch (Exception)
-                {
-                }
-                finally
-                {
-                    espera.Abort();
-                }
+                espera.Close();
                 debug = new Debug();
                 debug.FormClosing += new FormClosingEventHandler(debug_FormClosing);
                 debug.Add_Text(sb.ToString());
@@ -690,15 +682,8 @@ namespace Tinke
 
         private void ThreadEspera(Object name)
         {
-            Espera espera = new Espera((string)name, false);
-
-            try
-            {
-                espera.ShowDialog();
-            }
-            catch
-            {
-            }
+            espera = new Espera((string)name, false);
+            espera.ShowDialog();
         }
         #endregion
 
@@ -1255,9 +1240,12 @@ namespace Tinke
         private void UnpackFolder()
         {
             this.Cursor = Cursors.WaitCursor;
-            Thread espera = new System.Threading.Thread(ThreadEspera);
+            Thread unpack = new Thread(ThreadEspera)
+            {
+                IsBackground = true
+            };
             if (!isMono)
-                espera.Start("S04");
+                unpack.Start("S04");
 
             sFolder folderSelected = accion.Selected_Folder();
             if (!(folderSelected.name is String)) // If it's the search folder or similar
@@ -1276,19 +1264,7 @@ namespace Tinke
 
             if (!isMono)
             {
-                try
-                {
-                }
-                catch (ThreadAbortException)
-                {
-                }
-                catch (Exception)
-                {
-                }
-                finally
-                {
-                    espera.Abort();
-                }
+                espera.Close();
                 debug.Add_Text(sb.ToString());
             }
             sb.Length = 0;
@@ -1376,26 +1352,15 @@ namespace Tinke
             {
                 Directory.CreateDirectory(o.SelectedPath + Path.DirectorySeparatorChar + folderSelect.name);
 
-                Thread espera = new System.Threading.Thread(ThreadEspera);
+                Thread extract = new Thread(ThreadEspera)
+                {
+                    IsBackground = true
+                };
                 if (!isMono)
-                    espera.Start("S03");
+                    extract.Start("S03");
                 RecursivoExtractFolder(folderSelect, o.SelectedPath + Path.DirectorySeparatorChar + folderSelect.name);
                 if (!isMono)
-                {
-                    try
-                    {
-                    }
-                    catch (ThreadAbortException)
-                    {
-                    }
-                    catch (Exception)
-                    {
-                    }
-                    finally
-                    {
-                        espera.Abort();
-                    }
-                }
+                    espera.Close();
             }
         }
         private void RecursivoExtractFolder(sFolder currFolder, String path)
@@ -1455,9 +1420,12 @@ namespace Tinke
              * Files...
             */
 
-            Thread espera = new Thread(ThreadEspera);
+            Thread create = new Thread(ThreadEspera)
+            {
+                IsBackground = true
+            };
             if (!isMono)
-                espera.Start("S05");
+                create.Start("S05");
 
             // Get special files
             sFolder ftc = accion.Search_Folder("ftc");
@@ -1828,21 +1796,7 @@ namespace Tinke
             #endregion
 
             if (!isMono)
-            {
-                try
-                {
-                }
-                catch (ThreadAbortException)
-                {
-                }
-                catch (Exception)
-                {
-                }
-                finally
-                {
-                    espera.Abort();
-                }
-            }
+                espera.Close();
 
             // Obtenemos el nuevo archivo para guardar
             SaveFileDialog o = new SaveFileDialog();
@@ -1858,6 +1812,13 @@ namespace Tinke
                     MessageBox.Show(Tools.Helper.GetTranslation("Sistema", "S44"));
                     goto Open_Dialog;
                 }
+
+                Thread saverom = new Thread(ThreadEspera)
+                {
+                    IsBackground = true
+                };
+                if (!isMono)
+                    saverom.Start("S06");
 
                 Console.WriteLine(Tools.Helper.GetTranslation("Messages", "S0D"), o.FileName);
                 bw = new BinaryWriter(new FileStream(o.FileName, FileMode.Create));
@@ -1891,6 +1852,13 @@ namespace Tinke
 
                 Console.WriteLine("<b>" + Tools.Helper.GetTranslation("Messages", "S09") + "</b>", new FileInfo(o.FileName).Length);
                 accion.IsNewRom = false;
+
+                if (!isMono)
+                {
+                    espera.Close();
+                    debug.Add_Text(sb.ToString());
+                }
+                sb.Length = 0;
             }
             
             // Borramos archivos ya innecesarios
@@ -1904,9 +1872,9 @@ namespace Tinke
             File.Delete(banner);
             File.Delete(files);
 
-            if (!isMono)
-                debug.Add_Text(sb.ToString());
-            sb.Length = 0;
+            //if (!isMono)
+                //debug.Add_Text(sb.ToString());
+            //sb.Length = 0;
         }
         private void btnImport_Click(object sender, EventArgs e)
         {
@@ -2175,7 +2143,10 @@ namespace Tinke
             if (dialog.ShowDialog() != System.Windows.Forms.DialogResult.OK)
                 return;
 
-            Thread wait = new Thread(ThreadEspera);
+            Thread wait = new Thread(ThreadEspera)
+            {
+                IsBackground = true
+            };
             if (!isMono)
                 wait.Start("S04");
 
@@ -2219,7 +2190,7 @@ namespace Tinke
 
             if (!isMono)
             {
-                wait.Abort();
+                espera.Close();
                 debug.Add_Text(sb.ToString());
             }
             sb.Length = 0;
@@ -2317,11 +2288,16 @@ namespace Tinke
                 return;
             }
 
-            Thread waiting = new System.Threading.Thread(ThreadEspera);
+            Thread waiting = new Thread(ThreadEspera)
+            {
+                IsBackground = true
+            };
 
-            sFolder resul = new sFolder();
-            resul.files = new List<sFile>();
-            resul.folders = new List<sFolder>();
+            sFolder resul = new sFolder
+            {
+                files = new List<sFile>(),
+                folders = new List<sFolder>()
+            };
 
             #region Search type
             if (txtSearch.Text == "<Ani>")
@@ -2405,7 +2381,7 @@ namespace Tinke
             treeSystem.EndUpdate();
 
             if (!isMono && waiting.ThreadState == ThreadState.Running)
-                waiting.Abort();
+                espera.Close();
         }
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
