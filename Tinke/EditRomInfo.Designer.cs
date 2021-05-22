@@ -54,6 +54,7 @@ namespace Tinke
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditRomInfo));
             this.groupHeader = new System.Windows.Forms.GroupBox();
+            this.btnImportiheader = new System.Windows.Forms.Button();
             this.lblEncryptionSeed = new System.Windows.Forms.Label();
             this.numericEncryptionSeed = new System.Windows.Forms.NumericUpDown();
             this.lblDebugRamAddress = new System.Windows.Forms.Label();
@@ -114,7 +115,6 @@ namespace Tinke
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnImportAdata = new System.Windows.Forms.Button();
-            this.btnImportiheader = new System.Windows.Forms.Button();
             this.groupHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericEncryptionSeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericDebugRamAddress)).BeginInit();
@@ -194,6 +194,16 @@ namespace Tinke
             this.groupHeader.TabIndex = 2;
             this.groupHeader.TabStop = false;
             this.groupHeader.Text = "S03";
+            // 
+            // btnImportiheader
+            // 
+            this.btnImportiheader.Enabled = false;
+            this.btnImportiheader.Location = new System.Drawing.Point(361, 366);
+            this.btnImportiheader.Name = "btnImportiheader";
+            this.btnImportiheader.Size = new System.Drawing.Size(169, 34);
+            this.btnImportiheader.TabIndex = 47;
+            this.btnImportiheader.Text = "S2E";
+            this.btnImportiheader.UseVisualStyleBackColor = true;
             // 
             // lblEncryptionSeed
             // 
@@ -860,6 +870,7 @@ namespace Tinke
             // 
             // btnImportAdata
             // 
+            this.btnImportAdata.Enabled = false;
             this.btnImportAdata.Image = global::Tinke.Properties.Resources.plugin_go;
             this.btnImportAdata.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnImportAdata.Location = new System.Drawing.Point(610, 394);
@@ -870,15 +881,6 @@ namespace Tinke
             this.btnImportAdata.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnImportAdata.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnImportAdata.UseVisualStyleBackColor = true;
-            // 
-            // btnImportiheader
-            // 
-            this.btnImportiheader.Location = new System.Drawing.Point(361, 366);
-            this.btnImportiheader.Name = "btnImportiheader";
-            this.btnImportiheader.Size = new System.Drawing.Size(169, 34);
-            this.btnImportiheader.TabIndex = 47;
-            this.btnImportiheader.Text = "S2E";
-            this.btnImportiheader.UseVisualStyleBackColor = true;
             // 
             // EditRomInfo
             // 

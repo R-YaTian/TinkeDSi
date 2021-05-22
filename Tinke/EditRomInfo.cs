@@ -57,6 +57,10 @@ namespace Tinke
             if (banner.version >= 3)
                 this.comboBanTitles.Items.Add(Tools.Helper.GetTranslation("EditRomInfo", "S2C"));
             comboBanTitles.SelectedIndex = 0;
+            if (banner.version > 3)
+                this.btnImportAdata.Enabled = true;
+            if ((header.unitCode & 2) > 0 && (header.twlInternalFlags & 1) > 0 && Sistema.twl_flag != true)
+                this.btnImportiheader.Enabled = true;
         }
         private void ReadLanguage()
         {

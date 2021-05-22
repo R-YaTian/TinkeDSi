@@ -144,7 +144,7 @@ namespace Tinke
         }
         public void Refresh_flag()
         {
-            if ((Cabecera.unitCode & 2) > 0 && (Cabecera.twlInternalFlags & 1) > 0 && Sistema.twl_flag == true)
+            if ((Cabecera.unitCode & 2) > 0 && Sistema.twl_flag == true)
                 this.btnDumpiheader.Enabled = true;
         }
         private void Mostrar_Informacion(Nitro.Estructuras.ROMHeader cabecera, Nitro.Estructuras.Banner banner)
