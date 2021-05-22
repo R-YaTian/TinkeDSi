@@ -67,7 +67,6 @@ namespace Tinke
 
             LeerIdioma();
         }
-
         public void LeerIdioma()
         {
             System.Xml.Linq.XElement xml = Tools.Helper.GetTranslation("RomInfo");
@@ -140,6 +139,13 @@ namespace Tinke
                 this.comboBannerLang.Items.Add(Tools.Helper.GetTranslation("RomInfo", "S3C"));
             if (banner.version >= 3)
                 this.comboBannerLang.Items.Add(Tools.Helper.GetTranslation("RomInfo", "S3D"));
+            if (banner.version > 3 && (banner.GetDefSize(Cabecera.banner_size, true) != 0x840))
+                this.btnDumpAdata.Enabled = true;
+        }
+        public void Refresh_flag()
+        {
+            if ((Cabecera.unitCode & 2) > 0 && (Cabecera.twlInternalFlags & 1) > 0 && Sistema.twl_flag == true)
+                this.btnDumpiheader.Enabled = true;
         }
         private void Mostrar_Informacion(Nitro.Estructuras.ROMHeader cabecera, Nitro.Estructuras.Banner banner)
         {
@@ -245,7 +251,6 @@ namespace Tinke
             get { return banner; }
             set { banner = value; }
         }
-
         private void btnBannerGuardar_Click(object sender, EventArgs e)
         {
             SaveFileDialog o = new SaveFileDialog();

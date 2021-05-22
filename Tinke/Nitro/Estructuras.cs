@@ -196,7 +196,7 @@ namespace Tinke.Nitro
             public byte[] padding3;     // 1C0h Unused/padding (FFh-filled) in Version 0003h
             //public byte[] padding4;   // 40h  Unused/padding (FFh-filled) in Version 0103h
 
-            public uint GetDefSize(uint hardBannerSize = 0)
+            public uint GetDefSize(uint hardBannerSize = 0, bool out_flag = false)
             {
                 if (this.version == 1) return 0x840;
                 string tmpstr;
@@ -205,12 +205,14 @@ namespace Tinke.Nitro
                     tmpstr = Ekona.Helper.BitsConverter.BytesToHexString(padding2);
                     if (System.Text.RegularExpressions.Regex.IsMatch(tmpstr, "^F"))
                     {
-                        Console.WriteLine(Tools.Helper.GetTranslation("Messages", "S27"));
+                        if (!out_flag)
+                            Console.WriteLine(Tools.Helper.GetTranslation("Messages", "S27"));
                         return 0x940;
                     }
                     else
                     {
-                        Console.WriteLine(Tools.Helper.GetTranslation("Messages", "S28"));
+                        if (!out_flag)
+                            Console.WriteLine(Tools.Helper.GetTranslation("Messages", "S28"));
                         return 0x840;
                     }
                 }
@@ -219,12 +221,14 @@ namespace Tinke.Nitro
                     tmpstr = Ekona.Helper.BitsConverter.BytesToHexString(padding3);
                     if (System.Text.RegularExpressions.Regex.IsMatch(tmpstr, "^F"))
                     {
-                        Console.WriteLine(Tools.Helper.GetTranslation("Messages", "S29"));
+                        if (!out_flag)
+                            Console.WriteLine(Tools.Helper.GetTranslation("Messages", "S29"));
                         return 0xA40;
                     }
                     else
                     {
-                        Console.WriteLine(Tools.Helper.GetTranslation("Messages", "S2A"));
+                        if (!out_flag)
+                            Console.WriteLine(Tools.Helper.GetTranslation("Messages", "S2A"));
                         return 0x840;
                     }
                 }
@@ -233,12 +237,14 @@ namespace Tinke.Nitro
                     tmpstr = Ekona.Helper.BitsConverter.BytesToHexString(reservedDsi);
                     if (System.Text.RegularExpressions.Regex.IsMatch(tmpstr, "^0"))
                     {
-                        Console.WriteLine(Tools.Helper.GetTranslation("Messages", "S2B"));
+                        if (!out_flag)
+                            Console.WriteLine(Tools.Helper.GetTranslation("Messages", "S2B"));
                         return (hardBannerSize > 0 && (int)hardBannerSize != -1) ? hardBannerSize : 0x23C0;
                     }
                     else
                     {
-                        Console.WriteLine(Tools.Helper.GetTranslation("Messages", "S2C"));
+                        if (!out_flag)
+                            Console.WriteLine(Tools.Helper.GetTranslation("Messages", "S2C"));
                         return 0x840;
                     }
                 }

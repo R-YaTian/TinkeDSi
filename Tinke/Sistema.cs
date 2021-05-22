@@ -51,6 +51,7 @@ namespace Tinke
         Keys keyDown;
         bool stop;
         Espera espera;
+        public static bool twl_flag;
 
         public Sistema()
         {
@@ -253,6 +254,11 @@ namespace Tinke
                         this.twl = new TWL(file, this.romInfo.Cabecera, fat);
                     }
                     catch { }
+                    if (twl != null)
+                    {
+                        twl_flag = true;
+                        romInfo.Refresh_flag();
+                    }
                 }
             }
 

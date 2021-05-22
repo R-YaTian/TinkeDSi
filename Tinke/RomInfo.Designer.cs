@@ -230,6 +230,7 @@ namespace Tinke
             // 
             // btnDumpiheader
             // 
+            this.btnDumpiheader.Enabled = false;
             this.btnDumpiheader.Image = global::Tinke.Properties.Resources.package;
             this.btnDumpiheader.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDumpiheader.Location = new System.Drawing.Point(9, 413);
@@ -243,6 +244,7 @@ namespace Tinke
             // 
             // btnDumpAdata
             // 
+            this.btnDumpAdata.Enabled = false;
             this.btnDumpAdata.Image = global::Tinke.Properties.Resources.picture_go;
             this.btnDumpAdata.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDumpAdata.Location = new System.Drawing.Point(9, 379);
