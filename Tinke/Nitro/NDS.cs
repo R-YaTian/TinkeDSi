@@ -166,13 +166,16 @@ namespace Tinke.Nitro
                 nds.debug_args = br.ReadBytes(0x180);
                 nds.rsa_signature = br.ReadBytes(0x80);
 
-                nds.trimmedRom = br.BaseStream.Length == nds.total_rom_size;
+                //nds.trimmedRom = br.BaseStream.Length == nds.total_rom_size;
                 nds.doublePadding = (nds.ARM9size % 0x400) < 0x200 && nds.ARM7romOffset % 0x400 == 0 && nds.ARM9overlayOffset % 0x400 == 0;
                 nds.doublePadding |= (nds.ARM7size % 0x400) < 0x200 && nds.fileNameTableOffset % 0x400 == 0 && nds.ARM7overlayOffset % 0x400 == 0;
                 nds.doublePadding |= (nds.fileNameTableSize % 0x400) < 0x200 && nds.FAToffset % 0x400 == 0;
                 nds.doublePadding |= (nds.FATsize % 0x400) < 0x200 && nds.bannerOffset % 0x400 == 0;
             }
-            nds.trimmedRom = br.BaseStream.Length != nds.tamaño;
+            if (nds.total_rom_size != 0)
+                nds.trimmedRom = (nds.total_rom_size - br.BaseStream.Length >= 0);
+            else
+                nds.trimmedRom = br.BaseStream.Length != nds.tamaño;
 
             // Calc CRCs
             uint gameCode = BitConverter.ToUInt32(Encoding.ASCII.GetBytes(nds.gameCode), 0);
