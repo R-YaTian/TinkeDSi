@@ -243,11 +243,11 @@ namespace Tinke
             // Read DSi stuff
             if ((romInfo.Cabecera.unitCode & 2) > 0 && (romInfo.Cabecera.twlInternalFlags & 1) > 0)
             {
-                Console.WriteLine("twlInternalFlags");
+                //Console.WriteLine("twlInternalFlags");
                 // Read TWL rom data if the DSi ROM is valid 
                 if (romInfo.Cabecera.tid_high != 0 && romInfo.Cabecera.tid_high != 0xFFFFFFFF)
                 {
-                    Console.WriteLine("twlInternalFlags1");
+                    //Console.WriteLine("twlInternalFlags1");
                     // NOTE: Some DSi Enhanced ROMs is invalid!
                     try
                     {
