@@ -22,13 +22,13 @@
 // <email>benito356@gmail.com</email>
 // <date>28/04/2012 14:24:51</date>
 // -----------------------------------------------------------------------
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
+//using System;
+//using System.Collections.Generic;
+//using System.ComponentModel;
+//using System.Data;
+//using System.Drawing;
+//using System.Linq;
+//using System.Text;
 using System.Windows.Forms;
 
 namespace Tinke

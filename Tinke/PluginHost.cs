@@ -23,11 +23,11 @@
 // <date>24/06/2012 14:36:06</date>
 // -----------------------------------------------------------------------
 using System;
-using System.Collections.Generic;
+//using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+//using System.Text;
 using System.Windows.Forms;
-using System.Drawing;
+//using System.Drawing;
 using Ekona;
 using Ekona.Images;
 
