@@ -1,3 +1,18 @@
+TinkeDSi 0.9.3 (Made by R-YaTian)
+*** Add "DSi header fix" feature (via import donor iheader data)
+(*Then you can import arm9/7i file to fix "DSi binary file missing error" for romhacks and/or bad dumps*)
+*** Add "DSi banner edit/fix" feature
+** Fix Espera bugs!
+** Add "Change by dir" feature
+** Add "Change icon" feature (via import icon data)
+* Fix "banner_size" if rom edited using CrystalTile2 before...
+* Improve trimmedRom check for DSi roms
+* Improve Header2Data reading for DSi roms
+* Improve UI to enhance the user's experience
+
+0.9.2i (Made by MetLob)
+*** Add DSi mode rom support!
+
 0.9.2
 ** Improve Hexadecimal Viewer for Mono (Linux and Mac OS)
 * Fix crash opening HexViewer from FAT dialog on Mono.
