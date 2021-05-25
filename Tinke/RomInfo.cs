@@ -344,18 +344,113 @@ namespace Tinke
 
         private void btnDumpicondata_Click(object sender, EventArgs e)
         {
-            SaveFileDialog o = new SaveFileDialog();
-            o.AddExtension = true;
-            o.CheckPathExists = true;
-            o.DefaultExt = ".idat";
-            o.OverwritePrompt = true;
-            o.Filter = "Tinke icon data (*.idat)|*.idat";
+            SaveFileDialog o = new SaveFileDialog
+            {
+                AddExtension = true,
+                CheckPathExists = true,
+                DefaultExt = ".idat",
+                OverwritePrompt = true,
+                Filter = "Tinke icon data (*.idat)|*.idat"
+            };
             if (o.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 BinaryWriter bw;
                 bw = new BinaryWriter(new FileStream(o.FileName, FileMode.Create));
                 bw.Write(banner.tileData);
                 bw.Write(banner.palette);
+                bw.Flush();
+                bw.Close();
+            }
+        }
+
+        private void btnDumpAdata_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog o = new SaveFileDialog
+            {
+                AddExtension = true,
+                CheckPathExists = true,
+                DefaultExt = ".adat",
+                OverwritePrompt = true,
+                Filter = "Tinke animation data(*.adat)|*.adat"
+            };
+            if (o.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                BinaryWriter bw;
+                bw = new BinaryWriter(new FileStream(o.FileName, FileMode.Create));
+                bw.Write(banner.aniIconData);
+                bw.Flush();
+                bw.Close();
+            }
+        }
+
+        private void btnDumpiheader_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog o = new SaveFileDialog
+            {
+                AddExtension = true,
+                CheckPathExists = true,
+                DefaultExt = ".ihdr",
+                OverwritePrompt = true,
+                Filter = "Tinke donor iheader (*.ihdr)|*.ihdr"
+            };
+            if (o.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                BinaryWriter bw;
+                bw = new BinaryWriter(new FileStream(o.FileName, FileMode.Create));
+                bw.Write(cabecera.gameCode);
+                for (int i = 0; i < 5; i++) bw.Write(cabecera.global_mbk_setting[i]);
+                for (int i = 0; i < 3; i++) bw.Write(cabecera.arm9_mbk_setting[i]);
+                for (int i = 0; i < 3; i++) bw.Write(cabecera.arm7_mbk_setting[i]);
+                bw.Write(cabecera.mbk9_wramcnt_setting);
+                bw.Write(cabecera.region_flags);
+                bw.Write(cabecera.access_control);
+                bw.Write(cabecera.scfg_ext_mask);
+                bw.Write(cabecera.appflags);
+                bw.Write(cabecera.dsi9_rom_offset);
+                bw.Write(cabecera.offset_0x1C4);
+                bw.Write(cabecera.dsi9_ram_address);
+                bw.Write(cabecera.dsi9_size);
+                bw.Write(cabecera.dsi7_rom_offset);
+                bw.Write(cabecera.offset_0x1D4);
+                bw.Write(cabecera.dsi7_ram_address);
+                bw.Write(cabecera.dsi7_size);
+                bw.Write(cabecera.digest_ntr_start);
+                bw.Write(cabecera.digest_ntr_size);
+                bw.Write(cabecera.digest_twl_start);
+                bw.Write(cabecera.digest_twl_size);
+                bw.Write(cabecera.sector_hashtable_start);
+                bw.Write(cabecera.sector_hashtable_size);
+                bw.Write(cabecera.block_hashtable_start);
+                bw.Write(cabecera.block_hashtable_size);
+                bw.Write(cabecera.digest_sector_size);
+                bw.Write(cabecera.digest_block_sectorcount);
+                bw.Write(cabecera.banner_size);
+                bw.Write(cabecera.offset_0x20C);
+                bw.Write(cabecera.total_rom_size);
+                bw.Write(cabecera.offset_0x214);
+                bw.Write(cabecera.offset_0x218);
+                bw.Write(cabecera.offset_0x21C);
+                bw.Write(cabecera.modcrypt1_start);
+                bw.Write(cabecera.modcrypt1_size);
+                bw.Write(cabecera.modcrypt2_start);
+                bw.Write(cabecera.modcrypt2_size);
+                bw.Write(cabecera.tid_low);
+                bw.Write(cabecera.tid_high);
+                bw.Write(cabecera.public_sav_size);
+                bw.Write(cabecera.private_sav_size);
+                bw.Write(cabecera.reserved5);
+                bw.Write(cabecera.age_ratings);
+                bw.Write(cabecera.hmac_arm9);
+                bw.Write(cabecera.hmac_arm7);
+                bw.Write(cabecera.hmac_digest_master);
+                bw.Write(cabecera.hmac_icon_title);
+                bw.Write(cabecera.hmac_arm9i);
+                bw.Write(cabecera.hmac_arm7i);
+                bw.Write(cabecera.reserved6);
+                bw.Write(cabecera.hmac_arm9_no_secure);
+                bw.Write(cabecera.reserved7);
+                bw.Write(cabecera.debug_args);
+                bw.Write(cabecera.rsa_signature);
                 bw.Flush();
                 bw.Close();
             }

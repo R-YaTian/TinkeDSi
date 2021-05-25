@@ -1728,8 +1728,8 @@ namespace Tinke
                 header.digest_twl_start = header.block_hashtable_start + header.block_hashtable_size;
                 header.digest_twl_start += 0x200 - header.digest_twl_start % 0x200;
                 header.digest_twl_start += header.digest_sector_size - header.digest_twl_start % header.digest_sector_size;
-                //if (!header.trimmedRom && header.digest_twl_start % 0x80000 != 0) header.digest_twl_start += 0x80000 - (header.digest_twl_start % 0x80000) + 0x3000;
-                if (header.digest_twl_start % 0x80000 != 0) header.digest_twl_start += 0x80000 - (header.digest_twl_start % 0x80000) + 0x3000;
+                if (!header.trimmedRom && header.digest_twl_start % 0x80000 != 0) header.digest_twl_start += 0x80000 - (header.digest_twl_start % 0x80000) + 0x3000;
+                //if (header.digest_twl_start % 0x80000 != 0) header.digest_twl_start += 0x80000 - (header.digest_twl_start % 0x80000) + 0x3000;
                 header.dsi9_rom_offset += header.digest_twl_start;
                 header.dsi7_rom_offset += header.digest_twl_start;
 

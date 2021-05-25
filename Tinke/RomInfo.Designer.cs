@@ -241,6 +241,7 @@ namespace Tinke
             this.btnDumpiheader.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDumpiheader.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDumpiheader.UseVisualStyleBackColor = true;
+            this.btnDumpiheader.Click += new System.EventHandler(this.btnDumpiheader_Click);
             // 
             // btnDumpAdata
             // 
@@ -255,6 +256,7 @@ namespace Tinke
             this.btnDumpAdata.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDumpAdata.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDumpAdata.UseVisualStyleBackColor = true;
+            this.btnDumpAdata.Click += new System.EventHandler(this.btnDumpAdata_Click);
             // 
             // btnDumpicondata
             // 

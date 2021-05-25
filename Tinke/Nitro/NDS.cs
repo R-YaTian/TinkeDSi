@@ -487,7 +487,7 @@ namespace Tinke.Nitro
             if (bn.version >> 8 == 1)
             {
                 bn.reservedDsi = br.ReadBytes(0x800);
-                if (size == 0 || size == 0xFFFFFFFF) size = 0x23C0;
+                if (size == 0 || size == 0xFFFFFFFF || size > 0x23C0) size = 0x23C0;
                 bn.aniIconData = br.ReadBytes((int)(offset + size - br.BaseStream.Position));
             }
 
@@ -525,9 +525,9 @@ namespace Tinke.Nitro
             // DSi Enchansed
             if ((banner.version >> 8) == 1)
             {
-                //bw.Write(banner.reservedDsi);
-                byte[] zbyte = new byte[0x800];
-                bw.Write(zbyte);
+                bw.Write(banner.reservedDsi);
+                //byte[] zbyte = new byte[0x800];
+                //bw.Write(zbyte);
                 bw.Write(banner.aniIconData);
             }
 

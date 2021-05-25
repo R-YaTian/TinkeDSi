@@ -204,6 +204,7 @@ namespace Tinke
             this.btnImportiheader.TabIndex = 47;
             this.btnImportiheader.Text = "S2E";
             this.btnImportiheader.UseVisualStyleBackColor = true;
+            this.btnImportiheader.Click += new System.EventHandler(this.btnImportiheader_Click);
             // 
             // lblEncryptionSeed
             // 
@@ -881,6 +882,7 @@ namespace Tinke
             this.btnImportAdata.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnImportAdata.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnImportAdata.UseVisualStyleBackColor = true;
+            this.btnImportAdata.Click += new System.EventHandler(this.btnImportAdata_Click);
             // 
             // EditRomInfo
             // 

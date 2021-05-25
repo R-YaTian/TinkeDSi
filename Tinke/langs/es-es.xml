@@ -262,6 +262,7 @@
     <S2A>The Version 3 Banner is incomplete or corrupted.</S2A>
     <S2B>The DSi Banner is good!</S2B>
     <S2C>The DSi Banner is incomplete or corrupted.</S2C>
+    <S2D>The donor iheader mismatch!</S2D>
   </Messages>
   <DSDecmp>
     <!-- LZ10 -->

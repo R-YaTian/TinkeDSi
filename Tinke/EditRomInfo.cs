@@ -287,10 +287,12 @@ namespace Tinke
 
         private void btnImage_Click(object sender, EventArgs e)
         {
-            OpenFileDialog o = new OpenFileDialog();
-            o.CheckFileExists = true;
-            o.DefaultExt = "idat";
-            o.Filter = "Tinke icon data (*.idat)|*.idat";
+            OpenFileDialog o = new OpenFileDialog
+            {
+                CheckFileExists = true,
+                DefaultExt = "idat",
+                Filter = "Tinke icon data (*.idat)|*.idat"
+            };
             if (o.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 try
@@ -460,6 +462,112 @@ namespace Tinke
 
             ven.Text = xml.Element("S2A").Value;
             ven.Show();
+        }
+
+        private void btnImportAdata_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog o = new OpenFileDialog
+            {
+                CheckFileExists = true,
+                DefaultExt = "adat",
+                Filter = "Tinke animation data(*.adat)|*.adat"
+            };
+            if (o.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                BinaryReader br = new BinaryReader(File.OpenRead(o.FileName));
+                banner.aniIconData = br.ReadBytes(0x1180);
+                br.Close();
+                byte[] zbyte = new byte[0x800];
+                banner.reservedDsi = zbyte;
+            }
+        }
+
+        private void btnImportiheader_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog o = new OpenFileDialog
+            {
+                CheckFileExists = true,
+                DefaultExt = "ihdr",
+                Filter = "Tinke donor iheader (*.ihdr)|*.ihdr"
+            };
+            if (o.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                BinaryReader br = new BinaryReader(File.OpenRead(o.FileName));
+                char[] temp_gameCode = br.ReadChars(4);
+                if (Enumerable.SequenceEqual(temp_gameCode, header.gameCode) != true)
+                {
+                    MessageBox.Show(Tools.Helper.GetTranslation("Messages", "S2D"));
+                    br.Close();
+                    return;
+                }
+                header.global_mbk_setting = new byte[5][];
+                for (int i = 0; i < 5; i++) header.global_mbk_setting[i] = br.ReadBytes(4);
+                header.arm9_mbk_setting = new uint[3];
+                for (int i = 0; i < 3; i++) header.arm9_mbk_setting[i] = br.ReadUInt32();
+                header.arm7_mbk_setting = new uint[3];
+                for (int i = 0; i < 3; i++) header.arm7_mbk_setting[i] = br.ReadUInt32();
+                header.mbk9_wramcnt_setting = br.ReadUInt32();
+
+                header.region_flags = br.ReadUInt32();
+                header.access_control = br.ReadUInt32();
+                header.scfg_ext_mask = br.ReadUInt32();
+                header.appflags = br.ReadBytes(4);
+
+                header.dsi9_rom_offset = br.ReadUInt32();
+                header.offset_0x1C4 = br.ReadUInt32();
+                header.dsi9_ram_address = br.ReadUInt32();
+                header.dsi9_size = br.ReadUInt32();
+                header.dsi7_rom_offset = br.ReadUInt32();
+                header.offset_0x1D4 = br.ReadUInt32();
+                header.dsi7_ram_address = br.ReadUInt32();
+                header.dsi7_size = br.ReadUInt32();
+
+                header.digest_ntr_start = br.ReadUInt32();
+                header.digest_ntr_size = br.ReadUInt32();
+                header.digest_twl_start = br.ReadUInt32();
+                header.digest_twl_size = br.ReadUInt32();
+
+                header.sector_hashtable_start = br.ReadUInt32();
+                header.sector_hashtable_size = br.ReadUInt32();
+                header.block_hashtable_start = br.ReadUInt32();
+                header.block_hashtable_size = br.ReadUInt32();
+
+                header.digest_sector_size = br.ReadUInt32();
+                header.digest_block_sectorcount = br.ReadUInt32();
+                header.banner_size = br.ReadUInt32();
+                header.offset_0x20C = br.ReadUInt32();
+
+                header.total_rom_size = br.ReadUInt32();
+                header.offset_0x214 = br.ReadUInt32();
+                header.offset_0x218 = br.ReadUInt32();
+                header.offset_0x21C = br.ReadUInt32();
+
+                header.modcrypt1_start = br.ReadUInt32();
+                header.modcrypt1_size = br.ReadUInt32();
+                header.modcrypt2_start = br.ReadUInt32();
+                header.modcrypt2_size = br.ReadUInt32();
+
+                header.tid_low = br.ReadUInt32();
+                header.tid_high = br.ReadUInt32();
+                header.public_sav_size = br.ReadUInt32();
+                header.private_sav_size = br.ReadUInt32();
+
+                header.reserved5 = br.ReadBytes(0xB0);
+                header.age_ratings = br.ReadBytes(0x10);
+                header.hmac_arm9 = br.ReadBytes(20);
+                header.hmac_arm7 = br.ReadBytes(20);
+                header.hmac_digest_master = br.ReadBytes(20);
+                header.hmac_icon_title = br.ReadBytes(20);
+                header.hmac_arm9i = br.ReadBytes(20);
+                header.hmac_arm7i = br.ReadBytes(20);
+                header.reserved6 = br.ReadBytes(40);
+                header.hmac_arm9_no_secure = br.ReadBytes(20);
+                header.reserved7 = br.ReadBytes(0xA4C);
+                header.debug_args = br.ReadBytes(0x180);
+                header.rsa_signature = br.ReadBytes(0x80);
+                br.Close();
+                header.trimmedRom = false;
+            }
         }
     }
 }

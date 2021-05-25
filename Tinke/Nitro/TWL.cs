@@ -83,7 +83,7 @@ namespace Tinke.Nitro
         bool twlEncrypted;
 
         public byte[][] Overlays9Sha1Hmac { get; private set; }
-        public byte[] Header2Data { get; private set; }
+        public byte[][] Header2Data { get; private set; }
         public byte[] DSi9Data { get; private set; }
         public byte[] DSi7Data { get; private set; }
         public byte[] Hashtable1Data { get; private set; }
@@ -105,11 +105,17 @@ namespace Tinke.Nitro
             this.DSi9Data = br.ReadBytes(Math.Max((int)hdr.modcrypt1_size, (int)hdr.dsi9_size));
             br.BaseStream.Position = hdr.dsi7_rom_offset;
             this.DSi7Data = br.ReadBytes(Math.Max((int)hdr.modcrypt2_size, (int)hdr.dsi7_size));
-            //if (!hdr.trimmedRom)
-            //{
-            br.BaseStream.Position = hdr.digest_twl_start - 0x3000;
-            this.Header2Data = br.ReadBytes(0x3000);
-            //}
+            if (!hdr.trimmedRom)
+            {
+            //br.BaseStream.Position = hdr.digest_twl_start - 0x3000;
+            //this.Header2Data = br.ReadBytes(0x3000);
+            this.Header2Data = new byte[3][];
+            for (int i = 0; i < 3; i++)
+            {
+                br.BaseStream.Position = hdr.digest_ntr_start + 0x4000;
+                this.Header2Data[i] = br.ReadBytes(0x1000);
+            }
+            }
 
             // Calc SHA1-HMAC of overlays9
             HMACSHA1 hmac = new HMACSHA1(TWL.hmac_sha1_key);
@@ -255,11 +261,11 @@ namespace Tinke.Nitro
             while (bw.BaseStream.Position < hdr.block_hashtable_start) bw.Write((byte)0xFF);
             bw.BaseStream.Position = hdr.block_hashtable_start + hdr.block_hashtable_size;
             while (bw.BaseStream.Position < hdr.dsi9_rom_offset) bw.Write((byte)0xFF);
-            //if (this.Header2Data != null && !hdr.trimmedRom)
-            if (this.Header2Data != null)
+            if (this.Header2Data != null && !hdr.trimmedRom)
+            //if (this.Header2Data != null)
             {
                 bw.BaseStream.Position = hdr.digest_twl_start - 0x3000;
-                bw.Write(this.Header2Data);
+                for (int j = 0; j < 3; j++) bw.Write(this.Header2Data[j]);
             }
 
             bw.Write(this.DSi9Data, 0, this.DSi9Data.Length);
