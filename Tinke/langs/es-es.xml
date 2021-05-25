@@ -190,6 +190,7 @@
     <S05>Creando nueva ROM...</S05>
     <S06>Guardando nueva ROM...</S06>
     <S07>Buscando archivos...</S07>
+    <S08>Matching files...</S08>
   </Espera>
   <Messages>
     <S01>Error</S01>

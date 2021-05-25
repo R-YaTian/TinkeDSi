@@ -2455,6 +2455,14 @@ namespace Tinke
             };
             if (FBD.ShowDialog() != DialogResult.OK)
                 return;
+
+            Thread matching = new Thread(ThreadEspera)
+            {
+                IsBackground = true
+            };
+            if (!isMono)
+                matching.Start("S08");
+
             Console.WriteLine(FBD.SelectedPath);
             List<string> files = new List<string>();
             files = GetAllSubFiles(FBD.SelectedPath, files);
@@ -2501,6 +2509,9 @@ namespace Tinke
                 accion.Change_File(fileToBeChanged.id, currFile);
                 Console.WriteLine(currFile);
             }
+
+            if (!isMono)
+                espera.Close();
         }
         public static List<string> GetAllSubFiles(string directoryPath, List<string> files)
         {

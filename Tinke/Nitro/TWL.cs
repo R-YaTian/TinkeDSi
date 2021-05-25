@@ -107,14 +107,14 @@ namespace Tinke.Nitro
             this.DSi7Data = br.ReadBytes(Math.Max((int)hdr.modcrypt2_size, (int)hdr.dsi7_size));
             if (!hdr.trimmedRom)
             {
-            //br.BaseStream.Position = hdr.digest_twl_start - 0x3000;
-            //this.Header2Data = br.ReadBytes(0x3000);
-            this.Header2Data = new byte[3][];
-            for (int i = 0; i < 3; i++)
-            {
-                br.BaseStream.Position = hdr.digest_ntr_start + 0x4000;
-                this.Header2Data[i] = br.ReadBytes(0x1000);
-            }
+                //br.BaseStream.Position = hdr.digest_twl_start - 0x3000;
+                //this.Header2Data = br.ReadBytes(0x3000);
+                this.Header2Data = new byte[3][];
+                for (int i = 0; i < 3; i++)
+                {
+                    br.BaseStream.Position = hdr.digest_ntr_start + 0x4000;
+                    this.Header2Data[i] = br.ReadBytes(0x1000);
+                }
             }
 
             // Calc SHA1-HMAC of overlays9
