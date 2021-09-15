@@ -161,12 +161,13 @@ namespace Pack
             // Write FNT section
             br.BaseStream.Position = fntOffset;
             bw.Write(br.ReadBytes((int)fntSize));
-            bw.Write((ulong)0x00);  // Padding
+            byte[] zbyte = new byte[fatOffset-fntSize-fntOffset];
+            bw.Write(zbyte);  // Padding
             bw.Flush();
             br.Close();
 
             // Write FAT section
-            uint offset = fatOffset + fatSize + 0x10;
+            uint offset = fatOffset + fatSize + fatSize % 0x0F;
             for (int i = 0; i < fatSize / 8; i++)
             {
                 bw.Write(offset);
@@ -185,12 +186,13 @@ namespace Pack
                 {
                     for (int r = 0; r < 4 - (offset % 4); r++)
                         buffer.Add(0xFF);
-
                     offset += 4 - (offset % 4);
                 }
             }
-            bw.Write((ulong)0x00);
-            bw.Write((ulong)0x00);
+            if (fatSize % 0x0F == 0x08)
+            {
+                bw.Write((ulong)0x00);
+            }
 
             // Write files
             bw.Write(buffer.ToArray());
