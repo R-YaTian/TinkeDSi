@@ -590,6 +590,7 @@ namespace Fonts
 
         public static void ExportInfo(string fileOut, Dictionary<int, int> charTable, sNFTR font)
         {
+            /*
             string enc_name = "utf-8";
             if (font.fnif.encoding == 2)
                 enc_name = "shift_jis";
@@ -599,26 +600,52 @@ namespace Fonts
                 enc_name = "utf-8";
             else if (font.fnif.encoding == 3)
                 enc_name = Encoding.GetEncoding(1252).EncodingName;
+            */
+            var encoding = Encoding.UTF8;
+            switch (font.fnif.encoding)
+            {
+                case 2:
+                    encoding = Encoding.GetEncoding(932); //Shift-JIS
+                    break;
+                case 0:
+                    encoding = Encoding.UTF8;
+                    break;
+                case 3:
+                    encoding = Encoding.GetEncoding(1252);
+                    break;
+                case 1:
+                    encoding = Encoding.Unicode;
+                    break;
+            }
 
             XDocument doc = new XDocument();
-            doc.Declaration = new XDeclaration("1.0", enc_name, null);
+            //doc.Declaration = new XDeclaration("1.0", enc_name, null);
+            doc.Declaration = new XDeclaration("1.0", encoding.BodyName, null);
 
             XElement root = new XElement("CharMap");
 
-            foreach (int c in charTable.Keys)
+            //foreach (int c in charTable.Keys)
+            var charCodeTuples = charTable.OrderBy(kvp => kvp.Value).ToList();
+            foreach (var kvp in charCodeTuples)
             {
+                var c = kvp.Key;
                 string ch = "";
-                byte[] codes = BitConverter.GetBytes(c).Reverse().ToArray();
-                ch = new String(Encoding.GetEncoding(enc_name).GetChars(codes)).Replace("\0", "");
+                //byte[] codes = BitConverter.GetBytes(c).Reverse().ToArray();
+                //ch = new String(Encoding.GetEncoding(enc_name).GetChars(codes)).Replace("\0", "");
 
-                int tileCode = charTable[c];
+                //int tileCode = charTable[c];
+                byte[] codes = BitConverter.GetBytes(c).ToArray();
+                ch = new String(Encoding.Unicode.GetChars(codes)).Replace("\0", "");
+
+                int tileCode = kvp.Value;
                 if (tileCode >= font.hdwc.info.Count)
                     continue;
                 sNFTR.HDWC.Info info = font.hdwc.info[tileCode];
 
                 XElement chx = new XElement("CharInfo");
                 chx.SetAttributeValue("Char", ch);
-                chx.SetAttributeValue("Code", c.ToString("x"));
+                //chx.SetAttributeValue("Code", c.ToString("x"));
+                chx.SetAttributeValue("Code", c);
                 chx.SetAttributeValue("Index", tileCode.ToString());
                 chx.SetAttributeValue("Width", info.pixel_length.ToString());
                 root.Add(chx);

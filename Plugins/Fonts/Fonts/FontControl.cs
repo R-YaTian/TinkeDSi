@@ -225,8 +225,15 @@ namespace Fonts
 
         private void btnPalette_Click(object sender, EventArgs e)
         {
-            if (pluginHost.Get_Palette().Loaded)
-                palette = pluginHost.Get_Palette().Palette[0];
+            try 
+            {
+                if (pluginHost.Get_Palette().Loaded)
+                    palette = pluginHost.Get_Palette().Palette[0];
+            }
+            catch
+            {
+                return;
+            }
 
             int depth = Convert.ToByte(new String('1', font.plgc.depth), 2);
             Color[] palette2 = new System.Drawing.Color[depth + 1];

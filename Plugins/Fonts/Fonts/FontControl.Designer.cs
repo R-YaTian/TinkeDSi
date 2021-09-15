@@ -143,9 +143,9 @@ namespace Fonts
             this.comboEncoding.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboEncoding.FormattingEnabled = true;
             this.comboEncoding.Items.AddRange(new object[] {
-            "utf-8",
-            "utf-16",
-            "shift_jis",
+            "UTF-8",
+            "Unicode",
+            "Shift-JIS",
             "CP1252"});
             this.comboEncoding.Location = new System.Drawing.Point(230, 4);
             this.comboEncoding.Name = "comboEncoding";
