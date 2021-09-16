@@ -167,7 +167,12 @@ namespace Pack
             br.Close();
 
             // Write FAT section
-            uint offset = fatOffset + fatSize + fatSize % 0x0F;
+            uint rest;
+            if (fatSize % 0x0F == 0x08)
+                rest = 0x08;
+            else
+                rest = 0x10;
+            uint offset = fatOffset + fatSize + rest;
             for (int i = 0; i < fatSize / 8; i++)
             {
                 bw.Write(offset);
@@ -191,6 +196,11 @@ namespace Pack
             }
             if (fatSize % 0x0F == 0x08)
             {
+                bw.Write((ulong)0x00);
+            }
+            else
+            {
+                bw.Write((ulong)0x00);
                 bw.Write((ulong)0x00);
             }
 

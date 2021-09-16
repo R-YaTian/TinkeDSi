@@ -68,7 +68,7 @@ namespace Pack.Games
                 return Unpack_Sound(file.path, file.name);
 
             return Unpack_Images(file.path);
-            return new sFolder();
+            //return new sFolder();
         }
 
         public void Read(sFile file)
