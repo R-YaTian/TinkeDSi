@@ -2448,20 +2448,24 @@ namespace Tinke
         }
         private void btnImport1_Click(object sender, EventArgs e)
         {
-            FolderBrowserDialog FBD = new FolderBrowserDialog
-            {
-                Description = Tools.Helper.GetTranslation("Sistema", "S47"),
-                ShowNewFolderButton = false
-            };
-            if (FBD.ShowDialog() != DialogResult.OK)
-                return;
-
             Thread matching = new Thread(ThreadEspera)
             {
                 IsBackground = true
             };
             if (!isMono)
                 matching.Start("S08");
+
+            FolderBrowserDialog FBD = new FolderBrowserDialog
+            {
+                Description = Tools.Helper.GetTranslation("Sistema", "S47"),
+                ShowNewFolderButton = false
+            };
+            if (FBD.ShowDialog() != DialogResult.OK)
+            {
+                if (!isMono)
+                    espera.Close();
+                return;
+            }
 
             Console.WriteLine(FBD.SelectedPath);
             List<string> files = new List<string>();
@@ -2509,7 +2513,6 @@ namespace Tinke
                 accion.Change_File(fileToBeChanged.id, currFile);
                 Console.WriteLine(currFile);
             }
-
             if (!isMono)
                 espera.Close();
         }
