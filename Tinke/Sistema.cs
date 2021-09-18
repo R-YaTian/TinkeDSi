@@ -689,6 +689,7 @@ namespace Tinke
         private void ThreadEspera(Object name)
         {
             espera = new Espera((string)name, false);
+            espera.TopMost = true;
             espera.ShowDialog();
         }
         #endregion
