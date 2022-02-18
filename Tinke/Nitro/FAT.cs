@@ -141,7 +141,7 @@ namespace Tinke.Nitro
                     //Sonic Classic Collection special fix
                     if ((string.Equals(game_code, "VSOE") || string.Equals(game_code, "VSOV")) && string.Equals(currFile.name, "title.wav"))
                     {
-                        offset += 0x6C5278;
+                        offset += 0x6C5278 - currFile.size + 0x8DB88;
                     }
                     else if ((string.Equals(game_code, "VSOE") || string.Equals(game_code, "VSOV")) && string.Equals(currFile.name, "Game.pak"))
                     {

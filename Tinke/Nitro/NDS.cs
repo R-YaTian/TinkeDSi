@@ -643,7 +643,7 @@ namespace Tinke.Nitro
                 string game_code = new string(cabecera.gameCode).Replace("\0", "");
                 if ((string.Equals(game_code, "VSOE") || string.Equals(game_code, "VSOV")) && string.Equals(currFile.name, "title.wav"))
                 {
-                    rem = 0x6C5278;
+                    rem = 0x6C5278 - (int)currFile.size + 0x8DB88;
                     while (rem > 0)
                     {
                         bw.Write((byte)0xFF);
