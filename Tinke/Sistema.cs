@@ -243,11 +243,9 @@ namespace Tinke
             // Read DSi stuff
             if ((romInfo.Cabecera.unitCode & 2) > 0 && (romInfo.Cabecera.twlInternalFlags & 1) > 0)
             {
-                //Console.WriteLine("twlInternalFlags");
                 // Read TWL rom data if the DSi ROM is valid 
                 if (romInfo.Cabecera.tid_high != 0 && romInfo.Cabecera.tid_high != 0xFFFFFFFF)
                 {
-                    //Console.WriteLine("twlInternalFlags1");
                     // NOTE: Some DSi Enhanced ROMs is invalid!
                     try
                     {
@@ -1674,7 +1672,7 @@ namespace Tinke
             // Escribimos el FAT (File Allocation Table)
             string fileFAT = Path.GetTempFileName();
             header.FAToffset = currPos;
-            Nitro.FAT.Write(fileFAT, accion.Root, header.FAToffset, accion.SortedIDs, arm9overlayOffset, arm7overlayOffset, header.banner_size);
+            Nitro.FAT.Write(fileFAT, accion.Root, header.FAToffset, accion.SortedIDs, arm9overlayOffset, arm7overlayOffset, header);
             currPos += (uint)new FileInfo(fileFAT).Length;
 
             header.bannerOffset = currPos;
@@ -1682,7 +1680,7 @@ namespace Tinke
 
             // Escribimos los archivos
             string files = Path.GetTempFileName();
-            Nitro.NDS.Write_Files(files, accion.ROMFile, accion.Root, accion.SortedIDs);
+            Nitro.NDS.Write_Files(files, accion.ROMFile, accion.Root, accion.SortedIDs, header);
             currPos += (uint)new FileInfo(files).Length;
 
             // Update the ROM size values of the header

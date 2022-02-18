@@ -591,7 +591,7 @@ namespace Tinke.Nitro
             return imagen;
         }
 
-        public static void Write_Files(string fileOut, string romFile, sFolder root, ushort[] sortedIDs)
+        public static void Write_Files(string fileOut, string romFile, sFolder root, ushort[] sortedIDs, Estructuras.ROMHeader cabecera)
         {
             BinaryWriter bw = new BinaryWriter(File.OpenWrite(fileOut));
             BinaryReader br = new BinaryReader(File.OpenRead(romFile));
@@ -639,7 +639,27 @@ namespace Tinke.Nitro
                 // There is no need to padd last file since no more data will be
                 // after it. A full padding of the ROM will be applied later.
                 int rem = (int)bw.BaseStream.Position % 0x200;
-                if (rem != 0 && i != sortedIDs.Length - 1)
+                //Sonic Classic Collection special fix
+                string game_code = new string(cabecera.gameCode).Replace("\0", "");
+                if (string.Equals(game_code, "VSOE") && string.Equals(currFile.name, "title.wav"))
+                {
+                    rem = 0x6C5278;
+                    while (rem > 0)
+                    {
+                        bw.Write((byte)0xFF);
+                        rem--;
+                    }
+                }
+                else if (string.Equals(game_code, "VSOE") && string.Equals(currFile.name, "Game.pak"))
+                {
+                    rem = 0xD9F0;
+                    while (rem > 0)
+                    {
+                        bw.Write((byte)0xFF);
+                        rem--;
+                    }
+                }
+                else if (rem != 0 && i != sortedIDs.Length - 1)
                 {
                     while (rem < 0x200)
                     {

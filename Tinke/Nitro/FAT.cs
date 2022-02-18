@@ -77,8 +77,9 @@ namespace Tinke.Nitro
             bw.Close();
             Console.WriteLine(Tools.Helper.GetTranslation("Messages", "S09"), new FileInfo(salida).Length);
         }
-        public static void Write(string fileOut, sFolder root, uint offsetFAT, ushort[] sortedIDs, uint offset_ov9, uint offset_ov7, uint bannerSize)
+        public static void Write(string fileOut, sFolder root, uint offsetFAT, ushort[] sortedIDs, uint offset_ov9, uint offset_ov7, Estructuras.ROMHeader cabecera)
         {
+            uint bannerSize = cabecera.banner_size;
             BinaryWriter bw = new BinaryWriter(File.OpenWrite(fileOut));
             Console.Write("File Allocation Table (FAT)...");
 
@@ -87,7 +88,7 @@ namespace Tinke.Nitro
             // Set the first file offset
             uint offset = (uint)(offsetFAT + num_files * 0x08);
             //if ((offset % 0x200) != 0)
-                offset += 0x200 - (offset % 0x200);
+            offset += 0x200 - (offset % 0x200);
             offset += bannerSize + 0x200 - (bannerSize % 0x200);
 
             // Get overlays IDs (all system files)
@@ -102,6 +103,7 @@ namespace Tinke.Nitro
             for (int i = 0; i < num_files; i++)
             {
                 sFile currFile = Search_File(sortedIDs[i], root);
+                string game_code = new string(cabecera.gameCode).Replace("\0", "");
 
                 if (!(currFile.name is string))
                     zero_files++;
@@ -136,8 +138,16 @@ namespace Tinke.Nitro
                     offset += currFile.size;
                     temp = BitConverter.GetBytes(offset);
                     Array.Copy(temp, 0, buffer, sortedIDs[i] * 8 + 4, 4);
-
-                    if (offset % 0x200 != 0) offset += 0x200 - (offset % 0x200);
+                    //Sonic Classic Collection special fix
+                    if (string.Equals(game_code, "VSOE") && string.Equals(currFile.name, "title.wav"))
+                    {
+                        offset += 0x6C5278;
+                    }
+                    else if (string.Equals(game_code, "VSOE") && string.Equals(currFile.name, "Game.pak"))
+                    {
+                        offset += 0xD9F0;
+                    }
+                    else if (offset % 0x200 != 0) offset += 0x200 - (offset % 0x200);
                 }
             }
 
