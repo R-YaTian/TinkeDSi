@@ -139,11 +139,11 @@ namespace Tinke.Nitro
                     temp = BitConverter.GetBytes(offset);
                     Array.Copy(temp, 0, buffer, sortedIDs[i] * 8 + 4, 4);
                     //Sonic Classic Collection special fix
-                    if (string.Equals(game_code, "VSOE") && string.Equals(currFile.name, "title.wav"))
+                    if ((string.Equals(game_code, "VSOE") || string.Equals(game_code, "VSOV")) && string.Equals(currFile.name, "title.wav"))
                     {
                         offset += 0x6C5278;
                     }
-                    else if (string.Equals(game_code, "VSOE") && string.Equals(currFile.name, "Game.pak"))
+                    else if ((string.Equals(game_code, "VSOE") || string.Equals(game_code, "VSOV")) && string.Equals(currFile.name, "Game.pak"))
                     {
                         offset += 0xD9F0;
                     }

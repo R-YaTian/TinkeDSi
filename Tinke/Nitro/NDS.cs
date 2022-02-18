@@ -641,7 +641,7 @@ namespace Tinke.Nitro
                 int rem = (int)bw.BaseStream.Position % 0x200;
                 //Sonic Classic Collection special fix
                 string game_code = new string(cabecera.gameCode).Replace("\0", "");
-                if (string.Equals(game_code, "VSOE") && string.Equals(currFile.name, "title.wav"))
+                if ((string.Equals(game_code, "VSOE") || string.Equals(game_code, "VSOV")) && string.Equals(currFile.name, "title.wav"))
                 {
                     rem = 0x6C5278;
                     while (rem > 0)
@@ -650,7 +650,7 @@ namespace Tinke.Nitro
                         rem--;
                     }
                 }
-                else if (string.Equals(game_code, "VSOE") && string.Equals(currFile.name, "Game.pak"))
+                else if ((string.Equals(game_code, "VSOE") || string.Equals(game_code, "VSOV")) && string.Equals(currFile.name, "Game.pak"))
                 {
                     rem = 0xD9F0;
                     while (rem > 0)
