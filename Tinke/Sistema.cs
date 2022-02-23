@@ -2533,5 +2533,31 @@ namespace Tinke
             }
             return files;
         }
+
+        private void Sistema_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                e.Effect = DragDropEffects.All;
+            }
+            else
+            {
+                e.Effect = DragDropEffects.None;
+            }
+        }
+
+        private void Sistema_DragDrop(object sender, DragEventArgs e)
+        {
+            string[] filePaths = (string[])e.Data.GetData(DataFormats.FileDrop, false);
+            string inFile;
+            if (null != filePaths && filePaths.Length > 0)
+            {
+                foreach (string item in filePaths)
+                {
+                    inFile = String.Format("\"{0}\"", item);
+                    System.Diagnostics.Process.Start(Application.ExecutablePath, inFile);
+                }
+            }
+        }
     }
 }
