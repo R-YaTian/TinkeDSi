@@ -1,15 +1,12 @@
 # Tinke
-<p align="center">
-<a href="https://travis-ci.org/pleonex/tinke"><img alt="Build Status" src="https://travis-ci.org/pleonex/tinke.svg?branch=master" align="left" /></a>
-<a href="https://ci.appveyor.com/project/pleonex/tinke"><img alt="Build Status" src="https://ci.appveyor.com/api/projects/status/0vyjiqofvtiogueh?svg=true" align="left" /></a>
-<a href="http://www.gnu.org/copyleft/gpl.html"><img alt="license" src="https://img.shields.io/badge/license-GPL%20V3-blue.svg?style=flat" /></a>
+<p align="left">
+<a href="http://www.gnu.org/copyleft/gpl.html"><img alt="license" src="https://img.shields.io/badge/license-GPL%20V3-blue.svg?style=flat"/></a>
 </p>
 
 > Tinke is a program to see, convert, and edit the **files of NDS games**. You can see a lot of format files like images, text, sounds, fonts and textures. Furthermore it works with **plugins** made in NET Framework languages (C# and VB.NET) so it's so easy to support new formats.
 
 To run the program you must have installed **[.NET Framework 4.5](https://www.microsoft.com/es-es/download/details.aspx?id=30653)** or **[mono](http://www.mono-project.com/download)**. In the case of *mono* on *Linux*, make sure you have installed the package **mono-locale-extras** too.
 
-Thread at GBAtemp.net: http://gbatemp.net/topic/303529-tinke-072/
 
 # Features
 
