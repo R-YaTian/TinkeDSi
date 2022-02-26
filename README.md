@@ -16,7 +16,11 @@ To run the program you must have installed **[.NET Framework 4.5](https://www.mi
  * Hexadecimal visor
  * Change the content of the files and save the new ROM. (Support change files by dir)
  * Multilenguage support
- * A way to fix DSi header. (Then you can import arm9/7i file to fix "DSi binary file missing error" for romhacks and/or bad dumps)
+ * A way to fix DSi header. (Then you can import arm9/7i file to fix "DSi binary file is missing" error for romhacks and/or bad dumps)
+    * How to fix "DSi binary file is missing" error?
+    * Step 1: Open "good dump" with TinkeDSi, then export iheader file on ROM info window and export arm9/7i.bin files on nitrofs window.
+    * Step 2: Open "bad dump" and import iheader on ROM info window, then save the ROM as a new file.
+    * Step 3: Open the new ROM file, replace arm9/7i.bin on nitrofs window then save the ROM.
 
 # Supported formats
 
