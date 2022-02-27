@@ -1,6 +1,7 @@
 # TinkeDSi
 <p align="left">
 <a href="http://www.gnu.org/copyleft/gpl.html"><img alt="license" src="https://img.shields.io/badge/license-GPL%20V3-blue.svg?style=flat"/></a>
+<a title="Crowdin" target="_blank" href="https://crowdin.com/project/tinkedsi"><img src="https://badges.crowdin.net/tinkedsi/localized.svg"></a>
 </p>
 
 > TinkeDSi is a program to see, convert, and edit the **files of NDS(i) games**. You can see a lot of format files like images, text, sounds, fonts and textures. Furthermore it works with **plugins** made in NET Framework languages (C# and VB.NET) so it's so easy to support new formats.
@@ -21,6 +22,10 @@ To run the program you must have installed **[.NET Framework 4.5](https://www.mi
     * Step 1: Open "good dump" with TinkeDSi, then export iheader file on ROM info window and export arm9/7i.bin files on nitrofs window.
     * Step 2: Open "bad dump" and import iheader on ROM info window, then save the ROM as a new file.
     * Step 3: Open the new ROM file, replace arm9/7i.bin on nitrofs window then save the ROM.
+
+#  Translating
+
+You can help translate TinkeDSi on [Crowdin](https://crwd.in/tinkedsi). If you'd like to request a new language be added please open an issue for that.
 
 # Supported formats
 
