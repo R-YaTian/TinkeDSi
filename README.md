@@ -15,7 +15,7 @@ To run the program you must have installed **[.NET Framework 4.5](https://www.mi
  * Show the ROM header with the banner and edit it. (Support edit and/or fix DSi banner)
  * Show and convert to common format a lot of files
  * Edit a lot of image files from BMP files (NCLR, NCGR, NSCR, NCER), audio files from WAV (SWAV, SWAR, STRM) and fonts (NFTR)
- * Hexadecimal visor
+ * Hexadecimal viewer
  * Change the content of the files and save the new ROM. (Support change files by dir)
  * Multilenguage support
  * A way to fix DSi header. (Then you can import arm9/7i file to fix "DSi binary file is missing" error for romhacks and/or bad dumps)
