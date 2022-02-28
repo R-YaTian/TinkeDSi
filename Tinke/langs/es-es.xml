@@ -1,12 +1,12 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Language name="Español">
   <Sistema>
     <S01>Abrir archivo(s)</S01>
     <S02>Información del juego</S02>
     <S03>Mensajes debug</S03>
     <S04>Modo ventana</S04>
-    <S05>Plugins</S05>
-    <S06>Recargar plugins</S06>
+    <S05>Plug-ins</S05>
+    <S06>Recargar plug-ins</S06>
     <S07>Campo</S07>
     <S08>Valor</S08>
     <S09>Nombre</S09>
@@ -15,7 +15,7 @@
     <S0C>Tamaño</S0C>
     <S0D>Tipo</S0D>
     <S0E>Ruta</S0E>
-    <S0F>Acerca de...</S0F>
+    <S0F>Acerca de</S0F>
     <S10>Borrar cadena</S10>
     <S11>Borrar paleta</S11>
     <S12>Borrar tile</S12>
@@ -30,7 +30,7 @@
     <S1B>Extraer</S1B>
     <S1C>Ver</S1C>
     <S1D>Hexadecimal</S1D>
-    <S1E>Languages</S1E>
+    <S1E>Lenguas</S1E>
     <S1F>Directorio</S1F>
     <S20>Paleta</S20>
     <S21>Tiles</S21>
@@ -44,7 +44,7 @@
     <S29>Fuentes</S29>
     <S2A>Comprimido</S2A>
     <S2B>Desconocido</S2B>
-    <S2C>Selecciona la carpeta donde se guardarán los archivos.</S2C>
+    <S2C>Selecciona la carpeta donde se guardarán los archivos</S2C>
     <S2D>Búsqueda</S2D>
     <S2E>Búsqueda instantánea</S2E>
     <S2F>Palabras claves de búsqueda:</S2F>
@@ -55,7 +55,7 @@
     <S34>Script</S34>
     <S35>
       ¿Estás seguro de que deseas descomprimir TODOS los archivos
-      de una carpeta?. Puede tardar bastante...
+      de una carpeta? Puede tardar bastante...
     </S35>
     <S36>
       Hubo un fallo al descomprimir.
@@ -64,8 +64,7 @@
     <S37>Hubo un error guardando las preferencias de usuario.</S37>
     <S38>Hubo un error leyendo las preferencias de usuario.</S38>
     <S39>
-      Ha cambiado archivos pero no ha guardado la nueva ROM.
-      ¿Está seguro de que deseas salir? De ser así, perderás
+      Ha cambiado archivos pero no ha guardado la nueva ROM. ¿Está seguro de que deseas salir? De ser así, perderás
       todos los cambios.
     </S39>
     <S3A>Advertencia</S3A>
@@ -89,8 +88,8 @@
       abierto actualmente.
     </S44>
     <S45>Recargar mensajes</S45>
-    <S46>Change by dir</S46>
-    <S47>The selected folder should be "root".</S47>
+    <S46>Cambiar por directorio</S46>
+    <S47>La carpeta seleccionada debe ser "root".</S47>
   </Sistema>
   <RomInfo>
     <S01>Información de la ROM</S01>
@@ -132,16 +131,16 @@
     <S25>ARM9 overlay tamaño</S25>
     <S26>ARM7 overlay offset</S26>
     <S27>ARM7 overlay tamaño</S27>
-    <S28>Ajuste de control normales</S28>
-    <S29>Ajuste de seguridad normales</S29>
+    <S28>Ajuste de control normal</S28>
+    <S29>Ajuste de control seguridad</S29>
     <S2A>Offset del icono del banner</S2A>
     <S2B>Área segura CRC</S2B>
     <S2C>Tiempo de espera de transferencia segura</S2C>
     <S2D>ARM9 autoload</S2D>
     <S2E>ARM7 autoload</S2E>
     <S2F>Seguridad deshabilitada</S2F>
-    <S30>Tamaño ROM</S30>
-    <S31>Tamaño cabecera</S31>
+    <S30>ROM tamaño</S30>
+    <S31>Cabecera tamaño</S31>
     <S32>Reservado</S32>
     <S33>CRC del logo de Nintendo</S33>
     <S34>CRC de la cabecera</S34>
@@ -152,8 +151,8 @@
     <S39>Inválido</S39>
     <S3A>Transparencia</S3A>
     <S3B>Editar cabecera y banner</S3B>
-    <S3C>Chinese</S3C>
-    <S3D>Korean</S3D>
+    <S3C>Chino</S3C>
+    <S3D>Coreano</S3D>
     <S3E>Dump icon data</S3E>
     <S3F>Dump animation data</S3F>
     <S40>Dump donor iheader</S40>
@@ -171,16 +170,16 @@
     </S06>
     <S07>
     Este programa se ha realizado gracias a la información y a las
-    herramientas de código abierto encontradas en las siguientes páginas.
+    herramientas de código abierto encontradas en las siguientes páginas:
     </S07>
     <S08>Librería de descompresión de formatos</S08>
-    <S09>Información técnica sobre estructuras de las roms.</S09>
+    <S09>Información técnica sobre estructuras de las rom.</S09>
     <S0A>Información sobre estructura de formatos de Nintendo.</S0A>
     <S0B>Iconos usados en este programa.</S0B>
-    <S0C>pleoNeX</S0C>
+    <S0C>pleoNeX, R-YaTian</S0C>
     <S0D>Agradecimientos:</S0D>
     <S0E>Editor hexadecimal por {0}</S0E>
-    <S0F>Plugins:</S0F>
+    <S0F>Plug-ins:</S0F>
   </Autores>
   <Espera>
     <S01>Cargando...</S01>
@@ -190,11 +189,11 @@
     <S05>Creando nueva ROM...</S05>
     <S06>Guardando nueva ROM...</S06>
     <S07>Buscando archivos...</S07>
-    <S08>Please wait...</S08>
+    <S08>Espere, por favor...</S08>
   </Espera>
   <Messages>
     <S01>Error</S01>
-    <S02>No se pudo identificar el juego. Verifique que es una ROM para NDS</S02>
+    <S02>No se pudo identificar el juego. ¿Verifique que es una ROM para NDS?</S02>
     <S03>Analizando el juego:</S03>
     <S04>Información del juego:</S04>
     <S05>Cargando el programa...</S05>
@@ -226,19 +225,13 @@
     <S18>Tiempo en jerarquizar el árbol:</S18>
     <S19>Tiempo en obtener el porcentaje de archivos soportados:</S19>
     <S1A>Archivos comprimidos</S1A>
-    <S1B>
-      Para ver este archivo necesitas guardar la información (doble click sobre el archivo)
-      de una paleta
-    </S1B>
-    <S1C>
-      Para ver este archivo necesitas guardar la información (doble click sobre el archivo)
-      de una paleta y una imagen (tiles)
-    </S1C>
+    <S1B>Para ver este archivo necesitas guardar la información (doble clic sobre el archivo)
+      de una paleta</S1B>
+    <S1C>Para ver este archivo necesitas guardar la información (doble clic sobre el archivo)
+      de una paleta y una imagen (tiles)</S1C>
     <S1D>Por el momento compresiones normales no devuelven información.</S1D>
-    <S1E>
-      Para ver este archivo necesitas guardar la información (doble click sobre el archivo)
-      de una paleta, una imagen (tiles) y una archivo de celdas
-    </S1E>
+    <S1E>Para ver este archivo necesitas guardar la información (doble clic sobre el archivo)
+      de una paleta, una imagen (tiles) y una archivo de celdas</S1E>
     <S1F>
       Los siguientes archivos faltan
       {0}
@@ -253,8 +246,8 @@
     </S20>
     <S21>Tiempo en leer archivos exteriores:</S21>
     <S22>No se pudo borrar la carpeta temporal</S22>
-    <S23>Hubo un fallo al intentar comprimir el archivo</S23>
-    <S24>La imagen utiliza todos los colores, no puede ser eliminado ninguno</S24>
+    <S23>Hubo un fallo al intentar comprimir el archivo.</S23>
+    <S24>La imagen utiliza todos los colores, no puede ser eliminado ninguno.</S24>
     <S25>No se encontraron operaciones para realizar.</S25>
     <S26>Limpiar log</S26>
     <S27>The Version 2 Banner is good!</S27>
@@ -279,7 +272,7 @@
     <!-- LZ11 -->
     <S03>
       El archivo provisto no es un archivo LZ-0x11 comprimido válido.
-      Indicador inválido 0x{0}
+      Indicador inválido 0x{1}
     </S03>
     <S04>
       No se puede retroceder más de lo escrito. DISP = {0},
@@ -288,13 +281,13 @@
     <!-- Huffman -->
     <S05>
       El archivo provisto no es un archivo Huffman comprimido válido.
-      Indicador inválido 0x{0}; tamaño de block desconocido.
+      Indicador inválido 0x{0}; tamaño de bloque desconocido.
     </S05>
-    <S06>No hay suficientes datos para contener una árbol Huffman.</S06>
+    <S06>No hay suficientes datos para contener un árbol Huffman.</S06>
     <S07>El árbol Huffman es demasiado largo para el archivo dado.</S07>
     <S08>Tamaño de bloque desconocido {0}</S08>
     <S09>Tamaño de bloque no soportado {0}</S09>
-    <S0A>Referencia a un nodo no definido en el árbol huffman.</S0A>
+    <S0A>Referencia a un nodo no definido en el árbol Huffman.</S0A>
     <!-- RLE -->
     <S0B>
       El archivo provisto no es un archivo RLE comprimido válido.
@@ -302,7 +295,7 @@
     </S0B>
     <S0C>
       El archivo dado no es un archivo RLE válido;
-      la longitud de salida no concuerda con la previseta.
+      la longitud de salida no concuerda con lo provisto.
     </S0C>
     <!-- LZOvl -->
     <S0D>
@@ -317,7 +310,7 @@
     </S0E>
     <S0F>
       La entrada contiene más datos de los necesarios.
-      Sólo se ha usado 0x{0} de 0x{1} bytes.
+      Sólo se ha usado 0x{0} de 0x{1} bytes
     </S0F>
     <S10>
       Se ha alcanzado el final del archivo antes de ser
@@ -325,7 +318,7 @@
     </S10>
     <S11>No hay suficientes datos disponibles; 0x{0} de {1} bytes escritos.</S11>
     <!-- CompressionControl -->
-    <S12>Compresión del archivo de origen:</S12>
+    <S12>Compresión del archivo de origen: </S12>
     <S13>Nueva compresión:</S13>
     <S14>Ninguna</S14>
     <S15>Tipo de compresión:</S15>
@@ -341,7 +334,7 @@
   </DSDecmp>
   <EditRomInfo>
     <S00>Editar cabecera y banner del juego</S00>
-    <S01>Aceptar</S01>
+    <S01>Guardar</S01>
     <S02>Cancelar</S02>
     <S03>Cabecera</S03>
     <S04>Banner</S04>
@@ -366,10 +359,10 @@
     <S17>ARM9 load address:</S17>
     <S18>ARM7 entry address:</S18>
     <S19>ARM7 load address:</S19>
-    <S1A>Ajuste de control normales:</S1A>
-    <S1B>Ajuste de seguridad normales:</S1B>
+    <S1A>Ajuste de control normal:</S1A>
+    <S1B>Ajuste de control seguridad:</S1B>
     <S1C>Mostrar todos los códigos de las compañías</S1C>
-    <S1D>ROM timeout:</S1D>
+    <S1D>Secure transfer timeout:</S1D>
     <S1E>Seguridad deshabilitada:</S1E>
     <S1F>Reservado 3(4 bytes en Hex):</S1F>
     <S20>Reservado 2(56 bytes en Hex):</S20>
@@ -386,23 +379,23 @@
     <S28>Código</S28>
     <S29>Compañía</S29>
     <S2A>Códigos de las compañías</S2A>
-    <S2B>Chinese</S2B>
-    <S2C>Korean</S2C>
+    <S2B>Chino</S2B>
+    <S2C>Coreano</S2C>
     <S2D>Import animation data</S2D>
     <S2E>Import donor iheader</S2E>
   </EditRomInfo>
   <Dialog>
     <!-- Select Mode Color-->
-    <S00>Elije el modo de selección de color</S00>
+    <S00>Elegir el modo de selección de color</S00>
     <S01>Aceptar</S01>
-    <S02>Hacer click sobre el color en la imagen</S02>
+    <S02>Hacer clic sobre el color en la imagen</S02>
     <S03>Elegir color a partir de valores RGB</S03>
     <S1D>Añadir eliminando colores no usados</S1D>
     <!-- Select offset -->
     <S04>Introduce offset</S04>
     <S05>Introduce el offset de inicio de lectura del archivo</S05>
     <!-- FAT Extract -->
-    <S06>Extaer archivos</S06>
+    <S06>Extraer archivos</S06>
     <S07>Opciones</S07>
     <S08>Número de archivos</S08>
     <S09>Leer en posición:</S09>
@@ -423,7 +416,7 @@
     <S18>Offset:</S18>
     <S19>Primer archivo</S19>
     <S1A>Leer offset</S1A>
-    <S1B>Visor hexadecimal</S1B>
+    <S1B>Hexadecimal</S1B>
     <S1C>Aceptar</S1C>
   </Dialog>
   <VisorHex>
@@ -441,7 +434,7 @@
     <S0B>Codificación</S0B>
     <S0C>Seleccionado desde 0x{0} con longitud 0x{1}</S0C>
   </VisorHex>
-
+  
   <!-- Ekona controls -->
   <Ekona>
     <PaletteControl>
@@ -490,8 +483,8 @@
       <S01>Bank:</S01>
       <S02>Show all banks</S02>
       <S03>
-        Base name (without extension)
-        %s will be replace by the bank ID
+Base name (without extension)
+%s will be replace by the bank ID
       </S03>
       <S04>Export / Import multi-mode</S04>
       <S05>OAM Editor</S05>
