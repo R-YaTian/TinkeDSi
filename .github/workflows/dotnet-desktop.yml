@@ -29,3 +29,9 @@ jobs:
     - name: Build
       run: |
         ./compile.bat Release x64
+        tar.exe -acf ./Build.zip build
+
+    - uses: actions/upload-artifact@master
+      with:
+        name: TinkeDSi
+        path: Build.zip
