@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Language name="Français">
   <Sistema>
     <S01>Ouvrir archive(s)</S01>
@@ -11,11 +11,11 @@
     <S08>Données</S08>
     <S09>Nom</S09>
     <S0A>ID</S0A>
-    <S0B>Offset (Déplacement)</S0B>
+    <S0B>Offset</S0B>
     <S0C>Taille</S0C>
     <S0D>Format</S0D>
     <S0E>Chemin d'accès</S0E>
-    <S0F>À propos de...</S0F>
+    <S0F>À propos de</S0F>
     <S10>Effacer chaîne de caractères</S10>
     <S11>Effacer palette</S11>
     <S12>Effacer tuile</S12>
@@ -30,11 +30,11 @@
     <S1B>Extraire</S1B>
     <S1C>Voir</S1C>
     <S1D>Hexadécimal</S1D>
-    <S1E>Language</S1E>
+    <S1E>Langues</S1E>
     <S1F>Répertoire</S1F>
     <S20>Palette</S20>
     <S21>Tuiles (Tiles)</S21>
-    <S22>Écran</S22>
+    <S22>Map</S22>
     <S23>Cellules</S23>
     <S24>Animation</S24>
     <S25>Image</S25>
@@ -87,16 +87,16 @@
       Désolé, vous ne pouvez pas écraser l'archive
       ouverte actuellement.
     </S44>
-    <S45>Rafraïchir message</S45>
-    <S46>Change by dir</S46>
-    <S47>The selected folder should be "root".</S47>
+    <S45>Rafraîchir message</S45>
+    <S46>Changer par répertoire</S46>
+    <S47>Le dossier sélectionné doit être "root".</S47>
   </Sistema>
   <RomInfo>
     <S01>Informations de la ROM</S01>
     <S02>Bannière</S02>
     <S03>Sauvegarder...</S03>
-    <S04>Version:</S04>
-    <S05>Réserver:</S05>
+    <S04>Version :</S04>
+    <S05>Réservé :</S05>
     <S06>Japonais</S06>
     <S07>Anglais</S07>
     <S08>Français</S08>
@@ -131,9 +131,9 @@
     <S25>Taille d'overlay ARM9</S25>
     <S26>Offset d'overlay ARM7</S26>
     <S27>Taille d'overlay ARM7</S27>
-    <S28>Ajustements de contrôle normales</S28>
-    <S29>Ajustements de sécurité normales</S29>
-    <S2A>Offset de l'icone de bannière</S2A>
+    <S28>Ajustements de contrôle normal</S28>
+    <S29>Ajustements de contrôle sécurité</S29>
+    <S2A>Offset de l'icône de bannière</S2A>
     <S2B>Secteur de sécurité CRC</S2B>
     <S2C>Délai de transfert sécurisé</S2C>
     <S2D>Auto-charger ARM9</S2D>
@@ -148,37 +148,37 @@
     <S36>Taille de debug</S36>
     <S37>Offset de la RAM de debug</S37>
     <S38>Réservé</S38>
-    <S39>Non valide</S39>
+    <S39>Invalide</S39>
     <S3A>Transparence</S3A>
     <S3B>Éditer En-tête/bannière</S3B>
-    <S3C>Chinese</S3C>
-    <S3D>Korean</S3D>
+    <S3C>Chinois</S3C>
+    <S3D>Coréen</S3D>
     <S3E>Dump icon data</S3E>
     <S3F>Dump animation data</S3F>
     <S40>Dump donor iheader</S40>
-    <S41>Titres du jeu:</S41>
+    <S41>Titres du jeu :</S41>
   </RomInfo>
   <Autores>
     <S01>À propos de</S01>
     <S02>Version</S02>
-    <S03>Programmé par:</S03>
-    <S04>Traduit en français par:</S04>
+    <S03>Programmé par :</S03>
+    <S04>Traduit en français par :</S04>
     <S05>Code source :</S05>
     <S06>
-    Ce logiciel est sous les termes de la license GPL V3.
+      Ce logiciel est sous les termes de la license GPL V3.
     </S06>
     <S07>
-    Ce lociciel a pu être realisé grâce à l'information
-    et les outils open source trouvés sous:
+    Ce logiciel a pu être réalisé grâce à l'information
+    et les outils open source trouvés sous :
     </S07>
     <S08>Bibliothèque de décompression de formats</S08>
-    <S09>Informations techniques sur la structure des ROMs.</S09>
+    <S09>Informations techniques sur la structure de la rom.</S09>
     <S0A>Informations sur la structure de formats de Nintendo.</S0A>
-    <S0B>Icônes utilisés pour ce logiciel.</S0B>
-    <S0C>rafael1193, Vix33, Valioukha</S0C>
+    <S0B>Icônes utilisées pour ce logiciel.</S0B>
+    <S0C>Rafael1193, Vix33, Valioukha</S0C>
     <S0D>Remerciements spéciaux :</S0D>
     <S0E>Éditeur hexadécimal par {0}</S0E>
-    <S0F>Plugins:</S0F>
+    <S0F>Plugins :</S0F>
   </Autores>
   <Espera>
     <S01>Chargement...</S01>
@@ -188,7 +188,7 @@
     <S05>Création d'une nouvelle ROM...</S05>
     <S06>Sauvegarde d'une nouvelle ROM...</S06>
     <S07>Recherche des fichiers...</S07>
-    <S08>Please wait...</S08>
+    <S08>Veuillez patienter...</S08>
   </Espera>
   <Messages>
     <S01>Erreur</S01>
@@ -241,7 +241,7 @@
       {1}
     </S20>
     <S21>Temps de lecture des archives externes :</S21>
-    <S22>Le dossier temporaire (temp) ne peut pas être supprimé.</S22>
+    <S22>Le dossier temporaire (temp) ne peut pas être supprimé</S22>
     <S23>Il y a une erreur de tentative à la compression de l'archive.</S23>
     <S24>Toutes les couleurs sont utilisées par l'image.</S24>
     <S25>Rien à faire.</S25>
@@ -254,133 +254,6 @@
     <S2C>The DSi Banner is incomplete or corrupted.</S2C>
     <S2D>The donor iheader mismatch!</S2D>
   </Messages>
-  <NCLR>
-    <S01>Nombre de la palette :</S01>
-    <S02>Propriétés</S02>
-    <S03>Champ</S03>
-    <S04>Valeur</S04>
-    <S05>Nombre de palettes</S05>
-    <S06>Profondeur des couleurs</S06>
-    <S07>Padding</S07>
-    <S08>Nombre de couleurs par palette</S08>
-    <S09>Taille de la palette</S09>
-    <S0A>Sauvegarder</S0A>
-    <S0B>Montrer toutes les palettes</S0B>
-    <S0C>Palette</S0C>
-    <S0D>Analyser la palette NCLR</S0D>
-    <S0E>Nombre étrange de sections ? :</S0E>
-    <S0F>palettes trouvées</S0F>
-    <S10>couleurs.</S10>
-    <S11>Modifier</S11>
-    <S12>Octet de départ :</S12>
-    <S13>Importer</S13>
-    <S14>Changer la profondeur</S14>
-    <S15>Archive non supportée</S15>
-    <S16>Fichier BMP incorrect, profondeur {0}</S16>
-  </NCLR>
-  <NCGR>
-    <S01>
-      Double-cliquez sur l'image pour la voir en
-      taille réelle.
-    </S01>
-    <S02>Propriétés</S02>
-    <S03>Position</S03>
-    <S04>Champ</S04>
-    <S05>Valeur</S05>
-    <S06>Inconnu</S06>
-    <S07>Nombre de sections</S07>
-    <S08>ID Section 1</S08>
-    <S09>Taille</S09>
-    <S0A>Tuiles Y</S0A>
-    <S0B>Tuiles X</S0B>
-    <S0C>Format</S0C>
-    <S0D>Inconnu</S0D>
-    <S0E>Inconnu</S0E>
-    <S0F>Taille données de pixels</S0F>
-    <S10>Inconnu</S10>
-    <S11>Début :</S11>
-    <S12>Longueur :</S12>
-    <S13>Hauteur :</S13>
-    <S14>Ordre des tuiles :</S14>
-    <S15>Sauvegarder</S15>
-    <S16>Aucune tuile</S16>
-    <S17>Horizontal</S17>
-    <S18>Vertical</S18>
-    <S19>Image en taille réelle</S19>
-    <S1A>Images divisées</S1A>
-    <S1B>Image</S1B>
-    <S1C>Transparence</S1C>
-    <S1D>Restaurer</S1D>
-    <S1E>Zoom</S1E>
-    <S1F>Couleur du fond</S1F>
-    <S20>Supprimer</S20>
-    <S21>Importer</S21>
-    <S22>Fixer la couleur transparente</S22>
-    <S23>Archive non supportée</S23>
-    <S24>Fichier BMP incorrect, profondeur {0}</S24>
-  </NCGR>
-  <NSCR>
-    <S00>Options de map</S00>
-    <S01>Longeur de map :</S01>
-    <S02>Hauteur de map :</S02>
-    <S03>Remplir l'image</S03>
-    <S04>Début de tuile :</S04>
-    <S05>Remplir avec une tuile :</S05>
-    <S06>Accepter</S06>
-    <S07>Longeur d'image :</S07>
-    <S08>Hauteur d'image :</S08>
-    <S09>Sous images</S09>
-    <S0A>Offset de début :</S0A>
-    <S0B>Numéro de palette :</S0B>
-    <S0C>Annuler</S0C>
-  </NSCR>
-  <NCER>
-    <S01>Banques :</S01>
-    <S02>Montrer toutes les banques</S02>
-    <S03>Enregistrer</S03>
-    <S04>Propriétés</S04>
-    <S05>Champ</S05>
-    <S06>Valeur</S06>
-    <S07>Section</S07>
-    <S08>Numéro des banques</S08>
-    <S09>Type des banques</S09>
-    <S0A>Constante</S0A>
-    <S0B>Taille du bloc</S0B>
-    <S0C>Inconnu 1</S0C>
-    <S0D>Inconnu 2</S0D>
-    <S0E>Inconnu (Section Uext)</S0E>
-    <S0F>Montrer environnement</S0F>
-    <S10>Montrer cellules</S10>
-    <S11>Montrer image</S11>
-    <S12>Transparence</S12>
-    <S13>Montrer numéros</S13>
-    <S14>Cellules</S14>
-    <S15>
-      Double-cliquez sur l'image pour la voir
-      en taille réelle.
-    </S15>
-    <S16>Zoom</S16>
-    <S17>Couleur du fond</S17>
-    <S18>Supprimer</S18>
-    <S19>Numéro des cellules</S19>
-    <S1A>Inconnu 1</S1A>
-    <S1B>Offset</S1B>
-    <S1C>Cellule</S1C>
-    <S1D>Position Y</S1D>
-    <S1E>Position X</S1E>
-    <S1F>Longueur</S1F>
-    <S20>Hauteur</S20>
-    <S21>Numéro de palette</S21>
-    <S22>Offset tuile originale</S22>
-    <S23>Offset tuile fixée</S23>
-    <S24>Importer</S24>
-    <S25>Fixer la couleur de transparence</S25>
-    <S26>
-      Image incorrecte.
-      L'image doit être de taille 512x512,
-      qui est, la même que l'image exportée.
-    </S26>
-  </NCER>
   <DSDecmp>
     <!-- LZ10 -->
     <S00>
@@ -410,7 +283,7 @@
     <S07>L'arborescence Huffman est trop grande pour l'archive entrée donnée.</S07>
     <S08>Taille du bloc inconnue {0}</S08>
     <S09>Taille du bloc non supportée {0}</S09>
-    <S0A>Référence à un noeud non défini dans l'arborescence Huffman.</S0A>
+    <S0A>Référence à un nœud non défini dans l'arborescence Huffman.</S0A>
     <!-- RLE -->
     <S0B>
       L'archive fournie n'est pas une archive valide compressée de type RLE.
@@ -433,7 +306,7 @@
     </S0E>
     <S0F>
       L'entrée contient plus de données que nécessaires.
-      Uniquement 0x{0} des 0x{1} octets utilisés.
+      Uniquement 0x{0} des 0x{1} octets utilisés
     </S0F>
     <S10>
       La fin de l'archive a été atteinte avant que
@@ -441,11 +314,11 @@
     </S10>
     <S11>Pas assez de données disponibles ; 0x{0} des {1} octets écrits.</S11>
     <!-- CompressionControl -->
-    <S12>Compression de l'archive d'origine :</S12>
+    <S12>Compression de l'archive d'origine : </S12>
     <S13>Nouvelle compression :</S13>
     <S14>Aucune</S14>
     <S15>Type de compression :</S15>
-    <S16>Utiliser la méthode "Lecture anticipée"</S16>
+    <S16>Utiliser la méthode "Look ahead"</S16>
     <S17>Compresser</S17>
     <S18>Compresser avec la meilleure compression</S18>
     <!-- Main -->
@@ -457,7 +330,7 @@
   </DSDecmp>
   <EditRomInfo>
     <S00>En-tête et éditeur de bannière</S00>
-    <S01>OK</S01>
+    <S01>Sauvegarder</S01>
     <S02>Annuler</S02>
     <S03>En-tête (Header)</S03>
     <S04>Bannière</S04>
@@ -470,25 +343,25 @@
     <S0B>Allemand</S0B>
     <S0C>Italien</S0C>
     <S0D>Espagnol</S0D>
-    <S0E>Réservé(22 octets Hexadécimal):</S0E>
+    <S0E>Réservé(22 octets Hexadécimal) :</S0E>
     <S0F>Titre du jeu :</S0F>
     <S10>Code du jeu :</S10>
     <S11>Code du créateur :</S11>
     <S12>Code de console :</S12>
-    <S13>Réservé(7 octets Hexadécimal):</S13>
+    <S13>Réservé(7 octets Hexadécimal) :</S13>
     <S14>Version de la ROM :</S14>
     <S15>Indicateurs internes :</S15>
     <S16>Adresse entrée ARM9 :</S16>
     <S17>Adresse chargée ARM9 :</S17>
     <S18>Adresse entrée ARM7 :</S18>
     <S19>Adresse chargée ARM7 :</S19>
-    <S1A>Ajustements de contrôle normales :</S1A>
-    <S1B>Ajustements de sécurité normales :</S1B>
+    <S1A>Ajustements de contrôle normal :</S1A>
+    <S1B>Ajustements de contrôle sécurité :</S1B>
     <S1C>Montrer tous les codes du créateur</S1C>
     <S1D>Délai de transfert sécurisé :</S1D>
     <S1E>Sécurité désactivée :</S1E>
-    <S1F>Réservé 3(4 octets Hexadécimal):</S1F>
-    <S20>Réservé 2(56 octets Hexadécimal):</S20>
+    <S1F>Réservé 3(4 octets Hexadécimal) :</S1F>
+    <S20>Réservé 2(56 octets Hexadécimal) :</S20>
     <S21>Auto-charger ARM9 :</S21>
     <S22>Auto-charger ARM7 :</S22>
     <S23>Offset de debug de la ROM :</S23>
@@ -502,13 +375,13 @@
     <S28>Code</S28>
     <S29>Compagnie</S29>
     <S2A>Codes de la Compagnie</S2A>
-    <S2B>Chinese</S2B>
-    <S2C>Korean</S2C>
+    <S2B>Chinois</S2B>
+    <S2C>Coréen</S2C>
     <S2D>Import animation data</S2D>
     <S2E>Import donor iheader</S2E>
   </EditRomInfo>
   <Dialog>
-    <!-- Select Mode Color -->
+    <!-- Select Mode Color-->
     <S00>Choisissez le mode de sélection</S00>
     <S01>Accepter</S01>
     <S02>Cliquer sur une couleur de l'image</S02>
@@ -557,8 +430,7 @@
     <S0B>Codage</S0B>
     <S0C>Sélectionné depuis 0x{0} avec une longueur de 0x{1}</S0C>
   </VisorHex>
-
-  <!-- Ekona controls -->
+  
   <!-- Ekona controls -->
   <Ekona>
     <PaletteControl>
@@ -572,21 +444,21 @@
       <S08>Palettes</S08>
       <S09>Palette</S09>
       <S0A>Use this palette</S0A>
-      <S0B>Hexadecimal</S0B>
+      <S0B>Hexadécimal</S0B>
       <S0C>Colors to fill:</S0C>
       <S0D>Fill colors</S0D>
     </PaletteControl>
     <ImageControl>
       <S01>Double-click to see the full image.</S01>
       <S02>Image properties</S02>
-      <S03>Offset:</S03>
-      <S04>Hexadecimal</S04>
+      <S03>Offset :</S03>
+      <S04>Hexadécimal</S04>
       <S05>Width:</S05>
       <S06>Height:</S06>
       <S07>Image pattern:</S07>
       <S08>Tile size:</S08>
       <S09>Num palette</S09>
-      <S0A>Transparency</S0A>
+      <S0A>Transparence</S0A>
       <S0B>Set transparency</S0B>
       <S0C>Set box background</S0C>
       <S0D>Remove box background</S0D>
@@ -607,8 +479,8 @@
       <S01>Bank:</S01>
       <S02>Show all banks</S02>
       <S03>
-        Base name (without extension)
-        %s will be replace by the bank ID
+Base name (without extension)
+%s will be replace by the bank ID
       </S03>
       <S04>Export / Import multi-mode</S04>
       <S05>OAM Editor</S05>
@@ -635,7 +507,7 @@
     </SpriteControl>
     <OAMEditor>
       <S01>OAM Editor</S01>
-      <S02>OAM:</S02>
+      <S02>OAM :</S02>
       <S03>of</S03>
       <S04>Object 0</S04>
       <S05>Y position:</S05>
@@ -646,7 +518,7 @@
       <S0A>Normal</S0A>
       <S0B>Semi-transparent</S0B>
       <S0C>Window</S0C>
-      <S0D>Invalid</S0D>
+      <S0D>Invalide</S0D>
       <S0E>Mosaic</S0E>
       <S0F>Depth:</S0F>
       <S10>4 bpp (16 colors)</S10>
@@ -655,7 +527,7 @@
       <S13>Square</S13>
       <S14>Horizontal</S14>
       <S15>Vertical</S15>
-      <S16>OAM id:</S16>
+      <S16>OAM id :</S16>
       <S17>Preview:</S17>
       <S18>Add OAM</S18>
       <S19>Remove OAM</S19>
@@ -669,10 +541,10 @@
       <S21>Tile offset:</S21>
       <S22>Priority:</S22>
       <S23>Palette index:</S23>
-      <S24>Save</S24>
+      <S24>Sauvegarder</S24>
       <S25>Auto set size:</S25>
       <S26>Preview options</S26>
-      <S27>Transparency</S27>
+      <S27>Transparence</S27>
       <S28>View oam border</S28>
       <S29>View image</S29>
       <S2A>View numbers</S2A>

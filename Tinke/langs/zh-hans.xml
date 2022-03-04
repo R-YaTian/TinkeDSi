@@ -1,0 +1,554 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Language name="简体中文">
+  <Sistema>
+    <S01>打开文件</S01>
+    <S02>游戏信息</S02>
+    <S03>调试信息</S03>
+    <S04>窗口模式</S04>
+    <S05>插件</S05>
+    <S06>重载插件</S06>
+    <S07>属性</S07>
+    <S08>文件</S08>
+    <S09>名称</S09>
+    <S0A>ID</S0A>
+    <S0B>偏移地址</S0B>
+    <S0C>长度</S0C>
+    <S0D>类型</S0D>
+    <S0E>路径</S0E>
+    <S0F>关于</S0F>
+    <S10>删除链结</S10>
+    <S11>删除调色板</S11>
+    <S12>删除TILE</S12>
+    <S13>删除MAP</S13>
+    <S14>删除单元格</S14>
+    <S15>删除动画</S15>
+    <S16>打开方式</S16>
+    <S17>调色板</S17>
+    <S18>Tile</S18>
+    <S19>Map</S19>
+    <S1A>解包</S1A>
+    <S1B>导出</S1B>
+    <S1C>查看</S1C>
+    <S1D>十六进制查看器</S1D>
+    <S1E>语言</S1E>
+    <S1F>文件夹</S1F>
+    <S20>调色板</S20>
+    <S21>Tiles</S21>
+    <S22>Map</S22>
+    <S23>单元格</S23>
+    <S24>动画</S24>
+    <S25>图片</S25>
+    <S26>文本</S26>
+    <S27>视频</S27>
+    <S28>声音</S28>
+    <S29>字库</S29>
+    <S2A>压缩</S2A>
+    <S2B>未知</S2B>
+    <S2C>选择要保存文件的文件夹</S2C>
+    <S2D>搜索</S2D>
+    <S2E>即时搜索</S2E>
+    <S2F>搜索关键字</S2F>
+    <S30>已找到的文件:</S30>
+    <S31>系统</S31>
+    <S32>替换文件</S32>
+    <S33>保存 ROM</S33>
+    <S34>脚本</S34>
+    <S35>
+      确定要解压该文件夹的
+      全部文件？ 这会花费较长的一段时间...
+    </S35>
+    <S36>
+      解压失败。
+      您确定这是一个压缩文件吗？
+    </S36>
+    <S37>用户操作保存出错。</S37>
+    <S38>用户操作读取出错。</S38>
+    <S39>
+      您尚未对编辑后的ROM进行保存。
+      确定要退出吗？ 未保存的改动将会丢失。
+    </S39>
+    <S3A>警告</S3A>
+    <S3B>
+      您是要导出解压的文件夹
+      而不是压缩的文件吗？
+    </S3B>
+    <S3C>所有文件信息</S3C>
+    <S3D>封包</S3D>
+    <S3E>纹理</S3E>
+    <S3F>3D模型</S3F>
+    <S40>相对路径</S40>
+    <S41>十六进制查看器</S41>
+    <S42>打包</S42>
+    <S43>
+      压缩该文件时出错。
+      请检查调试信息。
+    </S43>
+    <S44>
+      抱歉，您不能覆盖当前打开的 
+      个文件。
+    </S44>
+    <S45>刷新消息</S45>
+    <S46>按目录替换</S46>
+    <S47>所选文件夹应为“root”。</S47>
+  </Sistema>
+  <RomInfo>
+    <S01>游戏信息</S01>
+    <S02>标题</S02>
+    <S03>另存为</S03>
+    <S04>版本：</S04>
+    <S05>预留：</S05>
+    <S06>日语</S06>
+    <S07>英语</S07>
+    <S08>法语</S08>
+    <S09>德语</S09>
+    <S0A>意大利语</S0A>
+    <S0B>西班牙语</S0B>
+    <S0C>位置</S0C>
+    <S0D>属性</S0D>
+    <S0E>文件</S0E>
+    <S0F>游戏标题</S0F>
+    <S10>游戏代码</S10>
+    <S11>制造商代码</S11>
+    <S12>设备代码</S12>
+    <S13>加密密钥</S13>
+    <S14>文件长度</S14>
+    <S15>保留</S15>
+    <S16>ROM 版本</S16>
+    <S17>内部标志</S17>
+    <S18>ARM9 ROM 偏移值</S18>
+    <S19>ARM9 项地址</S19>
+    <S1A>ARM9 加载地址</S1A>
+    <S1B>ARM9 长度</S1B>
+    <S1C>ARM7 ROM 偏移值</S1C>
+    <S1D>ARM7 项地址</S1D>
+    <S1E>ARM7 加载地址</S1E>
+    <S1F>ARM7 长度</S1F>
+    <S20>文件名表 (FNT) 偏移值</S20>
+    <S21>文件名表 (FNT) 长度</S21>
+    <S22>文件分配表 (FAT) 偏移值</S22>
+    <S23>文件分配表 (FAT) 长度</S23>
+    <S24>ARM7 overlay 偏移值</S24>
+    <S25>ARM9 overlay 长度</S25>
+    <S26>ARM7 overlay 偏移值</S26>
+    <S27>ARM7 overlay 长度</S27>
+    <S28>Normal card control register settings</S28>
+    <S29>Secure card control register settings</S29>
+    <S2A>标题图标偏移值</S2A>
+    <S2B>安全区域 CRC</S2B>
+    <S2C>安全传输超时</S2C>
+    <S2D>ARM9 自动加载</S2D>
+    <S2E>ARM7 自动加载</S2E>
+    <S2F>安全验证禁用</S2F>
+    <S30>ROM 长度</S30>
+    <S31>文件头长度</S31>
+    <S32>保留</S32>
+    <S33>Nintendo logo CRC</S33>
+    <S34>文件头 CRC</S34>
+    <S35>Debug ROM 偏移地址</S35>
+    <S36>Debug 长度</S36>
+    <S37>Debug RAM 偏移地址</S37>
+    <S38>保留</S38>
+    <S39>无效</S39>
+    <S3A>透明度</S3A>
+    <S3B>编辑文件头与 banner</S3B>
+    <S3C>中文</S3C>
+    <S3D>韩语</S3D>
+    <S3E>导出图标数据</S3E>
+    <S3F>导出动画数据</S3F>
+    <S40>导出 donor iheader</S40>
+    <S41>游戏标题:</S41>
+  </RomInfo>
+  <Autores>
+    <S01>关于</S01>
+    <S02>版本</S02>
+    <S03>作者：</S03>
+    <S04>简体中文翻译:</S04>
+    <S05>源代码:</S05>
+    <S06>
+      本免费软件是在 GNU 通用公共许可证第三版的条款下发布的。
+    </S06>
+    <S07>
+    本程序是在以下网页的帮助下制作的:
+    </S07>
+    <S08>用于解压文件的库</S08>
+    <S09>ROM 文件头的信息</S09>
+    <S0A>关于 Nintendo 文件格式的信息。</S0A>
+    <S0B>此程序使用的图标。</S0B>
+    <S0C>pleoNeX</S0C>
+    <S0D>特别鸣谢:</S0D>
+    <S0E>十六进制编辑器由 {0} 制作</S0E>
+    <S0F>插件:</S0F>
+  </Autores>
+  <Espera>
+    <S01>正在加载...</S01>
+    <S02>加载文件系统...</S02>
+    <S03>正在导出文件...</S03>
+    <S04>正在解压文件...</S04>
+    <S05>正在创建新ROM...</S05>
+    <S06>正在保存新ROM...</S06>
+    <S07>正在搜索文件...</S07>
+    <S08>请稍候...</S08>
+  </Espera>
+  <Messages>
+    <S01>错误</S01>
+    <S02>打开文件时发生错误。 您确定这是一个 NDS 游戏吗？</S02>
+    <S03>正在分析游戏：</S03>
+    <S04>游戏信息:</S04>
+    <S05>正在载入程序...</S05>
+    <S06>
+      当前.NSCR文件与.NCGR选定的文件不一致。
+      请尝试其他的文件。
+    </S06>
+    <S07>请重新启动程序。</S07>
+    <S08>
+      开始保存新的ROM...<br>写入部分：</br>
+    </S08>
+    <S09> {0} 字节已成功写入。</S09>
+    <S0A>头文件...</S0A>
+    <S0B>文件...</S0B>
+    <S0C> {0} 个文件已成功写入。</S0C>
+    <S0D>
+      <br>新ROM 将保存于： {0}</br>
+    </S0D>
+    <S0E>导出日志</S0E>
+    <S0F>Time log:</S0F>
+    <S10>总用时:</S10>
+    <S11>读取 header 用时:</S11>
+    <S12>Time starting variable from Acciones.cs:</S12>
+    <S13>Time reading FNT:</S13>
+    <S14>Time adding system files:</S14>
+    <S15>Time reading FAT:</S15>
+    <S16>Time setting ROOT:</S16>
+    <S17>Time getting format files:</S17>
+    <S18>Time creating tree files:</S18>
+    <S19>Time recognizing files:</S19>
+    <S1A>Compressed file</S1A>
+    <S1B>To see this file you must double click on a palette file first</S1B>
+    <S1C>To see this file you must double click on a palette and tile file</S1C>
+    <S1D>By the moment common compression don't show information.</S1D>
+    <S1E>To see this file you must double click on a palette, tile and cell file</S1E>
+    <S1F>
+      The program needs the following files:
+      {0}
+
+      Please download the program from the web page:
+      https://github.com/R-YaTian/TinkeDSi/releases
+    </S1F>
+    <S20>
+      Error loading the file: {0}.
+      The assembly can not be obtained. Error:
+      {1}
+    </S20>
+    <S21>Time reading external files:</S21>
+    <S22>The temp folder couldn't be removed</S22>
+    <S23>There was an error attempting to compress/pack the file.</S23>
+    <S24>All the colors are used by the image.</S24>
+    <S25>Nothing to do.</S25>
+    <S26>Clear log</S26>
+    <S27>The Version 2 Banner is good!</S27>
+    <S28>The Version 2 Banner is incomplete or corrupted.</S28>
+    <S29>The Version 3 Banner is good!</S29>
+    <S2A>The Version 3 Banner is incomplete or corrupted.</S2A>
+    <S2B>The DSi Banner is good!</S2B>
+    <S2C>The DSi Banner is incomplete or corrupted.</S2C>
+    <S2D>The donor iheader mismatch!</S2D>
+  </Messages>
+  <DSDecmp>
+    <!-- LZ10 -->
+    <S00>
+      The provided stream is not a valid LZ-0x10 compressed stream.
+      Invalid type 0x{0}
+    </S00>
+    <S01>
+      Cannot go back more than already written.
+      DISP = 0x{0}, #written bytes = 0x{1} at 0x{2}
+    </S01>
+    <S02>disp is too large</S02>
+    <!-- LZ11 -->
+    <S03>
+      The provided stream is not a valid LZ-0x11 compressed stream.
+      Invalid type 0x{1}
+    </S03>
+    <S04>
+      Cannot go back more than already written. DISP = {0},
+      #written bytes = 0x{1} before 0x{2} with indicator 0x{3}
+    </S04>
+    <!-- Huffman -->
+    <S05>
+      The provided stream is not a valid Huffman compressed stream.
+      Invalid type 0x{0}; unknown block size.
+    </S05>
+    <S06>The stream is too short to contain a Huffman tree.</S06>
+    <S07>The Huffman tree is too large for the given input stream.</S07>
+    <S08>Unknown block size {0}</S08>
+    <S09>Unhandled blocksize {0}</S09>
+    <S0A>Reference to an undefined node in the Huffman tree.</S0A>
+    <!-- RLE -->
+    <S0B>
+      The provided stream is not a valid RLE compressed stream.
+      Invalid type 0x{0}
+    </S0B>
+    <S0C>
+      The given stream is not a valid RLE stream;
+      the output length does not match the provided plaintext length.
+    </S0C>
+    <!-- LZOvl -->
+    <S0D>
+      Cannot go back more than already written;
+      attempt to go back 0x{0} when only 0x{1}
+      bytes have been written.
+    </S0D>
+    <!-- Exceptions -->
+    <S0E>
+      The compression ratio is not high enough to fit the input
+      in a single compressed file.
+    </S0E>
+    <S0F>
+      The input contains more data than necessary.
+      Only used 0x{0} of 0x{1} bytes
+    </S0F>
+    <S10>
+      The end of the stream was reached before the
+      given amount of data was read.
+    </S10>
+    <S11>Not enough data available; 0x{0} of {1} bytes written.</S11>
+    <!-- CompressionControl -->
+    <S12>Original compressed file: </S12>
+    <S13>New compression:</S13>
+    <S14>None</S14>
+    <S15>Compression type:</S15>
+    <S16>Use "Look ahead" methods</S16>
+    <S17>Compress</S17>
+    <S18>Compress with the best compression</S18>
+    <!-- Main -->
+    <S19>{0} - compressed {1} to {2}</S19>
+    <S1A>The file could not be compressed in any format.</S1A>
+    <S1B>Could not decompress {0}; no matching compression method found.</S1B>
+    <S1C>{0} - decompressed {1} to {2}</S1C>
+    <S1D>Could not decompress using the {0}; {1}</S1D>
+  </DSDecmp>
+  <EditRomInfo>
+    <S00>Header and banner editor</S00>
+    <S01>Save</S01>
+    <S02>Cancel</S02>
+    <S03>Header</S03>
+    <S04>Banner</S04>
+    <S05>Change icon</S05>
+    <S06>Version:</S06>
+    <S07>Game titles:</S07>
+    <S08>Japanese</S08>
+    <S09>English</S09>
+    <S0A>French</S0A>
+    <S0B>German</S0B>
+    <S0C>Italian</S0C>
+    <S0D>Spanish</S0D>
+    <S0E>Reserved(22 bytes Hexadecimal):</S0E>
+    <S0F>Game title:</S0F>
+    <S10>Game code:</S10>
+    <S11>Maker code:</S11>
+    <S12>Device code:</S12>
+    <S13>Reserved(7 bytes Hexadecimal):</S13>
+    <S14>ROM version:</S14>
+    <S15>Internal flags:</S15>
+    <S16>ARM9 entry address:</S16>
+    <S17>ARM9 load address:</S17>
+    <S18>ARM7 entry address:</S18>
+    <S19>ARM7 load address:</S19>
+    <S1A>Normal card control register settings:</S1A>
+    <S1B>Secure card control register settings:</S1B>
+    <S1C>Show all maker codes</S1C>
+    <S1D>Secure transfer timeout:</S1D>
+    <S1E>Secure disable:</S1E>
+    <S1F>Reserved 3(4 bytes Hexadecimal):</S1F>
+    <S20>Reserved 2(56 bytes Hexadecimal):</S20>
+    <S21>ARM9 autoload:</S21>
+    <S22>ARM7 autoload:</S22>
+    <S23>Debug ROM offset:</S23>
+    <S24>Debug length:</S24>
+    <S25>Debug RAM offset:</S25>
+    <S26>
+      The image must be saved with 4bpp depth.
+      The selected image is 8bpp and can not be imported.
+    </S26>
+    <S27>Encryption seed:</S27>
+    <S28>Code</S28>
+    <S29>Company</S29>
+    <S2A>Company codes</S2A>
+    <S2B>Chinese</S2B>
+    <S2C>Korean</S2C>
+    <S2D>Import animation data</S2D>
+    <S2E>Import donor iheader</S2E>
+  </EditRomInfo>
+  <Dialog>
+    <!-- Select Mode Color-->
+    <S00>Choose selection mode</S00>
+    <S01>Accept</S01>
+    <S02>Click color on image</S02>
+    <S03>Choose color from RGB values</S03>
+    <S1D>Add and remove unused colors</S1D>
+    <!-- Select offset -->
+    <S04>Select offset</S04>
+    <S05>Enter offset where reading starts</S05>
+    <!-- FAT Extract -->
+    <S06>Extract files</S06>
+    <S07>Options</S07>
+    <S08>Number of files</S08>
+    <S09>Read at:</S09>
+    <S0A>Value length:</S0A>
+    <S0B>Big Endian</S0B>
+    <S0C>Number of files:</S0C>
+    <S0D>Calculate</S0D>
+    <S0E>Offset</S0E>
+    <S0F>Start offset:</S0F>
+    <S10>Value length:</S10>
+    <S11>Big Endian</S11>
+    <S12>Type offset</S12>
+    <S13>Start offset</S13>
+    <S14>Start offset / End offset</S14>
+    <S15>Start offset / Size</S15>
+    <S16>End offset</S16>
+    <S17>Relative offset at</S17>
+    <S18>Offset:</S18>
+    <S19>First file</S19>
+    <S1A>Read offsets</S1A>
+    <S1B>Hexadecimal</S1B>
+    <S1C>Accept</S1C>
+  </Dialog>
+  <VisorHex>
+    <S00>File</S00>
+    <S01>Save</S01>
+    <S02>Tools</S02>
+    <S03>Goto (0x)</S03>
+    <S04>Select range</S04>
+    <S05>Go</S05>
+    <S06>Start offset (0x)</S06>
+    <S07>End offset (0x)</S07>
+    <S08>Relative</S08>
+    <S09>Search</S09>
+    <S0A>Options</S0A>
+    <S0B>Encoding</S0B>
+    <S0C>Selected at 0x{0} with length 0x{1}</S0C>
+  </VisorHex>
+  
+  <!-- Ekona controls -->
+  <Ekona>
+    <PaletteControl>
+      <S01>Number of palette:</S01>
+      <S02>Display all palettes</S02>
+      <S03>Export</S03>
+      <S04>Import</S04>
+      <S05>Start byte:</S05>
+      <S06>Depth:</S06>
+      <S07>of </S07>
+      <S08>Palettes</S08>
+      <S09>Palette</S09>
+      <S0A>Use this palette</S0A>
+      <S0B>Hexadecimal</S0B>
+      <S0C>Colors to fill:</S0C>
+      <S0D>Fill colors</S0D>
+    </PaletteControl>
+    <ImageControl>
+      <S01>Double-click to see the full image.</S01>
+      <S02>Image properties</S02>
+      <S03>Offset:</S03>
+      <S04>Hexadecimal</S04>
+      <S05>Width:</S05>
+      <S06>Height:</S06>
+      <S07>Image pattern:</S07>
+      <S08>Tile size:</S08>
+      <S09>Num palette</S09>
+      <S0A>Transparency</S0A>
+      <S0B>Set transparency</S0B>
+      <S0C>Set box background</S0C>
+      <S0D>Remove box background</S0D>
+      <S0E>Imported tiles (bitmap only)</S0E>
+      <S0F>Map compression</S0F>
+      <S10>导出</S10>
+      <S11>导入</S11>
+      <S12>Lineal</S12>
+      <S13>Horizontal</S13>
+      <S14>Vertical</S14>
+      <S15>Full size image</S15>
+      <S16>Palette import options</S16>
+      <S17>Swap to original palette</S17>
+      <S18>Replace palette</S18>
+      <S19>Threshold</S19>
+    </ImageControl>
+    <SpriteControl>
+      <S01>Bank:</S01>
+      <S02>Show all banks</S02>
+      <S03>
+Base name (without extension)
+%s will be replace by the bank ID
+      </S03>
+      <S04>Export / Import multi-mode</S04>
+      <S05>OAM 编辑器</S05>
+      <S06>Export</S06>
+      <S07>Import</S07>
+      <S08>Set transparency color</S08>
+      <S09>Set box background</S09>
+      <S0A>Remove box background</S0A>
+      <S0B>Cell image options</S0B>
+      <S0C>Show grid</S0C>
+      <S0D>Show cell border</S0D>
+      <S0E>Show image</S0E>
+      <S0F>Transparency</S0F>
+      <S10>Show numbers</S10>
+      <S11>Swap to original palette</S11>
+      <S12>Banks</S12>
+      <S13>Imported tiles (bitmap only)</S13>
+      <S14>Replace palette</S14>
+      <S15>Palette import options</S15>
+      <S16>Threshold</S16>
+      <S17>Tile import options</S17>
+      <S18>Add image</S18>
+      <S19>Replace image</S19>
+    </SpriteControl>
+    <OAMEditor>
+      <S01>OAM 编辑器</S01>
+      <S02>OAM:</S02>
+      <S03>of</S03>
+      <S04>Object 0</S04>
+      <S05>Y position:</S05>
+      <S06>Rotation / Scale</S06>
+      <S07>Object disable</S07>
+      <S08>Double size</S08>
+      <S09>Object mode:</S09>
+      <S0A>Normal</S0A>
+      <S0B>Semi-transparent</S0B>
+      <S0C>Window</S0C>
+      <S0D>Invalid</S0D>
+      <S0E>Mosaic</S0E>
+      <S0F>Depth:</S0F>
+      <S10>4 bpp (16 色)</S10>
+      <S11>8 bpp (256 色)</S11>
+      <S12>Shape:</S12>
+      <S13>Square</S13>
+      <S14>水平</S14>
+      <S15>垂直</S15>
+      <S16>OAM ID:</S16>
+      <S17>预览:</S17>
+      <S18>添加 OAM</S18>
+      <S19>删除 OAM</S19>
+      <S1A>Object 1</S1A>
+      <S1B>X position:</S1B>
+      <S1C>Select param:</S1C>
+      <S1D>Flip X</S1D>
+      <S1E>Flip Y</S1E>
+      <S1F>Size:</S1F>
+      <S20>Object 2</S20>
+      <S21>Tile offset:</S21>
+      <S22>Priority:</S22>
+      <S23>Palette index:</S23>
+      <S24>保存</S24>
+      <S25>自动设置大小:</S25>
+      <S26>预览选项</S26>
+      <S27>透明度</S27>
+      <S28>查看 OAM 边框</S28>
+      <S29>查看图像</S29>
+      <S2A>View numbers</S2A>
+      <S2B>查看网格</S2B>
+      <S2C>选择 OAM</S2C>
+    </OAMEditor>
+  </Ekona>
+</Language>

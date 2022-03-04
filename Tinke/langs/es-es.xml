@@ -176,7 +176,7 @@
     <S09>Información técnica sobre estructuras de las rom.</S09>
     <S0A>Información sobre estructura de formatos de Nintendo.</S0A>
     <S0B>Iconos usados en este programa.</S0B>
-    <S0C>pleoNeX, R-YaTian</S0C>
+    <S0C>pleoNeX</S0C>
     <S0D>Agradecimientos:</S0D>
     <S0E>Editor hexadecimal por {0}</S0E>
     <S0F>Plug-ins:</S0F>
@@ -445,8 +445,8 @@
       <S05>Start byte:</S05>
       <S06>Depth:</S06>
       <S07>of </S07>
-      <S08>Palettes</S08>
-      <S09>Palette</S09>
+      <S08>Paletas</S08>
+      <S09>Paleta</S09>
       <S0A>Use this palette</S0A>
       <S0B>Hexadecimal</S0B>
       <S0C>Colors to fill:</S0C>
@@ -462,7 +462,7 @@
       <S07>Image pattern:</S07>
       <S08>Tile size:</S08>
       <S09>Num palette</S09>
-      <S0A>Transparency</S0A>
+      <S0A>Transparencia</S0A>
       <S0B>Set transparency</S0B>
       <S0C>Set box background</S0C>
       <S0D>Remove box background</S0D>
@@ -497,7 +497,7 @@ Base name (without extension)
       <S0C>Show grid</S0C>
       <S0D>Show cell border</S0D>
       <S0E>Show image</S0E>
-      <S0F>Transparency</S0F>
+      <S0F>Transparencia</S0F>
       <S10>Show numbers</S10>
       <S11>Swap to original palette</S11>
       <S12>Banks</S12>
@@ -522,7 +522,7 @@ Base name (without extension)
       <S0A>Normal</S0A>
       <S0B>Semi-transparent</S0B>
       <S0C>Window</S0C>
-      <S0D>Invalid</S0D>
+      <S0D>Inválido</S0D>
       <S0E>Mosaic</S0E>
       <S0F>Depth:</S0F>
       <S10>4 bpp (16 colors)</S10>
@@ -545,10 +545,10 @@ Base name (without extension)
       <S21>Tile offset:</S21>
       <S22>Priority:</S22>
       <S23>Palette index:</S23>
-      <S24>Save</S24>
+      <S24>Guardar</S24>
       <S25>Auto set size:</S25>
       <S26>Preview options</S26>
-      <S27>Transparency</S27>
+      <S27>Transparencia</S27>
       <S28>View oam border</S28>
       <S29>View image</S29>
       <S2A>View numbers</S2A>

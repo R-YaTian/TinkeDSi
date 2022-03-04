@@ -1,12 +1,12 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Language name="Italiano">
   <Sistema>
-    <S01>Apri file(s)</S01>
+    <S01>Apri file(i)</S01>
     <S02>Informazioni di gioco</S02>
     <S03>Messaggi di debug</S03>
     <S04>Finestra</S04>
-    <S05>Plugins</S05>
-    <S06>Ricarica plugins</S06>
+    <S05>Plugin</S05>
+    <S06>Ricarica plugin</S06>
     <S07>Proprietà</S07>
     <S08>Contenuto</S08>
     <S09>Nome</S09>
@@ -44,12 +44,12 @@
     <S29>Font</S29>
     <S2A>Compresso</S2A>
     <S2B>Sconosciuto</S2B>
-    <S2C>Seleziona la cartella in cui vuoi salvare i files</S2C>
-    <S2D>Cerca</S2D>
+    <S2C>Seleziona la cartella in cui vuoi salvare i file</S2C>
+    <S2D>Ricerca</S2D>
     <S2E>Ricerca istantanea</S2E>
     <S2F>Cerca parola chiave:</S2F>
-    <S30>Files riconosciuti:</S30>
-    <S31>System</S31>
+    <S30>File riconosciuti:</S30>
+    <S31>Sistema</S31>
     <S32>Sostituisci file</S32>
     <S33>Salva ROM</S33>
     <S34>Script</S34>
@@ -64,8 +64,7 @@
     <S37>Errore durante il salvataggio delle impostazioni personalizzate.</S37>
     <S38>Errore durante il caricamento delle impostazioni personalizzate.</S38>
     <S39>
-      Hai cambiato alcuni files ma la nuova ROM non è stata salvata.
-      Sei sicuro di voler uscire? Tutti i cambiamenti verranno persi.
+      Hai cambiato alcuni files ma la nuova ROM non è stata salvata. Sei sicuro di voler uscire? Tutti i cambiamenti verranno persi.
     </S39>
     <S3A>Attenzione</S3A>
     <S3B>
@@ -74,8 +73,8 @@
     </S3B>
     <S3C>Informazioni sul file</S3C>
     <S3D>Pack</S3D>
-    <S3E>Textura</S3E>
-    <S3F>Modelo 3D</S3F>
+    <S3E>Struttura</S3E>
+    <S3F>Modello 3D</S3F>
     <S40>Relative path</S40>
     <S41>Hexadecimal viewer</S41>
     <S42>Pack</S42>
@@ -84,7 +83,7 @@
       Check the debug messages.
     </S43>
     <S44>
-      Sorry, you can't overwrite the current
+      Sorry, you can't overwrite the currently 
       opened file.
     </S44>
     <S45>Refresh messages</S45>
@@ -110,7 +109,7 @@
     <S10>Codice di gioco</S10>
     <S11>Codice produttore</S11>
     <S12>Codice dispositivo</S12>
-    <S13>Seed di criptaggio</S13>
+    <S13>Semi di crittografia</S13>
     <S14>Dimensione file</S14>
     <S15>Riservati</S15>
     <S16>Versione ROM</S16>
@@ -148,11 +147,11 @@
     <S36>Debug dimensione</S36>
     <S37>Debug RAM offset</S37>
     <S38>Riservato</S38>
-    <S39>Invalido</S39>
-    <S3A>Trasparenza</S3A>
+    <S39>Invalid</S39>
+    <S3A>Transparency</S3A>
     <S3B>Modifica header e banner</S3B>
-    <S3C>Chinese</S3C>
-    <S3D>Korean</S3D>
+    <S3C>Cinese</S3C>
+    <S3D>Coreano</S3D>
     <S3E>Dump icon data</S3E>
     <S3F>Dump animation data</S3F>
     <S40>Dump donor iheader</S40>
@@ -169,26 +168,26 @@
       General Public License version 3.
     </S06>
     <S07>
-    Programma creato con l'aiuto delle seguenti pagine web.
+    Programma creato con l'aiuto delle seguenti pagine web:
     </S07>
-    <S08>Librerie per decomprimere i files</S08>
+    <S08>Librerie per decomprimere i file</S08>
     <S09>Informazioni sull'header rom.</S09>
     <S0A>Informazioni sui formati dei files Nintendo.</S0A>
     <S0B>Icone usate da questo programma.</S0B>
     <S0C>Otty</S0C>
     <S0D>Ringraziamenti speciali:</S0D>
-    <S0E>Hexadecimal editor by {0}</S0E>
-    <S0F>Plugins:</S0F>
+    <S0E>Editor esadecimale di: {0}</S0E>
+    <S0F>Plugin:</S0F>
   </Autores>
   <Espera>
     <S01>Carico...</S01>
-    <S02>Carico i file system...</S02>
-    <S03>Estraggo i files...</S03>
-    <S04>Decomprimo i files...</S04>
+    <S02>Carico i file sistema...</S02>
+    <S03>Estraggo i file...</S03>
+    <S04>Decomprimo i file...</S04>
     <S05>Creazione nuova ROM...</S05>
     <S06>Salvataggio nuova ROM...</S06>
     <S07>Searching files...</S07>
-    <S08>Please wait...</S08>
+    <S08>Attendere prego...</S08>
   </Espera>
   <Messages>
     <S01>Errore</S01>
@@ -204,10 +203,10 @@
     <S08>
       Comincio a salvare la nuova ROM...<br>Sezioni scrittura:</br>
     </S08>
-    <S09> {0} bytes scritti con successo.</S09>
+    <S09> {0} byte scritti con successo.</S09>
     <S0A>Header...</S0A>
-    <S0B>Files...</S0B>
-    <S0C> {0} files scritti con successo.</S0C>
+    <S0B>File...</S0B>
+    <S0C> {0} file scritti con successo.</S0C>
     <S0D>
       <br>La nuova ROM sarà salvata tra: {0}</br>
     </S0D>
@@ -215,19 +214,19 @@
     <S0F>Log temporale:</S0F>
     <S10>Tempo totale:</S10>
     <S11>Tempo di lettura header:</S11>
-    <S12>Tempo inizializzaione variabile da Acciones.cs:</S12>
+    <S12>Tempo inizio variabile da Acciones.cs:</S12>
     <S13>Tempo lettura FNT:</S13>
     <S14>Tempo aggiunta files di sistema:</S14>
     <S15>Tempo lettura FAT:</S15>
     <S16>Tempo impostazione ROOT:</S16>
-    <S17>Tempo per ottenere i formati dei files:</S17>
-    <S18>Tempo creazione albero files:</S18>
-    <S19>Tempo riconoscimento files:</S19>
+    <S17>Tempo per ottenere i formati dei file:</S17>
+    <S18>Tempo creazione albero file:</S18>
+    <S19>Tempo riconoscimento file:</S19>
     <S1A>File compresso</S1A>
-    <S1B>Per vederlo devi prima doppiocliccare su un file palette</S1B>
-    <S1C>Per vederlo devi prima doppiocliccare su una palette e su un file immagine</S1C>
+    <S1B>Per vederlo devi prima doppio clic su un file palette</S1B>
+    <S1C>Per vederlo devi prima doppio clic su una palette e su un file immagine</S1C>
     <S1D>Al momento la compressione comune non mostra informazioni.</S1D>
-    <S1E>Per vederlo devi prima doppiocliccare su un file palette, tile e cell</S1E>
+    <S1E>Per vederlo devi prima doppio clic su un file palette, tile e cell</S1E>
     <S1F>
       Il programma ha bisogno dei seguenti files:
       {0}
@@ -237,11 +236,11 @@
     </S1F>
     <S20>
       Errore nel caricamento del file: {0}.
-      L'assembly non può essere ottenuto. Errore:
+      L'assemblea non può essere ottenuto. Errore:
       {1}
     </S20>
-    <S21>Tempo lettura files esterni:</S21>
-    <S22>No se pudo borrar la carpeta temporal</S22>
+    <S21>Tempo lettura file esterni:</S21>
+    <S22>The temp folder couldn't be removed</S22>
     <S23>There was an error attempting to compress/pack the file.</S23>
     <S24>All the colors are used by the image.</S24>
     <S25>Nothing to do.</S25>
@@ -254,38 +253,6 @@
     <S2C>The DSi Banner is incomplete or corrupted.</S2C>
     <S2D>The donor iheader mismatch!</S2D>
   </Messages>
-  <NANR>
-    <S01>Intervallo:</S01>
-    <S02>milisecondi</S02>
-    <S03>Opzioni guida</S03>
-    <S04>Mostra guide</S04>
-    <S05>Mostra cells</S05>
-    <S06>Mostra immagine</S06>
-    <S07>Transparenza</S07>
-    <S08>Mostra numeri</S08>
-    <S09>Proprietà</S09>
-    <S0A>Proprietà</S0A>
-    <S0B>Contenuto</S0B>
-    <S0C>Sezione:</S0C>
-    <S0D>Numero di animazioni</S0D>
-    <S0E>Numbero di frame</S0E>
-    <S0F>Costante</S0F>
-    <S10>Padding</S10>
-    <S11>Animazione</S11>
-    <S12>Numero di animazioni</S12>
-    <S13>Numbero di frame</S13>
-    <S14>Tipo dati</S14>
-    <S15>Sconosciuto 1</S15>
-    <S16>Sconosciuto 2</S16>
-    <S17>Sconosciuto 3</S17>
-    <S18>Frame</S18>
-    <S19>Numero</S19>
-    <S1A>Dati frame</S1A>
-    <S1B>Numero di cell</S1B>
-    <S1C>Salva</S1C>
-    <S1D>Animazione</S1D>
-    <S1E>Doppio-click per vedere l'intera animazione</S1E>
-  </NANR>
   <DSDecmp>
     <!-- LZ10 -->
     <S00>
@@ -313,9 +280,9 @@
     </S05>
     <S06>The stream is too short to contain a Huffman tree.</S06>
     <S07>The Huffman tree is too large for the given input stream.</S07>
-    <S08>Sconosciuto block size {0}</S08>
+    <S08>Unknown block size {0}</S08>
     <S09>Unhandled blocksize {0}</S09>
-    <S0A>Reference to an undefined node in the huffman tree.</S0A>
+    <S0A>Reference to an undefined node in the Huffman tree.</S0A>
     <!-- RLE -->
     <S0B>
       The provided stream is not a valid RLE compressed stream.
@@ -323,7 +290,7 @@
     </S0B>
     <S0C>
       The given stream is not a valid RLE stream;
-      the output dimensione does not match the provided plaintext dimensione.
+      the output length does not match the provided plaintext length.
     </S0C>
     <!-- LZOvl -->
     <S0D>
@@ -344,7 +311,7 @@
       The end of the stream was reached before the
       given amount of data was read.
     </S10>
-    <S11>Not enough data avalible; 0x{0} of {1} bytes written.</S11>
+    <S11>Not enough data available; 0x{0} of {1} bytes written.</S11>
     <!-- CompressionControl -->
     <S12>File compresso originale: </S12>
     <S13>Nuova compressione:</S13>
@@ -375,12 +342,12 @@
     <S0B>Tedesco</S0B>
     <S0C>Italiano</S0C>
     <S0D>Spagnolo</S0D>
-    <S0E>Riservato(22 bytes Hex):</S0E>
+    <S0E>Riservato(22 byte Hex):</S0E>
     <S0F>Titolo di gioco:</S0F>
     <S10>Codice di gioco:</S10>
     <S11>Codice produttore:</S11>
     <S12>Codice dispositivo:</S12>
-    <S13>Riservato(7 bytes Hex):</S13>
+    <S13>Riservato(7 byte Hex):</S13>
     <S14>ROM versione:</S14>
     <S15>Flag interni:</S15>
     <S16>ARM9 entry address:</S16>
@@ -392,8 +359,8 @@
     <S1C>Mostra tutti i codici produttore</S1C>
     <S1D>Secure transfer timeout:</S1D>
     <S1E>Secure disable:</S1E>
-    <S1F>Riservato 3(4 bytes Hex):</S1F>
-    <S20>Riservato 2(56 bytes Hex):</S20>
+    <S1F>Riservato 3(4 byte Hex):</S1F>
+    <S20>Riservato 2(56 byte Hex):</S20>
     <S21>ARM9 autoload:</S21>
     <S22>ARM7 autoload:</S22>
     <S23>Debug ROM offset:</S23>
@@ -403,12 +370,12 @@
       L'immagine deve essere salvata a dimensione 4bpp.
       L'immagine selezionata è 8bpp e non può essere importata.
     </S26>
-    <S27>Seed di criptaggio:</S27>
+    <S27>Semi di crittografia:</S27>
     <S28>Codice</S28>
     <S29>Compagnia</S29>
     <S2A>Codici compagnia</S2A>
-    <S2B>Chinese</S2B>
-    <S2C>Korean</S2C>
+    <S2B>Cinese</S2B>
+    <S2C>Coreano</S2C>
     <S2D>Import animation data</S2D>
     <S2E>Import donor iheader</S2E>
   </EditRomInfo>
@@ -418,7 +385,7 @@
     <S01>Accetta</S01>
     <S02>Clicca su un colore dell'immagine</S02>
     <S03>Scegli il colore dai valori RGB</S03>
-    <S1D>Add and remove the last color</S1D>
+    <S1D>Add and remove unused colors</S1D>
     <!-- Select offset -->
     <S04>Scegli l'offset</S04>
     <S05>Scrivi l'offset dove comincerà la lettura</S05>
@@ -449,7 +416,7 @@
   </Dialog>
   <VisorHex>
     <S00>File</S00>
-    <S01>Save</S01>
+    <S01>Salva</S01>
     <S02>Tools</S02>
     <S03>Goto (0x)</S03>
     <S04>Select range</S04>
@@ -457,12 +424,12 @@
     <S06>Start offset (0x)</S06>
     <S07>End offset (0x)</S07>
     <S08>Relative</S08>
-    <S09>Search</S09>
-    <S0A>Options</S0A>
+    <S09>Ricerca</S09>
+    <S0A>Opzioni</S0A>
     <S0B>Encoding</S0B>
     <S0C>Selected at 0x{0} with length 0x{1}</S0C>
   </VisorHex>
-
+  
   <!-- Ekona controls -->
   <Ekona>
     <PaletteControl>
@@ -473,10 +440,10 @@
       <S05>Start byte:</S05>
       <S06>Depth:</S06>
       <S07>of </S07>
-      <S08>Palettes</S08>
+      <S08>Palette</S08>
       <S09>Palette</S09>
       <S0A>Use this palette</S0A>
-      <S0B>Hexadecimal</S0B>
+      <S0B>Esadecimale</S0B>
       <S0C>Colors to fill:</S0C>
       <S0D>Fill colors</S0D>
     </PaletteControl>
@@ -484,7 +451,7 @@
       <S01>Double-click to see the full image.</S01>
       <S02>Image properties</S02>
       <S03>Offset:</S03>
-      <S04>Hexadecimal</S04>
+      <S04>Esadecimale</S04>
       <S05>Width:</S05>
       <S06>Height:</S06>
       <S07>Image pattern:</S07>
@@ -494,7 +461,7 @@
       <S0B>Set transparency</S0B>
       <S0C>Set box background</S0C>
       <S0D>Remove box background</S0D>
-      <S0E>Use original palette</S0E>
+      <S0E>Imported tiles (bitmap only)</S0E>
       <S0F>Map compression</S0F>
       <S10>Export</S10>
       <S11>Import</S11>
@@ -502,13 +469,17 @@
       <S13>Horizontal</S13>
       <S14>Vertical</S14>
       <S15>Full size image</S15>
+      <S16>Palette import options</S16>
+      <S17>Swap to original palette</S17>
+      <S18>Replace palette</S18>
+      <S19>Threshold</S19>
     </ImageControl>
     <SpriteControl>
       <S01>Bank:</S01>
       <S02>Show all banks</S02>
       <S03>
-        Base name (without extension)
-        %s will be replace by the bank ID
+Base name (without extension)
+%s will be replace by the bank ID
       </S03>
       <S04>Export / Import multi-mode</S04>
       <S05>OAM Editor</S05>
@@ -523,10 +494,15 @@
       <S0E>Show image</S0E>
       <S0F>Transparency</S0F>
       <S10>Show numbers</S10>
-      <S11>Use original palette</S11>
+      <S11>Swap to original palette</S11>
       <S12>Banks</S12>
       <S13>Imported tiles (bitmap only)</S13>
       <S14>Replace palette</S14>
+      <S15>Palette import options</S15>
+      <S16>Threshold</S16>
+      <S17>Tile import options</S17>
+      <S18>Add image</S18>
+      <S19>Replace image</S19>
     </SpriteControl>
     <OAMEditor>
       <S01>OAM Editor</S01>
@@ -564,7 +540,7 @@
       <S21>Tile offset:</S21>
       <S22>Priority:</S22>
       <S23>Palette index:</S23>
-      <S24>Save</S24>
+      <S24>Salva</S24>
       <S25>Auto set size:</S25>
       <S26>Preview options</S26>
       <S27>Transparency</S27>
