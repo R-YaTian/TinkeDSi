@@ -433,6 +433,21 @@
     <S0A>Opciones</S0A>
     <S0B>Codificación</S0B>
     <S0C>Seleccionado desde 0x{0} con longitud 0x{1}</S0C>
+    <S0D>Default</S0D>
+    <S0E>Raw bytes</S0E>
+    <S0F>Default chars</S0F>
+    <S10>Unicode Big Endian</S10>
+    <S11>All files (*.*)|*.*</S11>
+    <S12>Open Table (.tbl)</S12>
+    <S13>Create table</S13>
+    <S14>Show</S14>
+    <S15>Hide</S15>
+    <S16>Open one</S16>
+    <S17>Create basic</S17>
+    <S18>Code</S18>
+    <S19>Char</S19>
+    <S1A>Fine Prev</S1A>
+    <S1B>Fine Next</S1B>
   </VisorHex>
   
   <!-- Ekona controls -->

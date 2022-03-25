@@ -39,8 +39,6 @@ namespace Tinke
         IByteCharConverter bcc;
         bool allowEdit;
 
-        int last_search;
-
         public VisorHex(string hexFile, int id, bool edit)
         {
             InitializeComponent();
@@ -53,7 +51,8 @@ namespace Tinke
 
             hexBox1.ByteProvider = new DynamicFileByteProvider(hexFile, !edit); 
             encodingCombo.SelectedIndex = 0;
-         }
+            toolStripComboBox1.SelectedIndex = 0;
+        }
         public VisorHex(sFile file)
         {
             InitializeComponent();
@@ -70,6 +69,7 @@ namespace Tinke
 
             hexBox1.ByteProvider = new DynamicFileByteProvider(hexFile, true);
             encodingCombo.SelectedIndex = 0;
+            toolStripComboBox1.SelectedIndex = 0;
         }
         private void VisorHex_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -99,6 +99,21 @@ namespace Tinke
                 searchToolStripMenuItem.Text = xml.Element("S09").Value;
                 optionsToolStripMenuItem.Text = xml.Element("S0A").Value;
                 encodingToolStripMenuItem.Text = xml.Element("S0B").Value;
+                encodingCombo.Items[0] = xml.Element("S0D").Value;
+                toolStripComboBox1.Items[0] = xml.Element("S0E").Value;
+                toolStripComboBox1.Items[1] = xml.Element("S0F").Value;
+                toolStripComboBox1.Items[4] = xml.Element("S10").Value;
+                openTabletblToolStripMenuItem.Text = xml.Element("S12").Value;
+                createTableToolStripMenuItem.Text = xml.Element("S13").Value;
+                showToolStripMenuItem.Text = xml.Element("S14").Value;
+                hideToolStripMenuItem.Text = xml.Element("S15").Value;
+                saveToolStripMenuItem1.Text = xml.Element("S01").Value;
+                openOneToolStripMenuItem.Text = xml.Element("S16").Value;
+                createBasicToolStripMenuItem.Text = xml.Element("S17").Value;
+                codeColumn.HeaderText = xml.Element("S18").Value;
+                charColumn.HeaderText = xml.Element("S19").Value;
+                FindPrvToolStripMenuItem.Text = xml.Element("S1A").Value;
+                FindNextToolStripMenuItem.Text = xml.Element("S1B").Value;
             }
             catch { throw new NotSupportedException("There was an error reading the language file"); }
 
@@ -136,30 +151,6 @@ namespace Tinke
             else hexBox1.Width = this.Width - 16;
             
         }
-        private void VisorHex_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.F3)
-            {
-                switch (last_search)
-                {
-                    case 0:
-                        rawBytesToolStripMenuItem.PerformClick();
-                        break;
-                    case 1:
-                        shiftjisToolStripMenuItem.PerformClick();
-                        break;
-                    case 2:
-                        defaultCharsToolStripMenuItem.PerformClick();
-                        break;
-                    case 3:
-                        unicodeToolStripMenuItem.PerformClick();
-                        break;
-                    case 4:
-                        unicodeBigEndianToolStripMenuItem.PerformClick();
-                        break;
-                }
-            }
-        }
 
         private void comboBoxEncoding_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -192,56 +183,89 @@ namespace Tinke
             hexBox1.Select(start, size);
         }
 
-        private void rawBytesToolStripMenuItem_Click(object sender, EventArgs e)
+        private void RawBytes_Find(bool prv_flag)
         {
-            this.Cursor = Cursors.WaitCursor;
-            last_search = 0;
-
             string text = toolStripSearchBox.Text;
             text = text.Replace(" ", "");
 
-            List<byte> search = new List<byte>();
-            for (int i = 0; i < text.Length; i += 2)
-                search.Add(Convert.ToByte(text.Substring(i, 2), 16));
+            if (text != "" && text.Length%2 == 0)
+            {
+                this.Cursor = Cursors.WaitCursor;
 
-            hexBox1.Find(search.ToArray(), hexBox1.SelectionStart + hexBox1.SelectionLength);
-            this.Cursor = Cursors.Default;
+                List<byte> search = new List<byte>();
+                for (int i = 0; i < text.Length; i += 2)
+                    search.Add(Convert.ToByte(text.Substring(i, 2), 16));
+                if (!prv_flag)
+                    hexBox1.Find(search.ToArray(), hexBox1.SelectionStart + hexBox1.SelectionLength);
+                else
+                    hexBox1.Find_Prv(search.ToArray(), hexBox1.SelectionStart - hexBox1.SelectionLength);
+
+                this.Cursor = Cursors.Default;
+            }
         }
-        private void shiftjisToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ShiftjisText_Find(bool prv_flag)
         {
-            this.Cursor = Cursors.WaitCursor;
-            last_search = 1;
+            string text = toolStripSearchBox.Text;
+            if (text != "")
+            {
+                this.Cursor = Cursors.WaitCursor;
 
-            byte[] search = Encoding.GetEncoding("shift_jis").GetBytes(toolStripSearchBox.Text.ToCharArray());
-            hexBox1.Find(search, hexBox1.SelectionStart + hexBox1.SelectionLength);
-            this.Cursor = Cursors.Default;
+                byte[] search = Encoding.GetEncoding("shift_jis").GetBytes(text.ToCharArray());
+                if (!prv_flag)
+                    hexBox1.Find(search, hexBox1.SelectionStart + hexBox1.SelectionLength);
+                else
+                    hexBox1.Find_Prv(search, hexBox1.SelectionStart - hexBox1.SelectionLength);
+
+                this.Cursor = Cursors.Default;
+            }
         }
-        private void defaultCharsToolStripMenuItem_Click(object sender, EventArgs e)
+        private void DefaultChars_Find(bool prv_flag)
         {
-            this.Cursor = Cursors.WaitCursor;
-            last_search = 2;
+            string text = toolStripSearchBox.Text;
+            if (text != "")
+            {
+                this.Cursor = Cursors.WaitCursor;
 
-            byte[] search = Encoding.Default.GetBytes(toolStripSearchBox.Text.ToCharArray());
-            hexBox1.Find(search, hexBox1.SelectionStart + hexBox1.SelectionLength);
-            this.Cursor = Cursors.Default;
+                byte[] search = Encoding.Default.GetBytes(text.ToCharArray());
+                if (!prv_flag)
+                    hexBox1.Find(search, hexBox1.SelectionStart + hexBox1.SelectionLength);
+                else
+                    hexBox1.Find_Prv(search, hexBox1.SelectionStart - hexBox1.SelectionLength);
+
+                this.Cursor = Cursors.Default;
+            }
         }
-        private void unicodeToolStripMenuItem_Click(object sender, EventArgs e)
+        private void UnicodeText_Find(bool prv_flag)
         {
-            this.Cursor = Cursors.WaitCursor;
-            last_search = 3;
+            string text = toolStripSearchBox.Text;
+            if (text != "")
+            {
+                this.Cursor = Cursors.WaitCursor;
 
-            byte[] search = Encoding.Unicode.GetBytes(toolStripSearchBox.Text.ToCharArray());
-            hexBox1.Find(search, hexBox1.SelectionStart + hexBox1.SelectionLength);
-            this.Cursor = Cursors.Default;
+                byte[] search = Encoding.Unicode.GetBytes(text.ToCharArray());
+                if (!prv_flag)
+                    hexBox1.Find(search, hexBox1.SelectionStart + hexBox1.SelectionLength);
+                else
+                    hexBox1.Find_Prv(search, hexBox1.SelectionStart - hexBox1.SelectionLength);
+
+                this.Cursor = Cursors.Default;
+            }
         }
-        private void unicodeBigEndianToolStripMenuItem_Click(object sender, EventArgs e)
+        private void UnicodeBigEndianText_Find(bool prv_flag)
         {
-            this.Cursor = Cursors.WaitCursor;
-            last_search = 4;
+            string text = toolStripSearchBox.Text;
+            if (text != "")
+            {
+                this.Cursor = Cursors.WaitCursor;
 
-            byte[] search = Encoding.BigEndianUnicode.GetBytes(toolStripSearchBox.Text.ToCharArray());
-            hexBox1.Find(search, hexBox1.SelectionStart + hexBox1.SelectionLength);
-            this.Cursor = Cursors.Default;
+                byte[] search = Encoding.BigEndianUnicode.GetBytes(text.ToCharArray());
+                if (!prv_flag)
+                    hexBox1.Find(search, hexBox1.SelectionStart + hexBox1.SelectionLength);
+                else
+                    hexBox1.Find_Prv(search, hexBox1.SelectionStart - hexBox1.SelectionLength);
+
+                this.Cursor = Cursors.Default;
+            }
         }
 
         private void openTabletblToolStripMenuItem_Click(object sender, EventArgs e)
@@ -250,7 +274,7 @@ namespace Tinke
             o.CheckFileExists = true;
             o.DefaultExt = ".tbl";
             o.Filter = "TaBLe (*.tbl)|*.tbl|" +
-                       "All files (*.*)|*.*";
+                       String.Format(Tools.Helper.GetTranslation("VisorHex", "S11"));
             o.Multiselect = false;
             if (o.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 hexBox1.ByteCharConverter = new ByteCharTable(o.FileName);
@@ -270,7 +294,7 @@ namespace Tinke
 
         private void tableGrid_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            List<byte> codes = new List<byte>();
+            List<ulong> codes = new List<ulong>();
             List<char> charas = new List<char>();
 
             for (int i = 0; i < tableGrid.RowCount; i++)
@@ -279,7 +303,7 @@ namespace Tinke
                     !(tableGrid.Rows[i].Cells[1].Value is object))
                     continue;
 
-                codes.Add(Convert.ToByte((string)tableGrid.Rows[i].Cells[0].Value, 16));
+                codes.Add(Convert.ToUInt64((string)tableGrid.Rows[i].Cells[0].Value, 16));
                 charas.Add(Convert.ToChar(tableGrid.Rows[i].Cells[1].Value));
             }
             hexBox1.ByteCharConverter = new ByteCharTable(codes.ToArray(), charas.ToArray());
@@ -290,7 +314,7 @@ namespace Tinke
             SaveFileDialog s = new SaveFileDialog();
             s.DefaultExt = ".tbl";
             s.Filter = "TaBLe (*.tbl)|*.tbl|" +
-                       "All files (*.*)|*.*";
+                       String.Format(Tools.Helper.GetTranslation("VisorHex", "S11"));
             s.OverwritePrompt = true;
             if (s.ShowDialog() != System.Windows.Forms.DialogResult.OK)
                 return;
@@ -319,7 +343,7 @@ namespace Tinke
             o.CheckFileExists = true;
             o.DefaultExt = ".tbl";
             o.Filter = "TaBLe (*.tbl)|*.tbl|" +
-                       "All files (*.*)|*.*";
+                       String.Format(Tools.Helper.GetTranslation("VisorHex", "S11"));
             o.Multiselect = false;
             if (o.ShowDialog() != System.Windows.Forms.DialogResult.OK)
                 return;
@@ -329,10 +353,13 @@ namespace Tinke
             for (int i = 0; i < lines.Length; i++)
             {
                 int sign_pos = lines[i].IndexOf('=');
-                byte code = Convert.ToByte(lines[i].Substring(0, sign_pos), 16);
+                ushort code = Convert.ToUInt16(lines[i].Substring(0, sign_pos), 16);
                 char chara = lines[i].Substring(sign_pos + 1)[0];
 
-                tableGrid.Rows.Add(code.ToString(), chara);
+                if (code <= 0x7E)
+                    tableGrid.Rows.Add(code.ToString("x").ToUpper(), chara);
+                else
+                    tableGrid.Rows.Add(code.ToString("x").ToUpper().PadLeft(4, '0'), chara);
             }
 
             tableGrid_CellEndEdit(null, null);
@@ -350,33 +377,117 @@ namespace Tinke
             tableGrid_CellEndEdit(null, null);
             showToolStripMenuItem_Click(null, null);
         }
+
+        private void encodingCombo_DropDownClosed(object sender, EventArgs e)
+        {
+            encodingToolStripMenuItem.HideDropDown();
+            optionsToolStripMenuItem.HideDropDown();
+            optionsToolStripMenuItem.ShowDropDown();
+            encodingToolStripMenuItem.ShowDropDown();
+            encodingCombo.Select();
+        }
+
+        private void goToolStripMenuItem_MouseEnter(object sender, EventArgs e)
+        {
+            if (toolStripTextBox1.Focused) goToolStripMenuItem.Select();
+        }
+
+        private void relativeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            toolsToolStripMenuItem.ShowDropDown();
+            selectRangeToolStripMenuItem.ShowDropDown();
+            relativeToolStripMenuItem.Select();
+        }
+
+        private void toolStripComboBox1_DropDownClosed(object sender, EventArgs e)
+        {
+            searchToolStripMenuItem.HideDropDown();
+            toolsToolStripMenuItem.HideDropDown();
+            toolsToolStripMenuItem.ShowDropDown();
+            searchToolStripMenuItem.ShowDropDown();
+            toolStripComboBox1.Select();
+        }
+
+        private void FindPrvToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            switch (toolStripComboBox1.SelectedIndex)
+            {
+                case 0:
+                    RawBytes_Find(true);
+                    break;
+                case 1:
+                    DefaultChars_Find(true);
+                    break;
+                case 2:
+                    ShiftjisText_Find(true);
+                    break;
+                case 3:
+                    UnicodeText_Find(true);
+                    break;
+                case 4:
+                    UnicodeBigEndianText_Find(true);
+                    break;
+            }
+        }
+
+        private void FindPrvToolStripMenuItem_MouseEnter(object sender, EventArgs e)
+        {
+            if (toolStripSearchBox.Focused) FindPrvToolStripMenuItem.Select();
+        }
+
+        private void FindNextToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            switch (toolStripComboBox1.SelectedIndex)
+            {
+                case 0:
+                    RawBytes_Find(false);
+                    break;
+                case 1:
+                    DefaultChars_Find(false);
+                    break;
+                case 2:
+                    ShiftjisText_Find(false);
+                    break;
+                case 3:
+                    UnicodeText_Find(false);
+                    break;
+                case 4:
+                    UnicodeBigEndianText_Find(false);
+                    break;
+            }
+        }
+
+        private void FindNextToolStripMenuItem_MouseEnter(object sender, EventArgs e)
+        {
+            if (toolStripSearchBox.Focused) FindNextToolStripMenuItem.Select();
+        }
     }
 
     public class ByteCharTable : IByteCharConverter
     {
-        Dictionary<byte, char> tableChar;
-        Dictionary<char, byte> tableByte;
+        Dictionary<ulong, char> tableChar;
+        Dictionary<char, ulong> tableByte;
 
         public ByteCharTable(string tablePath)
         {
-            tableChar = new Dictionary<byte, char>();
-            tableByte = new Dictionary<char, byte>();
+            tableChar = new Dictionary<ulong, char>();
+            tableByte = new Dictionary<char, ulong>();
 
             String[] lines = File.ReadAllLines(tablePath);
             for (int i = 0; i < lines.Length; i++)
             {
                 int sign_pos = lines[i].IndexOf('=');
-                byte code = Convert.ToByte(lines[i].Substring(0, sign_pos), 16);
+                ulong code = Convert.ToUInt64(lines[i].Substring(0, sign_pos), 16);
                 char chara = lines[i].Substring(sign_pos + 1)[0];
 
                 tableChar.Add(code, chara);
                 tableByte.Add(chara, code);
             }
         }
-        public ByteCharTable(Byte[] codes, char[] charas)
+        public ByteCharTable(ulong[] codes, char[] charas)
         {
-            tableByte = new Dictionary<char, byte>();
-            tableChar = new Dictionary<byte, char>();
+            tableByte = new Dictionary<char, ulong>();
+            tableChar = new Dictionary<ulong, char>();
 
             for (int i = 0; i < codes.Length; i++)
             {
@@ -397,7 +508,7 @@ namespace Tinke
         public byte ToByte(char c)
         {
             if (tableByte.ContainsKey(c))
-                return tableByte[c];
+                return (byte)tableByte[c];
             else
                 return 0;
         }
@@ -446,9 +557,6 @@ namespace Tinke
             string c = new String(encoding.GetChars(requeridedChar.ToArray()));
             requeridedChar.Clear();
             return (c[0] > '\x1F' ? c[0] : '.');
-
         }
-
-        // TODO: utf-16, unicodeFFFE, utf-32, utf-32BE
     }
 }

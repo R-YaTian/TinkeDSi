@@ -65,11 +65,9 @@ namespace Tinke
             this.goToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSearchBox = new System.Windows.Forms.ToolStripTextBox();
-            this.rawBytesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.shiftjisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.unicodeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.unicodeBigEndianToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.defaultCharsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
+            this.FindPrvToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.FindNextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.encodingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.encodingCombo = new System.Windows.Forms.ToolStripComboBox();
@@ -117,7 +115,7 @@ namespace Tinke
             this.optionsToolStripMenuItem});
             this.menuStripTop.Location = new System.Drawing.Point(0, 0);
             this.menuStripTop.Name = "menuStripTop";
-            this.menuStripTop.Size = new System.Drawing.Size(779, 24);
+            this.menuStripTop.Size = new System.Drawing.Size(779, 25);
             this.menuStripTop.TabIndex = 1;
             this.menuStripTop.Text = "menuStrip1";
             // 
@@ -126,14 +124,14 @@ namespace Tinke
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.saveToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(41, 21);
             this.fileToolStripMenuItem.Text = "S00";
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Image = global::Tinke.Properties.Resources.disk;
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(97, 22);
             this.saveToolStripMenuItem.Text = "S01";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.btnSave_Click);
             // 
@@ -144,7 +142,7 @@ namespace Tinke
             this.selectRangeToolStripMenuItem,
             this.searchToolStripMenuItem});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
-            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(41, 21);
             this.toolsToolStripMenuItem.Text = "S02";
             // 
             // gotoToolStripMenuItem
@@ -153,8 +151,7 @@ namespace Tinke
             this.toolStripTextBox1,
             this.goToolStripMenuItem});
             this.gotoToolStripMenuItem.Name = "gotoToolStripMenuItem";
-            this.gotoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.G)));
-            this.gotoToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.gotoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.gotoToolStripMenuItem.Text = "S03";
             // 
             // toolStripTextBox1
@@ -162,16 +159,17 @@ namespace Tinke
             this.toolStripTextBox1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.toolStripTextBox1.MaxLength = 8;
             this.toolStripTextBox1.Name = "toolStripTextBox1";
-            this.toolStripTextBox1.Size = new System.Drawing.Size(100, 23);
+            this.toolStripTextBox1.Size = new System.Drawing.Size(120, 23);
             this.toolStripTextBox1.Text = "00000000";
             // 
             // goToolStripMenuItem
             // 
             this.goToolStripMenuItem.Image = global::Tinke.Properties.Resources.accept;
             this.goToolStripMenuItem.Name = "goToolStripMenuItem";
-            this.goToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.goToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.goToolStripMenuItem.Text = "S05";
             this.goToolStripMenuItem.Click += new System.EventHandler(this.numericOffset_ValueChanged);
+            this.goToolStripMenuItem.MouseEnter += new System.EventHandler(this.goToolStripMenuItem_MouseEnter);
             // 
             // selectRangeToolStripMenuItem
             // 
@@ -181,8 +179,7 @@ namespace Tinke
             this.relativeToolStripMenuItem,
             this.goToolStripMenuItem1});
             this.selectRangeToolStripMenuItem.Name = "selectRangeToolStripMenuItem";
-            this.selectRangeToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
-            this.selectRangeToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.selectRangeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.selectRangeToolStripMenuItem.Text = "S04";
             // 
             // startOffsetToolStripMenuItem
@@ -190,7 +187,7 @@ namespace Tinke
             this.startOffsetToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.startOffsetSelect});
             this.startOffsetToolStripMenuItem.Name = "startOffsetToolStripMenuItem";
-            this.startOffsetToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
+            this.startOffsetToolStripMenuItem.Size = new System.Drawing.Size(97, 22);
             this.startOffsetToolStripMenuItem.Text = "S06";
             // 
             // startOffsetSelect
@@ -206,7 +203,7 @@ namespace Tinke
             this.endOffsetToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.endOffsetSelect});
             this.endOffsetToolStripMenuItem.Name = "endOffsetToolStripMenuItem";
-            this.endOffsetToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
+            this.endOffsetToolStripMenuItem.Size = new System.Drawing.Size(97, 22);
             this.endOffsetToolStripMenuItem.Text = "S07";
             // 
             // endOffsetSelect
@@ -221,14 +218,15 @@ namespace Tinke
             // 
             this.relativeToolStripMenuItem.CheckOnClick = true;
             this.relativeToolStripMenuItem.Name = "relativeToolStripMenuItem";
-            this.relativeToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
+            this.relativeToolStripMenuItem.Size = new System.Drawing.Size(97, 22);
             this.relativeToolStripMenuItem.Text = "S08";
+            this.relativeToolStripMenuItem.Click += new System.EventHandler(this.relativeToolStripMenuItem_Click);
             // 
             // goToolStripMenuItem1
             // 
             this.goToolStripMenuItem1.Image = global::Tinke.Properties.Resources.accept;
             this.goToolStripMenuItem1.Name = "goToolStripMenuItem1";
-            this.goToolStripMenuItem1.Size = new System.Drawing.Size(92, 22);
+            this.goToolStripMenuItem1.Size = new System.Drawing.Size(97, 22);
             this.goToolStripMenuItem1.Text = "S05";
             this.goToolStripMenuItem1.Click += new System.EventHandler(this.goToolStripMenuItem1_Click);
             // 
@@ -236,56 +234,49 @@ namespace Tinke
             // 
             this.searchToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripSearchBox,
-            this.rawBytesToolStripMenuItem,
-            this.shiftjisToolStripMenuItem,
-            this.unicodeToolStripMenuItem,
-            this.unicodeBigEndianToolStripMenuItem,
-            this.defaultCharsToolStripMenuItem});
+            this.toolStripComboBox1,
+            this.FindPrvToolStripMenuItem,
+            this.FindNextToolStripMenuItem});
             this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
-            this.searchToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.searchToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.searchToolStripMenuItem.Text = "S09";
             // 
             // toolStripSearchBox
             // 
             this.toolStripSearchBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.toolStripSearchBox.Name = "toolStripSearchBox";
-            this.toolStripSearchBox.Size = new System.Drawing.Size(100, 23);
+            this.toolStripSearchBox.Size = new System.Drawing.Size(135, 23);
             // 
-            // rawBytesToolStripMenuItem
+            // toolStripComboBox1
             // 
-            this.rawBytesToolStripMenuItem.Name = "rawBytesToolStripMenuItem";
-            this.rawBytesToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
-            this.rawBytesToolStripMenuItem.Text = "Raw bytes";
-            this.rawBytesToolStripMenuItem.Click += new System.EventHandler(this.rawBytesToolStripMenuItem_Click);
+            this.toolStripComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.toolStripComboBox1.Items.AddRange(new object[] {
+            "S0E",
+            "S0F",
+            "Shift-JIS",
+            "Unicode",
+            "S10"});
+            this.toolStripComboBox1.Name = "toolStripComboBox1";
+            this.toolStripComboBox1.Size = new System.Drawing.Size(133, 25);
+            this.toolStripComboBox1.DropDownClosed += new System.EventHandler(this.toolStripComboBox1_DropDownClosed);
             // 
-            // shiftjisToolStripMenuItem
+            // FindPrvToolStripMenuItem
             // 
-            this.shiftjisToolStripMenuItem.Name = "shiftjisToolStripMenuItem";
-            this.shiftjisToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
-            this.shiftjisToolStripMenuItem.Text = "Shift-jis";
-            this.shiftjisToolStripMenuItem.Click += new System.EventHandler(this.shiftjisToolStripMenuItem_Click);
+            this.FindPrvToolStripMenuItem.Name = "FindPrvToolStripMenuItem";
+            this.FindPrvToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F3;
+            this.FindPrvToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.FindPrvToolStripMenuItem.Text = "S1A";
+            this.FindPrvToolStripMenuItem.Click += new System.EventHandler(this.FindPrvToolStripMenuItem_Click);
+            this.FindPrvToolStripMenuItem.MouseEnter += new System.EventHandler(this.FindPrvToolStripMenuItem_MouseEnter);
             // 
-            // unicodeToolStripMenuItem
+            // FindNextToolStripMenuItem
             // 
-            this.unicodeToolStripMenuItem.Name = "unicodeToolStripMenuItem";
-            this.unicodeToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
-            this.unicodeToolStripMenuItem.Text = "Unicode";
-            this.unicodeToolStripMenuItem.Click += new System.EventHandler(this.unicodeToolStripMenuItem_Click);
-            // 
-            // unicodeBigEndianToolStripMenuItem
-            // 
-            this.unicodeBigEndianToolStripMenuItem.Name = "unicodeBigEndianToolStripMenuItem";
-            this.unicodeBigEndianToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
-            this.unicodeBigEndianToolStripMenuItem.Text = "Unicode Big Endian";
-            this.unicodeBigEndianToolStripMenuItem.Click += new System.EventHandler(this.unicodeBigEndianToolStripMenuItem_Click);
-            // 
-            // defaultCharsToolStripMenuItem
-            // 
-            this.defaultCharsToolStripMenuItem.Name = "defaultCharsToolStripMenuItem";
-            this.defaultCharsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
-            this.defaultCharsToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
-            this.defaultCharsToolStripMenuItem.Text = "Default chars";
-            this.defaultCharsToolStripMenuItem.Click += new System.EventHandler(this.defaultCharsToolStripMenuItem_Click);
+            this.FindNextToolStripMenuItem.Name = "FindNextToolStripMenuItem";
+            this.FindNextToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F4;
+            this.FindNextToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.FindNextToolStripMenuItem.Text = "S1B";
+            this.FindNextToolStripMenuItem.Click += new System.EventHandler(this.FindNextToolStripMenuItem_Click);
+            this.FindNextToolStripMenuItem.MouseEnter += new System.EventHandler(this.FindNextToolStripMenuItem_MouseEnter);
             // 
             // optionsToolStripMenuItem
             // 
@@ -293,7 +284,7 @@ namespace Tinke
             this.encodingToolStripMenuItem,
             this.createTableToolStripMenuItem});
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(42, 21);
             this.optionsToolStripMenuItem.Text = "S0A";
             // 
             // encodingToolStripMenuItem
@@ -302,27 +293,28 @@ namespace Tinke
             this.encodingCombo,
             this.openTabletblToolStripMenuItem});
             this.encodingToolStripMenuItem.Name = "encodingToolStripMenuItem";
-            this.encodingToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.encodingToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
             this.encodingToolStripMenuItem.Text = "S0B";
             // 
             // encodingCombo
             // 
             this.encodingCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.encodingCombo.Items.AddRange(new object[] {
-            "Default",
-            "shift_jis",
-            "utf-7",
-            "utf-8",
-            "ascii"});
+            "S0D",
+            "Shift_JIS",
+            "UTF-7",
+            "UTF-8",
+            "ASCII"});
             this.encodingCombo.Name = "encodingCombo";
-            this.encodingCombo.Size = new System.Drawing.Size(121, 23);
+            this.encodingCombo.Size = new System.Drawing.Size(120, 25);
+            this.encodingCombo.DropDownClosed += new System.EventHandler(this.encodingCombo_DropDownClosed);
             this.encodingCombo.SelectedIndexChanged += new System.EventHandler(this.comboBoxEncoding_SelectedIndexChanged);
             // 
             // openTabletblToolStripMenuItem
             // 
             this.openTabletblToolStripMenuItem.Name = "openTabletblToolStripMenuItem";
-            this.openTabletblToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
-            this.openTabletblToolStripMenuItem.Text = "Open Table (.tbl)";
+            this.openTabletblToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openTabletblToolStripMenuItem.Text = "S12";
             this.openTabletblToolStripMenuItem.Click += new System.EventHandler(this.openTabletblToolStripMenuItem_Click);
             // 
             // createTableToolStripMenuItem
@@ -334,42 +326,42 @@ namespace Tinke
             this.openOneToolStripMenuItem,
             this.createBasicToolStripMenuItem});
             this.createTableToolStripMenuItem.Name = "createTableToolStripMenuItem";
-            this.createTableToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
-            this.createTableToolStripMenuItem.Text = "Create table";
+            this.createTableToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
+            this.createTableToolStripMenuItem.Text = "S13";
             // 
             // showToolStripMenuItem
             // 
             this.showToolStripMenuItem.Name = "showToolStripMenuItem";
-            this.showToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
-            this.showToolStripMenuItem.Text = "Show";
+            this.showToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.showToolStripMenuItem.Text = "S14";
             this.showToolStripMenuItem.Click += new System.EventHandler(this.showToolStripMenuItem_Click);
             // 
             // hideToolStripMenuItem
             // 
             this.hideToolStripMenuItem.Name = "hideToolStripMenuItem";
-            this.hideToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
-            this.hideToolStripMenuItem.Text = "Hide";
+            this.hideToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.hideToolStripMenuItem.Text = "S15";
             this.hideToolStripMenuItem.Click += new System.EventHandler(this.hideToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem1
             // 
             this.saveToolStripMenuItem1.Name = "saveToolStripMenuItem1";
-            this.saveToolStripMenuItem1.Size = new System.Drawing.Size(138, 22);
+            this.saveToolStripMenuItem1.Size = new System.Drawing.Size(103, 22);
             this.saveToolStripMenuItem1.Text = "Save";
             this.saveToolStripMenuItem1.Click += new System.EventHandler(this.saveToolStripMenuItem1_Click);
             // 
             // openOneToolStripMenuItem
             // 
             this.openOneToolStripMenuItem.Name = "openOneToolStripMenuItem";
-            this.openOneToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
-            this.openOneToolStripMenuItem.Text = "Open one";
+            this.openOneToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.openOneToolStripMenuItem.Text = "S16";
             this.openOneToolStripMenuItem.Click += new System.EventHandler(this.openOneToolStripMenuItem_Click);
             // 
             // createBasicToolStripMenuItem
             // 
             this.createBasicToolStripMenuItem.Name = "createBasicToolStripMenuItem";
-            this.createBasicToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
-            this.createBasicToolStripMenuItem.Text = "Create basic";
+            this.createBasicToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.createBasicToolStripMenuItem.Text = "S17";
             this.createBasicToolStripMenuItem.Click += new System.EventHandler(this.createBasicToolStripMenuItem_Click);
             // 
             // statusStrip1
@@ -386,7 +378,7 @@ namespace Tinke
             // 
             this.toolStripSelect.BackColor = System.Drawing.SystemColors.Control;
             this.toolStripSelect.Name = "toolStripSelect";
-            this.toolStripSelect.Size = new System.Drawing.Size(27, 17);
+            this.toolStripSelect.Size = new System.Drawing.Size(30, 17);
             this.toolStripSelect.Text = "S0C";
             // 
             // tableGrid
@@ -398,9 +390,9 @@ namespace Tinke
             this.codeColumn,
             this.charColumn});
             this.tableGrid.Dock = System.Windows.Forms.DockStyle.Right;
-            this.tableGrid.Location = new System.Drawing.Point(636, 24);
+            this.tableGrid.Location = new System.Drawing.Point(636, 25);
             this.tableGrid.Name = "tableGrid";
-            this.tableGrid.Size = new System.Drawing.Size(143, 267);
+            this.tableGrid.Size = new System.Drawing.Size(143, 266);
             this.tableGrid.TabIndex = 3;
             this.tableGrid.Visible = false;
             this.tableGrid.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.tableGrid_CellEndEdit);
@@ -409,13 +401,13 @@ namespace Tinke
             // 
             this.codeColumn.HeaderText = "Code";
             this.codeColumn.Name = "codeColumn";
-            this.codeColumn.Width = 50;
+            this.codeColumn.Width = 55;
             // 
             // charColumn
             // 
             this.charColumn.HeaderText = "Char";
             this.charColumn.Name = "charColumn";
-            this.charColumn.Width = 50;
+            this.charColumn.Width = 55;
             // 
             // VisorHex
             // 
@@ -432,7 +424,6 @@ namespace Tinke
             this.Name = "VisorHex";
             this.Text = "S41";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.VisorHex_FormClosed);
-            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.VisorHex_KeyUp);
             this.Resize += new System.EventHandler(this.VisorHex_Resize);
             this.menuStripTop.ResumeLayout(false);
             this.menuStripTop.PerformLayout();
@@ -468,11 +459,6 @@ namespace Tinke
         private System.Windows.Forms.ToolStripComboBox encodingCombo;
         private System.Windows.Forms.ToolStripMenuItem searchToolStripMenuItem;
         private System.Windows.Forms.ToolStripTextBox toolStripSearchBox;
-        private System.Windows.Forms.ToolStripMenuItem rawBytesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem shiftjisToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem defaultCharsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem unicodeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem unicodeBigEndianToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openTabletblToolStripMenuItem;
         private System.Windows.Forms.DataGridView tableGrid;
         private System.Windows.Forms.DataGridViewTextBoxColumn codeColumn;
@@ -483,8 +469,8 @@ namespace Tinke
         private System.Windows.Forms.ToolStripMenuItem showToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openOneToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem createBasicToolStripMenuItem;
-
-
-
+        private System.Windows.Forms.ToolStripComboBox toolStripComboBox1;
+        private System.Windows.Forms.ToolStripMenuItem FindPrvToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem FindNextToolStripMenuItem;
     }
 }
