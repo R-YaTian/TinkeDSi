@@ -1963,6 +1963,44 @@ namespace Be.Windows.Forms
 
 			return -1;
 		}
+		public long Find_Prv(byte[] bytes, long endIndex)
+		{
+			int bytesLength = bytes.Length;
+			int match = bytesLength - 1;
+
+			_abortFind = false;
+
+			for (long pos = endIndex; pos > 0; pos--)
+			{
+				if (_abortFind)
+					return -2;
+
+				if (pos % 1000 == 0) // for performance reasons: DoEvents only 1 times per 1000 loops
+					Application.DoEvents();
+
+				if (_byteProvider.ReadByte(pos) != bytes[match])
+				{
+					pos += bytesLength - match - 1;
+					match = bytesLength - 1;
+					_findingPos = pos;
+					continue;
+				}
+
+				match--;
+
+				if (match == -1)
+				{
+					long bytePos = pos;
+					Select(bytePos, bytesLength);
+					ScrollByteIntoView(_bytePos + _selectionLength);
+					ScrollByteIntoView(_bytePos);
+
+					return bytePos;
+				}
+			}
+
+			return -1;
+		}
 
 		/// <summary>
 		/// Aborts a working Find method.
