@@ -64,7 +64,8 @@
     <S37>Il y a une erreur en sauvegardant les préférences de l'utilisateur.</S37>
     <S38>Il y a une erreur en chargeant les préférences de l'utilisateur.</S38>
     <S39>
-      Vous avez changé des fichiers mais la nouvelle ROM n'a pas été sauvegardée. Êtes-vous sûr de vouloir quitter ? Toutes les modifications seront perdues.
+      Vous avez changé des fichiers mais la nouvelle ROM n'a pas été sauvegardée.
+      Êtes-vous sûr de vouloir quitter ? Toutes les modifications seront perdues.
     </S39>
     <S3A>Attention</S3A>
     <S3B>
@@ -148,7 +149,7 @@
     <S37>Offset de la RAM de debug</S37>
     <S38>Réservé</S38>
     <S39>Invalide</S39>
-    <S3A>Transparency</S3A>
+    <S3A>Transparence</S3A>
     <S3B>Éditer En-tête/bannière</S3B>
     <S3C>Chinois</S3C>
     <S3D>Coréen</S3D>
@@ -472,7 +473,7 @@
       <S07>Image pattern:</S07>
       <S08>Tile size:</S08>
       <S09>Num palette</S09>
-      <S0A>Transparency</S0A>
+      <S0A>Transparence</S0A>
       <S0B>Set transparency</S0B>
       <S0C>Set box background</S0C>
       <S0D>Remove box background</S0D>
@@ -507,7 +508,7 @@ Base name (without extension)
       <S0C>Show grid</S0C>
       <S0D>Show cell border</S0D>
       <S0E>Show image</S0E>
-      <S0F>Transparency</S0F>
+      <S0F>Transparence</S0F>
       <S10>Show numbers</S10>
       <S11>Swap to original palette</S11>
       <S12>Banks</S12>
