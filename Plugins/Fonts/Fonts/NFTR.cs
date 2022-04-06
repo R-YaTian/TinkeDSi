@@ -36,7 +36,7 @@ namespace Fonts
     public static class NFTR
     {
         const int CHARS_PER_LINE = 16;
-        public const int BORDER_WIDTH = 2;
+        public const int BORDER_WIDTH = 1;
         static readonly Pen BORDER = new Pen(Color.Olive, BORDER_WIDTH);
 
         public static sNFTR Read(sFile cfile, string lang)

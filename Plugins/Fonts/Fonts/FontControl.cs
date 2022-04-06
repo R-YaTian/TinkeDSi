@@ -36,7 +36,7 @@ namespace Fonts
         List<CharControl> chars = new List<CharControl>();
         Dictionary<int, int> charTile;
         Color[] palette;
-        const int ZOOM = 2;
+        private int ZOOM = 2;
         const int MAX_WIDTH = 260;
         bool inversePalette = true;
 
@@ -57,6 +57,8 @@ namespace Fonts
             for (int i = 0; i < font.plgc.tiles.Length; i++)
                 comboChar.Items.Add("Char " + i.ToString());
 
+            if (font.plgc.tiles.Length >= 7489)
+                ZOOM = 1;
             picFont.Image = NFTR.Get_Chars(font, MAX_WIDTH, palette, ZOOM);
 
             Fill_CharTile();
@@ -217,8 +219,13 @@ namespace Fonts
             int charX = e.X / (font.plgc.tile_width * ZOOM + NFTR.BORDER_WIDTH);
             int charY = e.Y / (font.plgc.tile_height * ZOOM + NFTR.BORDER_WIDTH);
             int totalX = MAX_WIDTH / (font.plgc.tile_width * ZOOM + 2 * NFTR.BORDER_WIDTH);
+            Console.WriteLine(totalX);
 
             int index = charX + charY * totalX;
+            Console.WriteLine(charX);
+            Console.WriteLine(charY);
+            Console.WriteLine(totalX);
+            Console.WriteLine(comboChar.Items.Count);
             if (index < comboChar.Items.Count)
                 comboChar.SelectedIndex = index;
         }

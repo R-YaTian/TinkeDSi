@@ -76,7 +76,7 @@ namespace Fonts
             this.comboChar.FormattingEnabled = true;
             this.comboChar.Location = new System.Drawing.Point(388, 3);
             this.comboChar.Name = "comboChar";
-            this.comboChar.Size = new System.Drawing.Size(121, 21);
+            this.comboChar.Size = new System.Drawing.Size(121, 20);
             this.comboChar.TabIndex = 3;
             this.comboChar.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
@@ -134,7 +134,7 @@ namespace Fonts
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(165, 6);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(26, 13);
+            this.label1.Size = new System.Drawing.Size(23, 12);
             this.label1.TabIndex = 13;
             this.label1.Text = "S02";
             // 
@@ -149,7 +149,7 @@ namespace Fonts
             "CP1252"});
             this.comboEncoding.Location = new System.Drawing.Point(230, 4);
             this.comboEncoding.Name = "comboEncoding";
-            this.comboEncoding.Size = new System.Drawing.Size(121, 21);
+            this.comboEncoding.Size = new System.Drawing.Size(121, 20);
             this.comboEncoding.TabIndex = 11;
             this.comboEncoding.SelectedIndexChanged += new System.EventHandler(this.comboEncoding_SelectedIndexChanged);
             // 
