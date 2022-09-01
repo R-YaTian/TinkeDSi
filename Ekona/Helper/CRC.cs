@@ -141,4 +141,37 @@ namespace Ekona.Helper
             return new byte[] { b1, b2, b3, b4 };
         }
     }
+    public static class CRC32_alt
+    {
+        static UInt32[] Crc32Table;
+        private static void GetCRC32Table()
+        {
+            UInt32 Crc;
+            Crc32Table = new UInt32[256];
+            int i, j;
+            for (i = 0; i < 256; i++)
+            {
+                Crc = (UInt32)i;
+                for (j = 8; j > 0; j--)
+                {
+                    if ((Crc & 1) == 1)
+                        Crc = (Crc >> 1) ^ 0xEDB88320;
+                    else
+                        Crc = (Crc >> 1) ^ 0;
+                }
+                Crc32Table[i] = Crc;
+            }
+        }
+        public static UInt32 Get(byte[] buffer)
+        {
+            GetCRC32Table();
+            UInt32 value = 0xffffffff;
+            int len = buffer.Length;
+            for (int i = 0; i < len; i++)
+            {
+                value = (value >> 8) ^ Crc32Table[(value & 0xFF) ^ buffer[i]];
+            }
+            return value;
+        }
+    }
 }
