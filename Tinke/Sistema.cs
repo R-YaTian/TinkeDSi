@@ -1275,7 +1275,11 @@ namespace Tinke
 
             if (!isMono)
             {
-                espera.Close();
+                try
+                {
+                    espera.Close();
+                }
+                catch { };
                 debug.Add_Text(sb.ToString());
             }
             sb.Length = 0;
@@ -1371,7 +1375,11 @@ namespace Tinke
                     extract.Start("S03");
                 RecursivoExtractFolder(folderSelect, o.SelectedPath + Path.DirectorySeparatorChar + folderSelect.name);
                 if (!isMono)
-                    espera.Close();
+                    try
+                    {
+                        espera.Close();
+                    }
+                    catch { };
             }
         }
         private void RecursivoExtractFolder(sFolder currFolder, String path)
@@ -1808,7 +1816,11 @@ namespace Tinke
             #endregion
 
             if (!isMono)
-                espera.Close();
+                try
+                {
+                    espera.Close();
+                }
+                catch { };
 
             // Obtenemos el nuevo archivo para guardar
             SaveFileDialog o = new SaveFileDialog();
@@ -1867,7 +1879,11 @@ namespace Tinke
 
                 if (!isMono)
                 {
-                    espera.Close();
+                    try
+                    {
+                        espera.Close();
+                    }
+                    catch { };
                     debug.Add_Text(sb.ToString());
                 }
                 sb.Length = 0;
@@ -2202,7 +2218,11 @@ namespace Tinke
 
             if (!isMono)
             {
-                espera.Close();
+                try
+                {
+                    espera.Close();
+                }
+                catch { };
                 debug.Add_Text(sb.ToString());
             }
             sb.Length = 0;
@@ -2393,7 +2413,11 @@ namespace Tinke
             treeSystem.EndUpdate();
 
             if (!isMono && waiting.ThreadState == ThreadState.Running)
-                espera.Close();
+                try
+                {
+                    espera.Close();
+                }
+                catch { };
         }
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
@@ -2468,7 +2492,11 @@ namespace Tinke
             if (FBD.ShowDialog() != DialogResult.OK)
             {
                 if (!isMono)
-                    espera.Close();
+                    try
+                    {
+                        espera.Close();
+                    }
+                    catch { };
                 return;
             }
 
@@ -2519,7 +2547,11 @@ namespace Tinke
                 Console.WriteLine(currFile);
             }
             if (!isMono)
-                espera.Close();
+                try
+                {
+                    espera.Close();
+                }
+                catch { };
         }
         public static List<string> GetAllSubFiles(string directoryPath, List<string> files)
         {

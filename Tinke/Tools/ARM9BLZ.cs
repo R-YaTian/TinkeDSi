@@ -23,7 +23,7 @@ namespace Tinke.Tools
         {
             decompressed = arm9Data;
             uint initptr = BitConverter.ToUInt32(hdr.reserved2, 0) & 0x3FFF;
-            uint hdrptr = BitConverter.ToUInt32(arm9Data, (int)initptr + 14);
+            uint hdrptr = BitConverter.ToUInt32(arm9Data, (int)initptr + 0x14);
             uint postSize = (uint)arm9Data.Length - (hdrptr - hdr.ARM9ramAddress);
             bool cmparm9 = initptr > 0 && hdrptr > hdr.ARM9ramAddress && hdrptr <= hdr.ARM9ramAddress + arm9Data.Length;
             if (cmparm9)
