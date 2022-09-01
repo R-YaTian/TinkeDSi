@@ -417,7 +417,7 @@ namespace Tinke
             this.columnCampo,
             this.columnValor});
             this.listInfo.Dock = System.Windows.Forms.DockStyle.Left;
-            this.listInfo.HoverSelection = true;
+            this.listInfo.HideSelection = false;
             this.listInfo.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
             listViewItem1,
             listViewItem2,
@@ -468,6 +468,7 @@ namespace Tinke
             this.listInfo.TabIndex = 6;
             this.listInfo.UseCompatibleStateImageBehavior = false;
             this.listInfo.View = System.Windows.Forms.View.Details;
+            this.listInfo.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listInfo_MouseDoubleClick);
             // 
             // columnPosicion
             // 

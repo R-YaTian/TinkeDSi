@@ -90,6 +90,13 @@
     <S45>Recargar mensajes</S45>
     <S46>Cambiar por directorio</S46>
     <S47>La carpeta seleccionada debe ser "root".</S47>
+    <S48>Toolkit</S48>
+    <S49>Call plugin</S49>
+    <S4A>Get CRC32 for r4cce</S4A>
+    <S4B>Get CRC32 for TTdT</S4B>
+    <S4C>Copy to clipboard?</S4C>
+    <S4D>Header CRC32 for r4cce</S4D>
+    <S4E>Header CRC32 for TTdT</S4E>
   </Sistema>
   <RomInfo>
     <S01>Información de la ROM</S01>
@@ -157,6 +164,8 @@
     <S3F>Dump animation data</S3F>
     <S40>Dump donor iheader</S40>
     <S41>Títulos del juego:</S41>
+    <S42>Do you want to copy the content to clipboard?</S42>
+    <S43>Info</S43>
   </RomInfo>
   <Autores>
     <S01>Acerca de</S01>

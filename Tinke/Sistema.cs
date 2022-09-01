@@ -169,7 +169,9 @@ namespace Tinke
 
             if (!isMono)
             {
-                espera.Close();
+                try {
+                    espera.Close();
+                } catch { };
                 debug = new Debug();
                 debug.FormClosing += new FormClosingEventHandler(debug_FormClosing);
                 debug.Add_Text(sb.ToString());
@@ -591,6 +593,7 @@ namespace Tinke
                 //borrarAnimaciónToolStripMenuItem.Text = xml.Element("S15").Value;
                 //s10ToolStripMenuItem.Text = xml.Element("S10").Value;
                 toolStripOpenAs.Text = xml.Element("S16").Value;
+                toolStripToolkit.Text = xml.Element("S48").Value;
                 toolStripMenuItem1.Text = xml.Element("S17").Value;
                 toolStripMenuItem2.Text = xml.Element("S18").Value;
                 toolStripMenuItem3.Text = xml.Element("S19").Value;
@@ -625,6 +628,9 @@ namespace Tinke
                 toolStripMenuComprimido.Text = xml.Element("S2A").Value;
                 toolStripAbrirTexto.Text = xml.Element("S26").Value;
                 toolStripAbrirFat.Text = xml.Element("S3D").Value;
+                callPluginToolStripMenuItem.Text = xml.Element("S49").Value;
+                toolStripMenuItem4.Text = xml.Element("S4A").Value;
+                toolStripMenuItem5.Text = xml.Element("S4B").Value;
                 btnPack.Text = xml.Element("S42").Value;
                 stripRefreshMsg.Text = xml.Element("S45").Value;
                 btnImport1.Text = xml.Element("S46").Value;
@@ -2558,6 +2564,38 @@ namespace Tinke
                     System.Diagnostics.Process.Start(Application.ExecutablePath, inFile);
                 }
             }
+        }
+
+        private void toolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            Nitro.Estructuras.ROMHeader header = romInfo.Cabecera;
+            string tempHeader = Path.GetTempFileName();
+            Nitro.NDS.EscribirCabecera(tempHeader, header, accion.ROMFile);
+            BinaryReader brHeader = new BinaryReader(File.OpenRead(tempHeader));
+            uint crc = Ekona.Helper.CRC32_alt.Get(brHeader.ReadBytes(0x200));
+            brHeader.Close();
+            File.Delete(tempHeader);
+            DialogResult res = MessageBox.Show(new String(header.gameCode) + String.Format(" {0:X8}", crc) + "\n" + Tools.Helper.GetTranslation("Sistema", "S4C"),
+                Tools.Helper.GetTranslation("Sistema", "S4D"), MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+            if (res == DialogResult.Yes)
+                Clipboard.SetText(String.Format("{0:X8}", crc));
+        }
+
+        private void toolStripMenuItem5_Click(object sender, EventArgs e)
+        {
+            Nitro.Estructuras.ROMHeader header = romInfo.Cabecera;
+            string tempHeader = Path.GetTempFileName();
+            Nitro.NDS.EscribirCabecera(tempHeader, header, accion.ROMFile);
+            BinaryReader brHeader = new BinaryReader(File.OpenRead(tempHeader));
+            byte[] buffer = new byte[0x200];
+            Array.Copy(brHeader.ReadBytes(0x160), buffer, 0x160);
+            brHeader.Close();
+            File.Delete(tempHeader);
+            uint crc = Ekona.Helper.CRC32_alt.Get(buffer);
+            DialogResult res = MessageBox.Show(new String(header.gameCode) + String.Format(" {0:X8}", crc) + "\n" + Tools.Helper.GetTranslation("Sistema", "S4C"),
+                Tools.Helper.GetTranslation("Sistema", "S4E"), MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+            if (res == DialogResult.Yes)
+                Clipboard.SetText(String.Format("{0:X8}", crc));
         }
     }
 }

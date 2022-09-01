@@ -159,7 +159,7 @@ namespace Tinke
 
             #region Muestra la información de la cabecera
             listInfo.Items[0].SubItems.Add(new String(cabecera.gameTitle));
-            listInfo.Items[1].SubItems.Add(new string(cabecera.gameCode));
+            listInfo.Items[1].SubItems.Add(new String(cabecera.gameCode));
             try
             {
 
@@ -203,7 +203,7 @@ namespace Tinke
             listInfo.Items[25].SubItems.Add(Convert.ToString(cabecera.flagsRead, 2));
             listInfo.Items[26].SubItems.Add(Convert.ToString(cabecera.flagsInit, 2));
             listInfo.Items[27].SubItems.Add("0x" + String.Format("{0:X}", cabecera.bannerOffset));
-            listInfo.Items[28].SubItems.Add(cabecera.secureCRC16.ToString() + " (" + Convert.ToString(cabecera.secureCRC) + ")");
+            listInfo.Items[28].SubItems.Add("0x" + String.Format("{0:X}", cabecera.secureCRC16) + " (" + Convert.ToString(cabecera.secureCRC) + ")");
             listInfo.Items[29].SubItems.Add(cabecera.ROMtimeout.ToString());
             listInfo.Items[30].SubItems.Add("0x" + String.Format("{0:X}", cabecera.ARM9autoload));
             listInfo.Items[31].SubItems.Add("0x" + String.Format("{0:X}", cabecera.ARM7autoload));
@@ -211,8 +211,8 @@ namespace Tinke
             listInfo.Items[33].SubItems.Add("0x" + String.Format("{0:X}", cabecera.ROMsize) + " bytes");
             listInfo.Items[34].SubItems.Add("0x" + String.Format("{0:X}", cabecera.headerSize) + " bytes");
             listInfo.Items[35].SubItems.Add(BitsConverter.BytesToHexString(cabecera.reserved2));
-            listInfo.Items[36].SubItems.Add(cabecera.logoCRC16.ToString() + " (" + Convert.ToString(cabecera.logoCRC) + ")");
-            listInfo.Items[37].SubItems.Add(cabecera.headerCRC16.ToString() + " (" + Convert.ToString(cabecera.headerCRC) + ")");
+            listInfo.Items[36].SubItems.Add("0x" + String.Format("{0:X}", cabecera.logoCRC16) + " (" + Convert.ToString(cabecera.logoCRC) + ")");
+            listInfo.Items[37].SubItems.Add("0x" + String.Format("{0:X}", cabecera.headerCRC16) + " (" + Convert.ToString(cabecera.headerCRC) + ")");
             listInfo.Items[38].SubItems.Add("0x" + String.Format("{0:X}", cabecera.debug_romOffset));
             listInfo.Items[39].SubItems.Add("0x" + String.Format("{0:X}", cabecera.debug_size) + " bytes");
             listInfo.Items[40].SubItems.Add("0x" + String.Format("{0:X}", cabecera.debug_ramAddress));
@@ -454,6 +454,14 @@ namespace Tinke
                 bw.Flush();
                 bw.Close();
             }
+        }
+
+        private void listInfo_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            ListViewItem item = this.listInfo.GetItemAt(e.X, e.Y);
+            DialogResult res = MessageBox.Show(Tools.Helper.GetTranslation("RomInfo", "S42"), Tools.Helper.GetTranslation("RomInfo", "S43"), MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+            if (res == DialogResult.Yes)
+                Clipboard.SetText(item.SubItems[2].Text);
         }
     }
 }
