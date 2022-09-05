@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-using DSDecmp.Utils;
 
 namespace DSDecmp.Formats
 {
@@ -369,14 +368,14 @@ namespace DSDecmp.Formats
         public byte[] BLZ_Encode(byte[] raw_buffer, bool arm9)
         {
             byte[] pak_buffer, new_buffer;
-            uint raw_len, pak_len;
+            uint raw_len, pak_len, new_len;
 
             raw_len = (uint)raw_buffer.Length;
 
             pak_buffer = null;
             pak_len = BLZ_MAXIM + 1;
 
-            new_buffer = BLZ_Code(raw_buffer, raw_len, out uint new_len, arm9);
+            new_buffer = BLZ_Code(raw_buffer, raw_len, out new_len, arm9);
             if (new_len < pak_len)
             {
                 pak_buffer = new_buffer;
