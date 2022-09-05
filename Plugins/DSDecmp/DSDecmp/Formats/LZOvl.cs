@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Text;
 using System.IO;
 using DSDecmp.Utils;
+using System.Drawing;
+using Ekona.Images.Formats;
 
 namespace DSDecmp.Formats
 {
@@ -307,11 +309,11 @@ namespace DSDecmp.Formats
             // read the input and reverse it
             byte[] indata = new byte[inLength];
             instream.Read(indata, 0, (int)inLength);
-            Array.Reverse(indata);
+            //Array.Reverse(indata);
 
             MemoryStream inMemStream = new MemoryStream(indata);
             MemoryStream outMemStream = new MemoryStream();
-            int compressedLength = this.CompressNormal(inMemStream, inLength, outMemStream);
+            int compressedLength = this.CompressNormal(inMemStream, (uint)inLength, outMemStream);
 
             int totalCompFileLength = (int)outMemStream.Length + 8;
             // make the file 4-byte aligned with padding in the header
@@ -325,14 +327,16 @@ namespace DSDecmp.Formats
                 outstream.Write(compData, 0, compData.Length);
                 int writtenBytes = compData.Length;
                 // there always seem to be some padding FFs. Let's pad to make the file 4-byte aligned
-                while (writtenBytes % 4 != 0)
+                int headerLength = 8;
+                while ((writtenBytes & 3) != 0)
                 {
                     outstream.WriteByte(0xFF);
                     writtenBytes++;
+                    headerLength++;
                 }
 
-                int headerLength = totalCompFileLength - compData.Length;
-                compressedLength += headerLength;
+                //int headerLength = totalCompFileLength - compData.Length;
+                compressedLength = totalCompFileLength;
                 outstream.WriteByte((byte)((compressedLength) & 0xFF));
                 outstream.WriteByte((byte)((compressedLength >> 8) & 0xFF));
                 outstream.WriteByte((byte)((compressedLength >> 16) & 0xFF));
@@ -423,10 +427,9 @@ namespace DSDecmp.Formats
                     // determine if we're dealing with a compressed or raw block.
                     // it is a compressed block when the next 3 or more bytes can be copied from
                     // somewhere in the set of already compressed bytes.
-                    int disp;
                     int oldLength = Math.Min(readBytes, 0x1001);
                     int length = LZUtil.GetOccurrenceLength(instart + readBytes, (int)Math.Min(inLength - readBytes, 0x12),
-                                                          instart + readBytes - oldLength, oldLength, out disp);
+                                                          instart + readBytes - oldLength, oldLength, out int disp);
 
                     // disp = 1 cannot be stored.
                     if (disp == 1)
@@ -493,6 +496,261 @@ namespace DSDecmp.Formats
         }
         #endregion
 
+        #region BLZ_Encoder by CUE
+        /*----------------------------------------------------------------------------*/
+        /*--  blz.c - Bottom LZ coding for Nintendo GBA/DS                          --*/
+        /*--  Copyright (C) 2011 CUE                                                --*/
+        /*--                                                                        --*/
+        /*--  This program is free software: you can redistribute it and/or modify  --*/
+        /*--  it under the terms of the GNU General Public License as published by  --*/
+        /*--  the Free Software Foundation, either version 3 of the License, or     --*/
+        /*--  (at your option) any later version.                                   --*/
+        /*--                                                                        --*/
+        /*--  This program is distributed in the hope that it will be useful,       --*/
+        /*--  but WITHOUT ANY WARRANTY; without even the implied warranty of        --*/
+        /*--  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the          --*/
+        /*--  GNU General Public License for more details.                          --*/
+        /*--                                                                        --*/
+        /*--  You should have received a copy of the GNU General Public License     --*/
+        /*--  along with this program. If not, see <http://www.gnu.org/licenses/>.  --*/
+        /*----------------------------------------------------------------------------*/
+        public const uint BLZ_SHIFT = 1;          // bits to shift
+        public const byte BLZ_MASK = 0x80;       // bits to check:
+                                                 // ((((1 << BLZ_SHIFT) - 1) << (8 - BLZ_SHIFT)
+
+        public const uint BLZ_THRESHOLD = 2;          // max number of bytes to not encode
+        public const uint BLZ_N = 0x1002;     // max offset ((1 << 12) + 2)
+        public const uint BLZ_F = 0x12;       // max coded ((1 << 4) + BLZ_THRESHOLD)
+
+        public const uint RAW_MINIM = 0x00000000; // empty file, 0 bytes
+        public const uint RAW_MAXIM = 0x00FFFFFF; // 3-bytes length, 16MB - 1
+
+        public const uint BLZ_MINIM = 0x00000004; // header only (empty RAW file)
+        public const uint BLZ_MAXIM = 0x01400000; // 0x0120000A, padded to 20MB:
+
+        void BLZ_Invert(byte[] buffer, uint start, uint length)
+        {
+            byte ch;
+            uint bottom = start + length - 1;
+
+            while (start < bottom)
+            {
+                ch = buffer[start];
+                buffer[start++] = buffer[bottom];
+                buffer[bottom--] = ch;
+            }
+        }
+
+        byte[] Memory(int length, int size)
+        {
+            return new byte[length * size];
+        }
+
+        public byte[] BLZ_Encode(byte[] raw_buffer, bool arm9)
+        {
+            byte[] pak_buffer, new_buffer;
+            uint raw_len, pak_len;
+
+            raw_len = (uint)raw_buffer.Length;
+
+            pak_buffer = null;
+            pak_len = BLZ_MAXIM + 1;
+
+            new_buffer = BLZ_Code(raw_buffer, raw_len, out uint new_len, arm9);
+            if (new_len < pak_len)
+            {
+                pak_buffer = new_buffer;
+                pak_len = new_len;
+            }
+
+            if (pak_buffer.Length != pak_len)
+            {
+                byte[] retbuf = new byte[pak_len];
+                for (int i = 0; i < pak_len; ++i)
+                {
+                    retbuf[i] = pak_buffer[i];
+                }
+                pak_buffer = retbuf;
+            }
+
+            return pak_buffer;
+        }
+
+        private void SEARCH(ref uint l, ref uint p, ref byte[] raw_buffer, ref uint raw, ref uint raw_end, ref uint max, ref uint pos, ref uint len)
+        {
+            l = BLZ_THRESHOLD;
+
+            max = raw >= BLZ_N ? BLZ_N : raw;
+            for (pos = 3; pos <= max; pos++)
+            {
+                for (len = 0; len < BLZ_F; len++)
+                {
+                    if (raw + len == raw_end) break;
+                    if (len >= pos) break;
+                    if (raw_buffer[raw + len] != raw_buffer[raw + len - pos]) break;
+                }
+
+                if (len > l)
+                {
+                    p = pos;
+                    if ((l = len) == BLZ_F) break;
+                }
+            }
+        }
+
+        byte[] BLZ_Code(byte[] raw_buffer, uint raw_len, out uint new_len, bool arm9)
+        {
+            byte[] pak_buffer;
+            uint pak, raw, raw_end, flg = 0;
+            byte[] tmp;
+            uint pak_len, inc_len, hdr_len, enc_len, len = 0, pos = 0, max = 0;
+            uint len_best = 0, pos_best = 0;
+            uint pak_tmp, raw_tmp, raw_new;
+            byte mask;
+
+            pak_tmp = 0;
+            raw_tmp = raw_len;
+
+            pak_len = raw_len + ((raw_len + 7) / 8) + 11;
+            pak_buffer = Memory((int)pak_len, 1);
+
+            raw_new = raw_len;
+            if (arm9)
+            {
+                if (raw_len < 0x4000)
+                {
+                    Console.WriteLine("WARNING: ARM9 must be greater than 16KB, switch [arm9] disabled");
+                }
+                else
+                {
+                    raw_new -= 0x4000;
+                }
+            }
+
+            BLZ_Invert(raw_buffer, 0, raw_len);
+
+            pak = 0;
+            raw = 0;
+            raw_end = raw_new;
+
+            mask = 0;
+
+            while (raw < raw_end)
+            {
+                mask = (byte)(((uint)mask) >> ((int)BLZ_SHIFT));
+
+                if (mask == 0)
+                {
+                    flg = pak++;
+                    pak_buffer[flg] = 0;
+                    mask = BLZ_MASK;
+                }
+
+                SEARCH(ref len_best, ref pos_best, ref raw_buffer, ref raw, ref raw_end, ref max, ref pos, ref len);
+
+                pak_buffer[flg] <<= 1;
+                if (len_best > BLZ_THRESHOLD)
+                {
+                    raw += len_best;
+                    pak_buffer[flg] |= 1;
+                    pak_buffer[pak] = (byte)(((len_best - (BLZ_THRESHOLD + 1)) << 4) | ((pos_best - 3) >> 8));
+                    pak++;
+                    pak_buffer[pak] = (byte)((pos_best - 3) & 0xFF);
+                    pak++;
+                }
+                else
+                {
+                    pak_buffer[pak] = raw_buffer[raw];
+                    pak++;
+                    raw++;
+                }
+
+                if (pak + raw_len - raw < pak_tmp + raw_tmp)
+                {
+                    pak_tmp = pak;
+                    raw_tmp = raw_len - raw;
+                }
+            }
+
+            while ((mask != 0) && (mask != 1))
+            {
+                mask = (byte)(((uint)mask) >> ((int)BLZ_SHIFT));
+                pak_buffer[flg] <<= 1;
+            }
+
+            pak_len = pak;
+
+            BLZ_Invert(raw_buffer, 0, raw_len);
+            BLZ_Invert(pak_buffer, 0, pak_len);
+
+            if ((pak_tmp == 0) || (raw_len + 4 < ((pak_tmp + raw_tmp + 3) & -4) + 8))
+            {
+                pak = 0;
+                raw = 0;
+                raw_end = raw_len;
+
+                while (raw < raw_end)
+                {
+                    pak_buffer[pak] = raw_buffer[raw];
+                    pak++;
+                    raw++;
+                }
+
+                while ((pak & 3) != 0)
+                {
+                    pak_buffer[pak] = 0;
+                    pak++;
+                }
+
+                pak_buffer[pak] = 0;
+                pak_buffer[pak + 1] = 0;
+                pak_buffer[pak + 2] = 0;
+                pak_buffer[pak + 3] = 0;
+                pak += 4;
+            }
+            else
+            {
+                tmp = Memory((int)(raw_tmp + pak_tmp + 11), 1);
+
+                for (len = 0; len < raw_tmp; len++)
+                    tmp[len] = raw_buffer[len];
+
+                for (len = 0; len < pak_tmp; len++)
+                    tmp[raw_tmp + len] = pak_buffer[len + pak_len - pak_tmp];
+
+                pak_buffer = tmp;
+                pak = raw_tmp + pak_tmp;
+
+                enc_len = pak_tmp;
+                hdr_len = 8;
+                inc_len = raw_len - pak_tmp - raw_tmp;
+
+                while ((pak & 3) != 0)
+                {
+                    pak_buffer[pak] = 0xFF;
+                    pak++;
+                    hdr_len++;
+                }
+
+                byte[] tmpbyte = BitConverter.GetBytes(enc_len + hdr_len);
+                tmpbyte.CopyTo(pak_buffer, pak);
+                pak += 3;
+                pak_buffer[pak] = (byte)hdr_len;
+                pak++;
+                tmpbyte = BitConverter.GetBytes(inc_len - hdr_len);
+                tmpbyte.CopyTo(pak_buffer, pak);
+                pak += 4;
+            }
+
+            new_len = pak;
+
+            return (pak_buffer);
+        }
+        /*----------------------------------------------------------------------------*/
+        /*--  EOF                                           Copyright (C) 2011 CUE  --*/
+        /*----------------------------------------------------------------------------*/
+        #endregion
+
         #region Dynamic Programming compression method
         /// <summary>
         /// Variation of the original compression method, making use of Dynamic Programming to 'look ahead'
@@ -519,8 +777,7 @@ namespace DSDecmp.Formats
                 int readBytes = 0;
 
                 // get the optimal choices for len and disp
-                int[] lengths, disps;
-                this.GetOptimalCompressionLengths(instart, indata.Length, out lengths, out disps);
+                this.GetOptimalCompressionLengths(instart, indata.Length, out int[] lengths, out int[] disps);
 
                 int optCompressionLength = this.GetOptimalCompressionPartLength(lengths);
 
