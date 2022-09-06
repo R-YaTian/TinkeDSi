@@ -347,6 +347,17 @@ namespace DSDecmp.Formats
         public const uint BLZ_MINIM = 0x00000004; // header only (empty RAW file)
         public const uint BLZ_MAXIM = 0x01400000; // 0x0120000A, padded to 20MB:
 
+        private static bool lookAhead = false;
+        /// <summary>
+        /// Sets the flag that determines if "LZ-CUE" method should be used when compressing
+        /// with the LZ-Ovl format. The default is false, which is what is used in the original
+        /// implementation.
+        /// </summary>
+        public static bool LookAhead
+        {
+            set { lookAhead = value; }
+        }
+
         void BLZ_Invert(byte[] buffer, uint start, uint length)
         {
             byte ch;
@@ -423,7 +434,7 @@ namespace DSDecmp.Formats
             uint pak, raw, raw_end, flg = 0;
             byte[] tmp;
             uint pak_len, inc_len, hdr_len, enc_len, len = 0, pos = 0, max = 0;
-            uint len_best = 0, pos_best = 0;
+            uint len_best = 0, pos_best = 0, len_next = 0, pos_next = 0, len_post = 0, pos_post = 0;
             uint pak_tmp, raw_tmp, raw_new;
             byte mask;
 
@@ -466,6 +477,28 @@ namespace DSDecmp.Formats
                 }
 
                 SEARCH(ref len_best, ref pos_best, ref raw_buffer, ref raw, ref raw_end, ref max, ref pos, ref len);
+
+                // LZ-CUE optimization start
+                if (lookAhead)
+                {
+                    if (len_best > BLZ_THRESHOLD)
+                    {
+                        if (raw + len_best < raw_end)
+                        {
+                            raw += len_best;
+                            SEARCH(ref len_next, ref pos_next, ref raw_buffer, ref raw, ref raw_end, ref max, ref pos, ref len);
+                            raw -= len_best - 1;
+                            SEARCH(ref len_post, ref pos_post, ref raw_buffer, ref raw, ref raw_end, ref max, ref pos, ref len);
+                            raw--;
+
+                            if (len_next <= BLZ_THRESHOLD) len_next = 1;
+                            if (len_post <= BLZ_THRESHOLD) len_post = 1;
+
+                            if (len_best + len_next <= 1 + len_post) len_best = 1;
+                        }
+                    }
+                }
+                // LZ-CUE optimization end
 
                 pak_buffer[flg] <<= 1;
                 if (len_best > BLZ_THRESHOLD)

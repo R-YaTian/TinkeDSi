@@ -82,7 +82,7 @@ namespace DSDecmp
         {
             format = (FormatCompress)Enum.Parse(typeof(FormatCompress), comboFormat.Text);
 
-            if (format == FormatCompress.LZ10 || format == FormatCompress.LZ11)// || format == FormatCompress.LZOVL)
+            if (format == FormatCompress.LZ10 || format == FormatCompress.LZ11 || format == FormatCompress.LZOVL)
                 checkLookAhead.Enabled = true;
             else
                 checkLookAhead.Enabled = false;
@@ -91,9 +91,9 @@ namespace DSDecmp
         {
             switch (format)
             {
-                //case FormatCompress.LZOVL:
-                    //Formats.LZOvl.LookAhead = checkLookAhead.Checked;
-                    //break;
+                case FormatCompress.LZOVL:
+                    Formats.LZOvl.LookAhead = checkLookAhead.Checked;
+                    break;
                 case FormatCompress.LZ10:
                     Formats.Nitro.LZ10.LookAhead = checkLookAhead.Checked;
                     break;
