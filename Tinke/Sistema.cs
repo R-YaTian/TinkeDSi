@@ -35,6 +35,7 @@ namespace Tinke
     using System.Security.Cryptography;
 
     using Tinke.Nitro;
+    using Tinke.Tools;
 
     public partial class Sistema : Form
     {
@@ -160,7 +161,11 @@ namespace Tinke
                 loadrom.Start("S02");
 
             if (filesToRead.Length == 1 &&
-                (Path.GetFileName(filesToRead[0]).ToUpper().EndsWith(".NDS") || Path.GetFileName(filesToRead[0]).ToUpper().EndsWith(".SRL")))
+                (Path.GetFileName(filesToRead[0]).ToUpper().EndsWith(".NDS") ||
+                 Path.GetFileName(filesToRead[0]).ToUpper().EndsWith(".SRL") ||
+                 Path.GetFileName(filesToRead[0]).ToUpper().EndsWith(".IDS") ||
+                 Path.GetFileName(filesToRead[0]).ToUpper().EndsWith(".DSI") ||
+                 Path.GetFileName(filesToRead[0]).ToUpper().EndsWith(".APP")))
                 ReadGame(filesToRead[0]);
             else if (filesToRead.Length == 1 && Directory.Exists(filesToRead[0]))
                 ReadFolder(filesToRead[0]);
@@ -1438,6 +1443,16 @@ namespace Tinke
              *   |_Game titles (Japanese, English, French, German, Italian, Spanish) 6 * 0x100
              * Files...
             */
+            bool keep_original = false;
+            Nitro.Estructuras.ROMHeader header = romInfo.Cabecera;
+
+            Dialog.SaveOptions dialog = new Dialog.SaveOptions();
+            if (dialog.ShowDialog() != System.Windows.Forms.DialogResult.OK)
+                return;
+            if (dialog.IsKeepSignature)
+                keep_original = true;
+            if (dialog.IsSafeTrim)
+                header.trimmedRom = true;
 
             Thread create = new Thread(ThreadEspera)
             {
@@ -1475,6 +1490,7 @@ namespace Tinke
             // Get special DSi (TWL) files
             sFile arm9i = new sFile();
             sFile arm7i = new sFile();
+            bool ov9Sha1Hmac_updated = false;
             if (this.twl != null)
             {
                 index = ftc.files.FindIndex(sFile => sFile.name == "arm9i.bin");
@@ -1484,12 +1500,13 @@ namespace Tinke
 
                 // Recalcs overlays9 hashes in arm9.bin
                 this.twl.UpdateOverlays9Sha1Hmac(ref arm9, romInfo.Cabecera, ov9);
+                ov9Sha1Hmac_updated = true;
             }
 
             #region Get ROM sections
             BinaryReader br;
             Console.WriteLine(Tools.Helper.GetTranslation("Messages", "S08"));
-            Nitro.Estructuras.ROMHeader header = romInfo.Cabecera;
+            //Nitro.Estructuras.ROMHeader header = romInfo.Cabecera;
             uint currPos = header.headerSize;
             uint gameCode = BitConverter.ToUInt32(Encoding.ASCII.GetBytes(header.gameCode), 0);
 
@@ -1516,10 +1533,29 @@ namespace Tinke
                 header.secureCRC16 = SecureArea.CalcCRC(this.secureArea.EncryptedData, gameCode);
             }
 
+            bool cmparm9 = true;
+            if (!ov9Sha1Hmac_updated)
+            {
+                uint initptr = BitConverter.ToUInt32(header.reserved2, 0) & 0x3FFF;
+                uint hdrptr = BitConverter.ToUInt32(arm9Data, (int)initptr + 0x14) - header.ARM9ramAddress;
+                cmparm9 = ARM9BLZ.Decompress(arm9Data, header, out byte[] arm9Data_dec);
+                if (!cmparm9)
+                {
+                    arm9Data = ARM9BLZ.Compress(arm9Data_dec, header, 0);
+                }
+            }
+
             BinaryWriter bw = new BinaryWriter(File.OpenWrite(arm9Binary));
             bw.Write(arm9Data);
             bw.Flush();
             br.Close();
+
+            if (!ov9Sha1Hmac_updated && !cmparm9)
+            {
+                arm9.path = arm9Binary;
+                arm9.offset = 0;
+                arm9.size = (uint)arm9Data.Length;
+            }
 
             header.ARM9romOffset = currPos;
             header.ARM9size = arm9.size;
@@ -1665,7 +1701,7 @@ namespace Tinke
 
             currPos += fnt.size;
             rem = currPos % 0x200;
-            if (rem != 0)
+            //if (rem != 0)
             {
                 while (rem < 0x200)
                 {
@@ -1858,7 +1894,7 @@ namespace Tinke
                 if (this.twl != null && (header.unitCode & 2) > 0)
                 {
                     this.twl.Write(ref bw, header, out header.hmac_digest_master);
-                    TWL.UpdateHeaderSignatures(ref bw, ref header, header_file);
+                    TWL.UpdateHeaderSignatures(ref bw, ref header, header_file, keep_original);
                 }
 
                 if (!header.trimmedRom)

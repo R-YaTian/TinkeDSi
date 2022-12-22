@@ -138,7 +138,7 @@ namespace Tinke.Nitro
                 }
 
                 uint rem = (uint)bw.BaseStream.Position % 0x200;
-                if (rem != 0)
+                //if (rem != 0)
                 {
                     while (rem < 0x200)
                     {

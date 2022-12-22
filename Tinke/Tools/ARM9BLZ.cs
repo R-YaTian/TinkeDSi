@@ -22,26 +22,31 @@ namespace Tinke.Tools
         public static bool Decompress(byte[] arm9Data, Estructuras.ROMHeader hdr, out byte[] decompressed)
         {
             decompressed = arm9Data;
+            uint nitrocode_length = 0;
+            if (arm9Data[arm9Data.Length - 0xC] == 0x21 && arm9Data[arm9Data.Length - 0xB] == 0x06
+                && arm9Data[arm9Data.Length - 0xA] == 0xC0 && arm9Data[arm9Data.Length - 0x9] == 0xDE)
+            {
+                nitrocode_length = 0x0C; //Nitrocode found.
+            }
             uint initptr = BitConverter.ToUInt32(hdr.reserved2, 0) & 0x3FFF;
             uint hdrptr = BitConverter.ToUInt32(arm9Data, (int)initptr + 0x14);
+            if (initptr == 0)
+            {
+                hdrptr = hdr.ARM9ramAddress + hdr.ARM9size;
+            }
             uint postSize = (uint)arm9Data.Length - (hdrptr - hdr.ARM9ramAddress);
-            bool cmparm9 = initptr > 0 && hdrptr > hdr.ARM9ramAddress && hdrptr <= hdr.ARM9ramAddress + arm9Data.Length;
+            bool cmparm9 = hdrptr > hdr.ARM9ramAddress && hdrptr + nitrocode_length >= hdr.ARM9ramAddress + arm9Data.Length;
             if (cmparm9)
             {
                 Stream input = new MemoryStream(arm9Data);
                 MemoryStream output = new MemoryStream();
-                try
-                {
-                    LZOvl blz = new LZOvl();
-                    blz.Decompress(input, hdrptr - hdr.ARM9ramAddress, output);
-                    output.Write(arm9Data, arm9Data.Length - (int)postSize, (int)postSize);
-                    input.Close();
-                    decompressed = output.ToArray();
-                }
-                catch (Exception)
-                {
-                    cmparm9 = false;
-                }
+                
+                LZOvl blz = new LZOvl();
+                blz.Decompress(input, hdrptr - hdr.ARM9ramAddress, output);
+                output.Write(arm9Data, arm9Data.Length - (int)postSize, (int)postSize);
+                input.Close();
+                decompressed = output.ToArray();
+                cmparm9 = false;
 
                 input.Close();
                 output.Close();
@@ -64,8 +69,7 @@ namespace Tinke.Tools
             MemoryStream output = new MemoryStream();
             output.Write(arm9Data, 0, 0x4000);
             LZOvl blz = new LZOvl();
-            LZOvl.LookAhead = false;
-            blz.Compress(input, input.Length - 0x4000 - postSize, output);
+            blz.Compress(input, input.Length - 0x4000, output);
             input.Close();
             output.Write(arm9Data, arm9Data.Length - (int)postSize, (int)postSize);
             byte[] result = output.ToArray();

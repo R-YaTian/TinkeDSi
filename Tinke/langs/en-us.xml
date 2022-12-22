@@ -422,7 +422,9 @@
     <S19>First file</S19>
     <S1A>Read offsets</S1A>
     <S1B>Hexadecimal</S1B>
-    <S1C>Accept</S1C>
+    <S1C>Cancel</S1C>
+    <S1E>Safe Trim</S1E>
+    <S1F>Keep Original RSA SHA1 Signature</S1F>
   </Dialog>
   <VisorHex>
     <S00>File</S00>

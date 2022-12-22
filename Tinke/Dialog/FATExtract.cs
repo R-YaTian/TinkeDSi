@@ -75,7 +75,8 @@ namespace Tinke.Dialog
                 radioRelativeFirstFile.Text = xml.Element("S19").Value;
                 btnOffsetCalculate.Text = xml.Element("S1A").Value;
                 btnHex.Text = xml.Element("S1B").Value;
-                btnAccept.Text = xml.Element("S1C").Value;
+                btnAccept.Text = xml.Element("S01").Value;
+                btnCancel.Text = xml.Element("S1C").Value;
             }
             catch { throw new NotImplementedException("There was an error reading the language file"); }
         }
