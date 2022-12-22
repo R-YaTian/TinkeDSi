@@ -422,6 +422,9 @@
     <S1A>Leggi gli offset</S1A>
     <S1B>Esadecimale</S1B>
     <S1C>Accetta</S1C>
+    <S1C>Cancella</S1C>
+    <S1E>Safe Trim</S1E>
+    <S1F>Keep Original RSA SHA1 Signature</S1F>
   </Dialog>
   <VisorHex>
     <S00>File</S00>

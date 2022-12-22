@@ -1538,7 +1538,8 @@ namespace Tinke
             {
                 uint initptr = BitConverter.ToUInt32(header.reserved2, 0) & 0x3FFF;
                 uint hdrptr = BitConverter.ToUInt32(arm9Data, (int)initptr + 0x14) - header.ARM9ramAddress;
-                cmparm9 = ARM9BLZ.Decompress(arm9Data, header, out byte[] arm9Data_dec);
+                byte[] arm9Data_dec;
+                cmparm9 = ARM9BLZ.Decompress(arm9Data, header, out arm9Data_dec);
                 if (!cmparm9)
                 {
                     arm9Data = ARM9BLZ.Compress(arm9Data_dec, header, 0);
