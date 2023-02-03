@@ -3,7 +3,7 @@
 <a href="http://www.gnu.org/copyleft/gpl.html"><img alt="license" src="https://img.shields.io/badge/license-GPL%20V3-blue.svg?style=flat"/></a>
 <a title="Crowdin" target="_blank" href="https://crowdin.com/project/tinkedsi"><img src="https://badges.crowdin.net/tinkedsi/localized.svg"></a>
 <a title="GitHub all releases" target="_blank" href="https://github.com/R-YaTian/TinkeDSi/releases/latest"><img src="https://img.shields.io/github/downloads/R-YaTian/TinkeDSi/total"></a>
-<a title="GitHub Workflow Status" href="https://github.com/R-YaTian/TinkeDSi/actions/workflows/dotnet-desktop.yml"><img src="https://img.shields.io/github/workflow/status/R-YaTian/TinkeDSi/.NET%20Core%20Desktop"></a>
+<a title="GitHub Workflow Status" href="https://github.com/R-YaTian/TinkeDSi/actions/workflows/dotnet-desktop.yml"><img src="https://github.com/R-YaTian/TinkeDSi/actions/workflows/dotnet-desktop.yml/badge.svg"></a>
 </p>
 
 > TinkeDSi is a program to see, convert, and edit the **files of NDS(i) games**. You can see a lot of format files like images, text, sounds, fonts and textures. Furthermore it works with **plugins** made in NET Framework languages (C# and VB.NET) so it's so easy to support new formats.
