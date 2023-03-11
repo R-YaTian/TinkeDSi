@@ -164,7 +164,7 @@ namespace Tinke
 
             if (!isMono)
             {
-                espera.Abort();
+                CloseEspera(espera);
 
                 debug = new Debug();
                 debug.FormClosing += new FormClosingEventHandler(debug_FormClosing);
@@ -673,16 +673,27 @@ namespace Tinke
                     Recursive_SupportedFiles(subFolder);
         }
 
+        private Espera espera;
         private void ThreadEspera(Object name)
         {
-            Espera espera = new Espera((string)name, false);
+            this.espera = new Espera((string)name, false);
 
             try
             {
                 espera.ShowDialog();
             }
-            catch
+            catch (Exception e)
             {
+            }
+        }
+
+        private void CloseEspera(Thread thread)
+        {
+            if (this.espera != null)
+            {
+                this.espera.BeginInvoke(new ThreadStart(this.espera.CloseLoadingForm));
+                this.espera = null;
+                thread = null;
             }
         }
         #endregion
@@ -1261,7 +1272,7 @@ namespace Tinke
 
             if (!isMono)
             {
-                espera.Abort();
+                CloseEspera(espera);
                 debug.Add_Text(sb.ToString());
             }
             sb.Length = 0;
@@ -1354,10 +1365,8 @@ namespace Tinke
                     espera.Start("S03");
                 RecursivoExtractFolder(folderSelect, o.SelectedPath + Path.DirectorySeparatorChar + folderSelect.name);
                 if (!isMono)
-                    espera.Abort();
-
+                    CloseEspera(espera);
             }
-
         }
         private void RecursivoExtractFolder(sFolder currFolder, String path)
         {
@@ -1789,8 +1798,7 @@ namespace Tinke
             #endregion
 
             if (!isMono)
-                espera.Abort();
-
+                CloseEspera(espera);
 
             // Obtenemos el nuevo archivo para guardar
             SaveFileDialog o = new SaveFileDialog();
@@ -1858,7 +1866,7 @@ namespace Tinke
 
             if (!isMono)
             {
-                espera.Abort();
+                CloseEspera(espera);
                 debug.Add_Text(sb.ToString());
             }
             sb.Length = 0;
@@ -2136,7 +2144,7 @@ namespace Tinke
             if (!(uncompress.files is List<sFile>) || dialog.DialogResult != System.Windows.Forms.DialogResult.OK)
             {
                 if (!isMono)
-                    wait.Abort();
+                    CloseEspera(wait);
 
                 MessageBox.Show(Tools.Helper.GetTranslation("Sistema", "S36"));
                 return;
@@ -2170,7 +2178,7 @@ namespace Tinke
 
             if (!isMono)
             {
-                wait.Abort();
+                CloseEspera(wait);
                 debug.Add_Text(sb.ToString());
             }
             sb.Length = 0;
@@ -2356,7 +2364,7 @@ namespace Tinke
             treeSystem.EndUpdate();
 
             if (!isMono && waiting.ThreadState == ThreadState.Running)
-                waiting.Abort();
+                CloseEspera(waiting);
         }
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
