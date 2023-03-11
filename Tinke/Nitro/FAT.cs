@@ -90,11 +90,9 @@ namespace Tinke.Nitro
                 offset += 0x200 - (offset % 0x200);
             offset += bannerSize + 0x200 - (bannerSize % 0x200);
 
-            // Get overlays IDs (all system files)
-            int sysIndex = 0;
-            ushort[] ovIDs = new ushort[root.folders[root.folders.Count - 1].files.Count];
-            for (int i = 0; i < ovIDs.Length; i++) ovIDs[i] = root.folders[root.folders.Count - 1].files[i].id;
-            Array.Sort(ovIDs);
+            // Get overlays (all system files)
+            var sysFiles = root.folders[root.folders.Count - 1].files;
+            var ovlMaxId = sysFiles.Where(x => x.name.StartsWith("overlay")).Count() - 1;
 
             byte[] buffer = new byte[num_files * 8];
             int zero_files = 0;
@@ -105,9 +103,8 @@ namespace Tinke.Nitro
 
                 if (!(currFile.name is string))
                     zero_files++;
-                else if (sortedIDs[i] == ovIDs[sysIndex])
+                else if (sortedIDs[i] <= ovlMaxId) //(sysFiles.Any(sysFile => sysFile.id == sortedIDs[i]))
                 {
-                    sysIndex++;
                     if (currFile.name.StartsWith("overlay9"))
                     {
                         temp = BitConverter.GetBytes(offset_ov9);
@@ -116,7 +113,8 @@ namespace Tinke.Nitro
                         temp = BitConverter.GetBytes(offset_ov9);
                         Array.Copy(temp, 0, buffer, sortedIDs[i] * 8 + 4, 4);
 
-                        if (offset_ov9 % 0x200 != 0) offset_ov9 += 0x200 - (offset_ov9 % 0x200);
+                        if (offset_ov9 % 0x200 != 0)
+                            offset_ov9 += 0x200 - (offset_ov9 % 0x200);
                     }
                     else if (currFile.name.StartsWith("overlay7"))
                     {
@@ -126,7 +124,8 @@ namespace Tinke.Nitro
                         temp = BitConverter.GetBytes(offset_ov7);
                         Array.Copy(temp, 0, buffer, sortedIDs[i] * 8 + 4, 4);
 
-                        if (offset_ov7 % 0x200 != 0) offset_ov7 += 0x200 - (offset_ov7 % 0x200);
+                        if (offset_ov7 % 0x200 != 0)
+                            offset_ov7 += 0x200 - (offset_ov7 % 0x200);
                     }
                 }
                 else
@@ -137,7 +136,8 @@ namespace Tinke.Nitro
                     temp = BitConverter.GetBytes(offset);
                     Array.Copy(temp, 0, buffer, sortedIDs[i] * 8 + 4, 4);
 
-                    if (offset % 0x200 != 0) offset += 0x200 - (offset % 0x200);
+                    if (offset % 0x200 != 0)
+                        offset += 0x200 - (offset % 0x200);
                 }
             }
 
