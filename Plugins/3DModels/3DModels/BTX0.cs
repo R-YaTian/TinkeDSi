@@ -15,7 +15,8 @@
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>. 
  *
  * Programador: pleoNeX
- * 
+ * Contributor: MetLob, 2022
+ *
  */
 using System;
 using System.Collections.Generic;
@@ -58,154 +59,15 @@ namespace _3DModels
             if (btx.header.num_sections > 1)
                 MessageBox.Show("There are more than one section?\nPlease, report this file");
 
-            #region Read texture sections
             br.BaseStream.Position = btx.header.offset[0];
-            sBTX0.Texture tex = new sBTX0.Texture();
+            btx.texture = Read_Section(ref br, btx.header.offset[0]);
 
-            // Header
-            tex.header.type = br.ReadChars(4);
-            tex.header.section_size = br.ReadUInt32();
-            tex.header.padding = br.ReadUInt32();
-            tex.header.textData_size = br.ReadUInt16();
-            tex.header.textInfo_offset = br.ReadUInt16();
-            tex.header.padding2 = br.ReadUInt32();
-            tex.header.textData_offset = br.ReadUInt32();
-            tex.header.padding3 = br.ReadUInt32();
-            tex.header.textCompressedData_size = (ushort)(br.ReadUInt16() << 3);
-            tex.header.textCompressedInfo_offset = br.ReadUInt16();
-            tex.header.padding4 = br.ReadUInt32();
-            tex.header.textCompressedData_offset = br.ReadUInt32();
-            tex.header.textCompressedInfoData_offset = br.ReadUInt32();
-            tex.header.padding5 = br.ReadUInt32();
-            tex.header.paletteData_size = (uint)(br.ReadUInt32() << 3);
-            tex.header.paletteInfo_offset = br.ReadUInt32();
-            tex.header.paletteData_offset = br.ReadUInt32();
-
-            #region Texture Info
-            br.BaseStream.Position = btx.header.offset[0] + tex.header.textInfo_offset;
-            // Header
-            tex.texInfo.dummy = br.ReadByte();
-            tex.texInfo.num_objs = br.ReadByte();
-            tex.texInfo.section_size = br.ReadUInt16();
-
-            // Unknown block
-            tex.texInfo.unknownBlock.header_size = br.ReadUInt16();
-            tex.texInfo.unknownBlock.section_size = br.ReadUInt16();
-            tex.texInfo.unknownBlock.constant = br.ReadUInt32();
-            tex.texInfo.unknownBlock.unknown1 = new ushort[tex.texInfo.num_objs];
-            tex.texInfo.unknownBlock.unknown2 = new ushort[tex.texInfo.num_objs];
-            for (int i = 0; i < tex.texInfo.num_objs; i++)
-            {
-                tex.texInfo.unknownBlock.unknown1[i] = br.ReadUInt16();
-                tex.texInfo.unknownBlock.unknown2[i] = br.ReadUInt16();
-            }
-
-            // Info block
-            tex.texInfo.infoBlock.header_size = br.ReadUInt16();
-            tex.texInfo.infoBlock.data_size = br.ReadUInt16();
-
-            tex.texInfo.infoBlock.infoData = new object[tex.texInfo.num_objs];
-            tex.texture_data = new byte[tex.texInfo.num_objs][];
-            uint compressedStartOffset = 0x00;
-            for (int i = 0; i < tex.texInfo.num_objs; i++)
-            {
-                sBTX0.Texture.TextInfo texInfo = new sBTX0.Texture.TextInfo();
-                texInfo.tex_offset = br.ReadUInt16();
-                texInfo.parameters = br.ReadUInt16();
-                texInfo.width2 = br.ReadByte();
-                texInfo.unknown = br.ReadByte();
-                texInfo.unknown2 = br.ReadByte();
-                texInfo.unknown3 = br.ReadByte();
-
-                texInfo.coord_transf = (byte)(texInfo.parameters & 14);
-                texInfo.color0 = (byte)((texInfo.parameters >> 13) & 1);
-                texInfo.format = (byte)((texInfo.parameters >> 10) & 7);
-                texInfo.height = (byte)(8 << ((texInfo.parameters >> 7) & 7));
-                texInfo.width = (byte)(8 << ((texInfo.parameters >> 4) & 7));
-                texInfo.flip_Y = (byte)((texInfo.parameters >> 3) & 1);
-                texInfo.flip_X = (byte)((texInfo.parameters >> 2) & 1);
-                texInfo.repeat_Y = (byte)((texInfo.parameters >> 1) & 1);
-                texInfo.repeat_X = (byte)(texInfo.parameters & 1);
-
-                if (texInfo.width == 0x00)
-                    switch (texInfo.unknown & 0x3)
-                    {
-                        case 2:
-                            texInfo.width = 0x200;
-                            break;
-                        default:
-                            texInfo.width = 0x100;
-                            break;
-                    }
-                if (texInfo.height == 0x00)
-                    switch ((texInfo.unknown >> 4) & 0x3)
-                    {
-                        case 2:
-                            texInfo.height = 0x200;
-                            break;
-                        default:
-                            texInfo.height = 0x100;
-                            break;
-                    }
-
-                texInfo.depth = FormatDepth[texInfo.format];
-                if (texInfo.format == 5)
-                {
-                    texInfo.compressedDataStart = compressedStartOffset;
-                    compressedStartOffset += (uint)(texInfo.width * texInfo.height / 8);
-                }
-
-                tex.texInfo.infoBlock.infoData[i] = texInfo;
-            }
-            tex.texInfo.names = new string[tex.texInfo.num_objs];
-            for (int i = 0; i < tex.texInfo.num_objs; i++)
-                tex.texInfo.names[i] = new String(br.ReadChars(0x10)).Replace("\0", "");
-            #endregion
-
-            #region Palette Info
-            br.BaseStream.Position = btx.header.offset[0] + tex.header.paletteInfo_offset;
-            // Header
-            tex.palInfo.dummy = br.ReadByte();
-            tex.palInfo.num_objs = br.ReadByte();
-            tex.palInfo.section_size = br.ReadUInt16();
-
-            // Unknown block
-            tex.palInfo.unknownBlock.header_size = br.ReadUInt16();
-            tex.palInfo.unknownBlock.section_size = br.ReadUInt16();
-            tex.palInfo.unknownBlock.constant = br.ReadUInt32();
-            tex.palInfo.unknownBlock.unknown1 = new ushort[tex.palInfo.num_objs];
-            tex.palInfo.unknownBlock.unknown2 = new ushort[tex.palInfo.num_objs];
-            for (int i = 0; i < tex.palInfo.num_objs; i++)
-            {
-                tex.palInfo.unknownBlock.unknown1[i] = br.ReadUInt16();
-                tex.palInfo.unknownBlock.unknown2[i] = br.ReadUInt16();
-            }
-
-            // Info block
-            tex.palInfo.infoBlock.header_size = br.ReadUInt16();
-            tex.palInfo.infoBlock.data_size = br.ReadUInt16();
-            tex.palette_data = new byte[tex.palInfo.num_objs][];
-            tex.palInfo.infoBlock.infoData = new object[tex.palInfo.num_objs];
-            for (int i = 0; i < tex.palInfo.num_objs; i++)
-            {
-                sBTX0.Texture.PalInfo palInfo = new sBTX0.Texture.PalInfo();
-                palInfo.palette_offset = (ushort)(br.ReadUInt16() & 0x1FFF);
-                palInfo.unknown1 = br.ReadUInt16(); // Not used
-                tex.palInfo.infoBlock.infoData[i] = palInfo;
-            }
-            tex.palInfo.names = new string[tex.palInfo.num_objs];
-            for (int i = 0; i < tex.palInfo.num_objs; i++)
-                tex.palInfo.names[i] = new String(br.ReadChars(0x10)).Replace("\0", "");
-            #endregion
-
-            btx.texture = tex;
-            #endregion
             Write_Info(btx, pluginHost.Get_Language());
 
             br.Close();
             return btx;
         }
-        public static sBTX0.Texture Read_Section(ref BinaryReader br, uint texOffset, string lang)
+        public static sBTX0.Texture Read_Section(ref BinaryReader br, uint texOffset, string lang = null)
         {
             sBTX0.Texture tex = new sBTX0.Texture();
 
@@ -264,7 +126,7 @@ namespace _3DModels
                 texInfo.unknown2 = br.ReadByte();
                 texInfo.unknown3 = br.ReadByte();
 
-                texInfo.coord_transf = (byte)(texInfo.parameters & 14);
+                texInfo.coord_transf = (byte)(texInfo.parameters >> 14);
                 texInfo.color0 = (byte)((texInfo.parameters >> 13) & 1);
                 texInfo.format = (byte)((texInfo.parameters >> 10) & 7);
                 texInfo.height = (byte)(8 << ((texInfo.parameters >> 7) & 7));
@@ -347,9 +209,173 @@ namespace _3DModels
                 tex.palInfo.names[i] = new String(br.ReadChars(0x10)).Replace("\0", "");
             #endregion
 
-            Write_Info(tex, lang);
+            br.BaseStream.Position = texOffset + tex.header.textData_offset;
+            for (int i = 0; i < tex.texInfo.num_objs; i++)
+            {
+                var texInfo = (sBTX0.Texture.TextInfo) tex.texInfo.infoBlock.infoData[i];
+                tex.texture_data[i] = br.ReadBytes((int)(texInfo.width * texInfo.height * texInfo.depth / 8));
+            }
+
+            br.BaseStream.Position = texOffset + tex.header.paletteData_offset;
+            for (int i = 0; i < tex.palInfo.num_objs; i++)
+            {
+                var texInfo = (sBTX0.Texture.TextInfo) tex.texInfo.infoBlock.infoData[i];
+                tex.palette_data[i] = br.ReadBytes(PaletteSize[texInfo.format]);
+            }
+
+            if (!string.IsNullOrEmpty(lang)) 
+                Write_Info(tex, lang);
 
             return tex;
+        }
+
+        public static void Write(string file, sBTX0 btx)
+        {
+            BinaryWriter bw = new BinaryWriter(File.OpenWrite(file));
+            bw.BaseStream.SetLength(0);
+
+            // Write header
+            
+            bw.Write(btx.header.type);
+            bw.Write(btx.header.constant);
+            bw.Write(btx.header.file_size);
+            bw.Write(btx.header.header_size);
+            bw.Write(btx.header.num_sections);
+            for (int i = 0; i < btx.header.num_sections; i++)
+            {
+                btx.header.offset[i] = (uint)(bw.BaseStream.Position + 4 * btx.header.num_sections);
+                bw.Write(btx.header.offset[i]);
+            }
+
+            bw.BaseStream.Position = btx.header.offset[0];
+            Write_Section(ref bw, btx.texture);
+
+            btx.header.file_size = (uint)bw.BaseStream.Length;
+            bw.BaseStream.Position = 8;
+            bw.Write(btx.header.file_size);
+
+            bw.Flush();
+            bw.Close();
+        }
+
+        public static void Write_Section(ref BinaryWriter bw, sBTX0.Texture tex)
+        {
+            long texOffset = bw.BaseStream.Position;
+            tex.header.textCompressedInfo_offset = (ushort)(tex.header.textInfo_offset);
+            tex.header.paletteInfo_offset = (uint)(tex.header.textCompressedInfo_offset + 16 + (4 + 8 + 0x10) * tex.texInfo.num_objs);
+            tex.header.textData_offset = (uint)(tex.header.paletteInfo_offset + 16 + (4 + 4 + 0x10) * tex.palInfo.num_objs);
+            tex.header.textCompressedData_offset = (uint)(tex.header.textData_offset + (tex.header.textData_size << 3));
+            tex.header.textCompressedInfoData_offset = tex.header.textCompressedData_offset + tex.header.textCompressedData_size;
+            tex.header.paletteData_offset = tex.header.textCompressedInfoData_offset;
+
+            tex.header.section_size = tex.header.paletteData_offset + tex.header.paletteData_size;
+
+            // Header
+            bw.Write(tex.header.type);
+            bw.Write(tex.header.section_size);
+            bw.Write(tex.header.padding);
+
+            bw.Write(tex.header.textData_size);
+            bw.Write(tex.header.textInfo_offset);
+            bw.Write(tex.header.padding2);
+            bw.Write(tex.header.textData_offset);
+            bw.Write(tex.header.padding3);
+
+            bw.Write((ushort)(tex.header.textCompressedData_size >> 3));
+            bw.Write(tex.header.textCompressedInfo_offset);
+            bw.Write(tex.header.padding4);
+            bw.Write(tex.header.textCompressedData_offset);
+            bw.Write(tex.header.textCompressedInfoData_offset);
+
+            bw.Write(tex.header.padding5);
+            bw.Write(tex.header.paletteData_size >> 3);
+            bw.Write(tex.header.paletteInfo_offset);
+            bw.Write(tex.header.paletteData_offset);
+
+            #region Texture Info
+            bw.BaseStream.Position = texOffset + tex.header.textInfo_offset;
+
+            // Header
+            bw.Write(tex.texInfo.dummy);
+            bw.Write(tex.texInfo.num_objs);
+            bw.Write(tex.texInfo.section_size);
+
+            // Unknown block
+            bw.Write(tex.texInfo.unknownBlock.header_size);
+            bw.Write(tex.texInfo.unknownBlock.section_size);
+            bw.Write(tex.texInfo.unknownBlock.constant);
+            for (int i = 0; i < tex.texInfo.num_objs; i++)
+            {
+                bw.Write(tex.texInfo.unknownBlock.unknown1[i]);
+                bw.Write(tex.texInfo.unknownBlock.unknown2[i]);
+            }
+
+            // Info block
+            bw.Write(tex.texInfo.infoBlock.header_size);
+            bw.Write(tex.texInfo.infoBlock.data_size);
+            for (int i = 0; i < tex.texInfo.num_objs; i++)
+            {
+                var texInfo = (sBTX0.Texture.TextInfo)tex.texInfo.infoBlock.infoData[i];
+                texInfo.parameters = (ushort)((texInfo.coord_transf & 3) << 14);
+                texInfo.parameters += (ushort)((texInfo.color0 & 1) << 13);
+                texInfo.parameters += (ushort)((texInfo.format & 7) << 10);
+                texInfo.parameters += (ushort)(((int)Math.Ceiling(Math.Log(texInfo.height / 8.0, 2.0)) & 7) << 7);
+                texInfo.parameters += (ushort)(((int)Math.Ceiling(Math.Log(texInfo.width / 8.0, 2.0)) & 7) << 4);
+                texInfo.parameters += (ushort)((texInfo.flip_Y & 1) << 3);
+                texInfo.parameters += (ushort)((texInfo.flip_X & 1) << 2);
+                texInfo.parameters += (ushort)((texInfo.repeat_Y & 1) << 1);
+                texInfo.parameters += (ushort)((texInfo.repeat_X & 1) << 0);
+
+                bw.Write(texInfo.tex_offset);
+                bw.Write(texInfo.parameters);
+                bw.Write(texInfo.width2);
+                bw.Write(texInfo.unknown);
+                bw.Write(texInfo.unknown2);
+                bw.Write(texInfo.unknown3);
+            }
+
+            for (int i = 0; i < tex.texInfo.num_objs; i++)
+                bw.Write(Encoding.ASCII.GetBytes(tex.texInfo.names[i].PadRight(0x10, '\0')));
+
+            #endregion
+
+            #region Palette Info
+            bw.BaseStream.Position = texOffset + tex.header.paletteInfo_offset;
+
+            // Header
+            bw.Write(tex.palInfo.dummy);
+            bw.Write(tex.palInfo.num_objs);
+            bw.Write(tex.palInfo.section_size);
+
+            // Unknown block
+            bw.Write(tex.palInfo.unknownBlock.header_size);
+            bw.Write(tex.palInfo.unknownBlock.section_size);
+            bw.Write(tex.palInfo.unknownBlock.constant);
+            for (int i = 0; i < tex.palInfo.num_objs; i++)
+            {
+                bw.Write(tex.palInfo.unknownBlock.unknown1[i]);
+                bw.Write(tex.palInfo.unknownBlock.unknown2[i]);
+            }
+
+            // Info block
+            bw.Write(tex.palInfo.infoBlock.header_size);
+            bw.Write(tex.palInfo.infoBlock.data_size);
+            for (int i = 0; i < tex.palInfo.num_objs; i++)
+            {
+                var palInfo = (sBTX0.Texture.PalInfo)tex.palInfo.infoBlock.infoData[i];
+                bw.Write((ushort)(palInfo.palette_offset & 0x1FFF));
+                bw.Write(palInfo.unknown1); // Not used
+            }
+
+            for (int i = 0; i < tex.palInfo.num_objs; i++)
+                bw.Write(Encoding.ASCII.GetBytes(tex.palInfo.names[i].PadRight(0x10, '\0')));
+            #endregion
+
+            for (int i = 0; i < tex.texInfo.num_objs; i++)
+                bw.Write(tex.texture_data[i]);
+
+            for (int i = 0; i < tex.palInfo.num_objs; i++)
+                bw.Write(tex.palette_data[i]);
         }
 
         private static void Write_Info(sBTX0 btx0, string lang)
@@ -440,7 +466,7 @@ namespace _3DModels
             catch { throw new NotSupportedException("There was an error reading the language file"); }
         }
 
-        public static System.Drawing.Bitmap GetTexture(IPluginHost pluginHost, sBTX0 btx0, int num)
+        public static Bitmap GetTexture(IPluginHost pluginHost, sBTX0 btx0, int num)
         {
             if (num >= btx0.texture.texInfo.names.Length)
                 num = 0;

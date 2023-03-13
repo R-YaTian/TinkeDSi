@@ -42,6 +42,7 @@ namespace _3DModels
             BinaryReader br = new BinaryReader(File.OpenRead(file));
             sBMD0 bmd = new sBMD0();
             bmd.filePath = Path.GetTempFileName();
+            bmd.id = (ushort)id;
             File.Copy(file, bmd.filePath, true);
 
             // Read generic header
