@@ -1,4 +1,4 @@
-Tinke with **DSi rom supports** fork
+Tinke fork with **DSi rom supports**
 
 Last update from original branch (by @pleonex): 26.11.2022 (release v0.9.2)
 
@@ -7,9 +7,27 @@ Last update from original branch (by @pleonex): 26.11.2022 (release v0.9.2)
 * Core: fix overlays ordering (repare 0.9.2i)
 * Core: fix thread error on progress dialog
 * Ekona: multiple palettes support for map generation
+* Ekona: select palette number on image importing
 * Images: fixes in NTR formats
 * 3DModel: import texture (experimental)
 * Fonts: more fixes
+
+**Import MAP with multiple palettes:**
+
+<img src="https://user-images.githubusercontent.com/12542905/224734691-8d999a96-5151-41fd-8792-c6b22ce12633.png" width="500">
+
+1) Select "Swap" import palette mode
+2) Check "Multiple Pallete Import"
+3) Select first palette number in "Num palette" field
+
+**Import Textures (experimental):**
+
+<img src="https://user-images.githubusercontent.com/12542905/224737765-ae2ec004-6d7f-4f06-adc6-55d18979bc69.png" width="500">
+
+1) Open context menu on "Save texture" button
+2) Click to "Import"
+
+---
 
 **⚠️ Tinke by @pleonex is deprecated and not maintained anymore ⚠️**
 
