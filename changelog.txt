@@ -1,3 +1,20 @@
+0.9.3
+*** Merge 0.9.2 and 0.9.2i versions
+** Core: fix overlays ordering (repare 0.9.2i)
+** Core: fix thread error on progress dialog
+** Ekona: multiple palettes support for map generation
+* Images: fixes in NTR formats
+* 3DModel: import texture (experimental)
+* Fonts: more fixes
+* Save 4.5 .NET (remove magration to 4.8 .NET)
+
+0.9.2i
+** DSi/DSi-Enchanced/DSiWare rom supports
+* Auto decription arm7i.bin and arm9i.bin
+* Auto decription and Re-encrypt Secure Area of arm9.bin
+* Show corrected SA CRC in RomInfo
+* Update CRC if GameCode has been changed
+
 0.9.2
 ** Improve Hexadecimal Viewer for Mono (Linux and Mac OS)
 * Fix crash opening HexViewer from FAT dialog on Mono.

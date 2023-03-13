@@ -1,3 +1,16 @@
+Tinke with **DSi rom supports** fork
+
+Last update from original branch (by @pleonex): 26.11.2022 (release v0.9.2)
+
+**Last version: 0.9.3**
+*** Merge 0.9.2 and 0.9.2i versions
+** Core: fix overlays ordering (repare 0.9.2i)
+** Core: fix thread error on progress dialog
+** Ekona: multiple palettes support for map generation
+* Images: fixes in NTR formats
+* 3DModel: import texture (experimental)
+* Fonts: more fixes
+
 **⚠️ Tinke by @pleonex is deprecated and not maintained anymore ⚠️**
 
 I appreciate the support over the years. It's time to stop and make way for modern solutions.
