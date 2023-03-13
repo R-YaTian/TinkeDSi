@@ -40,35 +40,39 @@ namespace Images
             pltt.unknown1 = br.ReadUInt16();
             pltt.unknown2 = br.ReadUInt32();
 
-            pltt.pal_length = br.ReadUInt32();
-            if (pltt.pal_length == 0 || pltt.pal_length > pltt.length)
-                pltt.pal_length = pltt.length - 0x18;
-
+            pltt.pal_offset = br.ReadUInt32(); // Number of bytes for character data = pmcp.first_palette_num * pltt.num_colors * 2
             uint colors_startOffset = br.ReadUInt32();
+
+            uint pal_length = pltt.length - 0x18;
             pltt.num_colors = (uint)((pltt.depth == ColorFormat.colors16) ? 0x10 : 0x100);
-            if (pltt.pal_length / 2 < pltt.num_colors)
-                pltt.num_colors = pltt.pal_length / 2;
-            pltt.palettes = new Color[pltt.pal_length / (pltt.num_colors * 2)][];
+            pltt.palettes = new Color[pal_length / (pltt.num_colors * 2)][];
 
             br.BaseStream.Position = 0x18 + colors_startOffset;
-            for (int i = 0; i < pltt.palettes.Length; i++)
+            for (uint i = 0; i < pltt.palettes.Length; i++)
                 pltt.palettes[i] = Actions.BGR555ToColor(br.ReadBytes((int)pltt.num_colors * 2));
 
             nclr.pltt = pltt;
 
-            // PMCP section
+            // PMCP section (Palette Compression Information Block)
             if (nclr.header.nSection == 1 || br.BaseStream.Position >= br.BaseStream.Length)
                 goto End;
 
             PMCP pmcp = new PMCP();
             pmcp.ID = br.ReadChars(4);
             pmcp.blockSize = br.ReadUInt32();
-            pmcp.unknown1 = br.ReadUInt16();
-            pmcp.unknown2 = br.ReadUInt16();
-            pmcp.unknown3 = br.ReadUInt32();
-            pmcp.first_palette_num = br.ReadUInt16();
-
+            pmcp.pals_count = br.ReadUInt16();
+            pmcp.padding = br.ReadUInt16();
+            pmcp.data_offset = br.ReadUInt32();
+            pmcp.palettes_nums = new ushort[pmcp.pals_count]; 
+            for (int i = 0; i < pmcp.pals_count; i++) pmcp.palettes_nums[i] = br.ReadUInt16();
             nclr.pmcp = pmcp;
+
+            // Decompress PMCP
+            int last_num = pmcp.palettes_nums[pmcp.pals_count - 1];
+            Color[][] fullPalette = new Color[last_num + 1][];
+            for (int i = 0; i <= last_num; i++) fullPalette[i] = new Color[pltt.num_colors];
+            for (int i = 0; i < pmcp.pals_count; i++) fullPalette[pmcp.palettes_nums[i]] = pltt.palettes[i];
+            pltt.palettes = fullPalette;
 
         End:
             br.Close();
@@ -92,11 +96,28 @@ namespace Images
             bw.Write((ushort)(nclr.pltt.depth));
             bw.Write(nclr.pltt.unknown1);
             bw.Write(nclr.pltt.unknown2);
-            bw.Write(nclr.pltt.pal_length);
+            bw.Write(nclr.pltt.pal_offset);
             bw.Write(0x10);                     // Colors start offset from 0x14
 
-            for (int i = 0; i < nclr.pltt.palettes.Length; i++)
-                bw.Write(Actions.ColorToBGR555(nclr.pltt.palettes[i]));
+            if (nclr.pmcp.ID == null)
+            {
+                for (int i = 0; i < nclr.pltt.palettes.Length; i++)
+                    bw.Write(Actions.ColorToBGR555(nclr.pltt.palettes[i]));
+            }
+            else
+            {
+                for (int i = 0; i < nclr.pmcp.palettes_nums.Length; i++)
+                    bw.Write(Actions.ColorToBGR555(nclr.pltt.palettes[nclr.pmcp.palettes_nums[i]]));
+
+                // Write PMCP
+                bw.Write(nclr.pmcp.ID);
+                bw.Write(nclr.pmcp.blockSize);
+                bw.Write(nclr.pmcp.pals_count);
+                bw.Write(nclr.pmcp.padding);
+                bw.Write(nclr.pmcp.data_offset);
+                for (int i = 0; i < nclr.pmcp.palettes_nums.Length; i++) bw.Write(nclr.pmcp.palettes_nums[i]);
+                if (bw.BaseStream.Position % 4 != 0) bw.Write((ushort)0);
+            }
 
             bw.Flush();
             bw.Close();
@@ -106,12 +127,22 @@ namespace Images
         {
             nclr.pltt.palettes = Palette;
             nclr.pltt.depth = Depth;
-
-            nclr.pltt.pal_length = 0;
-            for (int i = 0; i < nclr.pltt.palettes.Length; i++)
-                nclr.pltt.pal_length += (uint)(nclr.pltt.palettes[i].Length * 2);
-            nclr.pltt.length = nclr.pltt.pal_length + 0x18;
-            nclr.header.file_size = nclr.pltt.length + 0x10;
+            uint pal_length = 0;
+            if (nclr.pmcp.ID != null && nclr.pmcp.pals_count > 0)
+            {
+                for (int i = 0; i < nclr.pmcp.palettes_nums.Length; i++)
+                    pal_length += (uint)(nclr.pltt.palettes[nclr.pmcp.palettes_nums[i]].Length * 2);
+                nclr.pltt.length = pal_length + 0x18;
+                nclr.header.file_size = nclr.pltt.length + 0x10;
+                nclr.header.file_size += (uint)(2 * nclr.pmcp.pals_count + 0x10);
+            }
+            else
+            {
+                for (int i = 0; i < nclr.pltt.palettes.Length; i++)
+                    pal_length += (uint)(nclr.pltt.palettes[i].Length * 2);
+                nclr.pltt.length = pal_length + 0x18;
+                nclr.header.file_size = nclr.pltt.length + 0x10;
+            }
         }
 
         public struct sNCLR      // Nintendo CoLor Resource
@@ -127,7 +158,7 @@ namespace Images
             public ColorFormat depth;
             public UInt16 unknown1;
             public UInt32 unknown2;    // padding?
-            public UInt32 pal_length;
+            public UInt32 pal_offset;
             public UInt32 num_colors;    // Number of colors
             public Color[][] palettes;
         }
@@ -135,10 +166,10 @@ namespace Images
         {
             public char[] ID;
             public uint blockSize;
-            public ushort unknown1;
-            public ushort unknown2;     // always BEEF?
-            public uint unknown3;
-            public ushort first_palette_num;
+            public ushort pals_count;
+            public ushort padding;     // always BEEF?
+            public uint data_offset;
+            public ushort[] palettes_nums;
         }
     }
 }

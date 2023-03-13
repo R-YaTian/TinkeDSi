@@ -5,6 +5,7 @@ using System.IO;
 using System.Text;
 using Ekona;
 using Ekona.Images;
+using DSDecmp;
 
 namespace Images
 {
@@ -35,8 +36,7 @@ namespace Images
             ncgr.rahc.nTilesY = br.ReadUInt16();
             ncgr.rahc.nTilesX = br.ReadUInt16();
             ncgr.rahc.depth = (ColorFormat)br.ReadUInt32();
-            ncgr.rahc.unknown1 = br.ReadUInt16();
-            ncgr.rahc.unknown2 = br.ReadUInt16();
+            ncgr.rahc.mapingType = br.ReadUInt32();
             ncgr.rahc.tiledFlag = br.ReadUInt32();
             if ((ncgr.rahc.tiledFlag & 0xFF) == 0x0)
                 ncgr.order = TileForm.Horizontal;
@@ -44,8 +44,21 @@ namespace Images
                 ncgr.order = TileForm.Lineal;
 
             ncgr.rahc.size_tiledata = br.ReadUInt32();
-            ncgr.rahc.unknown3 = br.ReadUInt32();
-            ncgr.rahc.data = br.ReadBytes((int)ncgr.rahc.size_tiledata);
+            ncgr.rahc.pRawDataOffset = br.ReadUInt32();
+            if (ncgr.rahc.size_section < 0x20 + ncgr.rahc.size_tiledata)
+            {
+                // Compressed data
+                ncgr.header.constant &= 0xFF00;
+                ncgr.rahc.data = br.ReadBytes((int)Math.Min(ncgr.rahc.size_tiledata, br.BaseStream.Length - br.BaseStream.Position));
+                string input = Path.GetTempFileName();
+                string output = Path.GetTempFileName();
+                File.WriteAllBytes(input, ncgr.rahc.data);
+                DSDecmp.Main.Decompress(input, output, DSDecmp.Main.Get_Format(input));
+                ncgr.rahc.data = File.ReadAllBytes(output);
+                File.Delete(input);
+                File.Delete(output);
+            }
+            else ncgr.rahc.data = br.ReadBytes((int)ncgr.rahc.size_tiledata);
 
             if (ncgr.rahc.nTilesX != 0xFFFF)
             {
@@ -94,11 +107,10 @@ namespace Images
             bw.Write(ncgr.rahc.nTilesY);
             bw.Write(ncgr.rahc.nTilesX);
             bw.Write((uint)(ncgr.rahc.depth));
-            bw.Write(ncgr.rahc.unknown1);
-            bw.Write(ncgr.rahc.unknown2);
+            bw.Write(ncgr.rahc.mapingType);
             bw.Write(ncgr.rahc.tiledFlag);
             bw.Write(ncgr.rahc.size_tiledata);
-            bw.Write(ncgr.rahc.unknown3);
+            bw.Write(ncgr.rahc.pRawDataOffset);
             bw.Write(ncgr.rahc.data);
 
             // SOPC section
@@ -150,11 +162,10 @@ namespace Images
             public UInt16 nTilesY;
             public UInt16 nTilesX;
             public ColorFormat depth;
-            public UInt16 unknown1;
-            public UInt16 unknown2;
+            public UInt32 mapingType;       // for OBJVRAMMODE enum: 2D, 1D_32K, 1D_64K, 1D_128K, 1D_256K
             public UInt32 tiledFlag;
             public UInt32 size_tiledata;
-            public UInt32 unknown3;         // Always 0x18 (24) (data offset?)
+            public UInt32 pRawDataOffset;   // Always 0x18 (24) (data offset?)
             public byte[] data;             // image data
         }
         public struct SOPC  // Unknown section
