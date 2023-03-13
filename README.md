@@ -1,3 +1,21 @@
+**⚠️ Tinke by @pleonex is deprecated and not maintained anymore ⚠️**
+
+I appreciate the support over the years. It's time to stop and make way for modern solutions.
+
+I started this project to learn to code when I got curiosity about ROM Hacking in NDS. I can't remember how many times I rewrote it while I was learning more programming patterns. It was fun.
+As you can imagine the program design and architecture is not that good. Right now, it's hard to extend and especially maintain, it's very time consuming. It would require another major rewrite again.
+
+Several years ago I started a new project, [SceneGate](https://github.com/scenegate), with the same goal but more focus on developers. I hope one day it can become as useful as Tinke was.
+You can follow the progress of these new projects from GitHub:
+
+- Ekona, Nintendo DS formats: https://scenegate.github.io/Ekona/
+- SceneGate UI: https://github.com/SceneGate/SceneGate
+
+I welcome anyone to fork this project and continue it.
+You can check existing forks here: https://github.com/pleonex/tinke/network
+
+---
+
 # Tinke
 <p align="center">
 <a href="https://travis-ci.org/pleonex/tinke"><img alt="Build Status" src="https://travis-ci.org/pleonex/tinke.svg?branch=master" align="left" /></a>
@@ -10,8 +28,6 @@
 To run the program you must have installed **[.NET Framework 4.5](https://www.microsoft.com/es-es/download/details.aspx?id=30653)** or **[mono](http://www.mono-project.com/download)**. In the case of *mono* on *Linux*, make sure you have installed the package **mono-locale-extras** too. For Mac, you need *mono* and *pkg-config* installed and configured, you'll use *mono32* to exec Tinke.
 
 Thread at GBAtemp.net: http://gbatemp.net/topic/303529-tinke-072/
-
-**Tinke is discontinued and not longer supported. Will provide a new solution in the long term.**
 
 # Features
 
@@ -40,7 +56,7 @@ Thread at GBAtemp.net: http://gbatemp.net/topic/303529-tinke-072/
  * NTFP => NiTro File Palette (palette)
  * RAW => Raw image (tiles)
  * MAP => Raw map info (map)
- * Common formats => PNG, JPG, TGA
+ * Common formats => PNG, JPG, TGA, GIF
 
 ## Textures
  * BTX0 (NSBTX)
@@ -57,7 +73,7 @@ Thread at GBAtemp.net: http://gbatemp.net/topic/303529-tinke-072/
 ## Text
  * Sound definition => SADL, XSADL, SARC, SBDL, SMAP.
  * BMG => Pack text file
- * Common formats => TXT, XML, INI, H, BAT, C, MAKEFILE, LUA, CSV, BUILDTIME
+ * Common formats => TXT, XML, INI, H, BAT, C, MAKEFILE, LUA, CSV, BUILDTIME, HTML, CSS, JS, DTD
 
 ## Compression
   Thanks to DSDEcmp library [DSDecmp](http://code.google.com/p/dsdecmp) (credits to *barubary*)
@@ -88,7 +104,10 @@ Thread at GBAtemp.net: http://gbatemp.net/topic/303529-tinke-072/
  * Tetris DS (YLUP)
  * Tokimeki Memorial Girl's Side 3rd Story (B3SJ)
  * Cake Mania 2 (CAKX)
- * Jump! Ultimate Stars (ALAR, DSIG, DSCP)
+ * Jump! Ultimate Stars: ALAR, DSIG, DSCP
+ * Sonic Rush Adventure (ASCx, A3Yx, BXSx)
+ * Club Penguin
+ * Big Hero 6
 
 ----
 
