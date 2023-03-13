@@ -43,7 +43,7 @@ namespace LAYTON
         public bool IsCompatible()
         {
             var testedGames = new[] { "A5FP", "A5FE",
-                "YLTS", "YLTE", "YLTP", "YLTH",
+                "YLTS", "YLTE", "YLTP", "YLTH", "YLTJ",
                 "BLFE", "C2AJ"};
             return testedGames.Contains(gameCode);
         }
@@ -88,6 +88,12 @@ namespace LAYTON
                                  CultureInfo.CurrentUICulture,
                                  out nazeId)) return Format.Text;
                     break;
+                case "YLTJ":
+                    if (file.id >= 0x3CA && file.id <= 0x47F)
+                        return new Ani(pluginHost, gameCode, "").Get_Formato(file.name);
+                    else if (file.id >= 0x480 && file.id <= 0x523)
+                        return Format.FullImage;
+                    break;
                 case "YLTE":
                     if (file.id >= 0x37 && file.id <= 0x412)
                         return new Ani(pluginHost, gameCode, "").Get_Formato(file.name);
@@ -115,6 +121,12 @@ namespace LAYTON
                     if (file.id >= 0x35 && file.id <= 0xEF)
                         return new Ani(pluginHost, gameCode, "").Get_Formato(file.name);
                     else if (file.id >= 0xF0 && file.id <= 0x193)
+                        return Format.FullImage;
+                    break;
+                case "YLTJ":
+                    if ((file.id >= 0x3CA && file.id <= 0x47F) || (file.id >= 0x740 && file.id <= 0xB14))
+                        return new Ani(pluginHost, gameCode, "").Get_Formato(file.name);
+                    else if ((file.id >= 0x480 && file.id <= 0x523) || (file.id >= 0xB15 && file.id <= 0xF3D))
                         return Format.FullImage;
                     break;
             }
@@ -169,6 +181,12 @@ namespace LAYTON
                         return bg.Get_Control();
                     }
                     break;
+                case "YLTJ":
+                    if (file.id >= 0x3CA && file.id <= 0x47F)
+                        return new Ani(pluginHost, gameCode, file.path).Show_Info(file.id);
+                    else if (file.id >= 0x480 && file.id <= 0x523)
+                        return new Bg(pluginHost, file.path, file.id, file.name).Get_Control();
+                    break;
                 case "YLTE":
                     if (file.id >= 0x37 && file.id <= 0x412)
                         return new Ani(pluginHost, gameCode, file.path).Show_Info(file.id);
@@ -183,6 +201,15 @@ namespace LAYTON
                     if (file.id >= 0x35 && file.id <= 0xEF)
                         return new Ani(pluginHost, gameCode, file.path).Show_Info(file.id);
                     else if (file.id >= 0xF0 && file.id <= 0x193)
+                    {
+                        Bg bg = new Bg(pluginHost, file.path, file.id, file.name);
+                        return bg.Get_Control();
+                    }
+                    break;
+                case "YLTJ":
+                    if ((file.id >= 0x3CA && file.id <= 0x47F) || (file.id >= 0x740 && file.id <= 0xB14))
+                        return new Ani(pluginHost, gameCode, file.path).Show_Info(file.id);
+                    else if ((file.id >= 0x480 && file.id <= 0x523) || (file.id >= 0xB15 && file.id <= 0xF3D))
                     {
                         Bg bg = new Bg(pluginHost, file.path, file.id, file.name);
                         return bg.Get_Control();
