@@ -49,6 +49,8 @@ namespace TIMEACE
         {
             if (gameCode == "AE3E")
                 return true;
+            else if (gameCode == "C2BE")
+                return true;
 
             return false;
         }
@@ -87,13 +89,19 @@ namespace TIMEACE
                 return Format.Text;
             }
 
+            if (file.name.EndsWith(".emit"))
+            {
+                return Format.Text;
+            }
+
             return Format.Unknown;
         }
 
         private bool IsImage(int id)
         {
-            if ((id >= 0x0BE && id <= 0x10B) ||
-                (id >= 0x10C && id <= 0x1B1))
+            if (gameCode == "AE3E" && ((id >= 0x0BE && id <= 0x10B) || (id >= 0x10C && id <= 0x1B1)))
+                return true;
+            else if (gameCode == "C2BE" && id >= 0x3A && id <= 0x82)
                 return true;
 
             return false;
