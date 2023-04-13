@@ -85,7 +85,7 @@ You can help translate TinkeDSi on [Crowdin](https://crwd.in/tinkedsi). If you'd
  * Ace Attorney Investigation Miles Edgeworth (C32P, C32J)
  * Gyakuten Kenji 2 (BXOJ)
  * Kirby Squeak Squad (AKWE)
- * Last Window The secrete of Cape West (YLUP)
+ * Last Window The Secret of Cape West (YLUP)
  * El profesor Layton y la Villa Misteriosa (A5FE, A5FP)
  * El profesor Layton y la Caja de Pandora (YLTS)
  * Maple Story DS (YMPK)
@@ -95,6 +95,7 @@ You can help translate TinkeDSi on [Crowdin](https://crwd.in/tinkedsi). If you'd
  * Tetris DS (YLUP)
  * Tokimeki Memorial Girl's Side 3rd Story (B3SJ)
  * Jump! Ultimate Stars (ALAR, DSIG, DSCP)
+ * Time Ace (AE3E) (Also works for Powerbike (C2BE))
  * Cake Mania 2 (CAKX)
 
 ----
