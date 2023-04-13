@@ -8,17 +8,17 @@
 
 > TinkeDSi is a program to see, convert, and edit the **files of NDS(i) games**. You can see a lot of format files like images, text, sounds, fonts and textures. Furthermore it works with **plugins** made in NET Framework languages (C# and VB.NET) so it's so easy to support new formats.
 
-To run the program you must have installed **[.NET Framework 4.5](https://www.microsoft.com/es-es/download/details.aspx?id=30653)** or **[mono](http://www.mono-project.com/download)**. In the case of *mono* on *Linux*, make sure you have installed the package **mono-locale-extras** too.
+To run the program you must have installed **[.NET Framework 4.5](https://www.microsoft.com/es-es/download/details.aspx?id=30653)** or **[mono](http://www.mono-project.com/download)**. In the case of *mono* on *Linux*, make sure you have installed the package **mono-locale-extras** too. For Mac, you need *mono* and *pkg-config* installed and configured, you'll use *mono32* to exec Tinke.
 
 
 # Features
 
  * Show the ROM header with the banner and edit it. (Support edit and/or fix DSi banner)
- * Show and convert to common format a lot of files
- * Edit a lot of image files from BMP files (NCLR, NCGR, NSCR, NCER), audio files from WAV (SWAV, SWAR, STRM) and fonts (NFTR)
- * Hexadecimal viewer
+ * Show and convert to common format a lot of files.
+ * Edit a lot of image files from BMP files (NCLR, NCGR, NSCR, NCER), audio files from WAV (SWAV, SWAR, STRM) and fonts (NFTR).
+ * Hexadecimal viewer.
  * Change the content of the files and save the new ROM. (Support change files by dir)
- * Multilenguage support
+ * Multilanguage support.
  * A way to fix DSi header. (Then you can import arm9/7i file to fix "DSi binary file is missing" error for romhacks and/or bad dumps)
     * How to fix "DSi binary file is missing" error?
     * Step 1: Open "good dump" with TinkeDSi, then export iheader file on ROM info window and export arm9/7i.bin files on nitrofs window.
@@ -94,7 +94,7 @@ You can help translate TinkeDSi on [Crowdin](https://crwd.in/tinkedsi). If you'd
  * The world end with you (AWLJ)
  * Tetris DS (YLUP)
  * Tokimeki Memorial Girl's Side 3rd Story (B3SJ)
-
+ * Jump! Ultimate Stars (ALAR, DSIG, DSCP)
  * Cake Mania 2 (CAKX)
 
 ----
