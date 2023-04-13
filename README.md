@@ -47,7 +47,7 @@ You can help translate TinkeDSi on [Crowdin](https://crwd.in/tinkedsi). If you'd
  * NTFP => NiTro File Palette (palette)
  * RAW => Raw image (tiles)
  * MAP => Raw map info (map)
- * Common formats => PNG, JPG, TGA
+ * Common formats => PNG, JPG, TGA, GIF, BMP
 
 ## Textures
  * BTX0 (NSBTX)
@@ -64,7 +64,7 @@ You can help translate TinkeDSi on [Crowdin](https://crwd.in/tinkedsi). If you'd
 ## Text
  * Sound definition => SADL, XSADL, SARC, SBDL, SMAP.
  * BMG => Pack text file
- * Common formats => TXT, XML, INI, H, BAT, C, MAKEFILE, LUA, CSV, BUILDTIME
+ * Common formats => TXT, XML, INI, H, BAT, C, MAKEFILE, LUA, CSV, BUILDTIME, HTML, CSS, JS, NAIX, DTD, BSF, NBSD
 
 ## Compression
   Thanks to DSDEcmp library [DSDecmp](http://code.google.com/p/dsdecmp) (credits to *barubary*)
@@ -74,20 +74,22 @@ You can help translate TinkeDSi on [Crowdin](https://crwd.in/tinkedsi). If you'd
  * RLE     (id = 0x30)
 
 ## Pack
- * NARC o ARC => Nintendo ARChives
+ * NARC or ARC => Nintendo ARChives
  * Utility.bin => Wifi data files
+
+### Note: Additional formats that are not currently recognized by the program as openable files, for example, plain text files that have an unknown extension, can be opened with the "Open As..." dialog.
 
 # Specific plugin for games
  * 999, nine hours nine persons nine doors (BSKE)
  * Itsu Demo Doko Demo Dekiru Igo (AIIJ)
  * Blood of Bahamut (CYJJ)
  * Dragon Ball Kai Ultimate Butouden (TDBJ)
- * Ace Attorney Investigation Miles Edgeworth (C32P, C32J)
+ * Ace Attorney Investigations: Miles Edgeworth (C32P, C32J)
  * Gyakuten Kenji 2 (BXOJ)
  * Kirby Squeak Squad (AKWE)
  * Last Window The Secret of Cape West (YLUP)
- * El profesor Layton y la Villa Misteriosa (A5FE, A5FP)
- * El profesor Layton y la Caja de Pandora (YLTS)
+ * Professor Layton and the Mysterious Village (A5FE, A5FP)
+ * Professor Layton and Pandora's Box (YLTS)
  * Maple Story DS (YMPK)
  * Ninokuni Shikkoku no Madoushi (B2KJ)
  * Rune Factory 3 (BRFE, BRFJ)
@@ -97,6 +99,14 @@ You can help translate TinkeDSi on [Crowdin](https://crwd.in/tinkedsi). If you'd
  * Jump! Ultimate Stars (ALAR, DSIG, DSCP)
  * Time Ace (AE3E) (Also works for Powerbike (C2BE))
  * Cake Mania 2 (CAKX)
+ * Sonic Rush Adventure (ASCx, A3Yx, BXSx)
+ * Inazuma Eleven
+ * Tales Of The Tempest
+ * A Witch's Tale
+ * Death Note: Kira Game
+ * Gakuen Hetalia DS
+ * Club Penguin
+ * Big Hero 6
 
 ----
 
