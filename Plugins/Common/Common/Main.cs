@@ -12,10 +12,10 @@
  *   GNU General Public License for more details.
  *
  *   You should have received a copy of the GNU General Public License
- *   along with this program.  If not, see <http://www.gnu.org/licenses/>. 
+ *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  * Programador: pleoNeX
- * 
+ *
  */
 using System;
 using System.Collections.Generic;
@@ -26,7 +26,7 @@ using System.Windows.Forms;
 
 namespace Common
 {
-    public class Main : IPlugin 
+    public class Main : IPlugin
     {
         IPluginHost pluginHost;
 
@@ -34,13 +34,14 @@ namespace Common
         {
             string ext = new String(Encoding.ASCII.GetChars(magic));
 
-            if (file.name.ToUpper().EndsWith(".TGA") || file.name.ToUpper().EndsWith(".GIF") || file.name.ToUpper().EndsWith(".JPG") || file.name.ToUpper().EndsWith(".PNG"))
+            if (file.name.ToUpper().EndsWith(".TGA") || file.name.ToUpper().EndsWith(".GIF") ||
+                file.name.ToUpper().EndsWith(".JPG") || file.name.ToUpper().EndsWith(".PNG") || file.name.ToUpper().EndsWith(".JPEG"))
                 return Format.FullImage;
             else if (file.name.ToUpper().EndsWith(".BMP") && magic[0] == 'B' && magic[1] == 'M')
                 return Format.FullImage;
             else if (file.name.ToUpper().EndsWith(".WAV") || ext == "RIFF")
                 return Format.Sound;
-            
+
             return Format.Unknown;
         }
 
@@ -61,6 +62,8 @@ namespace Common
             if (file.name.ToUpper().EndsWith(".TGA"))
                 return new TGA(pluginHost, file.path).Show_Info();
             else if (file.name.ToUpper().EndsWith(".JPG"))
+                return new JPG(pluginHost, file.path).Show_Info();
+            else if (file.name.ToUpper().EndsWith(".JPEG"))
                 return new JPG(pluginHost, file.path).Show_Info();
             else if (file.name.ToUpper().EndsWith(".GIF"))
                 return new GIF(pluginHost, file.path).Show_Info();
