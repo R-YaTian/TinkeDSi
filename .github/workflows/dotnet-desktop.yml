@@ -2,9 +2,9 @@ name: Build TinkeDSi nightly
 
 on:
   push:
-    branches: [ DSi ]
+    branches: [ main ]
   pull_request:
-    branches: [ DSi ]
+    branches: [ main ]
 
 jobs:
 
