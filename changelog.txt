@@ -24,6 +24,8 @@ TinkeDSi 0.9.4 (Made by R-YaTian)
 * Add support for Jump Ultimate Star
 * Improvements in Layton plugin (support games and formats)
 * Fix build scripts for Linux
+* TIMEACE Plugin: Add support for powerbike by @TheBestNSMB
+* Plugins Common: Support .JPEG files by @TheBestNSMB
 
 TinkeDSi 0.9.3 (Made by R-YaTian)
 *** Add "DSi header fix" feature (via import donor iheader data)
