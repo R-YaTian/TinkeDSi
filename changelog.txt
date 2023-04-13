@@ -1,3 +1,16 @@
+TinkeDSi 0.9.5 (Made by R-YaTian)
+* Project update to .NET Framework 4.8 (GitHub Actions build and future release will keep on .NET 4.5)
+* Merge: Improve NFTR plugins by @chyyran
+TODO: full i18n support, improve hex viewer, improve blz compresion
+
+TinkeDSi 0.9.4 (Made by R-YaTian)
+*** This version number is a version that fetches changes from upstream "MetLob/tinke" and "pleonex/tinke".
+*** It will not be released because many tasks have not been finished on the main branch of TinkeDSi.
+*** So please wait for version "v0.9.5", but you can still get the nightly build from GitHub Actions.
+* Add support for Jump Ultimate Star
+* Improvements in Layton plugin (support games and formats)
+* Fix build scripts for Linux
+
 TinkeDSi 0.9.3 (Made by R-YaTian)
 *** Add "DSi header fix" feature (via import donor iheader data)
 (*Then you can import arm9/7i file to fix "DSi binary file missing error" for romhacks and/or bad dumps*)
@@ -11,12 +24,22 @@ TinkeDSi 0.9.3 (Made by R-YaTian)
 * Improve UI to enhance the user's experience
 
 0.9.2i (Made by MetLob)
-*** Add DSi mode rom support!
+*** Add DSi/DSi-Enchanced/DSiWare mode rom support!
+* Auto decription arm7i.bin and arm9i.bin
+* Auto decription and Re-encrypt Secure Area of arm9.bin
+* Show corrected SA CRC in RomInfo
+* Update CRC if GameCode has been changed
 
 0.9.2
-** Improve Hexadecimal Viewer for Mono (Linux and Mac OS)
+** Improve Hexadecimal Viewer for Mono. (Linux and Mac OS)
 * Fix crash opening HexViewer from FAT dialog on Mono.
 * Fix project files and compile script for Windows.
+* Support HTML, CSS, JS and DTD files in text plugin.
+* Support GIF in image plugin.
+* Add support for Sonic Rush Adventure.
+* Nitro Texture Compressor for compression 4x4 blocks.
+* Fixes for NFTR.
+* Fixes for decompression (autoformat) and unpacking with non-zero relative offset.
 
 0.9.1
 ** Support partition cell sections (#18, #19).
