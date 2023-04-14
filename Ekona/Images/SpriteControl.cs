@@ -480,11 +480,18 @@ namespace Ekona.Images
                         oams[i].obj1.xOffset + 256, oams[i].obj0.yOffset + 128,
                         oams[i].width, oams[i].height),
                         System.Drawing.Imaging.PixelFormat.DontCare);
-                    Actions.Indexed_Image(subImg, image.FormatColor, out cellImg, out pal);
+                    if (this.radioReplacePal.Checked) // Set the palette
+                    {
+                        Actions.Indexed_Image(subImg, image.FormatColor, out cellImg, out pal);
+                        pals[oams[i].obj2.index_palette] = pal;
+                    }
+                    else // Swap palettes if "Swap palette" is checked. Try to change the colors to the old palette
+                        cellImg = Actions.IndexAndSwap(subImg, image.FormatColor, palette.Palette[oams[i].obj2.index_palette]);
                 }
                 else
                     cellImg = Actions.Get_OAMdata(oams[i], tiles, image.FormatColor);
 
+                /* OLD ORIGINAL CODE
                 // Swap palettes if "Swap palette" is checked. Try to change the colors to the old palette
                 if (radioSwapPal.Checked)
                 {
@@ -493,6 +500,7 @@ namespace Ekona.Images
                 }
                 else if (radioReplacePal.Checked) // Set the palette
                     pals[oams[i].obj2.index_palette] = pal;
+                 */
 
                 if (image.FormTile == TileForm.Horizontal)
                     cellImg = Actions.HorizontalToLineal(cellImg, oams[i].width, oams[i].height, image.BPP, 8);
@@ -528,7 +536,9 @@ namespace Ekona.Images
             if (sprite.Banks[banki].data_size > 0)
             {
                 sprite.Banks[banki].data_size += addedSize;
-                for (int i = banki + 1; i < sprite.Banks.Length; i++) sprite.Banks[i].data_offset += addedSize;
+                for (int i = 0; i < sprite.Banks.Length; i++) 
+                    if (sprite.Banks[i].data_offset > sprite.Banks[banki].data_offset) sprite.Banks[i].data_offset += addedSize;
+                    else if (i != banki && sprite.Banks[i].data_offset == sprite.Banks[banki].data_offset) sprite.Banks[i].data_size += addedSize;
             }
 
             // If everthing goes right then set the new data

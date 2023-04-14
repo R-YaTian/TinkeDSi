@@ -253,7 +253,7 @@ namespace Ekona.Images
             }
             
             if (newpal != null)
-                palette.Set_Palette(newpal);
+                palette.Set_Palette(newpal.Palette[0], (int)numericPalette.Value);
 
             // Write the file
             Write_File();

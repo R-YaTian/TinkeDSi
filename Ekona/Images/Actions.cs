@@ -40,9 +40,9 @@ namespace Ekona.Images
         A5I3 = 6,           // 8 bits-> 0-2: index; 3-7: alpha
         direct = 7,         // 16bits, color with BGR555 encoding
         colors2 = 8,        // 1 bit for 2 colors
-        BGRA32 = 9,   // 32 bits -> ABGR
+        ABGR32 = 9,         // 32 bits -> ABGR
         A4I4 = 10,
-        ABGR32 = 11
+        BGRA32 = 11
     }
 
     public enum ColorEncoding : byte
@@ -54,6 +54,32 @@ namespace Ekona.Images
 
     public static class Actions
     {
+        #region Format
+
+        public static int Get_Bpp(ColorFormat cf, out int max_colors)
+        {
+            max_colors = 0;         // Maximum colors per palette
+            int bpc = 0;            // Bits per color
+            switch (cf)
+            {
+                case ColorFormat.A3I5: max_colors = 32; bpc = 8; break;
+                case ColorFormat.colors4: max_colors = 4; bpc = 2; break;
+                case ColorFormat.colors16: max_colors = 16; bpc = 4; break;
+                case ColorFormat.colors256: max_colors = 256; bpc = 8; break;
+                case ColorFormat.texel4x4: throw new NotSupportedException("Texel 4x4 not supported yet."); max_colors = 0x3FFF * 2; bpc = 3; break;
+                case ColorFormat.A5I3: max_colors = 8; bpc = 8; break;
+                case ColorFormat.direct: max_colors = 0; bpc = 16; break;
+                case ColorFormat.colors2: max_colors = 2; bpc = 1; break;
+                case ColorFormat.A4I4: max_colors = 16; bpc = 8; break;
+                case ColorFormat.BGRA32: bpc = 32; break;
+                case ColorFormat.ABGR32: bpc = 32; break;
+            }
+
+            return bpc;
+        }
+
+        #endregion
+
         #region Palette
         /// <summary>
         /// Convert bytes encoding with BGR555 to colors
@@ -376,7 +402,7 @@ namespace Ekona.Images
                     pos += 2;
                     break;
 
-                case ColorFormat.BGRA32:
+                case ColorFormat.ABGR32:
                     if (pos + 4 >= data.Length)
                         break;
 
@@ -384,7 +410,7 @@ namespace Ekona.Images
                     pos += 4;
                     break;
 
-                case ColorFormat.ABGR32:
+                case ColorFormat.BGRA32:
                     if (pos + 4 >= data.Length)
                         break;
 
@@ -831,7 +857,7 @@ namespace Ekona.Images
                     //int g = (byte)(pix.G * opacity + (1 - opacity) * 255);
                     //int b = (byte)(pix.B * opacity + (1 - opacity) * 255);
                     //Color apix = (pix.A != 0) ? Color.FromArgb(r, g, b) : Color.Transparent;   // Without alpha value
-                    Color apix = (pix.A != 0) ? pix : Color.Transparent;   // Without alpha value
+                    Color apix = (pix.A != 0) ? Color.FromArgb(pix.A, pix.R / 8 * 255 / 31, pix.G / 8 * 255 / 31, pix.B / 8 * 255 / 31) : Color.Transparent; 
 
                     // Add the color to the provisional palette
                     if (!coldif.Contains(apix)) coldif.Add(apix);
@@ -841,23 +867,8 @@ namespace Ekona.Images
                 }
             }
 
-            int max_colors = 0;     // Maximum colors per palette
-            int bpc = 0;            // Bits per color
-            switch (cf)
-            {
-                case ColorFormat.A3I5: max_colors = 32; bpc = 8; break;
-                case ColorFormat.colors4: max_colors = 4; bpc = 2; break;
-                case ColorFormat.colors16: max_colors = 16; bpc = 4; break;
-                case ColorFormat.colors256: max_colors = 256; bpc = 8; break;
-                case ColorFormat.texel4x4: throw new NotSupportedException("Texel 4x4 not supported yet."); max_colors = 0x3FFF * 2; bpc = 3; break;
-                case ColorFormat.A5I3: max_colors = 8; bpc = 8; break;
-                case ColorFormat.direct: max_colors = 0; bpc = 16; break;
-                case ColorFormat.colors2: max_colors = 2; bpc = 1; break;
-                case ColorFormat.A4I4: max_colors = 16; bpc = 8; break;
-            }
-
-            List<Color> destPalette = new List<Color>(palette);
             // Expand color set with alpha blending for swaping
+            List<Color> destPalette = new List<Color>(palette);
             if (cf == ColorFormat.A3I5 || cf == ColorFormat.A4I4 || cf == ColorFormat.A5I3)
             {
                 int alphaCount = (cf == ColorFormat.A3I5) ? 8 : (cf == ColorFormat.A4I4) ? 16 : 32;
@@ -867,7 +878,6 @@ namespace Ekona.Images
                     double opacity = a / 255.0;
                     for (int j = 0; j < palette.Length; j++)
                     {
-
                         destPalette.Add(Color.FromArgb(a, palette[j]));
                     }
                 }
@@ -875,26 +885,163 @@ namespace Ekona.Images
 
             // Swap palettes
             int[] remapTable = new int[coldif.Count];
-            for (int i = 0; i < coldif.Count; i++)
+            if (cf != ColorFormat.direct && cf != ColorFormat.ABGR32 && cf != ColorFormat.BGRA32)
             {
-                if (coldif[i].A != 0)
+                for (int i = 0; i < coldif.Count; i++)
                 {
-                    double minDist = double.MaxValue;
-                    for (int j = 0; j < destPalette.Count; j++)
+                    if (coldif[i].A != 0)
                     {
-                        double dist = Color32SquaredDistance(coldif[i], destPalette[j]);
-                        if (dist < minDist)
+                        double minDist = double.MaxValue;
+                        for (int j = 0; j < destPalette.Count && minDist > 0; j++)
                         {
-                            minDist = dist;
-                            remapTable[i] = j;
+                            double dist = Color32SquaredDistance(coldif[i], destPalette[j]);
+                            if (dist < minDist)
+                            {
+                                minDist = dist;
+                                remapTable[i] = j;
+                            }
                         }
                     }
+                    else remapTable[i] = (destPalette.Count == palette.Length) ? 0 : destPalette.Count - 1;
                 }
-                else remapTable[i] = (destPalette.Count == palette.Length) ? 0 : destPalette.Count - 1;
             }
 
+            // Bits per color
+            int bpc = Get_Bpp(cf, out _);
+
             // Finally get the set the tile array with the correct format
-            byte[] tiles = new byte[width * height * bpc / 8];
+            byte[] tiles = Formate(data, remapTable, coldif, cf, width * height * bpc / 8, palette.Length);
+
+            return tiles;
+        }
+
+        public static byte[] IndexAndSwap(Bitmap img, ColorFormat cf, Color[][] palette, byte tile_size, out byte[] palIdx)
+        {
+            // It's a slow method but it should work always
+            int width = img.Width;
+            int height = img.Height;
+            int tpw = (int)Math.Ceiling(width / (float)tile_size);
+            int tph = (int)Math.Ceiling(height / (float)tile_size);
+
+            // Expand color set with alpha blending for swaping
+            List<Color>[] destPalette = new List<Color>[palette.Length];
+            for (int p = 0; p < palette.Length; p++) destPalette[p] = new List<Color>(palette[p]);
+            if (cf == ColorFormat.A3I5 || cf == ColorFormat.A4I4 || cf == ColorFormat.A5I3)
+            {
+                int alphaCount = (cf == ColorFormat.A3I5) ? 8 : (cf == ColorFormat.A4I4) ? 16 : 32;
+                for (int i = alphaCount - 2; i >= 0; i--)
+                {
+                    byte a = (byte)(i * 255 / (alphaCount - 1));
+                    double opacity = a / 255.0;
+                    for (int p = 0; p < palette.Length; p++)
+                    {
+                        for (int j = 0; j < palette[p].Length; j++)
+                            destPalette[p].Add(Color.FromArgb(a, palette[p][j]));
+                    }
+                }
+            }
+
+            // Bits per color
+            int bpc = Get_Bpp(cf, out _);
+
+            // Get the indexed data
+            palIdx = new byte[tpw * tph];
+            int tileLength = tile_size * tile_size * bpc / 8;
+            byte[] result = new byte[tpw * tph * tileLength];
+            for (int y = 0, t = 0; y < height; y += tile_size)
+            {
+                for (int x = 0; x < width; x += tile_size, t++)
+                {
+                    List<Color> coldif = new List<Color>();
+                    int[] data = new int[tile_size * tile_size];
+                    int[] weights = new int[data.Length];
+                    for (int h = y; h < y + tile_size && h < height; h++)
+                    {
+                        for (int w = x; w < x + tile_size && w < width; w++)
+                        {
+                            Color pix = img.GetPixel(w, h);
+
+                            Color apix = (pix.A != 0) ? Color.FromArgb(pix.A, pix.R / 8 * 255 / 31, pix.G / 8 * 255 / 31, pix.B / 8 * 255 / 31) : Color.Transparent;
+
+                            // Index
+                            int colIdx = coldif.Count;
+
+                            // Add the color to the provisional palette
+                            if (!coldif.Contains(apix)) coldif.Add(apix);
+                            else colIdx = coldif.IndexOf(apix);
+
+                            // Get the index and save the alpha value
+                            data[(w - x) + (h - y) * tile_size] = colIdx;
+                            weights[colIdx]++;
+                        }
+                    }
+
+                    // Swap palettes
+                    int[] remapTable = new int[coldif.Count];
+                    if (cf != ColorFormat.direct && cf != ColorFormat.ABGR32 && cf != ColorFormat.BGRA32)
+                    {
+                        double bestPalDist = double.MaxValue;
+                        for (int p = 0; p < destPalette.Length; p++)
+                        {
+                            if (palette[p].Length > 1)
+                            {
+                                int[] tmpTable = new int[coldif.Count];
+                                double palDist = 0;
+                                for (int i = 0; i < coldif.Count; i++)
+                                {
+                                    if (coldif[i].A != 0)
+                                    {
+                                        double minDist = double.MaxValue;
+                                        for (int j = 0; j < destPalette[p].Count; j++)
+                                        {
+                                            double dist = Color32SquaredDistance(coldif[i], destPalette[p][j]);
+                                            if (dist < minDist)
+                                            {
+                                                minDist = dist;
+                                                tmpTable[i] = j;
+                                            }
+                                        }
+
+                                        palDist += weights[i] * minDist;
+                                    }
+                                    else tmpTable[i] = (destPalette[p].Count == palette[p].Length) ? 0 : destPalette[p].Count - 1;
+                                }
+
+                                palDist /= coldif.Count;
+                                if (palDist < bestPalDist)
+                                {
+                                    bestPalDist = palDist;
+                                    remapTable = tmpTable;
+                                    palIdx[t] = (byte)p;
+                                }
+                            }
+                        }
+                    }
+
+                    // Finally get the set the tile array with the correct format
+                    byte[] tiles = Formate(data, remapTable, coldif, cf, tileLength, palette[palIdx[t]].Length);
+
+                    Array.Copy(tiles, 0, result, t * tiles.Length, tiles.Length);
+                }
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Convert 32-bit pixels data to NTR format
+        /// </summary>
+        /// <param name="data">Indexed pixels</param>
+        /// <param name="remapTable">Swapped table of indexes</param>
+        /// <param name="coldif">All pixel's colors</param>
+        /// <param name="cf">NTR Color Format</param>
+        /// <param name="tileLength">Output data length</param>
+        /// <param name="paletteLength">Count of swapping target colors</param>
+        /// <returns></returns>
+        private static byte[] Formate(int[] data, int[] remapTable, List<Color> coldif, ColorFormat cf, int tileLength, int paletteLength)
+        {
+            int bpc = Get_Bpp(cf, out _);
+            byte[] tiles = new byte[tileLength];
             for (int i = 0, j = 0; i < tiles.Length;)
             {
                 switch (cf)
@@ -911,25 +1058,25 @@ namespace Ekona.Images
                         break;
 
                     case ColorFormat.A3I5:
-                        byte va1 = (byte)remapTable[data[j++]];
-                        byte alpha1 = (byte)(7 - va1 / palette.Length);
-                        va1 = (byte)(va1 % palette.Length);
-                        va1 |= (byte)(alpha1 << 5);
-                        tiles[i++] = va1;
+                        int va1 = remapTable[data[j++]];
+                        int alpha1 = 7 - va1 / paletteLength;
+                        va1 = va1 % paletteLength;
+                        va1 |= alpha1 << 5;
+                        tiles[i++] = (byte)va1;
                         break;
                     case ColorFormat.A4I4:
-                        byte va3 = (byte)remapTable[data[j++]];
-                        byte alpha3 = (byte)(15 - va3 / palette.Length);
-                        va3 = (byte)(va3 % palette.Length);
-                        va3 |= (byte)(alpha3 << 4);
-                        tiles[i++] = va3;
+                        int va3 = remapTable[data[j++]];
+                        int alpha3 = 15 - va3 / paletteLength;
+                        va3 = va3 % paletteLength;
+                        va3 |= alpha3 << 4;
+                        tiles[i++] = (byte)va3;
                         break;
                     case ColorFormat.A5I3:
-                        byte va2 = (byte)remapTable[data[j++]];
-                        byte alpha2 = (byte)(15 - va2 / palette.Length);
-                        va2 = (byte)(va2 % palette.Length);
-                        va2 |= (byte)(alpha2 << 3);
-                        tiles[i++] = va2;
+                        int va2 = remapTable[data[j++]];
+                        int alpha2 = 31 - va2 / paletteLength;
+                        va2 = va2 % paletteLength;
+                        va2 |= alpha2 << 3;
+                        tiles[i++] = (byte)va2;
                         break;
 
                     case ColorFormat.direct:
@@ -940,6 +1087,26 @@ namespace Ekona.Images
 
                     case ColorFormat.texel4x4:
                         // Not supported
+                        break;
+
+                    case ColorFormat.BGRA32:
+                        {
+                            var c = coldif[data[j++]];
+                            tiles[i++] = c.A;
+                            tiles[i++] = c.R;
+                            tiles[i++] = c.G;
+                            tiles[i++] = c.B;
+                        }
+                        break;
+
+                    case ColorFormat.ABGR32:
+                        {
+                            var c = coldif[data[j++]];
+                            tiles[i++] = c.R;
+                            tiles[i++] = c.G;
+                            tiles[i++] = c.B;
+                            tiles[i++] = c.A;
+                        }
                         break;
                 }
             }
@@ -1045,7 +1212,35 @@ namespace Ekona.Images
 
             return map;
         }
+
+        public static NTFS[] Create_BasicMap(int num_tiles, int startTile, byte[] palette)
+        {
+            NTFS[] map = new NTFS[num_tiles];
+            for (int i = startTile; i < num_tiles; i++)
+            {
+                map[i] = new NTFS();
+                map[i].nPalette = palette[i];
+                map[i].yFlip = 0;
+                map[i].xFlip = 0;
+                //if (i >= startFillTile)
+                //    map[i].nTile = (ushort)fillTile;
+                //else
+                map[i].nTile = (ushort)(i + startTile);
+            }
+
+            return map;
+        }
+
         public static NTFS[] Create_Map(ref byte[] data, int bpp, int tile_size, byte palette = 0)
+        {
+            int ppt = tile_size * tile_size; // pixels per tile
+            int tile_length = ppt * bpp / 8;
+            byte[] pal_idx = new byte[data.Length / tile_length];
+            for (int i = 0; i < pal_idx.Length; i++) pal_idx[i] = palette;
+            return Create_Map(ref data, bpp, tile_size, pal_idx);
+        }
+
+        public static NTFS[] Create_Map(ref byte[] data, int bpp, int tile_size, byte[] pal_idx)
         {
             int ppt = tile_size * tile_size; // pixels per tile
             int tile_length = ppt * bpp / 8;
@@ -1062,7 +1257,7 @@ namespace Ekona.Images
             List<byte[]> newtiles = new List<byte[]>();
             for (int i = 0; i < map.Length; i++)
             {
-                map[i].nPalette = palette;
+                map[i].nPalette = pal_idx[i];
                 map[i].xFlip = 0;
                 map[i].yFlip = 0;
 
@@ -1116,6 +1311,7 @@ namespace Ekona.Images
                     data[j + i * tile_length] = newtiles[i][j];
             return map;
         }
+
         public static bool Compare_Array(byte[] d1, byte[] d2)
         {
             if (d1.Length != d2.Length)

@@ -238,6 +238,7 @@ namespace Ekona.Images
             this.numPal.Maximum = palette.NumberOfPalettes - 1;
             this.numericStart.Maximum = image.Original.Length - 1;
             this.checkMapCmp.Enabled = isMap;
+            this.multiPalMode.Enabled = isMap && radioSwapPal.Checked;
 
             stop = false;
         }
@@ -468,6 +469,8 @@ namespace Ekona.Images
             // Get tiles + palette from the current image
             byte[] tiles = new byte[0];
             Color[] pal = new Color[0];
+            byte[] palIdx = new byte[0];
+            bool convertToTiled = image.FormTile == TileForm.Horizontal || isMap;
 
             if (radioOriginalPal.Checked)
             {
@@ -475,37 +478,59 @@ namespace Ekona.Images
                 tiles = bmp.Tiles;
                 pal = bmp.Palette.Palette[0];
             }
-            else if (this.radioReplacePal.Checked)
+            else
             {
                 try { Actions.Indexed_Image(bitmap, image.FormatColor, out tiles, out pal); }
                 catch (Exception ex) { MessageBox.Show(ex.Message); Console.WriteLine(ex.Message); return; }
             }
 
             // Swap palettes if "Swap palette" is checked. Try to change the colors to the old palette
-            else if (radioSwapPal.Checked)
+            if (radioSwapPal.Checked)
             {
-                try
+                if (isMap && multiPalMode.Checked)
                 {
-                    //Actions.Swap_Palette(ref tiles, palette.Palette[(int)numPal.Value], pal, image.FormatColor);
-                    tiles = Actions.IndexAndSwap(bitmap, image.FormatColor, palette.Palette[(int)numPal.Value]);
+                    Color[][] pals = new Color[palette.Palette.Length][];
+                    for (int i = 0; i < (byte)numPal.Value; i++) pals[i] = new Color[0];
+                    for (int i = (byte)numPal.Value; i < palette.Palette.Length; i++) pals[i] = palette.Palette[i];
+                    tiles = Actions.IndexAndSwap(bitmap, image.FormatColor, pals, (byte)image.TileSize, out palIdx);
+                    convertToTiled = false;
                 }
-                catch (Exception ex) { MessageBox.Show(ex.Message); Console.WriteLine(ex.Message); return; }
+                else
+                {
+                    try
+                    {
+                        //Actions.Swap_Palette(ref tiles, palette.Palette[(int)numPal.Value], pal, image.FormatColor);
+                        tiles = Actions.IndexAndSwap(bitmap, image.FormatColor, palette.Palette[(int)numPal.Value]);
+                    }
+                    catch (Exception ex) { MessageBox.Show(ex.Message); Console.WriteLine(ex.Message); return; }
+                }
             }
 
             // If the tile form is horizontal convert to it
-            if (image.FormTile == TileForm.Horizontal || isMap)
+            if (convertToTiled)
             {
-                tiles = Actions.HorizontalToLineal(tiles, bitmap.Width, bitmap.Height, image.BPP, 8);
+                tiles = Actions.HorizontalToLineal(tiles, bitmap.Width, bitmap.Height, image.BPP, image.TileSize);
                 image.FormTile = TileForm.Horizontal;
             }
 
-            // Create a map file // MetLob edition 19/05/2015
-            if (isMap && checkMapCmp.Checked)
-                map.Set_Map(Actions.Create_Map(ref tiles, image.BPP, image.TileSize, (byte)numPal.Value), map.CanEdit, bitmap.Width, bitmap.Height);
-            else if (isMap)
+            if (isMap)
             {
-                int num_tiles = (tiles.Length * 8 / image.BPP) / (image.TileSize * image.TileSize);
-                map.Set_Map(Actions.Create_BasicMap(num_tiles, 0, (byte)numPal.Value), map.CanEdit);
+                if (palIdx.Length == 0)
+                {
+                    int tileLength = image.TileSize * image.TileSize * image.BPP / 8;
+
+                    palIdx = new byte[tiles.Length / tileLength];
+                    for (int i = 0; i < palIdx.Length; i++) palIdx[i] = (byte)numPal.Value;
+                }
+
+                // Create a map file // MetLob edition 19/05/2015
+                if (isMap && checkMapCmp.Checked)
+                    map.Set_Map(Actions.Create_Map(ref tiles, image.BPP, image.TileSize, palIdx), map.CanEdit, bitmap.Width, bitmap.Height);
+                else if (isMap)
+                {
+                    int num_tiles = (tiles.Length * 8 / image.BPP) / (image.TileSize * image.TileSize);
+                    map.Set_Map(Actions.Create_BasicMap(num_tiles, 0, palIdx), map.CanEdit);
+                }
             }
 
             // Set the data
@@ -520,16 +545,6 @@ namespace Ekona.Images
         }
         private void Save_Files()
         {
-            if (image.ID >= 0)
-            {
-                try
-                {
-                    string imageFile = pluginHost.Get_TempFolder() + Path.DirectorySeparatorChar + Path.GetRandomFileName() + image.FileName;
-                    image.Write(imageFile, palette);
-                    pluginHost.ChangeFile(image.ID, imageFile);
-                }
-                catch (Exception e) { MessageBox.Show("Error writing new image:\n" + e.Message); };
-            }
             if (palette.ID >= 0 && radioReplacePal.Checked)
             {
                 try
@@ -539,6 +554,16 @@ namespace Ekona.Images
                     pluginHost.ChangeFile(palette.ID, paletteFile);
                 }
                 catch (Exception e) { MessageBox.Show("Error writing new palette:\n" + e.Message); };
+            }
+            if (image.ID >= 0)
+            {
+                try
+                {
+                    string imageFile = pluginHost.Get_TempFolder() + Path.DirectorySeparatorChar + Path.GetRandomFileName() + image.FileName;
+                    image.Write(imageFile, palette);
+                    pluginHost.ChangeFile(image.ID, imageFile);
+                }
+                catch (Exception e) { MessageBox.Show("Error writing new image:\n" + e.Message); };
             }
             if (isMap && map.ID >= 0)
             {
@@ -590,6 +615,11 @@ namespace Ekona.Images
         {
             btnBgdRem.Enabled = false;
             pic.BackColor = Color.Transparent;
+        }
+
+        private void radioSwapPal_CheckedChanged(object sender, EventArgs e)
+        {
+            this.multiPalMode.Enabled = isMap && radioSwapPal.Checked;
         }
     }
 }

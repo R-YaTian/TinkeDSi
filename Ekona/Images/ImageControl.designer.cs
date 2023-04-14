@@ -71,6 +71,7 @@ namespace Ekona.Images
             this.radioReplacePal = new System.Windows.Forms.RadioButton();
             this.label7 = new System.Windows.Forms.Label();
             this.numThreshold = new System.Windows.Forms.NumericUpDown();
+            this.multiPalMode = new System.Windows.Forms.CheckBox();
             this.btnSetTrans = new System.Windows.Forms.Button();
             this.btnImport = new System.Windows.Forms.Button();
             this.btnBgdRem = new System.Windows.Forms.Button();
@@ -335,6 +336,18 @@ namespace Ekona.Images
             this.checkMapCmp.Text = "S0F";
             this.checkMapCmp.UseVisualStyleBackColor = true;
             // 
+            // multiPalMode
+            // 
+            this.multiPalMode.AutoSize = true;
+            this.multiPalMode.Checked = true;
+            this.multiPalMode.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.multiPalMode.Location = new System.Drawing.Point(378, 444);
+            this.multiPalMode.Name = "multiPalMode";
+            this.multiPalMode.Size = new System.Drawing.Size(133, 24);
+            this.multiPalMode.TabIndex = 44;
+            this.multiPalMode.Text = "Multi Palette Import";
+            this.multiPalMode.UseVisualStyleBackColor = true;
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.radioSwapPal);
@@ -360,6 +373,7 @@ namespace Ekona.Images
             this.radioSwapPal.TabStop = true;
             this.radioSwapPal.Text = "S17";
             this.radioSwapPal.UseVisualStyleBackColor = true;
+            this.radioSwapPal.CheckedChanged += new System.EventHandler(this.radioSwapPal_CheckedChanged);
             // 
             // radioOriginalPal
             // 
@@ -393,6 +407,7 @@ namespace Ekona.Images
             // numThreshold
             // 
             this.numThreshold.DecimalPlaces = 4;
+            this.numThreshold.Enabled = false;
             this.numThreshold.Increment = new decimal(new int[] {
             5,
             0,
@@ -496,6 +511,7 @@ namespace Ekona.Images
             // 
             this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.checkMapCmp);
+            this.Controls.Add(this.multiPalMode);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btnSetTrans);
@@ -559,5 +575,6 @@ namespace Ekona.Images
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.NumericUpDown numThreshold;
         private System.Windows.Forms.CheckBox checkMapCmp;
+        private System.Windows.Forms.CheckBox multiPalMode;
     }
 }
