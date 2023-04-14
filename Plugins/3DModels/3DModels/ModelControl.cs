@@ -344,6 +344,7 @@ namespace _3DModels
             btx0.file = model.filePath;
             btx0.header.offset = new uint[1];
             btx0.header.offset[0] = model.header.offset[1];
+            btx0.id = model.id;
 
             return btx0;
         }
@@ -358,7 +359,7 @@ namespace _3DModels
             Form ven = new Form();
             TextureControl texCon = new TextureControl(pluginHost, tex);
             texCon.Dock = DockStyle.Fill;
-            ven.Size = new Size(530, 530);
+            ven.Size = new Size(530, 550);
             ven.FormBorderStyle = FormBorderStyle.FixedDialog;
             ven.Controls.Add(texCon);
             ven.Show();

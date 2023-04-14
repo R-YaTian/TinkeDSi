@@ -179,6 +179,9 @@ namespace _3DModels
             pluginHost.Set_Palette(p);
 
             Info(num_tex, num_pal);
+
+            btx0.texture.palette_data[num_pal] = palette_data;
+            btx0.texture.texture_data[num_tex] = tile_data;
         }
 
         private Bitmap Draw_Texture(byte[] data, sBTX0.Texture.TextInfo info, Color[] palette)
@@ -431,7 +434,7 @@ namespace _3DModels
             o.Dispose();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void PalSave_Click(object sender, EventArgs e)
         {
             int num_tex = listTextures.SelectedIndex;
             int num_pal = listPalettes.SelectedIndex;
@@ -480,6 +483,61 @@ namespace _3DModels
             }
 
             o.Dispose();
+        }
+
+        private void importToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (listTextures.SelectedIndex >= 0)
+            {
+                OpenFileDialog o = new OpenFileDialog();
+                o.Multiselect = false;
+                o.Filter = "All Image Formats|*.png;*.bmp;*.jpg;*.jpeg;*.tiff;*.tif;*.gif;*.ico;*.icon|" +
+                           "Portable Network Graphic (*.png)|*.png|" +
+                           "BitMaP (*.bmp)|*.bmp|" +
+                           "JPEG (*.jpg)|*.jpg;*.jpeg|" +
+                           "Tagged Image File Format (*.tiff)|*.tiff;*.tif|" +
+                           "Graphic Interchange Format (*.gif)|*.gif|" +
+                           "Icon (*.ico)|*.ico;*.icon";
+
+                if (o.ShowDialog() == DialogResult.OK)
+                {
+                    var bmp = (Bitmap)Image.FromFile(o.FileName).Clone();
+                    int num_tex = listTextures.SelectedIndex;
+                    int num_pal = listPalettes.SelectedIndex;
+                    var cf = (ColorFormat)((sBTX0.Texture.TextInfo)btx0.texture.texInfo.infoBlock.infoData[num_tex]).format;
+
+                    Color[] colors = Actions.BGR555ToColor(btx0.texture.palette_data[num_pal]);
+                    byte[] image = Actions.IndexAndSwap(bmp, cf, colors);
+
+                    btx0.texture.header.textData_size += (ushort)((image.Length - btx0.texture.texture_data[num_tex].Length) >> 3);
+                    btx0.texture.texture_data[num_tex] = image;
+
+                    if (btx0.id > 0 && btx0.header.type != null)
+                    {
+                        var filePath = this.pluginHost.Get_TempFile();
+                        BTX0.Write(filePath, btx0);
+
+                        btx0 = BTX0.Read(filePath, btx0.id, this.pluginHost);
+                        this.pluginHost.ChangeFile(btx0.id, filePath);
+                    }
+                    else
+                    {
+                        var bw = new BinaryWriter(File.OpenWrite(btx0.file));
+                        bw.BaseStream.Position = btx0.header.offset[0];
+                        BTX0.Write_Section(ref bw, btx0.texture);
+                        bw.Close();
+
+                        var br = new BinaryReader(File.OpenRead(btx0.file));
+                        br.BaseStream.Position = btx0.header.offset[0];
+                        btx0.texture = BTX0.Read_Section(ref br, btx0.header.offset[0]);
+                        br.Close();
+
+                        this.pluginHost.ChangeFile(btx0.id, btx0.file);
+                    }
+
+                    this.UpdateTexture(num_tex, num_pal);
+                }
+            }
         }
 
     }
