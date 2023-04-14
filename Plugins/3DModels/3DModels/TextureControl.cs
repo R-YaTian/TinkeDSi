@@ -459,6 +459,7 @@ namespace _3DModels
                         "Windows Palette (*.pal)|*.pal|" +
                         "Portable Network Graphics (*.png)|*.png|" +
                         "Adobe COlor (*.aco)|*.aco";
+            o.FilterIndex = 2;
             o.OverwritePrompt = true;
 
             if (o.ShowDialog() != DialogResult.OK)
