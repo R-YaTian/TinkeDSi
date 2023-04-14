@@ -195,6 +195,7 @@ namespace Ekona.Images
                         "Windows Palette (*.pal)|*.pal|" +
                         "Portable Network Graphics (*.png)|*.png|" +
                         "Adobe COlor (*.aco)|*.aco";
+	    o.FilterIndex = 2;
             o.OverwritePrompt = true;
             o.FileName = palette.FileName;
 
@@ -206,7 +207,7 @@ namespace Ekona.Images
             else if (o.FilterIndex == 1 || o.FilterIndex == 2)
             {
                 Formats.PaletteWin palwin = new Formats.PaletteWin(palette.Palette[(int)numericPalette.Value]);
-                //if (o.FilterIndex == 1) palwin.Gimp_Error = true;
+                if (o.FilterIndex == 1) palwin.Gimp_Error = true;
                 palwin.Write(o.FileName);
             }
             else if (o.FilterIndex == 4)
