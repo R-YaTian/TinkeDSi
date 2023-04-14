@@ -66,7 +66,7 @@ namespace Ekona.Images
                 case ColorFormat.colors4: max_colors = 4; bpc = 2; break;
                 case ColorFormat.colors16: max_colors = 16; bpc = 4; break;
                 case ColorFormat.colors256: max_colors = 256; bpc = 8; break;
-                case ColorFormat.texel4x4: throw new NotSupportedException("Texel 4x4 not supported yet."); max_colors = 0x3FFF * 2; bpc = 3; break;
+                case ColorFormat.texel4x4: throw new NotSupportedException("Texel 4x4 not supported yet.");//max_colors = 0x3FFF * 2; bpc = 3; break;
                 case ColorFormat.A5I3: max_colors = 8; bpc = 8; break;
                 case ColorFormat.direct: max_colors = 0; bpc = 16; break;
                 case ColorFormat.colors2: max_colors = 2; bpc = 1; break;
@@ -907,7 +907,8 @@ namespace Ekona.Images
             }
 
             // Bits per color
-            int bpc = Get_Bpp(cf, out _);
+            int _tmp;
+            int bpc = Get_Bpp(cf, out _tmp);
 
             // Finally get the set the tile array with the correct format
             byte[] tiles = Formate(data, remapTable, coldif, cf, width * height * bpc / 8, palette.Length);
@@ -942,7 +943,8 @@ namespace Ekona.Images
             }
 
             // Bits per color
-            int bpc = Get_Bpp(cf, out _);
+            int _tmp;
+            int bpc = Get_Bpp(cf, out _tmp);
 
             // Get the indexed data
             palIdx = new byte[tpw * tph];
@@ -1040,7 +1042,8 @@ namespace Ekona.Images
         /// <returns></returns>
         private static byte[] Formate(int[] data, int[] remapTable, List<Color> coldif, ColorFormat cf, int tileLength, int paletteLength)
         {
-            int bpc = Get_Bpp(cf, out _);
+            int _tmp;
+            int bpc = Get_Bpp(cf, out _tmp);
             byte[] tiles = new byte[tileLength];
             for (int i = 0, j = 0; i < tiles.Length;)
             {
