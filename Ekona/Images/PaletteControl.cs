@@ -206,7 +206,7 @@ namespace Ekona.Images
             else if (o.FilterIndex == 1 || o.FilterIndex == 2)
             {
                 Formats.PaletteWin palwin = new Formats.PaletteWin(palette.Palette[(int)numericPalette.Value]);
-                if (o.FilterIndex == 1) palwin.Gimp_Error = true;
+                //if (o.FilterIndex == 1) palwin.Gimp_Error = true;
                 palwin.Write(o.FileName);
             }
             else if (o.FilterIndex == 4)
@@ -220,7 +220,7 @@ namespace Ekona.Images
         }
         private void btnImport_Click(object sender, EventArgs e)
         {
-			OpenFileDialog o = new OpenFileDialog();
+	    OpenFileDialog o = new OpenFileDialog();
             o.CheckFileExists = true;
             o.Filter = "All supported formats|*.pal;*.aco;*.png;*.bmp;*.jpg;*.jpeg;*.tif;*.tiff;*.gif;*.ico;*.icon|" +
                 "Windows Palette (*.pal)|*.pal|" +
