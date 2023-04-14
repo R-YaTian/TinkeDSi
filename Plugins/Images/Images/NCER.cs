@@ -244,8 +244,8 @@ namespace Images
                 banks[i].height = 0;
                 banks[i].width = 0;
                 banks[i].oams = ncer.cebk.banks[i].oams;
-                if (ncer.labl.names.Length > i)
-                    banks[i].name = ncer.labl.names[i];
+                banks[i].name = i.ToString();
+                //if (ncer.labl.names.Length > i) banks[i].name = ncer.labl.names[i];
 
                 banks[i].data_offset = ncer.cebk.banks[i].partition_offset;
                 banks[i].data_size = ncer.cebk.banks[i].partition_size;
@@ -351,6 +351,23 @@ namespace Images
             uint offset_cells = 0;
             uint size = 0;
             uint max_partition_size = 0;
+
+            if (Banks.Length > ncer.cebk.banks.Length)
+            {
+                sNCER.Bank[] tmp = new sNCER.Bank[Banks.Length];
+                Array.Copy(ncer.cebk.banks, 0, tmp, 0, ncer.cebk.banks.Length);
+                for (int i = ncer.cebk.banks.Length; i < Banks.Length; i++)
+                {
+                    tmp[i].readOnlyCellInfo = ncer.cebk.banks[0].readOnlyCellInfo;
+                    tmp[i].xMax = ncer.cebk.banks[0].xMax;
+                    tmp[i].xMin = ncer.cebk.banks[0].xMin;
+                    tmp[i].yMax = ncer.cebk.banks[0].yMax;
+                    tmp[i].yMin = ncer.cebk.banks[0].yMin;
+                }
+
+                ncer.cebk.banks = tmp;
+            }
+
             for (int i = 0; i < Banks.Length; i++)
             {
                 ncer.cebk.banks[i].nCells = (ushort)Banks[i].oams.Length;
