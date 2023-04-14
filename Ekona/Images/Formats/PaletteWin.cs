@@ -30,7 +30,7 @@ namespace Ekona.Images.Formats
 {
     public class PaletteWin : PaletteBase
     {
-        bool gimp_error;        // Error of Gimp, it reads the first colors at 0x1C instead of 0x18
+        bool gimp_error = false; // Error of Gimp, it reads the first colors at 0x1C instead of 0x18
         public PaletteWin(string file) : base()
         {
             Read(file);
