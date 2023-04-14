@@ -781,6 +781,7 @@ namespace Tinke.Nitro
             diccionario.Add("KM", "Deep Silver");
             diccionario.Add("MJ", "MumboJumbo");
             diccionario.Add("MT", "Blast Entertainment");
+            diccionario.Add("N6", "McDonalds");
             diccionario.Add("NK", "Neko Entertainment");
             diccionario.Add("NP", "Nobilis Publishing");
             diccionario.Add("PG", "Phoenix Games");
