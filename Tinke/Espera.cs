@@ -80,5 +80,17 @@ namespace Tinke
             this.Text = xml.Element("S01").Value;
             label1.Text = xml.Element("S01").Value;
         }
+
+        public void CloseLoadingForm()
+        {
+            this.DialogResult = DialogResult.OK;
+            this.Close();
+
+            this.progressBar1.Dispose();
+            if (label1.Image != null)
+            {
+                label1.Image.Dispose();
+            }
+        }
     }
 }

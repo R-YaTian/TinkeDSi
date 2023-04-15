@@ -51,7 +51,7 @@ namespace Tinke
         bool isMono;
         Keys keyDown;
         bool stop;
-        Espera espera;
+        private Espera espera;
         public static bool twl_flag;
 
         public Sistema()
@@ -174,9 +174,7 @@ namespace Tinke
 
             if (!isMono)
             {
-                try {
-                    espera.Close();
-                } catch { };
+                CloseEspera(loadrom);
                 debug = new Debug();
                 debug.FormClosing += new FormClosingEventHandler(debug_FormClosing);
                 debug.Add_Text(sb.ToString());
@@ -697,9 +695,19 @@ namespace Tinke
 
         private void ThreadEspera(Object name)
         {
-            espera = new Espera((string)name, false);
+            this.espera = new Espera((string)name, false);
             espera.TopMost = true;
             espera.ShowDialog();
+        }
+
+        private void CloseEspera(Thread thread)
+        {
+            if (this.espera != null)
+            {
+                this.espera.BeginInvoke(new ThreadStart(this.espera.CloseLoadingForm));
+                this.espera = null;
+                thread = null;
+            }
         }
         #endregion
 
@@ -1280,11 +1288,7 @@ namespace Tinke
 
             if (!isMono)
             {
-                try
-                {
-                    espera.Close();
-                }
-                catch { };
+                CloseEspera(unpack);
                 debug.Add_Text(sb.ToString());
             }
             sb.Length = 0;
@@ -1380,11 +1384,7 @@ namespace Tinke
                     extract.Start("S03");
                 RecursivoExtractFolder(folderSelect, o.SelectedPath + Path.DirectorySeparatorChar + folderSelect.name);
                 if (!isMono)
-                    try
-                    {
-                        espera.Close();
-                    }
-                    catch { };
+                    CloseEspera(extract);
             }
         }
         private void RecursivoExtractFolder(sFolder currFolder, String path)
@@ -1853,11 +1853,7 @@ namespace Tinke
             #endregion
 
             if (!isMono)
-                try
-                {
-                    espera.Close();
-                }
-                catch { };
+                CloseEspera(create);
 
             // Obtenemos el nuevo archivo para guardar
             SaveFileDialog o = new SaveFileDialog();
@@ -1916,11 +1912,7 @@ namespace Tinke
 
                 if (!isMono)
                 {
-                    try
-                    {
-                        espera.Close();
-                    }
-                    catch { };
+                    CloseEspera(saverom);
                     debug.Add_Text(sb.ToString());
                 }
                 sb.Length = 0;
@@ -2220,9 +2212,7 @@ namespace Tinke
 
             if (!(uncompress.files is List<sFile>) || dialog.DialogResult != System.Windows.Forms.DialogResult.OK)
             {
-                if (!isMono)
-                    wait.Abort();
-
+                CloseEspera(wait);
                 MessageBox.Show(Tools.Helper.GetTranslation("Sistema", "S36"));
                 return;
             }
@@ -2450,11 +2440,7 @@ namespace Tinke
             treeSystem.EndUpdate();
 
             if (!isMono && waiting.ThreadState == ThreadState.Running)
-                try
-                {
-                    espera.Close();
-                }
-                catch { };
+                CloseEspera(waiting);
         }
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
@@ -2529,11 +2515,7 @@ namespace Tinke
             if (FBD.ShowDialog() != DialogResult.OK)
             {
                 if (!isMono)
-                    try
-                    {
-                        espera.Close();
-                    }
-                    catch { };
+                    CloseEspera(matching);
                 return;
             }
 
