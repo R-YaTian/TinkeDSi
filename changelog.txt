@@ -19,19 +19,20 @@ TinkeDSi 0.9.5 (Made by R-YaTian)
 * Image: Set gimp_error to default false, hope this will fix palette exporting for anything that's not GIMP
 TODO: full i18n support (include plugins)
 
-TinkeDSi 0.9.4 (Made by R-YaTian)
+TinkeDSi 0.9.4
 *** This version number is a version that fetches changes from upstream "MetLob/tinke" and "pleonex/tinke".
 *** It will not be released because many tasks have not been finished on the main branch of TinkeDSi.
 *** So please wait for version "v0.9.5", but you can still get the nightly build from GitHub Actions.
-** Ekona: multiple palettes support for map generation
-* Images: fixes in NTR formats
-* 3DModel: import texture (experimental)
-* Add support for Jump Ultimate Star
-* Improvements in Layton plugin (support games and formats)
-* Fix build scripts for Linux
-* TIMEACE Plugin: Add support for powerbike by @TheBestNSMB
-* Plugins Common: Support .JPEG files by @TheBestNSMB
+** Ekona: multiple palettes support for map generation (By @MetLob)
+* Images: fixes in NTR formats (By @MetLob)
+* 3DModel: import texture (experimental) (By @MetLob)
+* Add support for Jump Ultimate Star (By @priverop)
+* Improvements in Layton plugin (support games and formats) (By @KerJoe)
+* Fix build scripts for Linux (By @pleonex)
+* TIMEACE Plugin: Add support for powerbike (By @TheBestNSMB)
+* Plugins Common: Support .JPEG files (By @TheBestNSMB)
 * More fix for progress dialog (now progress dialog also works on debug mode, thanks to upstream @MetLob)
+* Core: fix overlays ordering (By @MetLob)
 
 TinkeDSi 0.9.3 (Made by R-YaTian)
 *** Add "DSi header fix" feature (via import donor iheader data)
