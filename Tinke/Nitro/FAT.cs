@@ -91,7 +91,7 @@ namespace Tinke.Nitro
             offset += 0x200 - (offset % 0x200);
             offset += bannerSize + 0x200 - (bannerSize % 0x200);
 
-            // Get overlays IDs (all system files)
+            // Get overlays (all system files)
             var sysFiles = root.folders[root.folders.Count - 1].files;
             var ovlMaxId = sysFiles.Where(x => x.name.StartsWith("overlay")).Count() - 1;
 
