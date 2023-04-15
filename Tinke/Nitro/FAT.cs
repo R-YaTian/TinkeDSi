@@ -92,10 +92,8 @@ namespace Tinke.Nitro
             offset += bannerSize + 0x200 - (bannerSize % 0x200);
 
             // Get overlays IDs (all system files)
-            int sysIndex = 0;
-            ushort[] ovIDs = new ushort[root.folders[root.folders.Count - 1].files.Count];
-            for (int i = 0; i < ovIDs.Length; i++) ovIDs[i] = root.folders[root.folders.Count - 1].files[i].id;
-            Array.Sort(ovIDs);
+            var sysFiles = root.folders[root.folders.Count - 1].files;
+            var ovlMaxId = sysFiles.Where(x => x.name.StartsWith("overlay")).Count() - 1;
 
             byte[] buffer = new byte[num_files * 8];
             int zero_files = 0;
@@ -107,9 +105,8 @@ namespace Tinke.Nitro
 
                 if (!(currFile.name is string))
                     zero_files++;
-                else if (sortedIDs[i] == ovIDs[sysIndex])
+                else if (sortedIDs[i] <= ovlMaxId)
                 {
-                    sysIndex++;
                     if (currFile.name.StartsWith("overlay9"))
                     {
                         temp = BitConverter.GetBytes(offset_ov9);
