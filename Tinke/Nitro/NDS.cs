@@ -596,11 +596,9 @@ namespace Tinke.Nitro
             BinaryWriter bw = new BinaryWriter(File.OpenWrite(fileOut));
             BinaryReader br = new BinaryReader(File.OpenRead(romFile));
 
-            // Get overlays IDs (all system files)
-            int sysIndex = 0;
-            ushort[] ovIDs = new ushort[root.folders[root.folders.Count - 1].files.Count];
-            for (int i = 0; i < ovIDs.Length; i++) ovIDs[i] = root.folders[root.folders.Count - 1].files[i].id;
-            Array.Sort(ovIDs);
+            // Get overlays (all system files)
+            var sysFiles = root.folders[root.folders.Count - 1].files;
+            var ovlMaxId = sysFiles.Where(x => x.name.StartsWith("overlay")).Count() - 1;
 
             Console.Write(Tools.Helper.GetTranslation("Messages", "S0B"));
 
@@ -609,10 +607,9 @@ namespace Tinke.Nitro
                 if (i == 0 & sortedIDs[i] > sortedIDs.Length)
                     continue;
 
-                if (sortedIDs[i] == ovIDs[sysIndex])
+                if (sortedIDs[i] <= ovlMaxId)
                 {
                     // Exclude overlay files by ID, because some files have name with "overlay" on begin
-                    sysIndex++;
                     continue;
                 }
 
