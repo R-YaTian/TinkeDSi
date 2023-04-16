@@ -152,7 +152,7 @@ namespace _3DModels
             GL.Enable(EnableCap.DepthTest);
             GL.Enable(EnableCap.Texture2D);
             GL.Enable(EnableCap.AlphaTest);
-            GL.BlendFunc(BlendingFactorSrc.SrcAlpha, BlendingFactorDest.OneMinusSrcAlpha);
+            GL.BlendFunc((BlendingFactor)BlendingFactorSrc.SrcAlpha, (BlendingFactor)BlendingFactorDest.OneMinusSrcAlpha);
             GL.Enable(EnableCap.Blend);
             GL.AlphaFunc(AlphaFunction.Greater, 0f);
             GL.Disable(EnableCap.CullFace);
@@ -214,7 +214,7 @@ namespace _3DModels
 
         private void DrawEdges()
         {
-            GL.Begin(BeginMode.Lines);
+            GL.Begin(PrimitiveType.Lines);
             {
                 GL.Color3(Color.DarkRed);
                 GL.Vertex3(0f, 0f, 0f);

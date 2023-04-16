@@ -1029,13 +1029,13 @@ namespace _3DModels
 
                     case GeometryCmd.BEGIN_VTXS:
                         if (geoCmd[i].param[0] == 0)
-                            GL.Begin(BeginMode.Triangles);
+                            GL.Begin(PrimitiveType.Triangles);
                         else if (geoCmd[i].param[0] == 1)
-                            GL.Begin(BeginMode.Quads);
+                            GL.Begin(PrimitiveType.Quads);
                         else if (geoCmd[i].param[0] == 2)
-                            GL.Begin(BeginMode.TriangleStrip);
+                            GL.Begin(PrimitiveType.TriangleStrip);
                         else if (geoCmd[i].param[0] == 3)
-                            GL.Begin(BeginMode.QuadStrip);
+                            GL.Begin(PrimitiveType.QuadStrip);
                         break;
                     case GeometryCmd.END_VTXS:
                         GL.End();
