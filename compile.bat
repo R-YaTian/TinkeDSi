@@ -108,6 +108,13 @@ REM Delete debug files
 ECHO Removing debug files
 DEL /S /Q "%build_dir%\*.pdb" > nul || (EXIT /B 1)
 
+REM Clean unneeded files
+ECHO Removing unneeded files
+DEL /Q "%cd%\Plugins\*.nlp" > nul || (EXIT /B 1)
+DEL /Q "%cd%\Plugins\Ekona.dll" > nul || (EXIT /B 1)
+DEL /S /Q "%cd%\Plugins\mscorlib.dll" > nul || (EXIT /B 1)
+for /f "usebackq" %s in (`where /R "Plugins" mscorlib.resources.dll`) do rm -rf %~dps
+
 REM The End
 EXIT /B 0
 
