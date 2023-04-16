@@ -112,8 +112,7 @@ REM Clean unneeded files
 ECHO Removing unneeded files
 DEL /Q "%build_dir%\Plugins\*.nlp" > nul || (EXIT /B 1)
 DEL /Q "%build_dir%\Plugins\Ekona.dll" > nul || (EXIT /B 1)
-DEL /S /Q "%build_dir%\Plugins\mscorlib.dll" > nul || (EXIT /B 1)
-for /f "usebackq" %s in (`where /R "%build_dir%\Plugins" mscorlib.resources.dll`) do rm -rf %~dps
+DEL /S /Q "%build_dir%\Plugins\mscorlib.*" > nul || (EXIT /B 1)
 
 REM The End
 EXIT /B 0
