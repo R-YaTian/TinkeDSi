@@ -19,8 +19,8 @@ jobs:
 
     - name: Build
       run: |
-        sudo -n apt-get update
-        sudo -n apt-get install mono-complete
+        apt-get update
+        apt install mono-complete
         cd $GITHUB_WORKSPACE
         ./compile.sh Release x86
         cd $GITHUB_WORKSPACE/build
