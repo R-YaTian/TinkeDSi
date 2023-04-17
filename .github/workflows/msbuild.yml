@@ -20,8 +20,7 @@ jobs:
     - name: Build
       run: |
         cd $GITHUB_WORKSPACE
-        mv compile.sh compile
-        compile Release x86
+        ./compile.sh Release x86
       shell: bash
 
     - uses: actions/upload-artifact@master
