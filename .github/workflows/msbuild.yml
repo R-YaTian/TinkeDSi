@@ -32,7 +32,7 @@ jobs:
     - name: Build
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
-        cd TinkeDSi
+        cd /home/runner/work/TinkeDSi/TinkeDSi
         compile.sh Release x86
 
     - uses: actions/upload-artifact@master
