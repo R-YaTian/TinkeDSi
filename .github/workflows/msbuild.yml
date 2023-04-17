@@ -16,7 +16,6 @@ jobs:
 
     - name: Build
       run: |
-        cd TinkeDSi/TinkeDSi
         compile.sh Release x86
 
     - uses: actions/upload-artifact@master
