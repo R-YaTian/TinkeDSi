@@ -119,7 +119,11 @@ cp "$TINKE_DIR/changelog.txt" "$BUILD_DIR/"
 cp "$TINKE_DIR/Licence.txt" "$BUILD_DIR/"
 cp "$TINKE_DIR/Tinke/app.config" "$BUILD_DIR/"
 
-# Delete debug files
+# Delete debug and unneeded files
 rm build.log
+rm -rf "$BUILD_DIR/*.pdb"
+rm -rf "$BUILD_DIR/Plugins/*.pdb"
+rm -f "$BUILD_DIR/Plugins/Ekona.dll"
+rm -f "$BUILD_DIR/Plugins/DSDecmp.dll"
 
 echo "Done!"
