@@ -31,7 +31,9 @@ jobs:
 
     - name: Build
       working-directory: ${{env.GITHUB_WORKSPACE}}
-      run: compile.sh Release x86
+      run: |
+        cd TinkeDSi
+        compile.sh Release x86
 
     - uses: actions/upload-artifact@master
       with:
