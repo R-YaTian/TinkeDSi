@@ -370,14 +370,22 @@ namespace _3DModels
             numericPoly.Enabled = checkManual.Checked;
         }
 
+        private void FullWindow_close(object sender, EventArgs e)
+        {
+            this.Controls.Add(glControl1);
+            this.Controls[6].Dock = DockStyle.None;
+            GL.Viewport(new Size(512, 512));
+        }
+
         private void button2_Click(object sender, EventArgs e)
         {
             Form big = new Form();
             big.Controls.Add(glControl1);
             big.Controls[0].Dock = DockStyle.Fill;
             big.WindowState = FormWindowState.Maximized;
-            big.Text = "Tinke - pleoNeX";
+            big.Text = "TinkeDSi";
             big.Icon = Properties.Resources.nintendo_ds;
+            big.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FullWindow_close);
             big.Show();
             GL.Viewport(new Size(big.Width, big.Height));
         }
