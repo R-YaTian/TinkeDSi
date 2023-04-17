@@ -21,6 +21,8 @@ jobs:
       run: |
         cd $GITHUB_WORKSPACE
         ./compile.sh Release x86
+        cd $GITHUB_WORKSPACE/build
+        mkbundle --deps sample.exe -o Tinke
       shell: bash
 
     - uses: actions/upload-artifact@master
