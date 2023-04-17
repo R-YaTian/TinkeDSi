@@ -28,10 +28,10 @@ jobs:
         cd $GITHUB_WORKSPACE
         ./compile.sh Release x64
         cd $GITHUB_WORKSPACE/build
-        mkbundle --deps Tinke.exe -o TinkeDSi --cross mono-6.8.0-osx-10.9-x64 --i18n all -z
+        mkbundle --deps Tinke.exe -o TinkeDSi --cross mono-6.8.0-osx-10.9-x64 --i18n all -z --static
       shell: bash
 
     - uses: actions/upload-artifact@master
       with:
-        name: TinkeDSi-nightly-mono
+        name: TinkeDSi-nightly-macOS
         path: build
