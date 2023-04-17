@@ -14,9 +14,12 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
+    - name: Set workspace permissions
+      run: chmod 777 -R "$GITHUB_WORKSPACE"
+
     - name: Build
       run: |
-        cd $GITHUB_WORKSPACE/TinkeDSi
+        cd $GITHUB_WORKSPACE
         compile.sh Release x86
 
     - uses: actions/upload-artifact@master
