@@ -16,6 +16,7 @@ jobs:
 
     - name: Build
       run: |
+        cd $GITHUB_WORKSPACE/TinkeDSi
         compile.sh Release x86
 
     - uses: actions/upload-artifact@master
