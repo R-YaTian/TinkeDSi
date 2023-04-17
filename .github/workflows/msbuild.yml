@@ -20,7 +20,7 @@ jobs:
     - name: Build
       run: |
         apt-get update
-        apt install mono-complete
+        apt -y install mono-complete
         cd $GITHUB_WORKSPACE
         ./compile.sh Release x86
         cd $GITHUB_WORKSPACE/build
