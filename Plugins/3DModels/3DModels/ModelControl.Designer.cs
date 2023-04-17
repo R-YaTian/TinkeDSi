@@ -96,7 +96,7 @@ namespace _3DModels
             // numericPoly
             // 
             this.numericPoly.Enabled = false;
-            this.numericPoly.Location = new System.Drawing.Point(90, 483);
+            this.numericPoly.Location = new System.Drawing.Point(110, 483);
             this.numericPoly.Name = "numericPoly";
             this.numericPoly.Size = new System.Drawing.Size(63, 20);
             this.numericPoly.TabIndex = 3;
