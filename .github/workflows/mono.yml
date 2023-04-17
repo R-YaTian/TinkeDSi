@@ -1,0 +1,37 @@
+name: Build TinkeDSi nightly with mono
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: mono:latest
+
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup build toolchain
+      run: |
+        apt-get update
+        apt-get -y install build-essential
+        mkbundle --fetch-target mono-6.8.0-ubuntu-16.04-x64
+
+    - name: Set workspace permissions
+      run: chmod 777 -R "$GITHUB_WORKSPACE"
+
+    - name: Build TinkeDSi
+      run: |
+        cd $GITHUB_WORKSPACE
+        ./compile.sh Release x64
+        cd $GITHUB_WORKSPACE/build
+        mkbundle --deps Tinke.exe -o TinkeDSi --cross mono-6.8.0-ubuntu-16.04-x64 --i18n all
+      shell: bash
+
+    - uses: actions/upload-artifact@master
+      with:
+        name: TinkeDSi-nightly-mono
+        path: build
