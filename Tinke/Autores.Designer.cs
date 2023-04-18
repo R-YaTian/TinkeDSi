@@ -316,7 +316,7 @@ namespace Tinke
             this.linkLabel2.Size = new System.Drawing.Size(245, 12);
             this.linkLabel2.TabIndex = 24;
             this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "https://github.com/MetLob/tinke/tree/DSi";
+            this.linkLabel2.Text = "https://github.com/MetLob/tinke";
             this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked_1);
             // 
             // linkLabel3
