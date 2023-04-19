@@ -328,17 +328,17 @@ namespace Ekona.Images
                         checkCellBorder.Checked, checkNumber.Checked, checkTransparency.Checked, checkImage.Checked);
                 }
                 if (o.FilterIndex == 1)
-                    img.Image.Save(o.FileName, System.Drawing.Imaging.ImageFormat.Png);
+                    img.Save(o.FileName, System.Drawing.Imaging.ImageFormat.Png);
                 else if (o.FilterIndex == 2)
-                    img.Image.Save(o.FileName, System.Drawing.Imaging.ImageFormat.Bmp);
+                    img.Save(o.FileName, System.Drawing.Imaging.ImageFormat.Bmp);
                 else if (o.FilterIndex == 3)
-                    img.Image.Save(o.FileName, System.Drawing.Imaging.ImageFormat.Jpeg);
+                    img.Save(o.FileName, System.Drawing.Imaging.ImageFormat.Jpeg);
                 else if (o.FilterIndex == 4)
-                    img.Image.Save(o.FileName, System.Drawing.Imaging.ImageFormat.Tiff);
+                    img.Save(o.FileName, System.Drawing.Imaging.ImageFormat.Tiff);
                 else if (o.FilterIndex == 5)
-                    img.Image.Save(o.FileName, System.Drawing.Imaging.ImageFormat.Gif);
+                    img.Save(o.FileName, System.Drawing.Imaging.ImageFormat.Gif);
                 else if (o.FilterIndex == 6)
-                    img.Image.Save(o.FileName, System.Drawing.Imaging.ImageFormat.Icon);
+                    img.Save(o.FileName, System.Drawing.Imaging.ImageFormat.Icon);
             }
         }
         private void Export_All()
