@@ -1,6 +1,5 @@
 TinkeDSi 0.9.5 (Made by R-YaTian)
 * Project update to .NET Framework 4.8 (GitHub Actions build and future release will keep on .NET 4.5)
-* Merge: Improve NFTR plugins by @chyyran
 * Add public rsaFontKey
 * Fix packing Utility.bin (should work on all SDK versions of WiFi data files)
 * Set Topmost for waiting window, add "Please wait..." message
@@ -21,7 +20,7 @@ TinkeDSi 0.9.5 (Made by R-YaTian)
 TODO: full i18n support (include plugins)
 
 TinkeDSi 0.9.4
-*** This version number is a version that fetches changes from upstream "MetLob/tinke" and "pleonex/tinke".
+*** This version number is a version that fetches changes from upstream "MetLob/tinke", "pleonex/tinke" and their forks.
 *** It will not be released because many tasks have not been finished on the main branch of TinkeDSi.
 *** So please wait for version "v0.9.5", but you can still get the nightly build from GitHub Actions.
 ** Ekona: multiple palettes support for map generation (By @MetLob)
@@ -34,6 +33,8 @@ TinkeDSi 0.9.4
 * Plugins Common: Support .JPEG files (By @TheBestNSMB)
 * More fix for progress dialog (now progress dialog also works on debug mode, thanks to upstream @MetLob)
 * Core: fix overlays ordering (By @MetLob)
+* Fonts: Improve NFTR plugins (By @chyyran)
+* Images: Implemented cropping functionality to image export (By @Aspharon)
 
 TinkeDSi 0.9.3 (Made by R-YaTian)
 *** Add "DSi header fix" feature (via import donor iheader data)
