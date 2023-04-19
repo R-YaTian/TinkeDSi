@@ -101,7 +101,7 @@ COPY "%cd%\Plugins\3DModels\OpenTK.GLControl.dll" "%build_dir%\" > nul || (EXIT 
 REM Copy license and changelog
 ECHO Copying license and changelog
 COPY "%cd%\changelog.txt" "%build_dir%\" > nul || (EXIT /B 1)
-COPY "%cd%\Licence.txt" "%build_dir%\" > nul || (EXIT /B 1)
+COPY "%cd%\LICENSE" "%build_dir%\" > nul || (EXIT /B 1)
 COPY "%cd%\Tinke\app.config" "%build_dir%\Tinke.exe.config" > nul || (EXIT /B 1)
 
 REM Delete debug files
