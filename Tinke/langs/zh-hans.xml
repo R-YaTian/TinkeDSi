@@ -527,6 +527,7 @@
       <S17>Tile 导入选项</S17>
       <S18>添加图像</S18>
       <S19>替换图像</S19>
+      <S1A>剪裁</S1A>
     </SpriteControl>
     <OAMEditor>
       <S01>OAM 编辑器</S01>
