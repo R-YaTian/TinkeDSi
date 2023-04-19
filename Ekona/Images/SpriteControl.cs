@@ -133,6 +133,7 @@ namespace Ekona.Images
                 groupBox3.Text = xml.Element("S17").Value;
                 radioImgAdd.Text = xml.Element("S18").Value;
                 radioImgReplace.Text = xml.Element("S19").Value;
+                checkCrop.Text = xml.Element("S1A").Value;
             }
             catch { throw new Exception("There was an error reading the XML language file."); }
         }
@@ -315,18 +316,29 @@ namespace Ekona.Images
 
             if (o.ShowDialog() == DialogResult.OK)
             {
+                Image img = imgBox.Image;
+                if (checkCrop.Checked)
+                {
+                    Image tempImg = sprite.Get_Image(image, palette, comboBank.SelectedIndex, 512, 256, checkGrid.Checked,
+                        checkCellBorder.Checked, checkNumber.Checked, false, checkImage.Checked);
+                    Tuple<int, int> size = Actions.Get_Dimensions(new Bitmap(tempImg));
+                    int width = size.Item1;
+                    int height = size.Item2;
+                    img = sprite.Get_Image(image, palette, comboBank.SelectedIndex, width, height, checkGrid.Checked,
+                        checkCellBorder.Checked, checkNumber.Checked, checkTransparency.Checked, checkImage.Checked);
+                }
                 if (o.FilterIndex == 1)
-                    imgBox.Image.Save(o.FileName, System.Drawing.Imaging.ImageFormat.Png);
+                    img.Image.Save(o.FileName, System.Drawing.Imaging.ImageFormat.Png);
                 else if (o.FilterIndex == 2)
-                    imgBox.Image.Save(o.FileName, System.Drawing.Imaging.ImageFormat.Bmp);
+                    img.Image.Save(o.FileName, System.Drawing.Imaging.ImageFormat.Bmp);
                 else if (o.FilterIndex == 3)
-                    imgBox.Image.Save(o.FileName, System.Drawing.Imaging.ImageFormat.Jpeg);
+                    img.Image.Save(o.FileName, System.Drawing.Imaging.ImageFormat.Jpeg);
                 else if (o.FilterIndex == 4)
-                    imgBox.Image.Save(o.FileName, System.Drawing.Imaging.ImageFormat.Tiff);
+                    img.Image.Save(o.FileName, System.Drawing.Imaging.ImageFormat.Tiff);
                 else if (o.FilterIndex == 5)
-                    imgBox.Image.Save(o.FileName, System.Drawing.Imaging.ImageFormat.Gif);
+                    img.Image.Save(o.FileName, System.Drawing.Imaging.ImageFormat.Gif);
                 else if (o.FilterIndex == 6)
-                    imgBox.Image.Save(o.FileName, System.Drawing.Imaging.ImageFormat.Icon);
+                    img.Image.Save(o.FileName, System.Drawing.Imaging.ImageFormat.Icon);
             }
         }
         private void Export_All()
@@ -355,8 +367,19 @@ namespace Ekona.Images
             // TODO: Only export to PNG
             for (int i = 0; i < sprite.NumBanks; i++)
             {
-                Image img = sprite.Get_Image(image, palette, i, 512, 256, checkGrid.Checked, checkCellBorder.Checked,
-                    checkNumber.Checked, checkTransparency.Checked, checkImage.Checked);
+                int width = 512;
+                int height = 256;
+
+                if (checkCrop.Checked)
+                {
+                    Image tempImg = sprite.Get_Image(image, palette, i, 512, 256, checkGrid.Checked,
+                        checkCellBorder.Checked, checkNumber.Checked, false, checkImage.Checked);
+                    Tuple<int, int> size = Actions.Get_Dimensions(new Bitmap(tempImg));
+                    width = size.Item1;
+                    height = size.Item2;
+                }
+                Image img = sprite.Get_Image(image, palette, i, width, height, checkGrid.Checked,
+                    checkCellBorder.Checked, checkNumber.Checked, checkTransparency.Checked, checkImage.Checked);
 
                 string path = o.SelectedPath + Path.DirectorySeparatorChar;
                 path += txtBatch.Text.Replace("%s", i.ToString()) + ".png";
