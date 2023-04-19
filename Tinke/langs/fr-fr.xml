@@ -530,6 +530,7 @@ Base name (without extension)
       <S17>Tile import options</S17>
       <S18>Add image</S18>
       <S19>Replace image</S19>
+      <S1A>Crop</S1A>
     </SpriteControl>
     <OAMEditor>
       <S01>OAM Editor</S01>
