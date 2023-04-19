@@ -17,6 +17,7 @@ TinkeDSi 0.9.5 (Made by R-YaTian)
 * WIP: Improve ARM9BLZ compression logic
 * Add McDonalds Maker Code to Estructuras.makerCode
 * Image: Set gimp_error to default false, hope this will fix palette exporting for anything that's not GIMP
+* 3DModels: Update to OpenTK 3.3.3, fix bug on fullscreen btn
 TODO: full i18n support (include plugins)
 
 TinkeDSi 0.9.4
