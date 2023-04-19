@@ -1412,6 +1412,27 @@ namespace Ekona.Images
             return imageSize;
         }
 
+        public static Tuple<int, int> Get_Dimensions(Bitmap img)
+        {
+            // Full disclosure, this is a bad approach and a slow implementation, but it works and that's what counts.
+            int firstX = int.MaxValue, firstY = int.MaxValue, lastX = 0, lastY = 0;
+            for (int x = 0; x < img.Width; x++)
+            {
+                for (int y = 0; y < img.Height; y++)
+                {
+                    if (img.GetPixel(x, y).A != 0)
+                    {
+                        if (x < firstX) firstX = x;
+                        if (y < firstY) firstY = y;
+                        if (x > lastX)  lastX  = x;
+                        if (y > lastY)  lastY  = y;
+                    }
+                }
+            }
+
+            return Tuple.Create(lastX - firstX + 1, lastY - firstY + 1);
+        }
+
         public static Bitmap Get_Image(Bank bank, uint blockSize, ImageBase img, PaletteBase pal, int max_width, int max_height,
                                        bool draw_grid, bool draw_cells, bool draw_numbers, bool trans, bool image, int currOAM = -1,
                                        int zoom = 1, int[] index = null)
