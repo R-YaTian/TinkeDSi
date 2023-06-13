@@ -14,210 +14,285 @@
  *   You should have received a copy of the GNU General Public License
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>. 
  *
- * By: pleoNeX
+ * By: mn1712trungson
  * 
  */
+
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.IO;
 using System.Drawing;
-using System.Windows.Forms;
+using System.IO;
+using System.Net;
+using System.Runtime.CompilerServices;
+using System.Runtime.Remoting.Messaging;
 using Ekona;
 using Ekona.Images;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace SF_FEATHER
 {
-    public class CGx : ImageBase
+    public static class CGx
     {
-        const ushort WIDTH = 32;
-        ColorFormat depth;
-        sCGx cgx;
-        PaletteBase pb;
-
-        public CGx(string file, int id, bool cg8, string fileName = "")
-            : base()
+        public static sFolder Unpack(sFile file)
         {
-            this.id = id;
-            if (fileName != "")
-                this.fileName = fileName;
-            else
-                this.fileName = Path.GetFileName(file);
-
-            depth = cg8 ? ColorFormat.colors256 : Ekona.Images.ColorFormat.colors16;
-            Read(file);
-        }
-
-        public PaletteBase Palette
-        {
-            get { return pb; }
-        }
-
-        public override void Read(string file)
-        {
-            BinaryReader br = new BinaryReader(File.OpenRead(file));
-            cgx = new sCGx();
-
-            cgx.type = br.ReadChars(4);  // CG4 
-            cgx.unknown1 = br.ReadUInt32();
-            cgx.unknown2 = br.ReadUInt32();
-            cgx.unknown3 = br.ReadUInt32();    // Usually 0
-
-            cgx.unknown4 = br.ReadUInt32();    // Usually 0
-            cgx.size_tiles = br.ReadUInt32();
-            cgx.unknown5 = br.ReadUInt32();
-            cgx.num_tiles = br.ReadUInt32();
-
-            cgx.palColors = br.ReadUInt32();
-            cgx.tileOffset = br.ReadUInt32();
-            cgx.palOffset = br.ReadUInt32();
-            cgx.unknonwnOffset = br.ReadUInt32();    // If 0, it doesn't exist
-
-            // Read tiles
-            br.BaseStream.Position = cgx.tileOffset;
-            int tile_size = (depth == ColorFormat.colors16 ? 0x20 : 0x40);
-            Byte[] tiles = br.ReadBytes((int)cgx.num_tiles * tile_size);
-            Set_Tiles(tiles, WIDTH, (int)(tiles.Length / WIDTH), depth, TileForm.Horizontal, false);
-            if (depth == Ekona.Images.ColorFormat.colors16)
-                Height *= 2;
-
-            // Read palette
-            br.BaseStream.Position = cgx.palOffset;
-            Color[][] colors;
-            if (depth == Ekona.Images.ColorFormat.colors16)
-            {
-                colors = new Color[cgx.palColors / 0x10][];
-                for (int i = 0; i < colors.Length; i++)
-                    colors[i] = Actions.BGR555ToColor(br.ReadBytes(32));
-            }
-            else
-            {
-                colors = new Color[1][];
-                colors[0] = Actions.BGR555ToColor(br.ReadBytes((int)cgx.palColors * 2));
-            }
-            PaletteBase palette = new RawPalette(colors, false, depth);
-
-            br.BaseStream.Position = cgx.unknonwnOffset;
-            cgx.unknown = br.ReadBytes((int)(br.BaseStream.Length - br.BaseStream.Position));
-
-            br.Close();
-        }
-        public override void Write(string fileOut, PaletteBase palette)
-        {
-            if (depth != FormatColor)
-                throw new NotImplementedException("The current file doesn't support this depth");
-
-            // Update the struct
-            cgx.size_tiles = (uint)Tiles.Length;
-            if (depth == Ekona.Images.ColorFormat.colors16)
-                cgx.num_tiles = cgx.size_tiles / 0x20;
-            else
-                cgx.num_tiles = cgx.size_tiles / 0x40;
-            cgx.palColors = (uint)palette.NumberOfColors;
-            cgx.palOffset = 0x30 + cgx.size_tiles;
-            cgx.unknonwnOffset = cgx.palOffset + cgx.palColors * 2;
-
-            BinaryWriter bw = new BinaryWriter(File.OpenWrite(fileOut));
-
-            bw.Write(cgx.type);
-            bw.Write(cgx.unknown1);
-            bw.Write(cgx.unknown2);
-            bw.Write(cgx.unknown3);
-
-            bw.Write(cgx.unknown4);
-            bw.Write(cgx.size_tiles);
-            bw.Write(cgx.unknown5);
-            bw.Write(cgx.num_tiles);
-
-            bw.Write(cgx.palColors);
-            bw.Write(cgx.tileOffset);
-            bw.Write(cgx.palOffset);
-            bw.Write(cgx.unknonwnOffset);
-
-            bw.Write(Tiles);
-            for (int i = 0; i < palette.NumberOfPalettes; i++)
-                bw.Write(Actions.ColorToBGR555(palette.Palette[i]));
-
-            bw.Flush();
-            bw.Close();
-        }
-
-        public struct sCGx
-        {
-            public char[] type;
-            public uint unknown1;
-            public uint unknown2;
-            public uint unknown3;
-            public uint unknown4;
-
-            public uint size_tiles;
-            public uint unknown5;
-            public uint num_tiles;
-
-            public uint palColors;
-            public uint tileOffset;
-            public uint palOffset;
-            public uint unknonwnOffset;
-
-            public byte[] unknown;
-        }
-    }
-
-    public class CGT : ImageBase
-    {
-        bool transparency;
-        PaletteBase pb;
-
-        public CGT(string file, int id, string fileName = "") : base(file, id, fileName) { }
-
-        public PaletteBase Palette
-        {
-            get { return pb; }
-        }
-
-        public override void Read(string file)
-        {
-            BinaryReader br = new BinaryReader(File.OpenRead(file));
+            BinaryReader br = new BinaryReader(File.OpenRead(file.path));
 
             char[] id = br.ReadChars(4);
-            uint unknown1 = br.ReadUInt32();    // Usually is 0x00
-            uint unknown2 = br.ReadUInt32();    // Usually is 0x00
-            uint unknown3 = br.ReadUInt32();    // Usually is 0x00
+            uint u_Value = br.ReadUInt32();
+            uint mappingType = br.ReadUInt32();
+            uint NULL = br.ReadUInt32();
 
-            uint format = br.ReadUInt32();
-            uint tile_size = br.ReadUInt32();
-            uint header_size = br.ReadUInt32();
-            uint palette_size = br.ReadUInt32();
+            uint transparency = br.ReadUInt32();
+            uint bitmapSize = br.ReadUInt32();
+            uint paletteSize = br.ReadUInt32();
+            uint tileNumber = br.ReadUInt32();
 
-            uint palette_offset = br.ReadUInt32();
-            uint unknown4 = br.ReadUInt32();
-            uint unknown_offset = br.ReadUInt32();
-            uint unknown5 = br.ReadUInt32();
+            uint objectType = br.ReadUInt32();
+            uint bitmapPointer = br.ReadUInt32();
+            uint palettePointer = br.ReadUInt32();
+            uint positionPointer = br.ReadUInt32();
 
-            transparency = (br.ReadUInt32() == 0x00 ? false : true);
-            transparency = false;
+            sFolder unpack = new sFolder();
+            unpack.files = new List<sFile>();
 
-            int width = (int)Math.Pow(2, (double)(br.ReadUInt16() + 3));
-            int height = (int)Math.Pow(2, (double)(br.ReadUInt16() + 3));
-            uint unknown6 = br.ReadUInt32();
+            if (positionPointer != 0)
+            {
+                uint fileNumber = 3;
+                for (int count = 0; count < fileNumber; count++)
+                {
+                    sFile newFile = new sFile();
+                    newFile.name = file.name + '_' + count.ToString();
+                    string ext = new string(id);
 
-            byte[] data = br.ReadBytes((int)tile_size);
-            
+                    if (count == 0)
+                    {
+                        if (ext == "CG4 ")
+                            newFile.name += ".TIL4";
+                        else if (ext == "CG8 ")
+                            newFile.name += ".TIL8";
+                        newFile.offset = bitmapPointer;
+                        newFile.size = bitmapSize;
+                    }
+                    else if (count == 1)
+                    {
+                        if (ext == "CG4 ")
+                            newFile.name += ".P16";
+                        else if (ext == "CG8 ")
+                            newFile.name += ".P256";
+                        newFile.offset = palettePointer;
+                        newFile.size = paletteSize;
+                    }
+                    else if (count == 2)
+                    {
+                        newFile.name += ".CPOS";
+                        newFile.offset = positionPointer;
+                        newFile.size = 0x8;
+                    }
 
-            br.BaseStream.Position = palette_offset;
-            Color[][] palette = new Color[1][];
-            palette[0] = Actions.BGR555ToColor(br.ReadBytes((int)palette_size));
+                    newFile.path = file.path;
+                    unpack.files.Add(newFile);
+                }
+            }
+
+            else if (positionPointer == 0)
+            {
+                uint fileNumber = 2;
+                for (int count = 0; count < fileNumber; count++)
+                {
+                    sFile newFile = new sFile();
+                    newFile.name = file.name + '_' + count.ToString();
+                    string ext = new string(id);
+
+                    if (count == 0)
+                    {
+                        if (ext == "CG4 ")
+                            newFile.name += ".TIL4";
+                        else if (ext == "CG8 ")
+                            newFile.name += ".TIL8";
+                        newFile.offset = bitmapPointer;
+                        newFile.size = bitmapSize;
+                    }
+                    else if (count == 1)
+                    {
+                        if (ext == "CG4 ")
+                            newFile.name += ".P16";
+                        else if(ext == "CG8 ")
+                            newFile.name += ".P256";
+                        newFile.offset = palettePointer;
+                        newFile.size = paletteSize;
+                    }
+
+                    newFile.path = file.path;
+                    unpack.files.Add(newFile);
+                }
+            }
 
             br.Close();
-
-            Set_Tiles(data, width, height, (ColorFormat)format, TileForm.Lineal, false);
-            pb = new RawPalette(palette, false, ColorFormat.colors256);
+            return unpack;
         }
 
-        public override void Write(string fileOut, PaletteBase palette)
+        public static void Pack(string fileOG, string fileOut, ref sFolder unpacked)
         {
             throw new NotImplementedException();
         }
+
+        public struct CGxS
+        {
+            public char[] id;
+            public uint u_Value;
+            public uint mappingType;
+            public uint NULL;
+            public uint transparency;
+
+            public uint bitmapSize;
+            public uint paletteSize;
+            public uint tileNumber;
+
+            public uint objectType;
+            public uint bitmapPointer;
+            public uint palettePointer;
+            public uint positionPointer;
+
+            public byte[] bitmapArray;
+        }
+    }
+
+    public static class CGT
+    {
+        public static sFolder Unpack(sFile file)
+        {
+            BinaryReader br = new BinaryReader(File.OpenRead(file.path));
+
+            char[] id = br.ReadChars(4);
+            uint NULL1 = br.ReadUInt32();
+            uint mappingType = br.ReadUInt32();
+            uint NULL2 = br.ReadUInt32();
+
+            uint pxFormat = br.ReadUInt32();
+            uint bitmapSize = br.ReadUInt32();
+            uint bitmapPointer = br.ReadUInt32();
+            uint paletteSize = br.ReadUInt32();
+
+            uint palettePointer = br.ReadUInt32();
+            uint positionSize = br.ReadUInt32();
+            uint positionPointer = br.ReadUInt32();
+            uint NULL3 = br.ReadUInt32();
+
+            br.BaseStream.Position = 0;
+            sFolder unpack = new sFolder();
+            unpack.files = new List<sFile>();
+
+            if (positionPointer != 0)
+            {
+                uint fileNumber = 3;
+                for (int count = 0; count < fileNumber; count++)
+                {
+                    sFile newFile = new sFile();
+                    newFile.name = file.name + '_' + count.ToString();
+
+                    if (count == 0)
+                    {
+                        if (pxFormat == 0x01)
+                            newFile.name += ".T3I5";
+                        else if (pxFormat == 0x03)
+                            newFile.name += ".TILT";
+                        else if (pxFormat == 0x04)
+                            newFile.name += ".TILT";
+                        else if (pxFormat == 0x06)
+                            newFile.name += ".T5I3";
+                        newFile.offset = bitmapPointer;
+                        newFile.size = bitmapSize;
+                    }
+                    else if (count == 1 && palettePointer != positionPointer)
+                    {
+                        if (pxFormat == 0x01)
+                            newFile.name += ".P3I5";
+                        else if (pxFormat == 0x03)
+                            newFile.name += ".P16";
+                        else if (pxFormat == 0x04)
+                            newFile.name += ".P256";
+                        else if (pxFormat == 0x06)
+                            newFile.name += ".P5I3";
+                        newFile.offset = palettePointer;
+                        newFile.size = paletteSize;
+                    }
+                    else if (count == 1 && palettePointer == positionPointer)
+                    {
+                        newFile.name = ".dummy";
+                        newFile.offset = palettePointer;
+                        newFile.size = paletteSize;
+                    }
+                    else if (count == 2)
+                    {
+                        newFile.name += ".CPOS";
+                        newFile.offset = positionPointer;
+                        newFile.size = positionSize * 8;
+                    }
+                    newFile.path = file.path;
+
+                    unpack.files.Add(newFile);
+                }
+            }
+
+            else if (positionPointer == 0)
+            {
+                uint fileNumber = 2;
+                for (int count = 0; count < fileNumber; count++)
+                {
+                    sFile newFile = new sFile();
+                    newFile.name = file.name + '_' + count.ToString();
+
+                    if (count == 0)
+                    {
+                        newFile.name += ".TILT";
+                        newFile.offset = bitmapPointer;
+                        newFile.size = bitmapSize;
+                    }
+                    else if (count == 1)
+                    {
+                        if (pxFormat == 0x01)
+                            newFile.name += ".P3I5";
+                        else if (pxFormat == 0x03)
+                            newFile.name += ".P16";
+                        else if (pxFormat == 0x04)
+                            newFile.name += ".P256";
+                        else if (pxFormat == 0x06)
+                            newFile.name += ".P5I3";
+                        newFile.offset = palettePointer;
+                        newFile.size = paletteSize;
+                    }
+
+                    newFile.path = file.path;
+
+                    unpack.files.Add(newFile);
+                }
+            }
+
+            br.Close();
+            return unpack;
+        }
+        public static void Pack(string fileOG, string fileOut, ref sFolder unpacked)
+        {
+            throw new NotImplementedException();
+        }
+
+        public struct CGTs
+        {
+            public char[] id;
+            public uint NULL1;
+            public uint mappingType;
+            public uint NULL2;
+
+            public uint pxFormat;
+            public uint bitmapSize;
+            public uint bitmapPointer;
+            public uint paletteSize;
+
+            public uint palettePointer;
+            public uint positionSize;
+            public uint positionPointer;
+            public uint NULL3;
+        }
     }
 }
+

@@ -8,10 +8,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SF_FEATHER.Properties {
-    using System;
-    
-    
+namespace SF_FEATHER.Properties
+{
+
     /// <summary>
     ///   Clase de recurso con establecimiento inflexible de tipos, para buscar cadenas traducidas, etc.
     /// </summary>

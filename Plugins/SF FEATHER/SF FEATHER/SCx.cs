@@ -15,12 +15,8 @@
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>. 
  *
  * By: pleoNeX
- * 
+ * Update: mn1712trungson
  */
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.IO;
 using Ekona;
 using Ekona.Images;
@@ -29,27 +25,27 @@ namespace SF_FEATHER
 {
     public class SCx : MapBase
     {
-        sSCx scx;
+        sSCx typeSC;
 
         public SCx(string file, int id, string fileName = "") : base(file, id, fileName) { }
 
         public override void Read(string file)
         {
             BinaryReader br = new BinaryReader(File.OpenRead(file));
-            scx = new sSCx();
+            typeSC = new sSCx();
 
-            scx.type = br.ReadChars(4);
-            scx.unknown1 = br.ReadUInt32();
-            scx.unknown2 = br.ReadUInt32();
-            scx.unknown3 = br.ReadUInt32();    // Usually 0x00
-            scx.unknown4 = br.ReadUInt32();
+            typeSC.mSeed = br.ReadChars(4);
+            typeSC.u_Value = br.ReadUInt32();
+            typeSC.mappingType = br.ReadUInt32();
+            typeSC.NULL = br.ReadUInt32();
+            typeSC.u_Value2 = br.ReadUInt32();
 
             ushort width = br.ReadUInt16();
             ushort height = br.ReadUInt16();
-            scx.size_mapData2 = br.ReadUInt32();   // Is alway the same?
-            scx.size_mapData = br.ReadUInt32();
+            typeSC.mapSize1 = br.ReadUInt32();
+            typeSC.mapSize2 = br.ReadUInt32();
 
-            NTFS[] map = new NTFS[scx.size_mapData / 2];
+            NTFS[] map = new NTFS[typeSC.mapSize2 / 2];
             for (int i = 0; i < map.Length; i++)
                 map[i] = Actions.MapInfo(br.ReadUInt16());
 
@@ -60,11 +56,11 @@ namespace SF_FEATHER
         {
             BinaryWriter bw = new BinaryWriter(File.OpenWrite(fileOut));
 
-            bw.Write(scx.type);
-            bw.Write(scx.unknown1);
-            bw.Write(scx.unknown2);
-            bw.Write(scx.unknown3);
-            bw.Write(scx.unknown4);
+            bw.Write(typeSC.mSeed);
+            bw.Write(typeSC.u_Value);
+            bw.Write(typeSC.mappingType);
+            bw.Write(typeSC.NULL);
+            bw.Write(typeSC.u_Value2);
 
             bw.Write((ushort)Width);
             bw.Write((ushort)Height);
@@ -80,14 +76,14 @@ namespace SF_FEATHER
 
         public struct sSCx
         {
-            public char[] type;
-            public uint unknown1;
-            public uint unknown2;
-            public uint unknown3;
-            public uint unknown4;
+            public char[] mSeed;
+            public uint u_Value;
+            public uint mappingType;
+            public uint NULL;
+            public uint u_Value2;
 
-            public uint size_mapData2;
-            public uint size_mapData;
+            public uint mapSize1;
+            public uint mapSize2;
         }
     }
 }

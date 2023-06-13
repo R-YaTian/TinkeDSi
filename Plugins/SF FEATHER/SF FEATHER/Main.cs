@@ -15,10 +15,13 @@
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>. 
  *
  * By: pleoNeX
+ * Update: mn1712trungson
  * 
  */
+
 using System;
-using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
 using System.Text;
 using Ekona;
 using Ekona.Images;
@@ -28,7 +31,7 @@ namespace SF_FEATHER
     public class Main : IGamePlugin
     {
         IPluginHost pluginHost;
-        String gameCode;
+        string gameCode;
 
         public void Initialize(IPluginHost pluginHost, string gameCode)
         {
@@ -38,89 +41,146 @@ namespace SF_FEATHER
         public bool IsCompatible()
         {
             if (gameCode == "CS4J")
+            {
                 return true;
-
+            }
             return false;
         }
 
-        public Format Get_Format(sFile file, byte[] magic)
+        public Format Get_Format(sFile file, byte[] mSeed)
         {
-            string ext = new String(Encoding.ASCII.GetChars(magic));
+            string ext = new string(Encoding.ASCII.GetChars(mSeed));
 
-            if (file.name.EndsWith(".pac") && (magic[2] == 0x01 && magic[3] == 0x00))
+            if (file.name.EndsWith(".pac") && (mSeed[2] == 0x01 && mSeed[3] == 0x00))
                 return Format.Pack;
             if (ext == "CG4 " || ext == "CG8 ")
-                return Format.FullImage;
+                return Format.Pack;
             else if (ext == "SC4 " || ext == "SC8 ")
                 return Format.Map;
             else if (ext == "CGT ")
-                return Format.FullImage;
+                return Format.Pack;
+            else if (file.name.EndsWith(".TIL4"))
+                return Format.Tile;
+            else if (file.name.EndsWith(".TIL8"))
+                return Format.Tile;
+            else if (file.name.EndsWith(".TILT"))
+                return Format.Tile;
+            else if (file.name.EndsWith(".T3I5"))
+                return Format.Tile;
+            else if (file.name.EndsWith(".T5I3"))
+                return Format.Tile;
+            else if (file.name.EndsWith(".P16"))
+                return Format.Palette;
+            else if (file.name.EndsWith(".P256"))
+                return Format.Palette;
+            else if (file.name.EndsWith(".P3I5"))
+                return Format.Palette;
+            else if (file.name.EndsWith(".P5I3"))
+                return Format.Palette;
+            else if (file.name.EndsWith(".CPOS"))
+                return Format.Cell;
             else if (ext == "PSI3")
                 return Format.Script;
+            else if (ext == "BIT ")
+                return Format.Font;
+            else if (ext == "ANT ")
+                return Format.Texture;
+            else if (ext == "ANP ")
+                return Format.Animation;
+            else if (ext == "MBG " || ext == "ABG " || ext == "HBG ")
+                return Format.Model3D;
 
             return Format.Unknown;
         }
 
-
         public string Pack(ref sFolder unpacked, sFile file)
         {
-            string fileOut = pluginHost.Get_TempFile();
-            PAC.Pack(file.path, fileOut, ref unpacked);
+            BinaryReader br = new BinaryReader(File.OpenRead(file.path));
+            string ext = new string(br.ReadChars(4));
+            br.Close();
 
-            return fileOut;
+            if (file.name.EndsWith(".pac"))
+            {
+                string fileOut = pluginHost.Get_TempFile();
+                PAC.Pack(file.path, fileOut, ref unpacked);
+
+                return fileOut;
+            }
+
+            else if (ext == "CG4 " || ext == "CG8 ")
+            {
+                string fileOut = pluginHost.Get_TempFile();
+                CGx.Pack(fileOut, fileOut, ref unpacked);
+
+                return fileOut;
+            }
+
+            else if (ext == "CGT ")
+            {
+                string fileOut = pluginHost.Get_TempFile();
+                CGT.Pack(fileOut, fileOut, ref unpacked);
+
+                return fileOut;
+            }
+            return null;
         }
+
         public sFolder Unpack(sFile file)
         {
-            return PAC.Unpack(file.path, file.name);
+            BinaryReader br = new BinaryReader(File.OpenRead(file.path));
+            string ext = new string(br.ReadChars(4));
+            br.Close();
+            if (file.name.EndsWith(".pac"))
+            {
+                return PAC.Unpack(file.path, file.name);
+            }
+            else if (ext == "CG4 " || ext == "CG8 ")
+            {
+                return CGx.Unpack(file);
+            }
+            else if (ext == "CGT ")
+            {
+                return CGT.Unpack(file);
+            }
+            return new sFolder();
         }
 
         public void Read(sFile file)
         {
-            System.IO.BinaryReader br = new System.IO.BinaryReader(System.IO.File.OpenRead(file.path));
-            string ext = new String(Encoding.ASCII.GetChars(br.ReadBytes(4)));
+            BinaryReader br = new BinaryReader(File.OpenRead(file.path));
+            string ext = new string(Encoding.ASCII.GetChars(br.ReadBytes(4)));
             br.Close();
 
-            if (ext == "CG4 ")
-            {
-                CGx cgx = new CGx(file.path, file.id, false, file.name);
-                pluginHost.Set_Palette(cgx.Palette);
-                pluginHost.Set_Image(cgx);
-            }
-            else if (ext == "CG8 ")
-            {
-                CGx cgx = new CGx(file.path, file.id, true, file.name);
-                pluginHost.Set_Palette(cgx.Palette);
-                pluginHost.Set_Image(cgx);
-            }
-            else if (ext == "SC4 " || ext == "SC8 ")
+            if (ext == "SC4 " || ext == "SC8 ")
             {
                 SCx scx = new SCx(file.path, file.id, file.name);
                 pluginHost.Set_Map(scx);
             }
-            else if (ext == "CGT ")
+            else
             {
-                CGT cgt = new CGT(file.path, file.id, file.name);
-                pluginHost.Set_Palette(cgt.Palette);
-                pluginHost.Set_Image(cgt);
+                Helper.ReadRAW(file, pluginHost);
             }
         }
         public System.Windows.Forms.Control Show_Info(sFile file)
         {
             Read(file);
 
-            System.IO.BinaryReader br = new System.IO.BinaryReader(System.IO.File.OpenRead(file.path));
-            string ext = new String(Encoding.ASCII.GetChars(br.ReadBytes(4)));
+            BinaryReader br = new BinaryReader(File.OpenRead(file.path));
+            string ext = new string(Encoding.ASCII.GetChars(br.ReadBytes(4)));
             br.Close();
 
-            if (ext == "CG4 " || ext == "CG8 ")
-                return new ImageControl(pluginHost, false);
-            else if (ext == "SC4 " || ext == "SC8 ")
+            if (ext == "SC4 " || ext == "SC8 ")
                 return new ImageControl(pluginHost, true);
-            else if (ext == "CGT ")
-                return new ImageControl(pluginHost, false);
+
+            Format format = Helper.ReadRAW(file, pluginHost);
+
+            if (format == Format.Palette)
+                return new PaletteControl(pluginHost, pluginHost.Get_Palette());
+
+            if (format == Format.Tile && pluginHost.Get_Palette().Loaded)
+                return new ImageControl(pluginHost, pluginHost.Get_Image(), pluginHost.Get_Palette());
 
             return new System.Windows.Forms.Control();
         }
-
     }
 }
