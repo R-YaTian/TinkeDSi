@@ -23,6 +23,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading;
 using Ekona;
+using static SF_FEATHER.CGx;
+using static SF_FEATHER.SCx;
 
 namespace SF_FEATHER
 {
@@ -45,8 +47,7 @@ namespace SF_FEATHER
             cgx.u_Value = br.ReadUInt32();
             cgx.mappingType = br.ReadUInt32();
             cgx.NULL = br.ReadUInt32();
-            cgx.transparency = br.ReadUInt32();
-            bool transparency = cgx.transparency == 0x00 ? false : true;
+            cgx.u_Value2 = br.ReadUInt32();
 
             cgx.bitmapSize = br.ReadUInt32();
             cgx.paletteSize = br.ReadUInt32();
@@ -132,11 +133,6 @@ namespace SF_FEATHER
                 }
             }
 
-            if (transparency == true)
-                Console.WriteLine("Transparency = True");
-            else
-                Console.WriteLine("Transparency = False");
-
             br.Close();
             sCGx = cgx;
             return unpacked;
@@ -147,14 +143,18 @@ namespace SF_FEATHER
             Unpack(file);
             string fileout = pluginHost.Get_TempFile();
 
-            SaveCGx(file.path, fileout, ref unpacked);
+            SaveCGx(fileout, ref unpacked);
             return fileout;
         }
 
-        private void SaveCGx(string fileOG, string fileOut, ref sFolder decompressed)
+        private void SaveCGx(string fileOut, ref sFolder decompressed)
         {        
             string byteArrayTMP = Path.GetTempFileName();
             Write_byteArray(byteArrayTMP, decompressed);
+
+            uint palettePointer = sCGx.bitmapPointer + sCGx.bitmapSize;
+            uint positionSize = sCGx.bitmapSize - (palettePointer + sCGx.paletteSize);
+            uint bitmapSize = sCGx.bitmapSize - (positionSize - sCGx.paletteSize - sCGx.bitmapPointer);
 
             BinaryWriter bw = new BinaryWriter(File.OpenWrite(fileOut));
 
@@ -162,8 +162,9 @@ namespace SF_FEATHER
             bw.Write(sCGx.u_Value);
             bw.Write(sCGx.mappingType);
             bw.Write(sCGx.NULL);
-            bw.Write(sCGx.transparency);
-            bw.Write(sCGx.bitmapSize);
+            bw.Write(sCGx.u_Value2);
+
+            bw.Write(bitmapSize);
             bw.Write(sCGx.paletteSize);
 
             uint tileNumber = sCGx.bitmapSize / 0x20;
@@ -171,7 +172,7 @@ namespace SF_FEATHER
 
             bw.Write(sCGx.objectType);
             bw.Write(sCGx.bitmapPointer);
-            uint palettePointer = sCGx.bitmapPointer + sCGx.bitmapSize;
+
             bw.Write(palettePointer);
             if (decompressed.files.Count == 2)
             {
@@ -180,7 +181,7 @@ namespace SF_FEATHER
             }
             else
             {
-                uint positionPointer = sCGx.palettePointer + sCGx.paletteSize;
+                uint positionPointer = palettePointer + sCGx.paletteSize;
                 bw.Write(positionPointer);
             }
             bw.Write(File.ReadAllBytes(byteArrayTMP));
@@ -190,7 +191,6 @@ namespace SF_FEATHER
 
             File.Delete(byteArrayTMP);
         }
-
         private void Write_byteArray(string fileOut, sFolder decompressed)
         {
             BinaryWriter bw = new BinaryWriter(File.OpenWrite(fileOut));
@@ -208,7 +208,7 @@ namespace SF_FEATHER
             }
 
             bw.Close();
-            sCGx.bitmapSize = (uint)new FileInfo(fileOut).Length - 0x40;
+            sCGx.bitmapSize = (uint)new FileInfo(fileOut).Length;
             Console.WriteLine(fileOut.Length);
         }
 
@@ -228,7 +228,7 @@ namespace SF_FEATHER
             public uint u_Value;
             public uint mappingType;
             public uint NULL;
-            public uint transparency;
+            public uint u_Value2;
 
             public uint bitmapSize;
             public uint paletteSize;
@@ -240,165 +240,4 @@ namespace SF_FEATHER
             public uint positionPointer;
         }
     }
-
-    public class CGT
-    {
-        IPluginHost pluginHost;
-
-        public CGT(IPluginHost pluginHost)
-        {
-            this.pluginHost = pluginHost;
-        }
-
-        public sFolder Unpack(sFile file)
-        {
-            BinaryReader br = new BinaryReader(File.OpenRead(file.path));
-
-            char[] id = br.ReadChars(4);
-            uint NULL1 = br.ReadUInt32();
-            uint mappingType = br.ReadUInt32();
-            uint NULL2 = br.ReadUInt32();
-
-            uint pxFormat = br.ReadUInt32();
-            uint bitmapSize = br.ReadUInt32();
-            uint bitmapPointer = br.ReadUInt32();
-            uint paletteSize = br.ReadUInt32();
-
-            uint palettePointer = br.ReadUInt32();
-            uint positionSize = br.ReadUInt32();
-            uint positionPointer = br.ReadUInt32();
-            uint NULL3 = br.ReadUInt32();
-
-            br.BaseStream.Position = 0;
-            sFolder unpacked = new sFolder();
-            unpacked.files = new List<sFile>();
-
-            if (positionPointer != 0)
-            {
-                uint fileNumber = 3;
-                for (int count = 0; count < fileNumber; count++)
-                {
-                    sFile newFile = new sFile();
-                    newFile.name = "0" + count.ToString();
-
-                    if (count == 0)
-                    {
-                        if (pxFormat == 0x01)
-                            newFile.name += ".T3I5";
-                        else if (pxFormat == 0x03)
-                            newFile.name += ".TILT";
-                        else if (pxFormat == 0x04)
-                            newFile.name += ".TILT";
-                        else if (pxFormat == 0x06)
-                            newFile.name += ".T5I3";
-                        newFile.offset = bitmapPointer;
-                        newFile.size = bitmapSize;
-                    }
-                    else if (count == 1 && palettePointer != positionPointer)
-                    {
-                        if (pxFormat == 0x01)
-                            newFile.name += ".P3I5";
-                        else if (pxFormat == 0x03)
-                            newFile.name += ".P16";
-                        else if (pxFormat == 0x04)
-                            newFile.name += ".P256";
-                        else if (pxFormat == 0x06)
-                            newFile.name += ".P5I3";
-                        newFile.offset = palettePointer;
-                        newFile.size = paletteSize;
-                    }
-                    else if (count == 1 && palettePointer == positionPointer)
-                    {
-                        newFile.name = ".dummy";
-                        newFile.offset = palettePointer;
-                        newFile.size = paletteSize;
-                    }
-                    else if (count == 2)
-                    {
-                        newFile.name += ".CPOS";
-                        newFile.offset = positionPointer;
-                        newFile.size = positionSize * 8;
-                    }
-                    newFile.path = file.path;
-
-                    unpacked.files.Add(newFile);
-                }
-            }
-
-            else if (positionPointer == 0)
-            {
-                uint fileNumber = 2;
-                for (int count = 0; count < fileNumber; count++)
-                {
-                    sFile newFile = new sFile();
-                    newFile.name = "0" + count.ToString();
-
-                    if (count == 0)
-                    {
-                        newFile.name += ".TILT";
-                        newFile.offset = bitmapPointer;
-                        newFile.size = bitmapSize;
-                    }
-                    else if (count == 1)
-                    {
-                        if (pxFormat == 0x01)
-                            newFile.name += ".P3I5";
-                        else if (pxFormat == 0x03)
-                            newFile.name += ".P16";
-                        else if (pxFormat == 0x04)
-                            newFile.name += ".P256";
-                        else if (pxFormat == 0x06)
-                            newFile.name += ".P5I3";
-                        newFile.offset = palettePointer;
-                        newFile.size = paletteSize;
-                    }
-
-                    newFile.path = file.path;
-
-                    unpacked.files.Add(newFile);
-                }
-            }
-
-            bool transparency = br.ReadUInt32() == 0x00 ? false : true;
-            if (transparency == true)
-                Console.WriteLine("Transparency = True");
-            else
-                Console.WriteLine("Transparency = False");
-
-            br.Close();
-            return unpacked;
-        }
-        public string Pack(sFile file, ref sFolder unpacked)
-        {
-            Unpack(file);
-            string fileout = pluginHost.Get_TempFile();
-
-            SaveCGT(file.path, fileout, ref unpacked);
-            return fileout;
-        }
-
-        private void SaveCGT(string fileOG, string fileOut, ref sFolder unpacked)
-        {
-            throw new NotImplementedException();
-        }
-
-        public struct CGTs
-        {
-            public char[] id;
-            public uint NULL1;
-            public uint mappingType;
-            public uint NULL2;
-
-            public uint pxFormat;
-            public uint bitmapSize;
-            public uint bitmapPointer;
-            public uint paletteSize;
-
-            public uint palettePointer;
-            public uint positionSize;
-            public uint positionPointer;
-            public uint NULL3;
-        }
-    }
 }
-
