@@ -27,12 +27,18 @@ using Ekona;
 
 namespace SF_FEATHER
 {
-    public static class PAC
+    public class PAC
     {
+        IPluginHost pluginHost;
 
-        public static sFolder Unpack(string file, string name)
+        public PAC(IPluginHost pluginHost)
         {
-            BinaryReader br = new BinaryReader(File.OpenRead(file));
+            this.pluginHost = pluginHost;
+        }
+
+        public sFolder Unpack(sFile file)
+        {
+            BinaryReader br = new BinaryReader(File.OpenRead(file.path));
             sFolder unpacked = new sFolder();
             unpacked.files = new List<sFile>();
 
@@ -44,10 +50,10 @@ namespace SF_FEATHER
             for (int fCount = 0; fCount < fileNumber; fCount++)
             {
                 sFile newFile = new sFile();
-                newFile.name = name + '_' + fCount.ToString();
+                newFile.name = "0" + fCount.ToString();
                 newFile.offset = br.ReadUInt32() * 0x10;
                 newFile.size = br.ReadUInt32() * 0x10;
-                newFile.path = file;
+                newFile.path = file.path;
 
                 // Extension check
                 if (newFile.size != 0x00)
@@ -59,7 +65,7 @@ namespace SF_FEATHER
                     br.BaseStream.Position = newFile.offset;
                     byte typeLZ = br.ReadByte();
                     uint compressedSize = br.ReadUInt32();
-                    if ((typeLZ == 0x11 || typeLZ == 0x10) && compressedSize < 0x2000000)
+                    if ((typeLZ == 0x11 || typeLZ == 0x10) && compressedSize < 0x3000000)
                         compressed = true;
 
                     // Search the indicator of the pac file
@@ -80,13 +86,14 @@ namespace SF_FEATHER
                             br.BaseStream.Position = newFile.offset;
                            
                         fileType = br.ReadUInt32();
+
                         char[] ext = Encoding.ASCII.GetChars(BitConverter.GetBytes(fileType));
-                        String extS = ".";
-                        for (int sCount = 0; sCount < 4; sCount++)
-                            if (Char.IsLetterOrDigit(ext[sCount]) || ext[sCount] == 0x20)
+                        string extS = ".";
+                        for (int sCount = 0; sCount < 3; sCount++)
+                            if (char.IsLetterOrDigit(ext[sCount]))
                                 extS += ext[sCount];
 
-                        if (extS != "." && extS.Length == 5)
+                        if (extS != "." && extS.Length == 4)
                             newFile.name += extS;
                         else
                             newFile.name += ".bin";
@@ -104,7 +111,16 @@ namespace SF_FEATHER
             return unpacked;
         }
 
-        public static void Pack(string fileOG, string fileOut, ref sFolder unpacked)
+        public string Pack(sFile file, ref sFolder unpacked)
+        {
+            Unpack(file);
+            string fileout = pluginHost.Get_TempFile();
+
+            SavePAC(file.path, fileout, ref unpacked);
+            return fileout;
+        }
+
+        private void SavePAC(string fileOG, string fileOut, ref sFolder unpacked)
         {
             BinaryReader br = new BinaryReader(File.OpenRead(fileOG));
             BinaryWriter bw = new BinaryWriter(File.OpenWrite(fileOut));
@@ -178,9 +194,9 @@ namespace SF_FEATHER
 
             bw.Write(buffer.ToArray());     
 
-            br.Close();
             bw.Flush();
             bw.Close();
+            br.Close();
         }
     }
 }

@@ -19,8 +19,6 @@
  * 
  */
 
-using System;
-using System.Drawing;
 using System.IO;
 using System.Text;
 using Ekona;
@@ -81,7 +79,7 @@ namespace SF_FEATHER
                 return Format.Cell;
             else if (ext == "PSI3")
                 return Format.Script;
-            else if (ext == "BIT ")
+            else if (file.name.EndsWith(".BIT"))
                 return Format.Font;
             else if (ext == "ANT ")
                 return Format.Texture;
@@ -101,26 +99,17 @@ namespace SF_FEATHER
 
             if (file.name.EndsWith(".pac"))
             {
-                string fileOut = pluginHost.Get_TempFile();
-                PAC.Pack(file.path, fileOut, ref unpacked);
-
-                return fileOut;
+                return new PAC(pluginHost).Pack(file, ref unpacked);
             }
 
             else if (ext == "CG4 " || ext == "CG8 ")
             {
-                string fileOut = pluginHost.Get_TempFile();
-                CGx.Pack(fileOut, fileOut, ref unpacked);
-
-                return fileOut;
+                return new CGx(pluginHost).Pack(file, ref unpacked);
             }
 
             else if (ext == "CGT ")
             {
-                string fileOut = pluginHost.Get_TempFile();
-                CGT.Pack(fileOut, fileOut, ref unpacked);
-
-                return fileOut;
+                return new CGT(pluginHost).Pack(file, ref unpacked);
             }
             return null;
         }
@@ -132,15 +121,15 @@ namespace SF_FEATHER
             br.Close();
             if (file.name.EndsWith(".pac"))
             {
-                return PAC.Unpack(file.path, file.name);
+                return new PAC(pluginHost).Unpack(file);
             }
             else if (ext == "CG4 " || ext == "CG8 ")
             {
-                return CGx.Unpack(file);
+                return new CGx(pluginHost).Unpack(file);
             }
             else if (ext == "CGT ")
             {
-                return CGT.Unpack(file);
+                return new CGT(pluginHost).Unpack(file);
             }
             return new sFolder();
         }

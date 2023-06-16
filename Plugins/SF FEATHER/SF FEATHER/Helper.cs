@@ -21,12 +21,8 @@
 using Ekona.Images;
 using Ekona;
 using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SF_FEATHER
 {
@@ -98,11 +94,11 @@ namespace SF_FEATHER
                 pluginHost.Set_Image(image);
                 return Format.Tile;
             }
+
             else if (file.name.EndsWith(".TILT"))
             {
                 BinaryReader br = new BinaryReader(File.OpenRead(file.path));
-                bool transparency = br.ReadUInt32() == 0x00 ? false : true;
-                Console.WriteLine($"Transparency = {transparency}");
+                uint transparency = br.ReadUInt32();
 
                 int width = (int)Math.Pow(2, br.ReadUInt16() + 3);
                 int height = (int)Math.Pow(2, br.ReadUInt16() + 3);
@@ -118,14 +114,11 @@ namespace SF_FEATHER
             else if (file.name.EndsWith(".T3I5"))
             {
                 BinaryReader br = new BinaryReader(File.OpenRead(file.path));
-                bool transparency = br.ReadUInt32() == 0x00 ? false : true;
-                Console.WriteLine($"Transparency = {transparency}");
+                uint transparency = br.ReadUInt32();
 
                 int width = (int)Math.Pow(2, br.ReadUInt16() + 3);
                 int height = (int)Math.Pow(2, br.ReadUInt16() + 3);
                 uint bitmapArrayPointer = br.ReadUInt32();
-
-                br.Close();
 
                 RawImage image = new RawImage(file.path, file.id, TileForm.Lineal, ColorFormat.A3I5, width, height, true, (int)bitmapArrayPointer, (int)(file.size - bitmapArrayPointer), file.name);
                 pluginHost.Set_Image(image);
@@ -134,8 +127,7 @@ namespace SF_FEATHER
             else if (file.name.EndsWith(".T5I3"))
             {
                 BinaryReader br = new BinaryReader(File.OpenRead(file.path));
-                bool transparency = br.ReadUInt32() == 0x00 ? false : true;
-                Console.WriteLine($"Transparency = {transparency}");
+                uint transparency = br.ReadUInt32();
 
                 int width = (int)Math.Pow(2, br.ReadUInt16() + 3);
                 int height = (int)Math.Pow(2, br.ReadUInt16() + 3);
