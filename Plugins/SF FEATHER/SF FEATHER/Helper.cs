@@ -66,10 +66,10 @@ namespace SF_FEATHER
 
             //Tile
             ColorFormat depth;
+            depth = ColorFormat.direct;
+
             if (pluginHost.Get_Palette().Loaded)
                 depth = pluginHost.Get_Palette().Depth;
-            else
-                depth = ColorFormat.direct;
 
             if (file.name.EndsWith(".TIL8"))
             {

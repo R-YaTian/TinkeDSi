@@ -152,9 +152,13 @@ namespace SF_FEATHER
             string byteArrayTMP = Path.GetTempFileName();
             Write_byteArray(byteArrayTMP, decompressed);
 
-            uint palettePointer = sCGx.bitmapPointer + sCGx.bitmapSize;
-            uint positionSize = sCGx.bitmapSize - (palettePointer + sCGx.paletteSize);
-            uint bitmapSize = sCGx.bitmapSize - (positionSize - sCGx.paletteSize - sCGx.bitmapPointer);
+            uint positionSize = 0;
+            if (decompressed.files.Count == 3)
+                positionSize += sCGx.bitmapSize - sCGx.positionPointer;
+            else if (decompressed.files.Count == 2)
+                positionSize += 0;
+
+            uint bitmapSize = sCGx.bitmapSize - sCGx.paletteSize - positionSize;
 
             BinaryWriter bw = new BinaryWriter(File.OpenWrite(fileOut));
 
@@ -166,24 +170,20 @@ namespace SF_FEATHER
 
             bw.Write(bitmapSize);
             bw.Write(sCGx.paletteSize);
-
-            uint tileNumber = sCGx.bitmapSize / 0x20;
+            uint tileNumber = bitmapSize / 0x20;
             bw.Write(tileNumber);
-
             bw.Write(sCGx.objectType);
             bw.Write(sCGx.bitmapPointer);
-
+            uint palettePointer = bitmapSize + sCGx.bitmapPointer;
             bw.Write(palettePointer);
-            if (decompressed.files.Count == 2)
-            {
-                uint positionPointer = 0x00000000;
-                bw.Write(positionPointer);
-            }
-            else
-            {
-                uint positionPointer = palettePointer + sCGx.paletteSize;
-                bw.Write(positionPointer);
-            }
+            uint positionPointer = 0;
+            if (decompressed.files.Count == 3)
+                positionPointer += palettePointer + sCGx.paletteSize;
+            else if (decompressed.files.Count == 2)
+                positionPointer += 0x00000000;
+
+            bw.Write(positionPointer);
+
             bw.Write(File.ReadAllBytes(byteArrayTMP));
 
             bw.Flush();
@@ -207,9 +207,8 @@ namespace SF_FEATHER
                 bw.Flush();
             }
 
-            bw.Close();
             sCGx.bitmapSize = (uint)new FileInfo(fileOut).Length;
-            Console.WriteLine(fileOut.Length);
+            bw.Close();
         }
 
         private sFile Search_File(int id, sFolder unpacked)
