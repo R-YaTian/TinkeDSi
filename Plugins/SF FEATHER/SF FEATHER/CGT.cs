@@ -82,7 +82,7 @@ namespace SF_FEATHER
                         else if (cgt.pxFormat == 0x07)
                             newFile.name += ".TILT";
                         newFile.offset = cgt.bitmapPointer;
-                        newFile.size = cgt.bitmapSize;
+                        newFile.size = cgt.bitmapSize + 0xC;
                     }
                     else if (count == 1)
                     {
@@ -123,7 +123,7 @@ namespace SF_FEATHER
                     {
                         newFile.name += ".TILT";
                         newFile.offset = cgt.bitmapPointer;
-                        newFile.size = cgt.bitmapSize;
+                        newFile.size = cgt.bitmapSize + 0xC;
                     }
                     else if (count == 1)
                     {
@@ -172,7 +172,7 @@ namespace SF_FEATHER
             string byteArrayTMP = Path.GetTempFileName();
             Write_byteArray(byteArrayTMP, decompressed);
 
-            uint bitmapSize = sCGT.bitmapSize - sCGT.paletteSize - sCGT.positionSize*8;
+            uint bitmapSize = sCGT.bitmapSize - sCGT.paletteSize - sCGT.positionSize*8 - 0xC;
 
             BinaryWriter bw = new BinaryWriter(File.OpenWrite(fileOut));
 
