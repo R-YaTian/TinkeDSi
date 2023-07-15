@@ -19,15 +19,18 @@
  * 
  */
 
+using System;
 using System.IO;
 using System.Text;
 using Ekona;
 using Ekona.Images;
+using static SF_FEATHER.CGT;
 
 namespace SF_FEATHER
 {
     public class Main : IGamePlugin
     {
+
         IPluginHost pluginHost;
         string gameCode;
 

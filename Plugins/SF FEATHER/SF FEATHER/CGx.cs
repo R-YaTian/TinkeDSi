@@ -170,8 +170,17 @@ namespace SF_FEATHER
 
             bw.Write(bitmapSize);
             bw.Write(sCGx.paletteSize);
-            uint tileNumber = bitmapSize / 0x20;
-            bw.Write(tileNumber);
+            string ext = new string(sCGx.id);
+            if (ext == "CG4 ")
+            {
+                uint tileNumber = bitmapSize / 0x20;
+                bw.Write(tileNumber);
+            }
+            else if (ext == "CG8 ")
+            {
+                uint tileNumber = bitmapSize / 0x40;
+                bw.Write(tileNumber);
+            }
             bw.Write(sCGx.objectType);
             bw.Write(sCGx.bitmapPointer);
             uint palettePointer = bitmapSize + sCGx.bitmapPointer;
