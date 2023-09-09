@@ -2,9 +2,9 @@ name: Build TinkeDSi nightly with mono (macOS)
 
 on:
   push:
-    branches: [ "osx", "main"]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "osx", "main"]
+    branches: [ "main" ]
 
 jobs:
   build:
@@ -18,7 +18,7 @@ jobs:
       run: |
         apt-get update
         apt-get -y install build-essential
-        mkbundle --fetch-target mono-6.8.0-osx-10.9-x64
+        mkbundle --fetch-target mono-6.12.0-osx-10.9-x64
 
     - name: Set workspace permissions
       run: chmod 777 -R "$GITHUB_WORKSPACE"
@@ -28,7 +28,8 @@ jobs:
         cd $GITHUB_WORKSPACE
         ./compile.sh Release x64
         cd $GITHUB_WORKSPACE/build
-        mkbundle --deps Tinke.exe -o TinkeDSi --cross mono-6.8.0-osx-10.9-x64 --i18n all -z --static
+        mkbundle --deps Tinke.exe -o TinkeDSi --cross mono-6.12.0-osx-10.9-x64 --i18n all -z --static
+        chmod 777 TinkeDSi
       shell: bash
 
     - uses: actions/upload-artifact@master
