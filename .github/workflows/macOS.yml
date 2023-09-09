@@ -2,9 +2,9 @@ name: Build TinkeDSi nightly with mono (macOS)
 
 on:
   push:
-    branches: [ "osx" ]
+    branches: [ "osx", "main"]
   pull_request:
-    branches: [ "osx" ]
+    branches: [ "osx", "main"]
 
 jobs:
   build:
