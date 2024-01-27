@@ -15,37 +15,45 @@
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>. 
  *
  * By: pleoNeX
+ * Update: mn1712trungson
  * 
  */
+
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.IO;
 using Ekona;
 
 namespace SF_FEATHER
 {
-    public static class PAC
+    public class PAC
     {
+        IPluginHost pluginHost;
 
-        public static sFolder Unpack(string file, string name)
+        public PAC(IPluginHost pluginHost)
         {
-            BinaryReader br = new BinaryReader(File.OpenRead(file));
+            this.pluginHost = pluginHost;
+        }
+
+        public sFolder Unpack(sFile file)
+        {
+            BinaryReader br = new BinaryReader(File.OpenRead(file.path));
             sFolder unpacked = new sFolder();
             unpacked.files = new List<sFile>();
 
-            ushort num_element = br.ReadUInt16();
-            ushort unknown = br.ReadUInt16();
-            uint type_file = br.ReadUInt32();
+            ushort fileNumber = br.ReadUInt16();
+            ushort uValue1 = br.ReadUInt16();
+            ushort uValue2 = br.ReadUInt16();
+            ushort padding = br.ReadUInt16();
 
-            for (int i = 0; i < num_element; i++)
+            for (int fCount = 0; fCount < fileNumber; fCount++)
             {
                 sFile newFile = new sFile();
-                newFile.name = name + '_' + i.ToString();
+                newFile.name = "0" + fCount.ToString();
                 newFile.offset = br.ReadUInt32() * 0x10;
                 newFile.size = br.ReadUInt32() * 0x10;
-                newFile.path = file;
+                newFile.path = file.path;
 
                 // Extension check
                 if (newFile.size != 0x00)
@@ -53,11 +61,11 @@ namespace SF_FEATHER
                     bool compressed = false;
 
                     // Check if this file is pac, it searches the extension
-                    long currPos = br.BaseStream.Position;
+                    long currentPos = br.BaseStream.Position;
                     br.BaseStream.Position = newFile.offset;
-                    byte cInd = br.ReadByte();
-                    uint cSize = br.ReadUInt32();
-                    if ((cInd == 0x11 || cInd == 0x10) && cSize < 0x2000000)
+                    byte typeLZ = br.ReadByte();
+                    uint compressedSize = br.ReadUInt32();
+                    if ((typeLZ == 0x11 || typeLZ == 0x10) && compressedSize < 0x3000000)
                         compressed = true;
 
                     // Search the indicator of the pac file
@@ -65,9 +73,9 @@ namespace SF_FEATHER
                         br.BaseStream.Position = newFile.offset + 9;
                     else
                         br.BaseStream.Position = newFile.offset + 4;
-                    uint currType = br.ReadUInt32();
+                    uint fileType = br.ReadUInt32();
 
-                    if (currType == 0x04)
+                    if (fileType == 0x04)
                         newFile.name += ".pac";
                     else
                     {
@@ -77,20 +85,21 @@ namespace SF_FEATHER
                         else
                             br.BaseStream.Position = newFile.offset;
                            
-                        currType = br.ReadUInt32();
-                        char[] ext = Encoding.ASCII.GetChars(BitConverter.GetBytes(currType));
-                        String extS = ".";
-                        for (int s = 0; s < 4; s++)
-                            if (Char.IsLetterOrDigit(ext[s]) || ext[s] == 0x20)
-                                extS += ext[s];
+                        fileType = br.ReadUInt32();
 
-                        if (extS != "." && extS.Length == 5)
+                        char[] ext = Encoding.ASCII.GetChars(BitConverter.GetBytes(fileType));
+                        string extS = ".";
+                        for (int sCount = 0; sCount < 3; sCount++)
+                            if (char.IsLetterOrDigit(ext[sCount]))
+                                extS += ext[sCount];
+
+                        if (extS != "." && extS.Length == 4)
                             newFile.name += extS;
                         else
                             newFile.name += ".bin";
                     }
 
-                    br.BaseStream.Position = currPos;
+                    br.BaseStream.Position = currentPos;
                 }
                 else
                     continue;
@@ -102,81 +111,92 @@ namespace SF_FEATHER
             return unpacked;
         }
 
-        public static void Pack(string file_original, string fileOut, ref sFolder unpacked)
+        public string Pack(sFile file, ref sFolder unpacked)
         {
-            BinaryReader br = new BinaryReader(File.OpenRead(file_original));
+            Unpack(file);
+            string fileout = pluginHost.Get_TempFile();
+
+            SavePAC(file.path, fileout, ref unpacked);
+            return fileout;
+        }
+
+        private void SavePAC(string fileOG, string fileOut, ref sFolder unpacked)
+        {
+            BinaryReader br = new BinaryReader(File.OpenRead(fileOG));
             BinaryWriter bw = new BinaryWriter(File.OpenWrite(fileOut));
             List<byte> buffer = new List<byte>();
 
 
-            ushort num_element = br.ReadUInt16();
-            bw.Write(num_element);
-            bw.Write(br.ReadUInt16());  // Unknown
-            bw.Write(br.ReadUInt32());  // Type of element
+            ushort fileNumber = br.ReadUInt16();
+            bw.Write(fileNumber);
+            //uValue1, uValue2, padding
+            bw.Write(br.ReadUInt16());
+            bw.Write(br.ReadUInt16());
+            bw.Write(br.ReadUInt16());
 
-            uint offset = (uint)num_element * 8 + 8;
-            uint size;
-            int f = 0;  // Pointer to the unpacked.files array
+            uint fOffset = (uint)fileNumber * 8 + 8;
+            uint fSize;
+            int unpackedPointer = 0;  // Pointer to the unpacked.files array
 
-            // Write the final padding of the FAT section
-            if (offset % 0x10 != 0)
+            // Write the final padding of the dict section
+            if (fOffset % 0x10 != 0)
             {
-                for (int r = 0; r < 0x10 - (offset % 0x10); r++)
+                for (int dictPadding = 0; dictPadding < 0x10 - (fOffset % 0x10); dictPadding++)
                     buffer.Add(0x00);
 
-                offset += 0x10 - (offset % 0x10);
+                fOffset += 0x10 - (fOffset % 0x10);
             }
 
 
-            for (int i = 0; i < num_element; i++)
+            for (int dictCount = 0; dictCount < fileNumber; dictCount++)
             {
                 uint older_offset = br.ReadUInt32();
-                size = br.ReadUInt32();
+                fSize = br.ReadUInt32();
 
                 // If it's a null file
-                if (size == 0)
+                if (fSize == 0)
                 {
                     bw.Write(older_offset);
-                    bw.Write(size);
+                    bw.Write(fSize);
                     continue;
                 }
 
                 // Get a normalized size
-                size = unpacked.files[f].size;
-                if (size % 0x10 != 0)
-                    size += 0x10 - (size % 0x10);
+                fSize = unpacked.files[unpackedPointer].size;
+                if (fSize % 0x10 != 0)
+                    fSize += 0x10 - (fSize % 0x10);
 
                 // Write the FAT section
-                bw.Write((uint)(offset / 0x10));
-                bw.Write((uint)(size / 0x10));
+                bw.Write((uint)(fOffset / 0x10));
+                bw.Write((uint)(fSize / 0x10));
 
                 // Write file
-                BinaryReader fileRead = new BinaryReader(File.OpenRead(unpacked.files[f].path));
-                fileRead.BaseStream.Position = unpacked.files[f].offset;
-                buffer.AddRange(fileRead.ReadBytes((int)unpacked.files[f].size));                
+                BinaryReader fileRead = new BinaryReader(File.OpenRead(unpacked.files[unpackedPointer].path));
+                fileRead.BaseStream.Position = unpacked.files[unpackedPointer].offset;
+                buffer.AddRange(fileRead.ReadBytes((int)unpacked.files[unpackedPointer].size));                
                 fileRead.Close();
 
                 // Write the padding
-                for (int r = 0; r < (size - unpacked.files[f].size); r++)
+                for (int fPadding = 0; fPadding < (fSize - unpacked.files[unpackedPointer].size); fPadding++)
                     buffer.Add(0x00);
 
                 // Set the new offset
-                sFile newFile = unpacked.files[f];
-                newFile.offset = offset;
+                sFile newFile = unpacked.files[unpackedPointer];
+                newFile.offset = fOffset;
                 newFile.path = fileOut;
-                unpacked.files[f] = newFile;
+                unpacked.files[unpackedPointer] = newFile;
 
                 // Set new offset
-                offset += size;
-                f++;
+                fOffset += fSize;
+                unpackedPointer++;
             }
             bw.Flush();
 
             bw.Write(buffer.ToArray());     
 
-            br.Close();
             bw.Flush();
             bw.Close();
+            br.Close();
         }
     }
 }
