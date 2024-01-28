@@ -130,7 +130,7 @@ namespace SDAT
             for (int i = 0; i < sounds.Length; i++)
             {
                 bw.Write(currOffset);
-                currOffset += (uint)sounds[i].data.data.Length + 0x0A;
+                currOffset += (uint)sounds[i].data.data.Length + 0x0C;
             }
 
             // Write data

@@ -104,10 +104,12 @@ COPY "%cd%\changelog.txt" "%build_dir%\" > nul || (EXIT /B 1)
 COPY "%cd%\LICENSE" "%build_dir%\" > nul || (EXIT /B 1)
 COPY "%cd%\Tinke\app.config" "%build_dir%\Tinke.exe.config" > nul || (EXIT /B 1)
 
+IF "%conf%"=="Debug" goto Clean
 REM Delete debug files
 ECHO Removing debug files
 DEL /S /Q "%build_dir%\*.pdb" > nul || (EXIT /B 1)
 
+:Clean
 REM Clean unneeded files
 ECHO Removing unneeded files
 DEL /Q "%build_dir%\Plugins\*.nlp" > nul || (EXIT /B 1)

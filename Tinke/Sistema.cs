@@ -90,9 +90,9 @@ namespace Tinke
                 //string flag = Application.StartupPath + Path.DirectorySeparatorChar + "langs" + Path.DirectorySeparatorChar + langFile.Substring(langFile.Length - 9, 5) + ".png";
                 //Image iFlag;
                 //if (File.Exists(flag))
-                    //iFlag = Image.FromFile(flag);
+                //iFlag = Image.FromFile(flag);
                 //else
-                    //iFlag = iconos.Images[1];
+                //iFlag = iconos.Images[1];
 
                 XElement xLang = XElement.Load(langFile);
                 if (xLang.Name != "Language")
@@ -199,7 +199,7 @@ namespace Tinke
                 xml.Element("WindowDebug").Value = toolStripDebug.Checked.ToString();
                 xml.Element("WindowInformation").Value = toolStripInfoRom.Checked.ToString();
                 xml.Element("InstantSearch").Value = checkSearch.Checked.ToString();
-               //xml.Element("ModeWindow").Value = toolStripVentana.Checked.ToString();
+                //xml.Element("ModeWindow").Value = toolStripVentana.Checked.ToString();
 
                 xml = xml.Parent;
                 xml.Save(Application.StartupPath + Path.DirectorySeparatorChar + "Tinke.xml");
@@ -560,7 +560,7 @@ namespace Tinke
                 if (xml.Element("InstantSearch").Value == "True")
                     checkSearch.Checked = true;
                 //if (xml.Element("ModeWindow").Value == "True")
-                    //toolStripVentana.Checked = true;
+                //toolStripVentana.Checked = true;
             }
             catch { MessageBox.Show(Tools.Helper.GetTranslation("Sistema", "S38"), Tools.Helper.GetTranslation("Sistema", "S3A")); }
         }
@@ -1074,7 +1074,7 @@ namespace Tinke
                     stop = false;
                     return;
                 }
-                
+
                 // Change the temp folder, used to export (if so) the files.
                 FolderBrowserDialog o = new FolderBrowserDialog();
                 o.Description = "Select new \"temp folder\".";
@@ -1156,27 +1156,27 @@ namespace Tinke
             this.Cursor = Cursors.WaitCursor;
             //if (toolStripVentana.Checked)
             //{
-                //Visor visor = new Visor();
-                //visor.Controls.Add(accion.See_File());
-                //visor.Text += " - " + accion.Selected_File().name;
-                //visor.Show();
+            //Visor visor = new Visor();
+            //visor.Controls.Add(accion.See_File());
+            //visor.Text += " - " + accion.Selected_File().name;
+            //visor.Show();
             //}
             //else
             //{
-                for (int i = 0; i < panelObj.Controls.Count; i++)
-                    panelObj.Controls[i].Dispose();
-                panelObj.Controls.Clear();
+            for (int i = 0; i < panelObj.Controls.Count; i++)
+                panelObj.Controls[i].Dispose();
+            panelObj.Controls.Clear();
 
-                Control control = accion.See_File();
-                if (control.Size.Height != 0 && control.Size.Width != 0)
-                {
-                    panelObj.Controls.Add(control);
-                    if (btnDesplazar.Text == ">>>>>")
-                        btnDesplazar.PerformClick();
-                }
-                else
-                    if (btnDesplazar.Text == "<<<<<")
-                        btnDesplazar.PerformClick();
+            Control control = accion.See_File();
+            if (control.Size.Height != 0 && control.Size.Width != 0)
+            {
+                panelObj.Controls.Add(control);
+                if (btnDesplazar.Text == ">>>>>")
+                    btnDesplazar.PerformClick();
+            }
+            else
+                if (btnDesplazar.Text == "<<<<<")
+                btnDesplazar.PerformClick();
             //}
             this.Cursor = Cursors.Default;
 
@@ -1566,9 +1566,13 @@ namespace Tinke
             currPos += arm9.size;
 
             // Write the Nitrocode
+            UInt32 nitrocode_tmp, nitrocode_tmp_alt;
             br = new BinaryReader(File.OpenRead(accion.ROMFile));
             br.BaseStream.Position = romInfo.Cabecera.ARM9romOffset + romInfo.Cabecera.ARM9size;
-            if (br.ReadUInt32() == 0xDEC00621)
+            nitrocode_tmp = br.ReadUInt32();
+            br.BaseStream.Position = romInfo.Cabecera.ARM9romOffset + arm9.size;
+            nitrocode_tmp_alt = br.ReadUInt32();
+            if (nitrocode_tmp == 0xDEC00621 || nitrocode_tmp_alt == 0xDEC00621)
             {
                 // Nitrocode found
                 bw.Write(0xDEC00621);
