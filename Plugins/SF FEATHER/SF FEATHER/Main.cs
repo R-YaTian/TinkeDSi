@@ -24,7 +24,7 @@ using System.IO;
 using System.Text;
 using Ekona;
 using Ekona.Images;
-using static SF_FEATHER.CGT;
+using SF_FEATHER;
 
 namespace SF_FEATHER
 {
@@ -45,7 +45,15 @@ namespace SF_FEATHER
             {
                 return true;
             }
-            return false;
+            else if (gameCode == "AS7J")
+            {
+                return true;
+            }
+            else if (gameCode == "AS7E")
+            {
+                return true;
+            }
+            else { return false; }
         }
 
         public Format Get_Format(sFile file, byte[] mSeed)

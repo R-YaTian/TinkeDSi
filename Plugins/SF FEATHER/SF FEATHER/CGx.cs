@@ -23,8 +23,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading;
 using Ekona;
-using static SF_FEATHER.CGx;
-using static SF_FEATHER.SCx;
+using SF_FEATHER;
 
 namespace SF_FEATHER
 {
