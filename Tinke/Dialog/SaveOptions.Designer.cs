@@ -32,6 +32,8 @@
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.btn_OK = new System.Windows.Forms.Button();
             this.btn_Cancel = new System.Windows.Forms.Button();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // checkBox1
@@ -39,7 +41,7 @@
             this.checkBox1.AutoSize = true;
             this.checkBox1.Location = new System.Drawing.Point(12, 12);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(42, 16);
+            this.checkBox1.Size = new System.Drawing.Size(53, 19);
             this.checkBox1.TabIndex = 0;
             this.checkBox1.Text = "S1E";
             this.checkBox1.UseVisualStyleBackColor = true;
@@ -47,9 +49,9 @@
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(12, 34);
+            this.checkBox2.Location = new System.Drawing.Point(12, 37);
             this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(42, 16);
+            this.checkBox2.Size = new System.Drawing.Size(53, 19);
             this.checkBox2.TabIndex = 2;
             this.checkBox2.Text = "S1F";
             this.checkBox2.UseVisualStyleBackColor = true;
@@ -58,7 +60,7 @@
             // 
             this.btn_OK.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btn_OK.Image = global::Tinke.Properties.Resources.accept;
-            this.btn_OK.Location = new System.Drawing.Point(12, 56);
+            this.btn_OK.Location = new System.Drawing.Point(12, 112);
             this.btn_OK.Name = "btn_OK";
             this.btn_OK.Size = new System.Drawing.Size(90, 30);
             this.btn_OK.TabIndex = 3;
@@ -71,7 +73,7 @@
             // 
             this.btn_Cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btn_Cancel.Image = global::Tinke.Properties.Resources.cancel;
-            this.btn_Cancel.Location = new System.Drawing.Point(137, 56);
+            this.btn_Cancel.Location = new System.Drawing.Point(137, 112);
             this.btn_Cancel.Name = "btn_Cancel";
             this.btn_Cancel.Size = new System.Drawing.Size(90, 30);
             this.btn_Cancel.TabIndex = 4;
@@ -80,10 +82,34 @@
             this.btn_Cancel.UseVisualStyleBackColor = true;
             this.btn_Cancel.Click += new System.EventHandler(this.btn_Cancel_Click);
             // 
+            // checkBox3
+            // 
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Location = new System.Drawing.Point(12, 62);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(53, 19);
+            this.checkBox3.TabIndex = 5;
+            this.checkBox3.Text = "S20";
+            this.checkBox3.UseVisualStyleBackColor = true;
+            this.checkBox3.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
+            // 
+            // checkBox4
+            // 
+            this.checkBox4.AutoSize = true;
+            this.checkBox4.Enabled = false;
+            this.checkBox4.Location = new System.Drawing.Point(12, 87);
+            this.checkBox4.Name = "checkBox4";
+            this.checkBox4.Size = new System.Drawing.Size(53, 19);
+            this.checkBox4.TabIndex = 6;
+            this.checkBox4.Text = "S21";
+            this.checkBox4.UseVisualStyleBackColor = true;
+            // 
             // SaveOptions
             // 
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.ClientSize = new System.Drawing.Size(239, 98);
+            this.ClientSize = new System.Drawing.Size(239, 154);
+            this.Controls.Add(this.checkBox4);
+            this.Controls.Add(this.checkBox3);
             this.Controls.Add(this.btn_Cancel);
             this.Controls.Add(this.btn_OK);
             this.Controls.Add(this.checkBox2);
@@ -107,5 +133,7 @@
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.Button btn_OK;
         private System.Windows.Forms.Button btn_Cancel;
+        private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.CheckBox checkBox4;
     }
 }

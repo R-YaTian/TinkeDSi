@@ -18,8 +18,8 @@ namespace Tinke.Tools
         /// <param name="arm9Data">Compressed ARM9.bin data</param>
         /// <param name="hdr">ROM header</param>
         /// <param name="decompressed">Decompressed data</param>
-        /// <returns>True if the decompression was successful.</returns>
-        public static bool Decompress(byte[] arm9Data, Estructuras.ROMHeader hdr, out byte[] decompressed)
+        /// <returns>0 = uncompressed; 1 = compressed</returns>
+        public static uint Decompress(byte[] arm9Data, Estructuras.ROMHeader hdr, out byte[] decompressed)
         {
             decompressed = arm9Data;
             uint nitrocode_length = 0;
@@ -40,19 +40,19 @@ namespace Tinke.Tools
             {
                 Stream input = new MemoryStream(arm9Data);
                 MemoryStream output = new MemoryStream();
-                
+
                 LZOvl blz = new LZOvl();
                 blz.Decompress(input, hdrptr - hdr.ARM9ramAddress, output);
                 output.Write(arm9Data, arm9Data.Length - (int)postSize, (int)postSize);
                 input.Close();
                 decompressed = output.ToArray();
-                cmparm9 = false;
 
                 input.Close();
                 output.Close();
+                return 1;
             }
 
-            return cmparm9;
+            return 0;
         }
 
         /// <summary>
@@ -61,14 +61,16 @@ namespace Tinke.Tools
         /// <param name="arm9Data">Uncompressed ARM9.bin data</param>
         /// <param name="hdr">ROM header</param>
         /// <param name="postSize">Data size from the end what will be ignored.</param>
+        /// <param name="method">0 = BLZ; 1 = BLZ-Cue</param>
         /// <returns>Compressed data with uncompressed Secure Area (first 0x4000 bytes).</returns>
-        public static byte[] Compress(byte[] arm9Data, Estructuras.ROMHeader hdr, uint postSize = 0)
+        public static byte[] Compress(byte[] arm9Data, Estructuras.ROMHeader hdr, uint postSize = 0, bool method = false)
         {
             Stream input = new MemoryStream(arm9Data);
             input.Position = 0x4000;
             MemoryStream output = new MemoryStream();
             output.Write(arm9Data, 0, 0x4000);
             LZOvl blz = new LZOvl();
+            LZOvl.LookAhead = method;
             blz.Compress(input, input.Length - 0x4000, output);
             input.Close();
             output.Write(arm9Data, arm9Data.Length - (int)postSize, (int)postSize);

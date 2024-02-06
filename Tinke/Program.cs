@@ -18,16 +18,20 @@
  * 
  */
 using System;
-//using System.Collections.Generic;
-//using System.Linq;
 using System.Windows.Forms;
-//using System.Reflection;
 using System.IO;
+using System.Runtime.InteropServices;
 
 namespace Tinke
 {
     static class Program
     {
+        [DllImport("kernel32.dll", SetLastError = true)]
+        public static extern bool AttachConsole(int dwProcessId);
+
+        [DllImport("kernel32.dll", SetLastError = true)]
+        public static extern bool FreeConsole();
+
         /// <summary>
         /// Punto de entrada principal para la aplicación.
         /// </summary>
@@ -35,7 +39,7 @@ namespace Tinke
         static void Main(string[] args)
         {
             #region Comprobación de archivos necesarios
-            string[] archivos = new string[] { "Ekona.dll", "DSDecmp.dll" };
+            string[] archivos = new string[] { "Ekona.dll", "DSDecmp.dll" , "Be.Windows.Forms.HexBox.dll" };
             string faltan = "";
             for (int i = 0; i < archivos.Length; i++)
             {
@@ -55,5 +59,4 @@ namespace Tinke
             Application.Run(new Sistema());
         }
     }
-
 }

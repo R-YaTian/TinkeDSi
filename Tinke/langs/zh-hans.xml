@@ -422,6 +422,8 @@
     <S1C>取消</S1C>
     <S1E>安全裁剪</S1E>
     <S1F>保持原始的 RSA SHA1 签名</S1F>
+    <S20>重压缩 ARM9 文件 (BLZ 算法)</S20>
+    <S21>更好的压缩率算法 (BLZ-Cue)</S21>
   </Dialog>
   <VisorHex>
     <S00>文件</S00>

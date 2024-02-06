@@ -211,7 +211,7 @@ namespace Tinke.Nitro
                 hdr.ARM9size = arm9.size;
                 uint initptr = BitConverter.ToUInt32(hdr.reserved2, 0) & 0x3FFF;
                 uint hdrptr = BitConverter.ToUInt32(arm9Data, (int)initptr + 0x14) - hdr.ARM9ramAddress;
-                bool cmparm9 = ARM9BLZ.Decompress(arm9Data, hdr, out arm9Data);
+                uint cmparm9 = ARM9BLZ.Decompress(arm9Data, hdr, out arm9Data);
 
                 // Get hmac offset
                 uint offset = 0;
@@ -227,8 +227,8 @@ namespace Tinke.Nitro
                 if (offset > 0)
                 {
                     for (int i = 0; i < ov9.Count; i++) Array.Copy(hashes[i], 0, arm9Data, offset + i * 0x14, 20);
-                    if (!cmparm9) arm9Data = ARM9BLZ.Compress(arm9Data, hdr, arm9.size - hdrptr);
-                    
+                    if (cmparm9 == 0) arm9Data = ARM9BLZ.Compress(arm9Data, hdr, arm9.size - hdrptr);
+
                     string arm9Binary = Path.GetTempFileName();
                     File.WriteAllBytes(arm9Binary, arm9Data);
                     arm9.path = arm9Binary;
