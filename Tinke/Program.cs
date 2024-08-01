@@ -135,7 +135,9 @@ namespace Tinke
                     Console.WriteLine();
                 }
                 Parser.Default.ParseArguments<ExtractOptions, ReplaceOptions, OpenOptions>(args)
-                              .WithParsed(HandleArgs)
+                              .WithParsed<ExtractOptions>(RunExtract)
+                              .WithParsed<ReplaceOptions>(RunReplace)
+                              .WithParsed<OpenOptions>(RunOpen)
                               .WithNotParsed(HandleErrors);
                 if (Type.GetType("Mono.Runtime") == null && curCommand == 0)
                 {
@@ -189,22 +191,6 @@ namespace Tinke
                 curCommand = 3;
             tblRoms = opts.Props.ToList();
             bIsFolder = opts.IsFolder;
-        }
-
-        private static void HandleArgs(object obj)
-        {
-            switch (obj)
-            {
-                case ExtractOptions e:
-                    RunExtract(e);
-                    break;
-                case ReplaceOptions p:
-                    RunReplace(p);
-                    break;
-                case OpenOptions o:
-                    RunOpen(o);
-                    break;
-            }
         }
 
         private static void HandleErrors(IEnumerable<Error> obj)
