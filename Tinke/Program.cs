@@ -155,6 +155,42 @@ namespace Tinke
             Application.Run(new Sistema());
         }
 
+        //process ExtractOptions
+        private static void RunExtract(ExtractOptions opts)
+        {
+            extractFilePath = opts.FilePath;
+            extractOutputPath = opts.OutputPath;
+            curCommand = 1;
+        }
+
+        //process ReplaceOptions
+        private static void RunReplace(ReplaceOptions opts)
+        {
+            replaceResPath = opts.ResPath;
+            replaceInputFile = opts.FilePath;
+            replaceOutputFile = opts.OutputFile;
+            safeTrim = opts.SafeTrim;
+            keepSig = opts.KeepSig;
+            recompressA9 = opts.Recompress;
+            blzcueA9 = opts.BlzCue;
+            curCommand = 2;
+        }
+
+        //process OpenOptions
+        private static void RunOpen(OpenOptions opts)
+        {
+            if (Environment.GetCommandLineArgs().Length <= 2)
+            {
+                bOpenDefault = true;
+                curCommand = -1;
+                return;
+            }
+            else
+                curCommand = 3;
+            tblRoms = opts.Props.ToList();
+            bIsFolder = opts.IsFolder;
+        }
+
         private static void HandleArgs(object obj)
         {
             switch (obj)
@@ -168,42 +204,6 @@ namespace Tinke
                 case OpenOptions o:
                     RunOpen(o);
                     break;
-            }
-
-            //process ExtractOptions
-            void RunExtract(ExtractOptions opts)
-            {
-                extractFilePath = opts.FilePath;
-                extractOutputPath = opts.OutputPath;
-                curCommand = 1;
-            }
-
-            //process ReplaceOptions
-            void RunReplace(ReplaceOptions opts)
-            {
-                replaceResPath = opts.ResPath;
-                replaceInputFile = opts.FilePath;
-                replaceOutputFile = opts.OutputFile;
-                safeTrim = opts.SafeTrim;
-                keepSig = opts.KeepSig;
-                recompressA9 = opts.Recompress;
-                blzcueA9 = opts.BlzCue;
-                curCommand = 2;
-            }
-
-            //process OpenOptions
-            void RunOpen(OpenOptions opts)
-            {
-                if (Environment.GetCommandLineArgs().Length <= 2)
-                {
-                    bOpenDefault = true;
-                    curCommand = -1;
-                    return;
-                }
-                else
-                    curCommand = 3;
-                tblRoms = opts.Props.ToList();
-                bIsFolder = opts.IsFolder;
             }
         }
 
