@@ -1501,6 +1501,7 @@ namespace Tinke
             bool keep_original = false;
             bool a9_recomp = false;
             bool a9_bestcomp = false;
+            bool bIsFlashCartFW = false;
             Nitro.Estructuras.ROMHeader header = romInfo.Cabecera;
 
             Dialog.SaveOptions dialog = new Dialog.SaveOptions();
@@ -1514,6 +1515,8 @@ namespace Tinke
                 a9_recomp = true;
             if (dialog.IsBetterCompress)
                 a9_bestcomp = true;
+            if (dialog.IsFlashCartFirmware)
+                bIsFlashCartFW = true;
 
             Thread create = new Thread(ThreadEspera)
             {
@@ -1588,7 +1591,7 @@ namespace Tinke
             }
 
             // Calc Secure Area CRC
-            if (header.ARM9romOffset == 0x4000 && header.ARM9size >= 0x4000)
+            if (header.ARM9romOffset == 0x4000 && header.ARM9size >= 0x4000 && !bIsFlashCartFW)
             {
                 Array.Copy(arm9Data, 0x800, this.secureArea.EncryptedData, 0x800, 0x3800);
                 header.secureCRC16 = SecureArea.CalcCRC(this.secureArea.EncryptedData, gameCode);
@@ -1792,7 +1795,8 @@ namespace Tinke
             Nitro.FAT.Write(fileFAT, accion.Root, header.FAToffset, accion.SortedIDs, arm9overlayOffset, arm7overlayOffset, header);
             currPos += (uint)new FileInfo(fileFAT).Length;
 
-            header.bannerOffset = currPos;
+            if (!bIsFlashCartFW)
+                header.bannerOffset = currPos;
             currPos += (uint)new FileInfo(banner).Length;
 
             // Escribimos los archivos
@@ -1801,7 +1805,8 @@ namespace Tinke
             currPos += (uint)new FileInfo(files).Length;
 
             // Update the ROM size values of the header
-            header.ROMsize = currPos;
+            if (!bIsFlashCartFW)
+                header.ROMsize = currPos;
 
             // Update DSi staff header info
             if (this.twl != null && (header.unitCode & 2) > 0)
@@ -1898,10 +1903,13 @@ namespace Tinke
                 hmac.Dispose();
             }
 
-            header.tamaño = (uint)Math.Ceiling(Math.Log(currPos, 2));
-            // Ref. to TWL SDK' "Card Manual" for DSi Cartrige ROMs
-            if ((header.unitCode & 2) > 0 && (header.tid_high & 0xF) == 0 && header.tamaño < 25) header.tamaño = 25; 
-            header.tamaño = (uint)Math.Pow(2, header.tamaño);
+            if (!bIsFlashCartFW)
+            {
+                header.tamaño = (uint)Math.Ceiling(Math.Log(currPos, 2));
+                // Ref. to TWL SDK' "Card Manual" for DSi Cartrige ROMs
+                if ((header.unitCode & 2) > 0 && (header.tid_high & 0xF) == 0 && header.tamaño < 25) header.tamaño = 25;
+                header.tamaño = (uint)Math.Pow(2, header.tamaño);
+            }
 
             // Get Header CRC
             string tempHeader = Path.GetTempFileName();

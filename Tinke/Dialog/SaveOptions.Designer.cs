@@ -34,6 +34,7 @@
             this.btn_Cancel = new System.Windows.Forms.Button();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.checkBox4 = new System.Windows.Forms.CheckBox();
+            this.checkBox5 = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // checkBox1
@@ -60,7 +61,7 @@
             // 
             this.btn_OK.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btn_OK.Image = global::Tinke.Properties.Resources.accept;
-            this.btn_OK.Location = new System.Drawing.Point(12, 112);
+            this.btn_OK.Location = new System.Drawing.Point(12, 139);
             this.btn_OK.Name = "btn_OK";
             this.btn_OK.Size = new System.Drawing.Size(90, 30);
             this.btn_OK.TabIndex = 3;
@@ -73,7 +74,7 @@
             // 
             this.btn_Cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btn_Cancel.Image = global::Tinke.Properties.Resources.cancel;
-            this.btn_Cancel.Location = new System.Drawing.Point(137, 112);
+            this.btn_Cancel.Location = new System.Drawing.Point(137, 139);
             this.btn_Cancel.Name = "btn_Cancel";
             this.btn_Cancel.Size = new System.Drawing.Size(90, 30);
             this.btn_Cancel.TabIndex = 4;
@@ -104,10 +105,21 @@
             this.checkBox4.Text = "S21";
             this.checkBox4.UseVisualStyleBackColor = true;
             // 
+            // checkBox5
+            // 
+            this.checkBox5.AutoSize = true;
+            this.checkBox5.Location = new System.Drawing.Point(12, 112);
+            this.checkBox5.Name = "checkBox5";
+            this.checkBox5.Size = new System.Drawing.Size(53, 19);
+            this.checkBox5.TabIndex = 7;
+            this.checkBox5.Text = "S22";
+            this.checkBox5.UseVisualStyleBackColor = true;
+            // 
             // SaveOptions
             // 
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.ClientSize = new System.Drawing.Size(239, 154);
+            this.ClientSize = new System.Drawing.Size(239, 181);
+            this.Controls.Add(this.checkBox5);
             this.Controls.Add(this.checkBox4);
             this.Controls.Add(this.checkBox3);
             this.Controls.Add(this.btn_Cancel);
@@ -135,5 +147,6 @@
         private System.Windows.Forms.Button btn_Cancel;
         private System.Windows.Forms.CheckBox checkBox3;
         private System.Windows.Forms.CheckBox checkBox4;
+        private System.Windows.Forms.CheckBox checkBox5;
     }
 }

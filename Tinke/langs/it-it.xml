@@ -426,6 +426,7 @@
     <S1F>Keep Original RSA SHA1 Signature</S1F>
     <S20>Recompress ARM9 binary (BLZ)</S20>
     <S21>Better compress method (BLZ-Cue)</S21>
+    <S22>Is FlashCart Firmware</S22>
   </Dialog>
   <VisorHex>
     <S00>File</S00>

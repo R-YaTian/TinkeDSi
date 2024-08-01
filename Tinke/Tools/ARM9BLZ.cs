@@ -35,7 +35,7 @@ namespace Tinke.Tools
                 hdrptr = hdr.ARM9ramAddress + hdr.ARM9size;
             }
             uint postSize = (uint)arm9Data.Length - (hdrptr - hdr.ARM9ramAddress);
-            bool cmparm9 = hdrptr > hdr.ARM9ramAddress && hdrptr + nitrocode_length >= hdr.ARM9ramAddress + arm9Data.Length;
+            bool cmparm9 = hdrptr > hdr.ARM9ramAddress && hdrptr + nitrocode_length > hdr.ARM9ramAddress + arm9Data.Length;
             if (cmparm9)
             {
                 Stream input = new MemoryStream(arm9Data);

@@ -24,6 +24,7 @@ namespace Tinke.Dialog
                 checkBox2.Text = xml.Element("S1F").Value;
                 checkBox3.Text = xml.Element("S20").Value;
                 checkBox4.Text = xml.Element("S21").Value;
+                checkBox5.Text = xml.Element("S22").Value;
             }
             catch { throw new NotImplementedException("There was an error reading the language file"); }
         }
@@ -46,6 +47,11 @@ namespace Tinke.Dialog
         public bool IsBetterCompress
         {
             get { return checkBox4.Checked; }
+        }
+
+        public bool IsFlashCartFirmware
+        {
+            get { return checkBox5.Checked; }
         }
 
         private void btn_OK_Click(object sender, EventArgs e)

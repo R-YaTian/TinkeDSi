@@ -206,7 +206,8 @@ namespace DSDecmp.Formats
                     {
                         if (readBytes >= compressedSize)
                             throw new NotEnoughDataException(currentOutSize, decompressedLength);
-                        flags = buffer[buffer.Length - 1 - readBytes]; readBytes++;
+                        flags = buffer[buffer.Length - 1 - readBytes];
+                        readBytes++;
                         mask = 0x80;
                     }
                     else
@@ -225,8 +226,15 @@ namespace DSDecmp.Formats
                         {
                             throw new NotEnoughDataException(currentOutSize, decompressedLength);
                         }
-                        int byte1 = buffer[compressedSize - 1 - readBytes]; readBytes++;
-                        int byte2 = buffer[compressedSize - 1 - readBytes]; readBytes++;
+                        int byte1 = buffer[compressedSize - 1 - readBytes];
+                        readBytes++;
+
+                        if (readBytes == compressedSize)
+                        {
+                            throw new NotEnoughDataException(currentOutSize, decompressedLength);
+                        }
+                        int byte2 = buffer[compressedSize - 1 - readBytes];
+                        readBytes++;
 
                         // the number of bytes to copy
                         int length = byte1 >> 4;
@@ -261,7 +269,8 @@ namespace DSDecmp.Formats
                     {
                         if (readBytes >= inLength)
                             throw new NotEnoughDataException(currentOutSize, decompressedLength);
-                        byte next = buffer[buffer.Length - 1 - readBytes]; readBytes++;
+                        byte next = buffer[buffer.Length - 1 - readBytes];
+                        readBytes++;
 
                         outbuffer[outbuffer.Length - 1 - currentOutSize] = next;
                         currentOutSize++;
