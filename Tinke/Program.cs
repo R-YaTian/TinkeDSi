@@ -66,6 +66,9 @@ internal class OpenOptions
     [Option('f', "folder", HelpText = "Call a folder select dialog then open the selected folder.")]
     public bool IsFolder { get; set; }
 
+    [Option('d', "dir", HelpText = "Open the folder directly instead of calling folder select dialog. Will be ignore if -f/--folder not passed.")]
+    public string DirPath { get; set; }
+
     [Value(0, MetaName = "RomPath", HelpText = "Path of the file(s). Can be provided multiple. Will be ignore if -f/--folder passed.")]
     public IEnumerable<string> Props
     {
@@ -100,6 +103,7 @@ namespace Tinke
         public static List<string> tblRoms;
         public static bool bIsFolder = false;
         public static bool bOpenDefault = false;
+        public static string openDirPath;
 
         /// <summary>
         /// Punto de entrada principal para la aplicación.
@@ -108,7 +112,7 @@ namespace Tinke
         static void Main(string[] args)
         {
             #region Comprobación de archivos necesarios
-            string[] archivos = new string[] { "Ekona.dll", "DSDecmp.dll" , "Be.Windows.Forms.HexBox.dll" };
+            string[] archivos = new string[] { "Ekona.dll", "DSDecmp.dll" , "Be.Windows.Forms.HexBox.dll", "CommandLine.dll" };
             string faltan = "";
             for (int i = 0; i < archivos.Length; i++)
             {
@@ -190,6 +194,7 @@ namespace Tinke
             else
                 curCommand = 3;
             tblRoms = opts.Props.ToList();
+            openDirPath = opts.DirPath;
             bIsFolder = opts.IsFolder;
         }
 

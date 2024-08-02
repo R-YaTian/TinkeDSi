@@ -139,15 +139,28 @@ namespace Tinke
                 }
                 if (Program.bIsFolder)
                 {
-                    FolderBrowserDialog o = new FolderBrowserDialog();
-                    o.ShowNewFolderButton = false;
-                    if (o.ShowDialog() != System.Windows.Forms.DialogResult.OK)
+                    if (string.IsNullOrWhiteSpace(Program.openDirPath))
                     {
-                        Application.Exit();
-                        return;
+                        FolderBrowserDialog o = new FolderBrowserDialog();
+                        o.ShowNewFolderButton = false;
+                        if (o.ShowDialog() != System.Windows.Forms.DialogResult.OK)
+                        {
+                            Application.Exit();
+                            return;
+                        }
+                        filesToRead[0] = o.SelectedPath;
+                        o.Dispose();
+                    } else {
+                        if (Directory.Exists(Program.openDirPath))
+                            filesToRead[0] = Program.openDirPath;
+                        else
+                        {
+                            MessageBox.Show(Tools.Helper.GetTranslation("Messages", "S2E"), Tools.Helper.GetTranslation("Messages", "S01"));
+                            this.Close();
+                            Application.Exit();
+                            return;
+                        }
                     }
-                    filesToRead[0] = o.SelectedPath;
-                    o.Dispose();
                 }
                 else if (Program.tblRoms.Count() == 1)
                 {
@@ -2706,7 +2719,12 @@ namespace Tinke
             {
                 foreach (string item in filePaths)
                 {
-                    inFile = String.Format("\"{0}\"", item);
+                    FileAttributes attr = File.GetAttributes(item);
+                    if ((attr & FileAttributes.Directory) == FileAttributes.Directory)
+                        inFile = "open -f -d";
+                    else
+                        inFile = "open ";
+                    inFile += String.Format("\"{0}\"", item);
                     System.Diagnostics.Process.Start(Application.ExecutablePath, inFile);
                 }
             }
