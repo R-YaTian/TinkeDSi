@@ -80,7 +80,6 @@ namespace Tinke
                                  "\n    <InstantSearch>True</InstantSearch>" +
                                  "\n    <WindowDebug>True</WindowDebug>" +
                                  "\n    <WindowInformation>True</WindowInformation>" +
-                                 //"\n    <ModeWindow>False</ModeWindow>" +
                                  "\n  </Options>\n</Tinke>",
                                  Encoding.UTF8);
             }
@@ -152,28 +151,46 @@ namespace Tinke
                 }
                 else if (Program.tblRoms.Count() == 1)
                 {
-                    filesToRead[0] = Program.tblRoms[0];
+                    if (File.Exists(Program.tblRoms[0]))
+                        filesToRead[0] = Program.tblRoms[0];
+                    else {
+                        MessageBox.Show(Tools.Helper.GetTranslation("Messages", "S2E"), Tools.Helper.GetTranslation("Messages", "S01"));
+                        this.Close();
+                        Application.Exit();
+                        return;
+                    }
                 }
                 else
                 {
+                    foreach (string fileName in Program.tblRoms)
+                    {
+                        if (!File.Exists(fileName))
+                        {
+                            MessageBox.Show(Tools.Helper.GetTranslation("Messages", "S2E"), Tools.Helper.GetTranslation("Messages", "S01"));
+                            this.Close();
+                            Application.Exit();
+                            return;
+                        }
+                    }
                     filesToRead = new String[Program.tblRoms.Count()];
                     Array.Copy(Program.tblRoms.ToArray(), 0, filesToRead, 0, filesToRead.Length);
                 }
             }
             else if (Program.curCommand == 1)
             {
-                filesToRead[0] = Program.extractFilePath;
-                ReadGame(filesToRead[0]);
-                sFolder folderSelect = accion.Root;
+                if (!File.Exists(Program.extractFilePath))
+                    Console.WriteLine("The input file not found!");
+                else {
+                    filesToRead[0] = Program.extractFilePath;
+                    ReadGame(filesToRead[0]);
 
-                if (Program.extractOutputPath is string)
-                {
+                    sFolder folderSelect = accion.Root;
+                    if (string.IsNullOrWhiteSpace(Program.extractOutputPath))
+                        Program.extractOutputPath = ".";
                     Directory.CreateDirectory(Program.extractOutputPath + Path.DirectorySeparatorChar + folderSelect.name);
                     RecursivoExtractFolder(folderSelect, Program.extractOutputPath + Path.DirectorySeparatorChar + folderSelect.name);
                     Console.WriteLine("Extract all files to " + Program.extractOutputPath + Path.DirectorySeparatorChar + folderSelect.name);
                 }
-                else
-                    Console.WriteLine("Param error...");
 
                 if (!isMono)
                 {
@@ -186,14 +203,22 @@ namespace Tinke
             }
             else if (Program.curCommand == 2)
             {
-                filesToRead[0] = Program.replaceInputFile;
-                ReadGame(filesToRead[0]);
-                if (Program.replaceResPath is string)
-                {
-                    ChangeByDir(Program.replaceResPath);
-                } else
-                    Console.WriteLine("Param error...");
-                btnSaveROM_Click(null, null);
+                if (!File.Exists(Program.replaceInputFile))
+                    Console.WriteLine("The input file not found!");
+                else {
+                    filesToRead[0] = Program.replaceInputFile;
+                    ReadGame(filesToRead[0]);
+
+                    string fullPath = Path.GetFullPath(Program.replaceResPath);
+                    string lastDirectoryName = Path.GetFileName(fullPath.TrimEnd(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar));
+                    if (Directory.Exists(Program.replaceResPath) && string.Equals(lastDirectoryName, "root"))
+                    {
+                        ChangeByDir(Program.replaceResPath);
+                        btnSaveROM_Click(null, null);
+                    } else
+                        Console.WriteLine("The nitrofs folder not found or the folder name is not 'root'");
+                }
+
                 if (!isMono)
                 {
                     Program.FreeConsole();

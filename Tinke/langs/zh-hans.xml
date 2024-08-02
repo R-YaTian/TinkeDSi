@@ -261,6 +261,7 @@
     <S2B>DSi Banner 正确!</S2B>
     <S2C>DSi Banner 不完整或已损坏。</S2C>
     <S2D>donor iheader 不匹配!</S2D>
+    <S2E>一个或多个文件未找到!</S2E>
   </Messages>
   <DSDecmp>
     <!-- LZ10 -->

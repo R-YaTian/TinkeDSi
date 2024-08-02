@@ -82,7 +82,7 @@ namespace Be.Windows.Forms
                 _contextMenuStrip = cms;
             }
 
-            if (this._hexBox.ByteProvider == null && this._hexBox.ContextMenuStrip != null)
+            if (this._hexBox.ByteProvider == null && this._hexBox.ContextMenuStrip == this._contextMenuStrip)
                 this._hexBox.ContextMenuStrip = null;
             else if (this._hexBox.ByteProvider != null && this._hexBox.ContextMenuStrip == null)
                 this._hexBox.ContextMenuStrip = _contextMenuStrip;

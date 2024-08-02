@@ -262,6 +262,7 @@
     <S2B>The DSi Banner is good!</S2B>
     <S2C>The DSi Banner is incomplete or corrupted.</S2C>
     <S2D>The donor iheader mismatch!</S2D>
+    <S2E>File(s) not found!</S2E>
   </Messages>
   <DSDecmp>
     <!-- LZ10 -->
