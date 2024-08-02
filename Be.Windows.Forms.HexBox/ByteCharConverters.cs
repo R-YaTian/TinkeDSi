@@ -21,7 +21,9 @@ namespace Be.Windows.Forms
         /// </summary>
         /// <param name="c"></param>
         /// <returns></returns>
-        byte ToByte(char c);
+        byte[] ToByte(char c);
+
+        Encoding ToEncoding();
     }
 
     /// <summary>
@@ -44,9 +46,11 @@ namespace Be.Windows.Forms
         /// </summary>
         /// <param name="c"></param>
         /// <returns></returns>
-        public virtual byte ToByte(char c)
+        public virtual byte[] ToByte(char c)
         {
-            return (byte)c;
+            byte[] bytes = new byte[1];
+            bytes[0] = (byte)c;
+            return bytes;
         }
 
         /// <summary>
@@ -56,6 +60,11 @@ namespace Be.Windows.Forms
         public override string ToString()
         {
             return "ANSI (Default)";
+        }
+
+        public Encoding ToEncoding()
+        {
+            return Encoding.Default;
         }
     }
 
@@ -86,10 +95,10 @@ namespace Be.Windows.Forms
         /// </summary>
         /// <param name="c"></param>
         /// <returns></returns>
-        public virtual byte ToByte(char c)
+        public virtual byte[] ToByte(char c)
         {
             byte[] decoded = _ebcdicEncoding.GetBytes(new char[] { c });
-            return decoded.Length > 0 ? decoded[0] : (byte)0;
+            return decoded.Length > 0 ? decoded : (new byte[1] { 0 });
         }
 
         /// <summary>
@@ -99,6 +108,11 @@ namespace Be.Windows.Forms
         public override string ToString()
         {
             return "EBCDIC (Code Page 500)";
+        }
+
+        public Encoding ToEncoding()
+        {
+            return this._ebcdicEncoding;
         }
     }
 }

@@ -93,7 +93,7 @@ namespace Tinke
             this.hexBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.hexBox1.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hexBox1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.hexBox1.InfoForeColor = System.Drawing.Color.Empty;
             this.hexBox1.LineInfoVisible = true;
             this.hexBox1.Location = new System.Drawing.Point(0, 24);
@@ -301,10 +301,13 @@ namespace Tinke
             this.encodingCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.encodingCombo.Items.AddRange(new object[] {
             "S0D",
+            "EBCDIC(CP500)",
             "Shift_JIS",
-            "UTF-7",
+            "UTF-16LE",
+            "UTF-16BE",
             "UTF-8",
-            "ASCII"});
+            "ASCII",
+            "GBK"});
             this.encodingCombo.Name = "encodingCombo";
             this.encodingCombo.Size = new System.Drawing.Size(120, 25);
             this.encodingCombo.DropDownClosed += new System.EventHandler(this.encodingCombo_DropDownClosed);

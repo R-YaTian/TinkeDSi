@@ -5,7 +5,7 @@ TinkeDSi 0.9.5 (Made by R-YaTian)
 * Set Topmost for waiting window, add "Please wait..." message
 * Special fix for Sonic Classic Collection
 * Allow drop files to open
-* WIP: Improve Hex Editor
+* Improve Hex Editor
 * NFTR plugins: Disable zoom when more than 7489 chars, will fix scrolling issue
 * Add toolkit: get header crc32 for r4cce/TTdT
 * Allow copy info to Clipboard by mouse double click on RomInfo window
@@ -19,6 +19,10 @@ TinkeDSi 0.9.5 (Made by R-YaTian)
 * 3DModels: Update to OpenTK 3.3.3, fix bug on fullscreen btn
 * Improved SF Feather Plugin (By @mn1712trungson)
 * Core: Improve Nitrocode check when saving rom
+* Saveoptions: Add an option to "Recompress ARM9 binary"
+* Saveoptions: Add an option to parse the header of flashcart firmware
+* Implement command line support
+* Update Be.Windows.Forms.HexBox to 1.6.0
 TODO: full i18n support (include plugins)
 
 TinkeDSi 0.9.4

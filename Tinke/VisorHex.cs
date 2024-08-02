@@ -145,17 +145,18 @@ namespace Tinke
         {
             hexBox1.Height = this.Height - 83;
 
-            tableGrid.Width = this.Width - 652;
+            tableGrid.Width = this.Width - 750;
 
             if (tableGrid.Visible) hexBox1.Width = this.Width - (tableGrid.Width + 15);
             else hexBox1.Width = this.Width - 16;
-            
         }
 
         private void comboBoxEncoding_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (encodingCombo.SelectedIndex == 0)
                 bcc = new DefaultByteCharConverter();
+            else if (encodingCombo.SelectedIndex == 1)
+                bcc = new EbcdicByteCharProvider();
             else
                 bcc = new ByteCharConveter(encodingCombo.Text);
 
@@ -290,11 +291,12 @@ namespace Tinke
         {
             hexBox1.Width = this.Width - (tableGrid.Width + 15);
             tableGrid.Show();
+            VisorHex_Resize(null, null);
         }
 
         private void tableGrid_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            List<ulong> codes = new List<ulong>();
+            List<byte> codes = new List<byte>();
             List<char> charas = new List<char>();
 
             for (int i = 0; i < tableGrid.RowCount; i++)
@@ -303,7 +305,7 @@ namespace Tinke
                     !(tableGrid.Rows[i].Cells[1].Value is object))
                     continue;
 
-                codes.Add(Convert.ToUInt64((string)tableGrid.Rows[i].Cells[0].Value, 16));
+                codes.Add(Convert.ToByte((string)tableGrid.Rows[i].Cells[0].Value, 16));
                 charas.Add(Convert.ToChar(tableGrid.Rows[i].Cells[1].Value));
             }
             hexBox1.ByteCharConverter = new ByteCharTable(codes.ToArray(), charas.ToArray());
@@ -353,13 +355,10 @@ namespace Tinke
             for (int i = 0; i < lines.Length; i++)
             {
                 int sign_pos = lines[i].IndexOf('=');
-                ushort code = Convert.ToUInt16(lines[i].Substring(0, sign_pos), 16);
+                byte code = Convert.ToByte(lines[i].Substring(0, sign_pos), 16);
                 char chara = lines[i].Substring(sign_pos + 1)[0];
 
-                if (code <= 0x7E)
-                    tableGrid.Rows.Add(code.ToString("x").ToUpper(), chara);
-                else
-                    tableGrid.Rows.Add(code.ToString("x").ToUpper().PadLeft(4, '0'), chara);
+                tableGrid.Rows.Add(code.ToString(), chara);
             }
 
             tableGrid_CellEndEdit(null, null);
@@ -465,29 +464,29 @@ namespace Tinke
 
     public class ByteCharTable : IByteCharConverter
     {
-        Dictionary<ulong, char> tableChar;
-        Dictionary<char, ulong> tableByte;
+        Dictionary<byte, char> tableChar;
+        Dictionary<char, byte> tableByte;
 
         public ByteCharTable(string tablePath)
         {
-            tableChar = new Dictionary<ulong, char>();
-            tableByte = new Dictionary<char, ulong>();
+            tableChar = new Dictionary<byte, char>();
+            tableByte = new Dictionary<char, byte>();
 
             String[] lines = File.ReadAllLines(tablePath);
             for (int i = 0; i < lines.Length; i++)
             {
                 int sign_pos = lines[i].IndexOf('=');
-                ulong code = Convert.ToUInt64(lines[i].Substring(0, sign_pos), 16);
+                byte code = Convert.ToByte(lines[i].Substring(0, sign_pos), 16);
                 char chara = lines[i].Substring(sign_pos + 1)[0];
 
                 tableChar.Add(code, chara);
                 tableByte.Add(chara, code);
             }
         }
-        public ByteCharTable(ulong[] codes, char[] charas)
+        public ByteCharTable(byte[] codes, char[] charas)
         {
-            tableByte = new Dictionary<char, ulong>();
-            tableChar = new Dictionary<ulong, char>();
+            tableByte = new Dictionary<char, byte>();
+            tableChar = new Dictionary<byte, char>();
 
             for (int i = 0; i < codes.Length; i++)
             {
@@ -505,58 +504,136 @@ namespace Tinke
             else
                 return '.';
         }
-        public byte ToByte(char c)
+        public byte[] ToByte(char c)
         {
+            byte[] bytes = new byte[1];
             if (tableByte.ContainsKey(c))
-                return (byte)tableByte[c];
+            {
+                bytes[0] = tableByte[c];
+                return bytes;
+            }
             else
-                return 0;
+                return (new byte[1] { 0 });
+        }
+        public Encoding ToEncoding()
+        {
+            return Encoding.Default;
         }
     }
     public class ByteCharConveter : IByteCharConverter
     {
         Encoding encoding;
-        List<byte> requeridedChar;
-        List<char> requeridedByte;
+        List<byte> requiredChar;
+        List<char> requiredByte;
 
         public ByteCharConveter(string encoding)
         {
             this.encoding = Encoding.GetEncoding(encoding);
-            requeridedChar = new List<byte>();
-            requeridedByte = new List<char>();
+            requiredChar = new List<byte>();
+            requiredByte = new List<char>();
         }
 
-        public byte ToByte(char c)
+        public byte[] ToByte(char c)
         {
-            if (encoding.WebName == "shift_jis")
-                return ToByteShiftJis(c);
-
-            return (byte)c;
+            byte[] decoded = encoding.GetBytes(new char[] { c });
+            return decoded.Length > 0 ? decoded : (new byte[1] { 0 });
         }
         public char ToChar(byte b)
         {
-            if (encoding.WebName == "shift_jis")
-                return ToCharShiftJis(b);
+            if (encoding.WebName == "shift_jis" || encoding.WebName == "gb2312")
+                return ToCharShiftJisOrGBK(b);
+            if (encoding.WebName == "utf-8")
+                return ToCharUtf8(b);
+            if (encoding.WebName == "utf-16")
+                return ToCharUtf16Le(b);
+            if (encoding.WebName == "utf-16BE")
+                return ToCharUtf16Be(b);
 
             return encoding.GetChars(new byte[] { b })[0];
         }
 
-        public byte ToByteShiftJis(char c)
+        public char ToCharShiftJisOrGBK(byte b)
         {
-            return (byte)c;
-        }
-        public char ToCharShiftJis(byte b)
-        {
-            if (requeridedChar.Count == 0 && b > 0x7F)
+            if (requiredChar.Count == 0 && b > 0x7F)
             {
-                requeridedChar.Add(b);
+                requiredChar.Add(b);
                 return '\x20';
             }
 
-            requeridedChar.Add(b);
-            string c = new String(encoding.GetChars(requeridedChar.ToArray()));
-            requeridedChar.Clear();
+            requiredChar.Add(b);
+            string c = new String(encoding.GetChars(requiredChar.ToArray()));
+            requiredChar.Clear();
             return (c[0] > '\x1F' ? c[0] : '.');
         }
+
+        public char ToCharUtf16Le(byte b)
+        {
+            requiredChar.Add(b);
+
+            if (requiredChar.Count == 2)
+            {
+                char c = BitConverter.ToChar(requiredChar.ToArray(), 0);
+                requiredChar.Clear();
+                return (c > '\x1F' ? c : '.');
+            }
+
+            return '\x20';
+        }
+
+        public char ToCharUtf16Be(byte b)
+        {
+            requiredChar.Add(b);
+
+            if (requiredChar.Count == 2)
+            {
+                byte[] bytes = requiredChar.ToArray();
+                Array.Reverse(bytes);
+                char c = BitConverter.ToChar(bytes, 0);
+                requiredChar.Clear();
+                return (c > '\x1F' ? c : '.');
+            }
+
+            return '\x20';
+        }
+
+        public char ToCharUtf8(byte b)
+        {
+            if (requiredChar.Count == 0 && !((b & 0x80) == 0))
+            {
+                requiredChar.Add(b);
+                return '\x20';
+            }
+            else if (requiredChar.Count == 1 && !((requiredChar[0] & 0xE0) == 0xC0))
+            {
+                requiredChar.Add(b);
+                return '\x20';
+            }
+            else if (requiredChar.Count == 2 && !((requiredChar[0] & 0xF0) == 0xE0))
+            {
+                requiredChar.Add(b);
+                return '\x20';
+            }
+
+            requiredChar.Add(b);
+            string c = new String(encoding.GetChars(requiredChar.ToArray()));
+            requiredChar.Clear();
+            return (c[0] > '\x1F' ? c[0] : '.');
+        }
+
+        public override string ToString()
+        {
+            if (encoding.WebName == "utf-16" || encoding.WebName == "utf-16BE")
+            {
+                requiredChar.Clear();
+                return "Unicode";
+            }
+            return encoding.WebName;
+        }
+
+        public Encoding ToEncoding()
+        {
+            return this.encoding;
+        }
     }
+
 }

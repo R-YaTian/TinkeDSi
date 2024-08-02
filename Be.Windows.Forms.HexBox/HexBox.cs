@@ -1066,11 +1066,13 @@ namespace Be.Windows.Forms
 
 				_hexBox.ReleaseSelection();
 
-                byte b = _hexBox.ByteCharConverter.ToByte(c);
+                byte[] b = _hexBox.ByteCharConverter.ToByte(c);
 				if(isInsertMode)
-					_hexBox._byteProvider.InsertBytes(pos, new byte[]{b});
-				else
-					_hexBox._byteProvider.WriteByte(pos, b);
+					_hexBox._byteProvider.InsertBytes(pos, b);
+				else {
+					foreach (byte bs in b)
+                        _hexBox._byteProvider.WriteByte(pos, bs);
+				}
 
 				PerformPosMoveRightByte();
 				_hexBox.Invalidate();
@@ -1168,15 +1170,15 @@ namespace Be.Windows.Forms
         /// </summary>
         int _lastThumbtrack; 
 		/// <summary>
-		/// Contains the border큦 left shift
+		/// Contains the border left shift
 		/// </summary>
 		int _recBorderLeft = SystemInformation.Border3DSize.Width;
 		/// <summary>
-		/// Contains the border큦 right shift
+		/// Contains the border right shift
 		/// </summary>
 		int _recBorderRight = SystemInformation.Border3DSize.Width;
 		/// <summary>
-		/// Contains the border큦 top shift
+		/// Contains the border top shift
 		/// </summary>
 		int _recBorderTop = SystemInformation.Border3DSize.Height;
 		/// <summary>
@@ -1807,7 +1809,7 @@ namespace Be.Windows.Forms
 
 			System.Diagnostics.Debug.WriteLine("UpdateCaret()", "HexBox");
 
-			long byteIndex =_bytePos - _startByte;
+			long byteIndex = _bytePos - _startByte;
 			PointF p = _keyInterpreter.GetCaretPointF(byteIndex);
 			p.X += _byteCharacterPos*_charSize.Width;
 			NativeMethods.SetCaretPos((int)p.X, (int)p.Y);
@@ -2149,7 +2151,8 @@ namespace Be.Windows.Forms
 			DataObject da = new DataObject();
 
 			// set string buffer clipbard data
-			string sBuffer = System.Text.Encoding.ASCII.GetString(buffer, 0, buffer.Length);
+			Encoding encoding = ByteCharConverter.ToEncoding();
+            string sBuffer = encoding.GetString(buffer, 0, buffer.Length);
 			da.SetData(typeof(string), sBuffer);
 
 			//set memorystream (BinaryData) clipboard data
@@ -2229,7 +2232,8 @@ namespace Be.Windows.Forms
 			else if(da.GetDataPresent(typeof(string)))
 			{
 				string sBuffer = (string)da.GetData(typeof(string));
-				buffer = System.Text.Encoding.ASCII.GetBytes(sBuffer);
+                Encoding encoding = ByteCharConverter.ToEncoding();
+                buffer = encoding.GetBytes(sBuffer);
 			}
 			else
 			{
@@ -2581,9 +2585,37 @@ namespace Be.Windows.Forms
 			g.DrawString(sB.Substring(1,1), Font, brush, bytePointF, _stringFormat);
 		}
 
-		void PaintHexAndStringView(Graphics g, long startByte, long endByte)
+        static bool IsCjkCharacter(char ch)
+        {
+            int codePoint = ch;
+
+            // CJK Unified Ideographs
+            if (codePoint >= 0x4E00 && codePoint <= 0x9FFF)
+                return true;
+
+            // CJK Unified Ideographs Extension A
+            if (codePoint >= 0x3400 && codePoint <= 0x4DBF)
+                return true;
+
+            // CJK Compatibility Ideographs
+            if (codePoint >= 0xF900 && codePoint <= 0xFAFF)
+                return true;
+
+            // Additional ranges for CJK (surrogate pairs)
+            // Note: Surrogate pairs are required for characters beyond U+FFFF
+            if (char.IsHighSurrogate(ch) || char.IsLowSurrogate(ch))
+            {
+                // Handle surrogate pairs
+                return false;
+            }
+
+            return false;
+        }
+
+        void PaintHexAndStringView(Graphics g, long startByte, long endByte)
 		{
-			Brush brush = new SolidBrush(GetDefaultForeColor());
+			System.Diagnostics.Debug.WriteLine(ByteCharConverter.ToString(), "PaintHexAndStringView()", "HexBox");
+            Brush brush = new SolidBrush(GetDefaultForeColor());
 			Brush selBrush = new SolidBrush(_selectionForeColor);
 			Brush selBrushBack = new SolidBrush(_selectionBackColor);
 
@@ -2612,18 +2644,23 @@ namespace Be.Windows.Forms
 				}
 
                 string s = new String(ByteCharConverter.ToChar(b), 1);
+				float cjk_ofs = 0;
+				if (IsCjkCharacter(s.ToCharArray()[0]))
+					cjk_ofs = _charSize.Width / 2;
 
-				if(isSelectedByte && isStringKeyInterpreterActive)
+                if (isSelectedByte && isStringKeyInterpreterActive)
 				{
-					g.FillRectangle(selBrushBack, byteStringPointF.X, byteStringPointF.Y, _charSize.Width, _charSize.Height);
-					g.DrawString(s, Font, selBrush, byteStringPointF, _stringFormat);
+                    g.FillRectangle(selBrushBack, byteStringPointF.X, byteStringPointF.Y, _charSize.Width, _charSize.Height);
+                    byteStringPointF.X -= cjk_ofs;
+                    g.DrawString(s, Font, selBrush, byteStringPointF, _stringFormat);
 				}
 				else
 				{
-					g.DrawString(s, Font, brush, byteStringPointF, _stringFormat);
+					byteStringPointF.X -= cjk_ofs;
+                    g.DrawString(s, Font, brush, byteStringPointF, _stringFormat);
 				}
 			}
-		}
+        }
 
 		void PaintCurrentBytesSign(Graphics g)
 		{
@@ -2818,7 +2855,7 @@ namespace Be.Windows.Forms
 				return;
 
 			_startByte = (_scrollVpos+1) * _iHexMaxHBytes - _iHexMaxHBytes;
-			_endByte = (long)Math.Min(_byteProvider.Length - 1, _startByte + _iHexMaxBytes);
+            _endByte = (long)Math.Min(_byteProvider.Length - 1, _startByte + _iHexMaxBytes);
 		}
 		#endregion
 
@@ -3318,9 +3355,9 @@ namespace Be.Windows.Forms
 		} long _lineInfoOffset = 0;
 
 		/// <summary>
-		/// Gets or sets the hex box큦 border style.
+		/// Gets or sets the hex box border style.
 		/// </summary>
-		[DefaultValue(typeof(BorderStyle), "Fixed3D"), Category("Hex"), Description("Gets or sets the hex box큦 border style.")]
+		[DefaultValue(typeof(BorderStyle), "Fixed3D"), Category("Hex"), Description("Gets or sets the hex box border style.")]
 		public BorderStyle BorderStyle
 		{
 			get { return _borderStyle;}
