@@ -88,9 +88,10 @@ namespace Ekona.Images
         /// <returns>Colors</returns>
         public static Color[] BGR555ToColor(byte[] bytes)
         {
-            Color[] colors = new Color[bytes.Length / 2];
+            int colorCount = bytes.Length / 2;
+            Color[] colors = new Color[colorCount];
 
-            for (int i = 0; i < bytes.Length / 2; i++)
+            for (int i = 0; i < colorCount; i++)
                 colors[i] = BGR555ToColor(bytes[i * 2], bytes[i * 2 + 1]);
 
             return colors;
@@ -100,12 +101,15 @@ namespace Ekona.Images
         /// </summary>
         public static Color BGR555ToColor(byte byte1, byte byte2)
         {
-            int r, b, g;
-            short bgr = BitConverter.ToInt16(new Byte[] { byte1, byte2 }, 0);
+            int bgr = byte1 | (byte2 << 8);
 
-            r = (bgr & 0x001F) * 0x08;
-            g = ((bgr & 0x03E0) >> 5) * 0x08;
-            b = ((bgr & 0x7C00) >> 10) * 0x08;
+            int r5 =  bgr        & 0x1F;
+            int g5 = (bgr >> 5)  & 0x1F;
+            int b5 = (bgr >> 10) & 0x1F;
+
+            int r = (r5 * 255) / 31;
+            int g = (g5 * 255) / 31;
+            int b = (b5 * 255) / 31;
 
             return Color.FromArgb(r, g, b);
         }
