@@ -29,13 +29,13 @@ namespace Tinke.Dialog
             catch { throw new NotImplementedException("There was an error reading the language file"); }
         }
 
-        public bool IsKeepSignature
-        {
+        public bool IsSafeTrim
+        { 
             get { return checkBox1.Checked; }
         }
 
-        public bool IsSafeTrim
-        { 
+        public bool IsKeepSignature
+        {
             get { return checkBox2.Checked; }
         }
 
@@ -77,3 +77,4 @@ namespace Tinke.Dialog
         }
     }
 }
+
