@@ -64,7 +64,7 @@ namespace Tinke.Dialog
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(13, 13);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(26, 13);
+            this.label1.Size = new System.Drawing.Size(23, 12);
             this.label1.TabIndex = 2;
             this.label1.Text = "S05";
             // 
@@ -84,14 +84,14 @@ namespace Tinke.Dialog
             // numericOffset
             // 
             this.numericOffset.Hexadecimal = true;
-            this.numericOffset.Location = new System.Drawing.Point(34, 34);
+            this.numericOffset.Location = new System.Drawing.Point(42, 34);
             this.numericOffset.Maximum = new decimal(new int[] {
             65535,
             0,
             0,
             0});
             this.numericOffset.Name = "numericOffset";
-            this.numericOffset.Size = new System.Drawing.Size(120, 20);
+            this.numericOffset.Size = new System.Drawing.Size(120, 21);
             this.numericOffset.TabIndex = 0;
             // 
             // label2
@@ -99,14 +99,16 @@ namespace Tinke.Dialog
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(13, 36);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(21, 13);
+            this.label2.Size = new System.Drawing.Size(23, 12);
             this.label2.TabIndex = 3;
             this.label2.Text = "0 x";
             // 
             // SelectOffset
             // 
             this.AcceptButton = this.btnOK;
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(284, 66);
             this.Controls.Add(this.label2);

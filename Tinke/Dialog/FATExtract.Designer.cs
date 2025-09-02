@@ -140,7 +140,7 @@ namespace Tinke.Dialog
             // checkOmitZero
             // 
             this.checkOmitZero.AutoSize = true;
-            this.checkOmitZero.Location = new System.Drawing.Point(153, 134);
+            this.checkOmitZero.Location = new System.Drawing.Point(141, 133);
             this.checkOmitZero.Name = "checkOmitZero";
             this.checkOmitZero.Size = new System.Drawing.Size(144, 16);
             this.checkOmitZero.TabIndex = 15;
@@ -576,8 +576,9 @@ namespace Tinke.Dialog
             // 
             // FATExtract
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(752, 337);
             this.Controls.Add(this.btnCancel);

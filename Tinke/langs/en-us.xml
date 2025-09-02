@@ -370,7 +370,7 @@
     <S1C>Show all maker codes</S1C>
     <S1D>Secure transfer timeout:</S1D>
     <S1E>Secure disable:</S1E>
-    <S1F>Reserved 3(4 bytes Hexadecimal):</S1F>
+    <S1F>Reserved 3(4 bytes Hex):</S1F>
     <S20>Reserved 2(56 bytes Hexadecimal):</S20>
     <S21>ARM9 autoload:</S21>
     <S22>ARM7 autoload:</S22>

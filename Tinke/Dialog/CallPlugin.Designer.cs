@@ -166,9 +166,9 @@ namespace Tinke.Dialog
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(205, 87);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(65, 12);
+            this.label5.Size = new System.Drawing.Size(59, 12);
             this.label5.TabIndex = 10;
-            this.label5.Text = "hex:    0x";
+            this.label5.Text = "hex:   0x";
             // 
             // label6
             // 
@@ -194,7 +194,9 @@ namespace Tinke.Dialog
             // 
             // CallPlugin
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(379, 139);
             this.Controls.Add(this.numericID);

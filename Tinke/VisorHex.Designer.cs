@@ -96,10 +96,10 @@ namespace Tinke
             this.hexBox1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.hexBox1.InfoForeColor = System.Drawing.Color.Empty;
             this.hexBox1.LineInfoVisible = true;
-            this.hexBox1.Location = new System.Drawing.Point(0, 24);
+            this.hexBox1.Location = new System.Drawing.Point(0, 28);
             this.hexBox1.Name = "hexBox1";
             this.hexBox1.ShadowSelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(60)))), ((int)(((byte)(188)))), ((int)(((byte)(255)))));
-            this.hexBox1.Size = new System.Drawing.Size(779, 268);
+            this.hexBox1.Size = new System.Drawing.Size(866, 260);
             this.hexBox1.StringViewVisible = true;
             this.hexBox1.TabIndex = 0;
             this.hexBox1.UseFixedBytesPerLine = true;
@@ -115,7 +115,7 @@ namespace Tinke
             this.optionsToolStripMenuItem});
             this.menuStripTop.Location = new System.Drawing.Point(0, 0);
             this.menuStripTop.Name = "menuStripTop";
-            this.menuStripTop.Size = new System.Drawing.Size(779, 25);
+            this.menuStripTop.Size = new System.Drawing.Size(1060, 25);
             this.menuStripTop.TabIndex = 1;
             this.menuStripTop.Text = "menuStrip1";
             // 
@@ -151,7 +151,7 @@ namespace Tinke
             this.toolStripTextBox1,
             this.goToolStripMenuItem});
             this.gotoToolStripMenuItem.Name = "gotoToolStripMenuItem";
-            this.gotoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.gotoToolStripMenuItem.Size = new System.Drawing.Size(97, 22);
             this.gotoToolStripMenuItem.Text = "S03";
             // 
             // toolStripTextBox1
@@ -179,7 +179,7 @@ namespace Tinke
             this.relativeToolStripMenuItem,
             this.goToolStripMenuItem1});
             this.selectRangeToolStripMenuItem.Name = "selectRangeToolStripMenuItem";
-            this.selectRangeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.selectRangeToolStripMenuItem.Size = new System.Drawing.Size(97, 22);
             this.selectRangeToolStripMenuItem.Text = "S04";
             // 
             // startOffsetToolStripMenuItem
@@ -238,7 +238,7 @@ namespace Tinke
             this.FindPrvToolStripMenuItem,
             this.FindNextToolStripMenuItem});
             this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
-            this.searchToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.searchToolStripMenuItem.Size = new System.Drawing.Size(97, 22);
             this.searchToolStripMenuItem.Text = "S09";
             // 
             // toolStripSearchBox
@@ -373,7 +373,7 @@ namespace Tinke
             this.toolStripSelect});
             this.statusStrip1.Location = new System.Drawing.Point(0, 291);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(779, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1060, 22);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -393,11 +393,10 @@ namespace Tinke
             this.codeColumn,
             this.charColumn});
             this.tableGrid.Dock = System.Windows.Forms.DockStyle.Right;
-            this.tableGrid.Location = new System.Drawing.Point(636, 25);
+            this.tableGrid.Location = new System.Drawing.Point(872, 25);
             this.tableGrid.Name = "tableGrid";
-            this.tableGrid.Size = new System.Drawing.Size(143, 266);
+            this.tableGrid.Size = new System.Drawing.Size(188, 266);
             this.tableGrid.TabIndex = 3;
-            this.tableGrid.Visible = false;
             this.tableGrid.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.tableGrid_CellEndEdit);
             // 
             // codeColumn
@@ -416,7 +415,7 @@ namespace Tinke
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.ClientSize = new System.Drawing.Size(779, 313);
+            this.ClientSize = new System.Drawing.Size(1060, 313);
             this.Controls.Add(this.hexBox1);
             this.Controls.Add(this.tableGrid);
             this.Controls.Add(this.statusStrip1);
@@ -427,7 +426,6 @@ namespace Tinke
             this.Name = "VisorHex";
             this.Text = "S41";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.VisorHex_FormClosed);
-            this.Resize += new System.EventHandler(this.VisorHex_Resize);
             this.menuStripTop.ResumeLayout(false);
             this.menuStripTop.PerformLayout();
             this.statusStrip1.ResumeLayout(false);

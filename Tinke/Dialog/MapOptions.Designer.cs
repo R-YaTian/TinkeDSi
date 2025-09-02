@@ -109,7 +109,7 @@ namespace Tinke.Dialog
             0,
             0});
             this.numericWidth.Name = "numericWidth";
-            this.numericWidth.Size = new System.Drawing.Size(60, 20);
+            this.numericWidth.Size = new System.Drawing.Size(60, 21);
             this.numericWidth.TabIndex = 1;
             // 
             // label1
@@ -117,7 +117,7 @@ namespace Tinke.Dialog
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 14);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(26, 13);
+            this.label1.Size = new System.Drawing.Size(23, 12);
             this.label1.TabIndex = 2;
             this.label1.Text = "S01";
             // 
@@ -126,7 +126,7 @@ namespace Tinke.Dialog
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(12, 40);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(26, 13);
+            this.label2.Size = new System.Drawing.Size(23, 12);
             this.label2.TabIndex = 3;
             this.label2.Text = "S02";
             // 
@@ -139,7 +139,7 @@ namespace Tinke.Dialog
             0,
             0});
             this.numericHeight.Name = "numericHeight";
-            this.numericHeight.Size = new System.Drawing.Size(60, 20);
+            this.numericHeight.Size = new System.Drawing.Size(60, 21);
             this.numericHeight.TabIndex = 4;
             // 
             // checkFillTile
@@ -147,7 +147,7 @@ namespace Tinke.Dialog
             this.checkFillTile.AutoSize = true;
             this.checkFillTile.Location = new System.Drawing.Point(15, 75);
             this.checkFillTile.Name = "checkFillTile";
-            this.checkFillTile.Size = new System.Drawing.Size(45, 17);
+            this.checkFillTile.Size = new System.Drawing.Size(42, 16);
             this.checkFillTile.TabIndex = 5;
             this.checkFillTile.Text = "S03";
             this.checkFillTile.UseVisualStyleBackColor = true;
@@ -158,7 +158,7 @@ namespace Tinke.Dialog
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(12, 29);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(26, 13);
+            this.label3.Size = new System.Drawing.Size(23, 12);
             this.label3.TabIndex = 6;
             this.label3.Text = "S04";
             // 
@@ -167,7 +167,7 @@ namespace Tinke.Dialog
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(12, 101);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(26, 13);
+            this.label4.Size = new System.Drawing.Size(23, 12);
             this.label4.TabIndex = 7;
             this.label4.Text = "S05";
             // 
@@ -181,7 +181,7 @@ namespace Tinke.Dialog
             0,
             0});
             this.numericStartTile.Name = "numericStartTile";
-            this.numericStartTile.Size = new System.Drawing.Size(60, 20);
+            this.numericStartTile.Size = new System.Drawing.Size(60, 21);
             this.numericStartTile.TabIndex = 8;
             this.numericStartTile.ValueChanged += new System.EventHandler(this.numericStartTile_ValueChanged);
             // 
@@ -195,7 +195,7 @@ namespace Tinke.Dialog
             0,
             0});
             this.numericFillTile.Name = "numericFillTile";
-            this.numericFillTile.Size = new System.Drawing.Size(60, 20);
+            this.numericFillTile.Size = new System.Drawing.Size(60, 21);
             this.numericFillTile.TabIndex = 9;
             // 
             // groupFill
@@ -221,7 +221,7 @@ namespace Tinke.Dialog
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(200, 46);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(26, 13);
+            this.label6.Size = new System.Drawing.Size(23, 12);
             this.label6.TabIndex = 13;
             this.label6.Text = "S08";
             // 
@@ -234,7 +234,7 @@ namespace Tinke.Dialog
             0,
             0});
             this.numericMaxHeight.Name = "numericMaxHeight";
-            this.numericMaxHeight.Size = new System.Drawing.Size(60, 20);
+            this.numericMaxHeight.Size = new System.Drawing.Size(60, 21);
             this.numericMaxHeight.TabIndex = 12;
             this.numericMaxHeight.ValueChanged += new System.EventHandler(this.numericMaxSize_ValueChanged);
             // 
@@ -247,7 +247,7 @@ namespace Tinke.Dialog
             0,
             0});
             this.numericMaxWidth.Name = "numericMaxWidth";
-            this.numericMaxWidth.Size = new System.Drawing.Size(60, 20);
+            this.numericMaxWidth.Size = new System.Drawing.Size(60, 21);
             this.numericMaxWidth.TabIndex = 11;
             this.numericMaxWidth.ValueChanged += new System.EventHandler(this.numericMaxSize_ValueChanged);
             // 
@@ -256,7 +256,7 @@ namespace Tinke.Dialog
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(200, 19);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(26, 13);
+            this.label5.Size = new System.Drawing.Size(23, 12);
             this.label5.TabIndex = 10;
             this.label5.Text = "S07";
             // 
@@ -283,7 +283,7 @@ namespace Tinke.Dialog
             0,
             0});
             this.numericSubPalette.Name = "numericSubPalette";
-            this.numericSubPalette.Size = new System.Drawing.Size(60, 20);
+            this.numericSubPalette.Size = new System.Drawing.Size(60, 21);
             this.numericSubPalette.TabIndex = 3;
             // 
             // label8
@@ -291,7 +291,7 @@ namespace Tinke.Dialog
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(12, 56);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(26, 13);
+            this.label8.Size = new System.Drawing.Size(23, 12);
             this.label8.TabIndex = 2;
             this.label8.Text = "S1F";
             // 
@@ -305,7 +305,7 @@ namespace Tinke.Dialog
             0,
             0});
             this.numericSubStart.Name = "numericSubStart";
-            this.numericSubStart.Size = new System.Drawing.Size(60, 20);
+            this.numericSubStart.Size = new System.Drawing.Size(60, 21);
             this.numericSubStart.TabIndex = 1;
             // 
             // label7
@@ -313,7 +313,7 @@ namespace Tinke.Dialog
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(12, 29);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(28, 13);
+            this.label7.Size = new System.Drawing.Size(23, 12);
             this.label7.TabIndex = 0;
             this.label7.Text = "S1D";
             // 
@@ -322,7 +322,7 @@ namespace Tinke.Dialog
             this.checkSubImage.AutoSize = true;
             this.checkSubImage.Location = new System.Drawing.Point(15, 241);
             this.checkSubImage.Name = "checkSubImage";
-            this.checkSubImage.Size = new System.Drawing.Size(46, 17);
+            this.checkSubImage.Size = new System.Drawing.Size(42, 16);
             this.checkSubImage.TabIndex = 12;
             this.checkSubImage.Text = "S1E";
             this.checkSubImage.UseVisualStyleBackColor = true;
@@ -342,7 +342,9 @@ namespace Tinke.Dialog
             // 
             // MapOptions
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(394, 392);
             this.ControlBox = false;

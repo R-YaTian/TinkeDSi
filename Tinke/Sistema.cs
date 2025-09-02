@@ -391,7 +391,7 @@ namespace Tinke
             Console.WriteLine("Number of directories: {0}", accion.LastFolderID - 0xF000 - 1);
             Console.WriteLine("Number of files: {0}</font>", fat.Length);
 
-            this.Text += "          " + new String(romInfo.Cabecera.gameTitle).Replace("\0", "") +
+            this.Text += " - " + new String(romInfo.Cabecera.gameTitle).Replace("\0", "") +
                 " (" + new String(romInfo.Cabecera.gameCode) + ')';
         }
 

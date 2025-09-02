@@ -52,13 +52,13 @@ namespace Tinke
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Sistema));
-            System.Windows.Forms.ListViewItem listViewItem22 = new System.Windows.Forms.ListViewItem("S09");
-            System.Windows.Forms.ListViewItem listViewItem23 = new System.Windows.Forms.ListViewItem("S0A");
-            System.Windows.Forms.ListViewItem listViewItem24 = new System.Windows.Forms.ListViewItem("S0B");
-            System.Windows.Forms.ListViewItem listViewItem25 = new System.Windows.Forms.ListViewItem("S0C");
-            System.Windows.Forms.ListViewItem listViewItem26 = new System.Windows.Forms.ListViewItem("S0D");
-            System.Windows.Forms.ListViewItem listViewItem27 = new System.Windows.Forms.ListViewItem("S0E");
-            System.Windows.Forms.ListViewItem listViewItem28 = new System.Windows.Forms.ListViewItem("S40");
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("S09");
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("S0A");
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("S0B");
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("S0C");
+            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("S0D");
+            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("S0E");
+            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem("S40");
             this.iconos = new System.Windows.Forms.ImageList(this.components);
             this.btnExtract = new System.Windows.Forms.Button();
             this.btnSee = new System.Windows.Forms.Button();
@@ -182,13 +182,13 @@ namespace Tinke
             this.columnHeader2});
             this.listFile.HideSelection = false;
             this.listFile.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem22,
-            listViewItem23,
-            listViewItem24,
-            listViewItem25,
-            listViewItem26,
-            listViewItem27,
-            listViewItem28});
+            listViewItem1,
+            listViewItem2,
+            listViewItem3,
+            listViewItem4,
+            listViewItem5,
+            listViewItem6,
+            listViewItem7});
             this.listFile.Location = new System.Drawing.Point(409, 28);
             this.listFile.Name = "listFile";
             this.listFile.Size = new System.Drawing.Size(197, 169);
@@ -353,7 +353,7 @@ namespace Tinke
             // 
             this.toolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem1.Image")));
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(99, 22);
             this.toolStripMenuItem1.Text = "S17";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.toolAbrirComoItemPaleta_Click);
             // 
@@ -361,7 +361,7 @@ namespace Tinke
             // 
             this.toolStripMenuItem2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem2.Image")));
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(99, 22);
             this.toolStripMenuItem2.Text = "S18";
             this.toolStripMenuItem2.Click += new System.EventHandler(this.toolAbrirComoItemTile_Click);
             // 
@@ -369,7 +369,7 @@ namespace Tinke
             // 
             this.toolStripMenuItem3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem3.Image")));
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(99, 22);
             this.toolStripMenuItem3.Text = "S19";
             this.toolStripMenuItem3.Click += new System.EventHandler(this.toolAbrirComoItemScreen_Click);
             // 
@@ -377,7 +377,7 @@ namespace Tinke
             // 
             this.toolStripMenuComprimido.Image = global::Tinke.Properties.Resources.compress;
             this.toolStripMenuComprimido.Name = "toolStripMenuComprimido";
-            this.toolStripMenuComprimido.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuComprimido.Size = new System.Drawing.Size(99, 22);
             this.toolStripMenuComprimido.Text = "S2A";
             this.toolStripMenuComprimido.Click += new System.EventHandler(this.s2AToolStripMenuItem_Click);
             // 
@@ -385,7 +385,7 @@ namespace Tinke
             // 
             this.toolStripAbrirFat.Image = global::Tinke.Properties.Resources.package;
             this.toolStripAbrirFat.Name = "toolStripAbrirFat";
-            this.toolStripAbrirFat.Size = new System.Drawing.Size(180, 22);
+            this.toolStripAbrirFat.Size = new System.Drawing.Size(99, 22);
             this.toolStripAbrirFat.Text = "S3D";
             this.toolStripAbrirFat.Click += new System.EventHandler(this.toolStripAbrirFat_Click);
             // 
@@ -393,7 +393,7 @@ namespace Tinke
             // 
             this.toolStripAbrirTexto.Image = global::Tinke.Properties.Resources.page_white_text;
             this.toolStripAbrirTexto.Name = "toolStripAbrirTexto";
-            this.toolStripAbrirTexto.Size = new System.Drawing.Size(180, 22);
+            this.toolStripAbrirTexto.Size = new System.Drawing.Size(99, 22);
             this.toolStripAbrirTexto.Text = "S26";
             this.toolStripAbrirTexto.Click += new System.EventHandler(this.toolStripAbrirTexto_Click);
             // 
@@ -401,7 +401,7 @@ namespace Tinke
             // 
             this.callPluginToolStripMenuItem.Image = global::Tinke.Properties.Resources.plugin_go;
             this.callPluginToolStripMenuItem.Name = "callPluginToolStripMenuItem";
-            this.callPluginToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.callPluginToolStripMenuItem.Size = new System.Drawing.Size(99, 22);
             this.callPluginToolStripMenuItem.Text = "S49";
             this.callPluginToolStripMenuItem.Click += new System.EventHandler(this.callPluginToolStripMenuItem_Click);
             // 
@@ -540,7 +540,7 @@ namespace Tinke
             this.toolStrip3.Name = "toolStrip3";
             this.toolStrip3.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.toolStrip3.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.toolStrip3.Size = new System.Drawing.Size(59, 43);
+            this.toolStrip3.Size = new System.Drawing.Size(59, 24);
             this.toolStrip3.TabIndex = 23;
             this.toolStrip3.Text = "toolStrip3";
             // 
@@ -561,7 +561,7 @@ namespace Tinke
             // 
             this.toolStripMenuItem4.Image = global::Tinke.Properties.Resources.calculator;
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(98, 22);
             this.toolStripMenuItem4.Text = "S4A";
             this.toolStripMenuItem4.Click += new System.EventHandler(this.toolStripMenuItem4_Click);
             // 
@@ -569,14 +569,15 @@ namespace Tinke
             // 
             this.toolStripMenuItem5.Image = global::Tinke.Properties.Resources.calculator;
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(98, 22);
             this.toolStripMenuItem5.Text = "S4B";
             this.toolStripMenuItem5.Click += new System.EventHandler(this.toolStripMenuItem5_Click);
             // 
             // Sistema
             // 
             this.AllowDrop = true;
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(644, 547);
             this.Controls.Add(this.toolStrip3);

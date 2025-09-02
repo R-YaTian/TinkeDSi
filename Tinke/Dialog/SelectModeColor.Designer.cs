@@ -76,7 +76,7 @@ namespace Tinke.Dialog
             this.radioButton1.AutoSize = true;
             this.radioButton1.Location = new System.Drawing.Point(12, 12);
             this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(44, 17);
+            this.radioButton1.Size = new System.Drawing.Size(41, 16);
             this.radioButton1.TabIndex = 0;
             this.radioButton1.Text = "S02";
             this.radioButton1.UseVisualStyleBackColor = true;
@@ -86,7 +86,7 @@ namespace Tinke.Dialog
             this.radioButton2.AutoSize = true;
             this.radioButton2.Location = new System.Drawing.Point(12, 41);
             this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(44, 17);
+            this.radioButton2.Size = new System.Drawing.Size(41, 16);
             this.radioButton2.TabIndex = 1;
             this.radioButton2.Text = "S03";
             this.radioButton2.UseVisualStyleBackColor = true;
@@ -97,7 +97,7 @@ namespace Tinke.Dialog
             this.radioButton3.Checked = true;
             this.radioButton3.Location = new System.Drawing.Point(12, 68);
             this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(46, 17);
+            this.radioButton3.Size = new System.Drawing.Size(41, 16);
             this.radioButton3.TabIndex = 2;
             this.radioButton3.TabStop = true;
             this.radioButton3.Text = "S1D";
@@ -105,7 +105,9 @@ namespace Tinke.Dialog
             // 
             // SelectModeColor
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(276, 134);
             this.Controls.Add(this.radioButton3);

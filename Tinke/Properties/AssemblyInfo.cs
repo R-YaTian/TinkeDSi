@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("TinkeDSi")]
-[assembly: AssemblyCopyright("Copyright © 2012-2021 pleoNeX&MetLob&R-YaTian")]
+[assembly: AssemblyCopyright("Copyright © 2012-2025 pleoNeX&MetLob&R-YaTian")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: ComVisible(false)]

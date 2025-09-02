@@ -42,7 +42,7 @@
             this.checkBox1.AutoSize = true;
             this.checkBox1.Location = new System.Drawing.Point(12, 12);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(53, 19);
+            this.checkBox1.Size = new System.Drawing.Size(42, 16);
             this.checkBox1.TabIndex = 0;
             this.checkBox1.Text = "S1E";
             this.checkBox1.UseVisualStyleBackColor = true;
@@ -52,7 +52,7 @@
             this.checkBox2.AutoSize = true;
             this.checkBox2.Location = new System.Drawing.Point(12, 37);
             this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(53, 19);
+            this.checkBox2.Size = new System.Drawing.Size(42, 16);
             this.checkBox2.TabIndex = 2;
             this.checkBox2.Text = "S1F";
             this.checkBox2.UseVisualStyleBackColor = true;
@@ -88,7 +88,7 @@
             this.checkBox3.AutoSize = true;
             this.checkBox3.Location = new System.Drawing.Point(12, 62);
             this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(53, 19);
+            this.checkBox3.Size = new System.Drawing.Size(42, 16);
             this.checkBox3.TabIndex = 5;
             this.checkBox3.Text = "S20";
             this.checkBox3.UseVisualStyleBackColor = true;
@@ -100,7 +100,7 @@
             this.checkBox4.Enabled = false;
             this.checkBox4.Location = new System.Drawing.Point(12, 87);
             this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(53, 19);
+            this.checkBox4.Size = new System.Drawing.Size(42, 16);
             this.checkBox4.TabIndex = 6;
             this.checkBox4.Text = "S21";
             this.checkBox4.UseVisualStyleBackColor = true;
@@ -110,13 +110,16 @@
             this.checkBox5.AutoSize = true;
             this.checkBox5.Location = new System.Drawing.Point(12, 112);
             this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(53, 19);
+            this.checkBox5.Size = new System.Drawing.Size(42, 16);
             this.checkBox5.TabIndex = 7;
             this.checkBox5.Text = "S22";
             this.checkBox5.UseVisualStyleBackColor = true;
             // 
             // SaveOptions
             // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(239, 181);
             this.Controls.Add(this.checkBox5);

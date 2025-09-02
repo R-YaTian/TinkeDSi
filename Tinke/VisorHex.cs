@@ -141,16 +141,6 @@ namespace Tinke
             get { return id; }
         }
 
-        private void VisorHex_Resize(object sender, EventArgs e)
-        {
-            hexBox1.Height = this.Height - 83;
-
-            tableGrid.Width = this.Width - 750;
-
-            if (tableGrid.Visible) hexBox1.Width = this.Width - (tableGrid.Width + 15);
-            else hexBox1.Width = this.Width - 16;
-        }
-
         private void comboBoxEncoding_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (encodingCombo.SelectedIndex == 0)
@@ -285,13 +275,10 @@ namespace Tinke
         private void hideToolStripMenuItem_Click(object sender, EventArgs e)
         {
             tableGrid.Hide();
-            hexBox1.Width = this.Width - 16;
         }
         private void showToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            hexBox1.Width = this.Width - (tableGrid.Width + 15);
             tableGrid.Show();
-            VisorHex_Resize(null, null);
         }
 
         private void tableGrid_CellEndEdit(object sender, DataGridViewCellEventArgs e)

@@ -62,9 +62,10 @@ namespace Tinke.Dialog
             // listFiles
             // 
             this.listFiles.FormattingEnabled = true;
+            this.listFiles.ItemHeight = 12;
             this.listFiles.Location = new System.Drawing.Point(13, 39);
             this.listFiles.Name = "listFiles";
-            this.listFiles.Size = new System.Drawing.Size(308, 186);
+            this.listFiles.Size = new System.Drawing.Size(308, 184);
             this.listFiles.TabIndex = 0;
             // 
             // btnAccept
@@ -84,7 +85,7 @@ namespace Tinke.Dialog
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(240, 26);
+            this.label1.Size = new System.Drawing.Size(293, 24);
             this.label1.TabIndex = 2;
             this.label1.Text = "There are more than one file with the same name,\r\nselect the correct file";
             // 
@@ -105,6 +106,7 @@ namespace Tinke.Dialog
             this.AcceptButton = this.btnAccept;
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.CancelButton = this.btnSkip;
             this.ClientSize = new System.Drawing.Size(333, 276);
