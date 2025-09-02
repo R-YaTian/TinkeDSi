@@ -38,7 +38,7 @@ SET build_dir=%CD%\build
 IF EXIST "%build_dir%" RMDIR /S /Q "%build_dir%" || EXIT /B 1
 
 REM Get compiler
-SET netver=v4.5
+SET netver=v4.0
 SET msbuild_path=%windir%\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe
 SET msbuild=%msbuild_path% /p:Configuration=%conf% /p:TargetFrameworkVersion=%netver%
 SET msbuild_plugin=%msbuild% /p:OutputPath="%build_dir%\Plugins\\" /m
