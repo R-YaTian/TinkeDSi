@@ -21,13 +21,10 @@
  */
 
 using System;
-//using System.Collections.Generic;
-//using System.ComponentModel;
-//using System.Drawing;
-//using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
 using System.IO;
+using System.Drawing;
 
 namespace Tinke
 {
@@ -36,6 +33,13 @@ namespace Tinke
         public Autores()
         {
             InitializeComponent();
+
+            this.Font = new Font(
+                this.Font.FontFamily,
+                9F,
+                this.Font.Style,
+                GraphicsUnit.Point
+            );
 
             LeerIdioma();
             ReadPlugins();

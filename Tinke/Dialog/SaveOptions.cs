@@ -1,6 +1,7 @@
 ﻿using System;
-using System.Xml.Linq;
+using System.Drawing;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace Tinke.Dialog
 {
@@ -9,6 +10,14 @@ namespace Tinke.Dialog
         public SaveOptions()
         {
             InitializeComponent();
+
+            this.Font = new Font(
+                this.Font.FontFamily,
+                9F,
+                this.Font.Style,
+                GraphicsUnit.Point
+            );
+
             ReadLanguage();
         }
         private void ReadLanguage()

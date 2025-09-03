@@ -113,9 +113,9 @@ namespace Tinke
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(231, 35);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(269, 12);
+            this.label3.Size = new System.Drawing.Size(167, 12);
             this.label3.TabIndex = 3;
-            this.label3.Text = "pleoNeX(benito356@gmail.com)&&Metlob&&R-YaTian";
+            this.label3.Text = "pleoNeX && Metlob && R-YaTian";
             // 
             // label4
             // 
@@ -252,7 +252,7 @@ namespace Tinke
             this.label7.ForeColor = System.Drawing.Color.Black;
             this.label7.Location = new System.Drawing.Point(191, 319);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(34, 16);
+            this.label7.Size = new System.Drawing.Size(33, 16);
             this.label7.TabIndex = 18;
             this.label7.Text = "S0D";
             // 
@@ -313,7 +313,7 @@ namespace Tinke
             this.linkLabel2.AutoSize = true;
             this.linkLabel2.Location = new System.Drawing.Point(255, 87);
             this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(245, 12);
+            this.linkLabel2.Size = new System.Drawing.Size(191, 12);
             this.linkLabel2.TabIndex = 24;
             this.linkLabel2.TabStop = true;
             this.linkLabel2.Text = "https://github.com/MetLob/tinke";
@@ -341,8 +341,9 @@ namespace Tinke
             // 
             // Autores
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(810, 360);
             this.Controls.Add(this.label10);

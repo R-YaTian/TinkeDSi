@@ -41,10 +41,24 @@ namespace Tinke.Dialog
         public SelectFile()
         {
             InitializeComponent();
+
+            this.Font = new Font(
+                this.Font.FontFamily,
+                9F,
+                this.Font.Style,
+                GraphicsUnit.Point
+            );
         }
         public SelectFile(sFile[] files)
         {
             InitializeComponent();
+
+            this.Font = new Font(
+                this.Font.FontFamily,
+                9F,
+                this.Font.Style,
+                GraphicsUnit.Point
+            );
 
             this.files = files;
 

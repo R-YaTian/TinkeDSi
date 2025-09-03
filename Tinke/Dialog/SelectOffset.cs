@@ -39,6 +39,14 @@ namespace Tinke.Dialog
         public SelectOffset()
         {
             InitializeComponent();
+
+            this.Font = new Font(
+                this.Font.FontFamily,
+                9F,
+                this.Font.Style,
+                GraphicsUnit.Point
+            );
+
             ReadLanguage();
 
             numericOffset.Select(0, 1);

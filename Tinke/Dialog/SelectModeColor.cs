@@ -39,6 +39,14 @@ namespace Tinke.Dialog
         public SelectModeColor()
         {
             InitializeComponent();
+
+            this.Font = new Font(
+                this.Font.FontFamily,
+                9F,
+                this.Font.Style,
+                GraphicsUnit.Point
+            );
+
             ReadLanguage();
         }
         private void ReadLanguage()

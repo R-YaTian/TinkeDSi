@@ -273,6 +273,23 @@ namespace Tinke
             romInfo.FormClosing += new FormClosingEventHandler(romInfo_FormClosing);
             LoadPreferences();
 
+            this.Font = new Font(
+                this.Font.FontFamily,
+                10f,
+                this.Font.Style,
+                GraphicsUnit.Point
+            );
+
+            for (int i = 0; i < this.iconos.Images.Count; i++)
+            {
+                string key = this.iconos.Images.Keys[i];
+                if (string.IsNullOrEmpty(key))
+                    key = "image_" + i.ToString();
+
+                string filename = key;
+                this.iconos.Images[i].Save(filename, System.Drawing.Imaging.ImageFormat.Png);
+            }
+
             this.Show();
             if (!isMono)
                 debug.ShowInTaskbar = true;
@@ -979,7 +996,7 @@ namespace Tinke
                 btnHex.Enabled = false;
                 btnSee.Enabled = false;
                 toolStripOpenAs.Enabled = false;
-                btnUnpack.Enabled = true;
+                btnUnpack.Enabled = false;
             }
             else if (Convert.ToUInt16(e.Node.Tag) < 0xF000)
             {
@@ -1088,7 +1105,7 @@ namespace Tinke
                 btnHex.Enabled = false;
                 btnSee.Enabled = false;
                 toolStripOpenAs.Enabled = false;
-                btnUnpack.Enabled = true;
+                btnUnpack.Enabled = false;
             }
 
             listFile.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);

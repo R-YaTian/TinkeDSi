@@ -40,6 +40,14 @@ namespace Tinke.Dialog
         public FATExtract(string file)
         {
             InitializeComponent();
+
+            this.Font = new Font(
+                this.Font.FontFamily,
+                9F,
+                this.Font.Style,
+                GraphicsUnit.Point
+            );
+
             ReadLanguage();
 
             this.file = file;

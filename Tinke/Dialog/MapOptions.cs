@@ -39,10 +39,25 @@ namespace Tinke.Dialog
         public MapOptions()
         {
             InitializeComponent();
+
+            this.Font = new Font(
+                this.Font.FontFamily,
+                9F,
+                this.Font.Style,
+                GraphicsUnit.Point
+            );
         }
         public MapOptions(int width, int height)
         {
             InitializeComponent();
+
+            this.Font = new Font(
+                this.Font.FontFamily,
+                9F,
+                this.Font.Style,
+                GraphicsUnit.Point
+            );
+
             ReadLanguage();
 
             numericWidth.Value = width;

@@ -67,10 +67,10 @@ namespace Tinke
             this.txtInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtInfo.IsWebBrowserContextMenuEnabled = false;
             this.txtInfo.Location = new System.Drawing.Point(0, 0);
-            this.txtInfo.MinimumSize = new System.Drawing.Size(20, 20);
+            this.txtInfo.MinimumSize = new System.Drawing.Size(20, 18);
             this.txtInfo.Name = "txtInfo";
             this.txtInfo.ScriptErrorsSuppressed = true;
-            this.txtInfo.Size = new System.Drawing.Size(644, 152);
+            this.txtInfo.Size = new System.Drawing.Size(644, 140);
             this.txtInfo.TabIndex = 0;
             // 
             // contextMenuStrip1
@@ -79,21 +79,21 @@ namespace Tinke
             this.s0EToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.ShowImageMargin = false;
-            this.contextMenuStrip1.Size = new System.Drawing.Size(128, 48);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(73, 26);
             // 
             // s0EToolStripMenuItem
             // 
             this.s0EToolStripMenuItem.Name = "s0EToolStripMenuItem";
-            this.s0EToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.s0EToolStripMenuItem.Size = new System.Drawing.Size(72, 22);
             this.s0EToolStripMenuItem.Text = "S0E";
             this.s0EToolStripMenuItem.Click += new System.EventHandler(this.s01ToolStripMenuItem_Click);
             // 
             // Debug
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.ClientSize = new System.Drawing.Size(644, 152);
+            this.ClientSize = new System.Drawing.Size(644, 140);
             this.ContextMenuStrip = this.contextMenuStrip1;
             this.Controls.Add(this.txtInfo);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
