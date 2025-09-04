@@ -9,25 +9,16 @@ on:
 jobs:
 
   build:
-    runs-on: windows-latest
+    runs-on: windows-2022
 
     env:
       Solution_Name: Tinke.sln
 
     steps:
     - uses: actions/checkout@main
-    - name: Setup .NET
-      uses: actions/setup-dotnet@main
-      with:
-        dotnet-version: 6.0.x
-
     # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
     - name: Setup MSBuild.exe
       uses: microsoft/setup-msbuild@main
-
-    - name: Install .NET Framework 4.0 Dev Packs
-      run: |
-        choco install netfx-4.0-devpack -y
 
     # Build
     - name: Build

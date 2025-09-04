@@ -43,25 +43,11 @@ namespace Tinke
         public EditRomInfo()
         {
             InitializeComponent();
-
-            this.Font = new Font(
-                this.Font.FontFamily,
-                9F,
-                this.Font.Style,
-                GraphicsUnit.Point
-            );
         }
 
         public EditRomInfo(Nitro.Estructuras.ROMHeader header, Nitro.Estructuras.Banner banner)
         {
             InitializeComponent();
-
-            this.Font = new Font(
-                this.Font.FontFamily,
-                9F,
-                this.Font.Style,
-                GraphicsUnit.Point
-            );
 
             ReadLanguage();
 

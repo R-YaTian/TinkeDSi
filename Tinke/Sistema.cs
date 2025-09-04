@@ -273,55 +273,55 @@ namespace Tinke
             romInfo.FormClosing += new FormClosingEventHandler(romInfo_FormClosing);
             LoadPreferences();
 
-            this.Font = new Font(
-                this.Font.FontFamily,
-                9f,
-                this.Font.Style,
-                GraphicsUnit.Point
-            );
-
-            iconos.Images.Clear();
-            iconos.ImageSize = new Size(32, 32);
-            iconos.ColorDepth = ColorDepth.Depth32Bit;
-
-            string iconDir = Path.Combine(Application.StartupPath, "Icons");
-
-            string[] keys = new string[]
+            using (Graphics g = this.CreateGraphics())
             {
-                "folder.png",
-                "page_white.png",
-                "palette.png",
-                "picture.png",
-                "page_white_text.png",
-                "compress.png",
-                "package.png",
-                "folder_go.png",
-                "pictures.png",
-                "picture_link.png",
-                "photo.png",
-                "picture_save.png",
-                "picture_delete.png",
-                "film.png",
-                "music.png",
-                "picture_go.png",
-                "font.png",
-                "script.png",
-                "folder_add.png",
-                "disk.png",
-                "page_gear.png",
-                "image.png",
-                "map.png",
-                "package_go.png",
-                "package_add.png"
-            };
+                float screenDPI = g.DpiX;
+                float scaleFactor = screenDPI / 96f;
+                int iconSize = (int)(24 * scaleFactor);
 
-            foreach (string key in keys)
-            {
-                string svgFile = Path.Combine(iconDir, Path.ChangeExtension(key, ".svg"));
-                if (File.Exists(svgFile))
+                iconos.Images.Clear();
+                iconos.ImageSize = new Size(iconSize, iconSize);
+                iconos.ColorDepth = ColorDepth.Depth32Bit;
+
+                string iconDir = Path.Combine(Application.StartupPath, "Icons");
+
+                string[] keys = new string[]
                 {
-                    var bmp = Helper.LoadSvgAsBitmap(svgFile, 32, 32);
-                    iconos.Images.Add(key, bmp);
+                    "folder.png",
+                    "page_white.png",
+                    "palette.png",
+                    "picture.png",
+                    "page_white_text.png",
+                    "compress.png",
+                    "package.png",
+                    "folder_go.png",
+                    "pictures.png",
+                    "picture_link.png",
+                    "photo.png",
+                    "picture_save.png",
+                    "picture_delete.png",
+                    "film.png",
+                    "music.png",
+                    "picture_go.png",
+                    "font.png",
+                    "script.png",
+                    "folder_add.png",
+                    "disk.png",
+                    "page_gear.png",
+                    "image.png",
+                    "map.png",
+                    "package_go.png",
+                    "package_add.png"
+                };
+
+                foreach (string key in keys)
+                {
+                    string svgFile = Path.Combine(iconDir, Path.ChangeExtension(key, ".svg"));
+                    if (File.Exists(svgFile))
+                    {
+                        var bmp = Helper.LoadSvgAsBitmap(svgFile, iconSize, iconSize);
+                        iconos.Images.Add(key, bmp);
+                    }
                 }
             }
 

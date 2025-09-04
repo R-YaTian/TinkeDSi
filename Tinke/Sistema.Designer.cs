@@ -137,6 +137,7 @@ namespace Tinke
             // 
             // btnExtract
             // 
+            this.btnExtract.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnExtract.ImageIndex = 7;
             this.btnExtract.ImageList = this.iconos;
             this.btnExtract.Location = new System.Drawing.Point(409, 409);
@@ -152,6 +153,7 @@ namespace Tinke
             // 
             this.btnSee.Enabled = false;
             this.btnSee.Image = global::Tinke.Properties.Resources.zoom;
+            this.btnSee.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSee.Location = new System.Drawing.Point(409, 501);
             this.btnSee.Name = "btnSee";
             this.btnSee.Size = new System.Drawing.Size(110, 40);
@@ -283,6 +285,7 @@ namespace Tinke
             // 
             // btnUnpack
             // 
+            this.btnUnpack.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnUnpack.ImageIndex = 23;
             this.btnUnpack.ImageList = this.iconos;
             this.btnUnpack.Location = new System.Drawing.Point(409, 455);
@@ -469,6 +472,7 @@ namespace Tinke
             // 
             // btnImport
             // 
+            this.btnImport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnImport.ImageIndex = 18;
             this.btnImport.ImageList = this.iconos;
             this.btnImport.Location = new System.Drawing.Point(525, 409);
@@ -482,6 +486,7 @@ namespace Tinke
             // 
             // btnSaveROM
             // 
+            this.btnSaveROM.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSaveROM.ImageIndex = 19;
             this.btnSaveROM.ImageList = this.iconos;
             this.btnSaveROM.Location = new System.Drawing.Point(409, 363);
@@ -495,6 +500,7 @@ namespace Tinke
             // 
             // btnPack
             // 
+            this.btnPack.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPack.ImageIndex = 24;
             this.btnPack.ImageList = this.iconos;
             this.btnPack.Location = new System.Drawing.Point(525, 455);
@@ -517,6 +523,7 @@ namespace Tinke
             // 
             // btnImport1
             // 
+            this.btnImport1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnImport1.ImageIndex = 18;
             this.btnImport1.ImageList = this.iconos;
             this.btnImport1.Location = new System.Drawing.Point(525, 363);

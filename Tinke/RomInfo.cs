@@ -40,25 +40,11 @@ namespace Tinke
         public RomInfo()
         {
             InitializeComponent();
-
-            this.Font = new Font(
-                this.Font.FontFamily,
-                9F,
-                this.Font.Style,
-                GraphicsUnit.Point
-            );
         }
 
         public RomInfo(string archivo)
         {
             InitializeComponent();
-
-            this.Font = new Font(
-                this.Font.FontFamily,
-                9F,
-                this.Font.Style,
-                GraphicsUnit.Point
-            );
 
             this.btnBannerGuardar.Image = Properties.Resources.picture_save;
 

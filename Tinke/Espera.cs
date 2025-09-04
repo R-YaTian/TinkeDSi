@@ -40,25 +40,11 @@ namespace Tinke
         {
             InitializeComponent();
 
-            this.Font = new Font(
-                this.Font.FontFamily,
-                9F,
-                this.Font.Style,
-                GraphicsUnit.Point
-            );
-
             LeerIdioma();
         }
         public Espera(string label, bool step)
         {
             InitializeComponent();
-
-            this.Font = new Font(
-                this.Font.FontFamily,
-                9F,
-                this.Font.Style,
-                GraphicsUnit.Point
-            );
 
             System.Xml.Linq.XElement xml = Tools.Helper.GetTranslation("Espera");
             this.Text = xml.Element("S01").Value;

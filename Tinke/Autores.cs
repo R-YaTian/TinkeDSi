@@ -34,13 +34,6 @@ namespace Tinke
         {
             InitializeComponent();
 
-            this.Font = new Font(
-                this.Font.FontFamily,
-                9F,
-                this.Font.Style,
-                GraphicsUnit.Point
-            );
-
             LeerIdioma();
             ReadPlugins();
         }

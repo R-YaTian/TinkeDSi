@@ -34,24 +34,10 @@ namespace Tinke.Dialog
         public CallPlugin()
         {
             InitializeComponent();
-
-            this.Font = new Font(
-                this.Font.FontFamily,
-                9F,
-                this.Font.Style,
-                GraphicsUnit.Point
-            );
         }
         public CallPlugin(string[] list)
         {
             InitializeComponent();
-
-            this.Font = new Font(
-                this.Font.FontFamily,
-                9F,
-                this.Font.Style,
-                GraphicsUnit.Point
-            );
 
             comboPlugin.Items.AddRange(list);
         }
