@@ -38,6 +38,12 @@ ECHO Platform: %plat%
 REM Remove previoues build
 SET build_dir=%CD%\build
 IF EXIST "%build_dir%" RMDIR /S /Q "%build_dir%" || EXIT /B 1
+IF EXIST "%CD%\Plugins\DSDecmp\DSDecmp\bin" RMDIR /S /Q "%CD%\Plugins\DSDecmp\DSDecmp\bin" || EXIT /B 1
+IF EXIST "%CD%\Plugins\DSDecmp\DSDecmp\obj" RMDIR /S /Q "%CD%\Plugins\DSDecmp\DSDecmp\obj" || EXIT /B 1
+IF EXIST "%CD%\Ekona\bin" RMDIR /S /Q "%CD%\Ekona\bin" || EXIT /B 1
+IF EXIST "%CD%\Ekona\obj" RMDIR /S /Q "%CD%\Ekona\obj" || EXIT /B 1
+IF EXIST "%CD%\Be.Windows.Forms.HexBox\bin" RMDIR /S /Q "%CD%\Be.Windows.Forms.HexBox\bin" || EXIT /B 1
+IF EXIST "%CD%\Be.Windows.Forms.HexBox\obj" RMDIR /S /Q "%CD%\Be.Windows.Forms.HexBox\obj" || EXIT /B 1
 
 REM Get compiler
 SET msbuild_path=%windir%\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe
