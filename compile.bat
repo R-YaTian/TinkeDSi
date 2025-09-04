@@ -4,6 +4,7 @@ setlocal enableDelayedExpansion
 REM Clean variables
 SET conf=
 SET plat=
+SET netver=
 
 REM Ask for Release or Debug configuration
 IF [%1] == [] (
