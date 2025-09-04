@@ -275,19 +275,54 @@ namespace Tinke
 
             this.Font = new Font(
                 this.Font.FontFamily,
-                10f,
+                9f,
                 this.Font.Style,
                 GraphicsUnit.Point
             );
 
-            for (int i = 0; i < this.iconos.Images.Count; i++)
-            {
-                string key = this.iconos.Images.Keys[i];
-                if (string.IsNullOrEmpty(key))
-                    key = "image_" + i.ToString();
+            iconos.Images.Clear();
+            iconos.ImageSize = new Size(32, 32);
+            iconos.ColorDepth = ColorDepth.Depth32Bit;
 
-                string filename = key;
-                this.iconos.Images[i].Save(filename, System.Drawing.Imaging.ImageFormat.Png);
+            string iconDir = Path.Combine(Application.StartupPath, "Icons");
+
+            string[] keys = new string[]
+            {
+                "folder.png",
+                "page_white.png",
+                "palette.png",
+                "picture.png",
+                "page_white_text.png",
+                "compress.png",
+                "package.png",
+                "folder_go.png",
+                "pictures.png",
+                "picture_link.png",
+                "photo.png",
+                "picture_save.png",
+                "picture_delete.png",
+                "film.png",
+                "music.png",
+                "picture_go.png",
+                "font.png",
+                "script.png",
+                "folder_add.png",
+                "disk.png",
+                "page_gear.png",
+                "image.png",
+                "map.png",
+                "package_go.png",
+                "package_add.png"
+            };
+
+            foreach (string key in keys)
+            {
+                string svgFile = Path.Combine(iconDir, Path.ChangeExtension(key, ".svg"));
+                if (File.Exists(svgFile))
+                {
+                    var bmp = Helper.LoadSvgAsBitmap(svgFile, 32, 32);
+                    iconos.Images.Add(key, bmp);
+                }
             }
 
             this.Show();

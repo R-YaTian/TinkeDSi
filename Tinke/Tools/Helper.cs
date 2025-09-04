@@ -17,12 +17,11 @@
  * By: pleoNeX
  * 
  */
+using Svg;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Xml.Linq;
+using System.Drawing;
 using System.IO;
+using System.Xml.Linq;
 
 namespace Tinke.Tools
 {
@@ -38,7 +37,6 @@ namespace Tinke.Tools
 
             return bytes;
         }
-
         public static XElement GetTranslation(string treeS)
         {
             XElement tree = null;
@@ -106,6 +104,11 @@ namespace Tinke.Tools
             }
             return "";
         }
-
+        public static Bitmap LoadSvgAsBitmap(string svgPath, int width, int height)
+        {
+            SvgDocument svgDoc = SvgDocument.Open(svgPath);
+            Bitmap bmp = svgDoc.Draw(width, height);
+            return bmp;
+        }
     }
 }

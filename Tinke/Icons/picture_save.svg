@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 提取的前景层 - 单张照片图标（外扩版本） -->
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <g id="picture">
+    <!-- 主照片框架 - 适度外扩 -->
+    <rect id="Rectangle_18" data-name="Rectangle 18" width="50" height="54" x="7" y="5" fill="none" stroke="#1b8cff" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
+
+    <!-- 照片内容区域 -->
+    <rect id="Rectangle_19" data-name="Rectangle 19" width="40" height="44" x="12" y="10" fill="#1b8cff" opacity="0.3"/>
+    <rect id="Rectangle_border" width="40" height="44" x="12" y="10" fill="none" stroke="#1b8cff" stroke-linecap="square" stroke-miterlimit="10" stroke-width="2"/>
+
+    <!-- 照片内容 - 山峰图案 -->
+    <path id="Path_119" data-name="Path 119" d="M44,34a12,12,0,0,0-24,0" fill="none" stroke="#41b2ff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+
+    <!-- 照片内容 - 文本线条 -->
+    <line id="Line_222" data-name="Line 222" x1="12" y1="34" x2="52" y2="34" fill="none" stroke="#41b2ff" stroke-miterlimit="10" stroke-width="2"/>
+    <line id="Line_223" data-name="Line 223" x1="30" y1="38" x2="52" y2="38" fill="none" stroke="#41b2ff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    <line id="Line_224" data-name="Line 224" x1="12" y1="42" x2="32" y2="42" fill="none" stroke="#41b2ff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    <line id="Line_225" data-name="Line 225" x1="44" y1="42" x2="52" y2="42" fill="none" stroke="#41b2ff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    <line id="Line_226" data-name="Line 226" x1="12" y1="38" x2="20" y2="38" fill="none" stroke="#41b2ff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+
+    <!-- 高光效果 -->
+    <line id="Line_227" data-name="Line 227" x1="12" y1="12" x2="52" y2="12" fill="none" stroke="#ffffff" stroke-miterlimit="10" stroke-width="2" opacity="0.5"/>
+    <line id="Line_228" data-name="Line 228" x1="12" y1="52" x2="52" y2="52" fill="none" stroke="#ffffff" stroke-miterlimit="10" stroke-width="2" opacity="0.5"/>
+    <line id="Line_230" data-name="Line 230" x1="17" y1="17" x2="29" y2="17" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" opacity="0.5"/>
+    <line id="Line_231" data-name="Line 231" x1="28" y1="20" x2="34" y2="20" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" opacity="0.5"/>
+
+    <!-- 磁盘保存图标 - 右下角（放大版本） -->
+    <g id="disk_icon" transform="translate(35, 35) scale(0.057)">
+      <!-- 文档背景 -->
+      <polygon fill="#515262" points="450.564,0 398.209,0 241.811,167.75 241.811,167.75 136.28,0 14.466,0 14.466,510.817 497.534,510.817 497.534,37.531"/>
+      <!-- 磁盘区域 -->
+      <rect x="136.432" y="0.552" fill="#DCE5FA" width="262.169" height="167.17"/>
+      <!-- 磁盘标签 -->
+      <rect x="285.641" y="32.793" fill="#B4BBCC" width="71.893" height="102.163"/>
+      <!-- 文档内容区域 -->
+      <path fill="#FFFFFF" d="M444.561,231.469c0-10.812-8.765-19.575-19.575-19.575H98.366c-10.812,0-19.575,8.765-19.575,19.575v216.889c0,10.812,8.765,19.575,19.575,19.575h326.619c10.812,0,19.575-8.765,19.575-19.575V231.469H444.561z"/>
+      <!-- 文档内容线条 -->
+      <g>
+        <path fill="#515262" d="M408.93,273.697H120.097c-5.224,0-9.46-4.234-9.46-9.46s4.235-9.46,9.46-9.46H408.93c5.224,0,9.46,4.234,9.46,9.46S414.154,273.697,408.93,273.697z"/>
+        <path fill="#515262" d="M408.93,319.103H120.097c-5.224,0-9.46-4.234-9.46-9.46c0-5.225,4.235-9.46,9.46-9.46H408.93c5.224,0,9.46,4.234,9.46,9.46C418.389,314.869,414.154,319.103,408.93,319.103z"/>
+        <path fill="#515262" d="M408.93,364.509H120.097c-5.224,0-9.46-4.234-9.46-9.46c0-5.225,4.235-9.46,9.46-9.46H408.93c5.224,0,9.46,4.234,9.46,9.46C418.389,360.275,414.154,364.509,408.93,364.509z"/>
+      </g>
+      <!-- 阴影效果 -->
+      <g opacity="0.1">
+        <rect x="16.83" y="1.183" width="81.983" height="510.817"/>
+      </g>
+    </g>
+  </g>
+</svg>
