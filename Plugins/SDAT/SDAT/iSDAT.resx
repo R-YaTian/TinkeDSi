@@ -200,7 +200,7 @@
         AYABAQH4AQAB8AH5AYABAQL/AfgBAAH8Af8BwAEDAv8B+AEAAv8B8AEPBv8B/AE/Cw==
 </value>
   </data>
-  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>29</value>
   </metadata>
 </root>
