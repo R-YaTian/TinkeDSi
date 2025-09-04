@@ -4,7 +4,6 @@ setlocal enableDelayedExpansion
 REM Clean variables
 SET conf=
 SET plat=
-SET netver=
 
 REM Ask for Release or Debug configuration
 IF [%1] == [] (
@@ -25,9 +24,7 @@ IF [%2] == [] (
     :ask_plat
     SET /P resp=Choose the platform. Press 1 for x86 or 2 for x64: 
     IF "!resp!" EQU "1" SET plat=x86
-    IF "!resp!" EQU "1" SET netver=v4.0
     IF "!resp!" EQU "2" SET plat=x64
-    IF "!resp!" EQU "2" SET netver=v4.8
 
     REM If other input repease
     IF [!plat!] EQU [] GOTO ask_plat
@@ -47,6 +44,10 @@ IF EXIST "%CD%\Be.Windows.Forms.HexBox\bin" RMDIR /S /Q "%CD%\Be.Windows.Forms.H
 IF EXIST "%CD%\Be.Windows.Forms.HexBox\obj" RMDIR /S /Q "%CD%\Be.Windows.Forms.HexBox\obj" || EXIT /B 1
 
 REM Get compiler
+IF "!plat!" EQU "x86" SET netver=v4.0
+IF "!plat!" EQU "x64" SET netver=v4.8
+ECHO NetVer: %netver%
+
 SET msbuild_path=%windir%\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe
 SET msbuild=%msbuild_path% /p:Configuration=%conf% /p:TargetFrameworkVersion=%netver%
 SET msbuild_plugin=%msbuild% /p:OutputPath="%build_dir%\Plugins\\" /m

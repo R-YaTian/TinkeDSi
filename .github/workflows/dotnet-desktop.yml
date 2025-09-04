@@ -9,7 +9,7 @@ on:
 jobs:
 
   build:
-    runs-on: windows-2022
+    runs-on: windows-latest
 
     env:
       Solution_Name: Tinke.sln
