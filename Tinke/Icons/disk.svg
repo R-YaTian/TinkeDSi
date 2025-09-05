@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" version="1.1">
 
+<!-- LICENSE: PD License. AUTHOR: puppylinux. Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" version="1.1">
   <path style="fill:#90B1DE;stroke:#2C3D60;stroke-width:0.96px" d="M 1.92,56.32 1.92,4.48 C 1.92,2.56 2.56,1.92 4.48,1.92 l 55.04,0 c 1.92,0 2.56,1.28 2.56,3.2 l 0,54.4 c 0,1.28 0,2.56 -2.56,2.56 l -51.84,0 z"/>
   <path style="fill:#4E7EC2" d="m 3.84,3.84 0,51.84 4.48,4.48 51.84,0 0,-56.32 z"/>
   <path style="fill:#999999;stroke:#555555;stroke-width:1.28px" d="M 17.92 39.68 C 15.36 39.68 15.36 40.96 15.36 42.24 L 15.36 62.08 L 48.64 62.08 L 48.64 42.24 C 48.64 40.96 48 39.68 46.08 39.68 L 17.92 39.68 z M 24.32 42.24 C 28.8 42.24 28.16 44.16 28.16 44.16 L 28.16 55.68 C 28.16 55.68 28.8 57.6 24.32 57.6 C 20.48 57.6 21.12 55.68 21.12 55.68 L 21.12 44.16 C 21.12 44.16 20.48 42.24 24.32 42.24 z "/>
@@ -9,7 +9,6 @@
   <rect style="fill:#eeeeee;" width="42.24" height="26.88" x="10.88" y="8.96"/>
   <rect style="fill:#2C3D60;" width="3.84" height="3.84" x="5.12" y="5.76"/>
   <path style="fill:none;stroke:#bbbbbb;stroke-width:1.28px" d="m 13.44,30.08 37.12,0 M 13.44,22.4 50.56,22.4 M 13.44,15.36 50.56,15.36"/>
-
   <path style="fill:#CF9100;stroke:#333333;stroke-width:1.28;" d="M 29.44,51.2 57.6,20.48 c 0,0 2.56,0.64 3.84,2.56 1.28,1.28 1.28,3.2 1.28,3.2 L 35.2,55.68 28.16,57.6 z"/>
   <path style="fill:#eeeeee" d="M 56.96,23.04 31.36,51.2 32.64,51.84 58.24,23.68 z"/>
   <path style="fill:#333333" d="m 28.16,57.6 2.56,-0.64 -1.92,-2.56 z"/>

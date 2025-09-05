@@ -21,6 +21,7 @@ using Svg;
 using System;
 using System.Drawing;
 using System.IO;
+using System.Windows.Forms;
 using System.Xml.Linq;
 
 namespace Tinke.Tools
@@ -109,6 +110,13 @@ namespace Tinke.Tools
             SvgDocument svgDoc = SvgDocument.Open(svgPath);
             Bitmap bmp = svgDoc.Draw(width, height);
             return bmp;
+        }
+        public static Bitmap LoadSvg(string svgName, int size)
+        {
+            string svgPath = Path.Combine(Application.StartupPath, "Icons", svgName + ".svg");
+            if (File.Exists(svgPath))
+                 return LoadSvgAsBitmap(svgPath, size, size);
+            return null;
         }
     }
 }

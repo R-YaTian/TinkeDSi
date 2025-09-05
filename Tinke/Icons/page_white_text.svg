@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--noto" preserveAspectRatio="xMidYMid meet">
+
+<!-- LICENSE: Apache License. AUTHOR: googlefonts. Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+<svg width="128" height="128" viewBox="0 0 128 128"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--noto" preserveAspectRatio="xMidYMid meet">
     <path fill="#f8f8f8" d="M87.85 6.19H16.8v115.45h94.62V28.8z"></path>
     <g fill="none" stroke="#b0bec5" stroke-width="3.865" stroke-linecap="round" stroke-miterlimit="10">
         <path d="M33.34 41.05H94.5">

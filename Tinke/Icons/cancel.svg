@@ -1,0 +1,17 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="60px" height="60px" viewBox="0 0 60 60"
+    xmlns="http://www.w3.org/2000/svg" fill="#000000">
+    <g id="SVGRepo_bgCarrier" stroke-width="0"/>
+    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+    <g id="SVGRepo_iconCarrier">
+        <defs>
+            <style> .cls-1 { fill: #dc3545; fill-rule: evenodd; } .cls-2 { fill: #ffffff; } </style>
+        </defs>
+        <circle class="cls-1" cx="30" cy="30" r="30"/>
+        <g class="cls-2">
+            <rect x="25.5" y="12" width="9" height="36" rx="1.5" transform="rotate(45 30 30)"/>
+            <rect x="25.5" y="12" width="9" height="36" rx="1.5" transform="rotate(-45 30 30)"/>
+        </g>
+    </g>
+</svg>

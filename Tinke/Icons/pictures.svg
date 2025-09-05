@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 
+<!-- LICENSE: CC Attribution License. AUTHOR: Davide Pacilio. Modified by R-YaTian -->
 <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-<svg width="64" height="64" viewBox="0 -2 64 64" xmlns="http://www.w3.org/2000/svg">
+<svg width="64" height="64" viewBox="0 -2 64 64"
+  xmlns="http://www.w3.org/2000/svg">
   <g id="picture" transform="translate(-124 -250)">
     <rect id="Rectangle_17" data-name="Rectangle 17" width="34" height="39" transform="translate(147 264)" fill="#1b8cff" opacity="0.3"/>
     <line id="Line_222" data-name="Line 222" x2="34" transform="translate(147 288)" fill="none" stroke="#41b2ff" stroke-miterlimit="10" stroke-width="2"/>

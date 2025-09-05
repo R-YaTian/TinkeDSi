@@ -17,16 +17,16 @@
  * By: pleoNeX
  * 
  */
+using Ekona;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
-using System.Windows.Forms;
-using System.IO;
 using System.Threading;
+using System.Windows.Forms;
 using System.Xml.Linq;
-using Ekona;
 
 namespace Tinke
 {
@@ -279,6 +279,12 @@ namespace Tinke
                 float scaleFactor = screenDPI / 96f;
                 int iconSize = (int)(24 * scaleFactor);
 
+                ImageList backupList = new ImageList();
+                foreach (string key in iconos.Images.Keys)
+                {
+                    backupList.Images.Add(key, iconos.Images[key]);
+                }
+
                 iconos.Images.Clear();
                 iconos.ImageSize = new Size(iconSize, iconSize);
                 iconos.ColorDepth = ColorDepth.Depth32Bit;
@@ -314,6 +320,7 @@ namespace Tinke
                     "package_add.png"
                 };
 
+                bool error = false;
                 foreach (string key in keys)
                 {
                     string svgFile = Path.Combine(iconDir, Path.ChangeExtension(key, ".svg"));
@@ -321,8 +328,52 @@ namespace Tinke
                     {
                         var bmp = Helper.LoadSvgAsBitmap(svgFile, iconSize, iconSize);
                         iconos.Images.Add(key, bmp);
+                    } else {
+                        error = true;
+                        break;
                     }
                 }
+
+                if (error)
+                {
+                    iconos.Images.Clear();
+                    iconos.ImageSize = new Size(16, 16);
+                    iconos.ColorDepth = ColorDepth.Depth8Bit;
+                    foreach (string key in backupList.Images.Keys)
+                    {
+                        iconos.Images.Add(key, backupList.Images[key]);
+                    }
+                }
+
+                Bitmap zoomSvg = Helper.LoadSvg("zoom", iconSize);
+                Bitmap calculatorSvg = Helper.LoadSvg("calculator", iconSize);
+
+                this.toolStrip2.ImageScalingSize = new Size(iconSize, iconSize);
+                this.toolStrip3.ImageScalingSize = new Size(iconSize, iconSize);
+                this.toolStripToolkit.Image = iconos.Images["package.png"];
+                this.toolStripAbrirFat.Image = iconos.Images["package.png"];
+                this.toolStripMenuComprimido.Image = iconos.Images["compress.png"];
+                this.toolStripAbrirTexto.Image = iconos.Images["page_white_text.png"];
+                this.toolStripMenuItem1.Image = iconos.Images["palette.png"];
+                this.toolStripMenuItem2.Image = iconos.Images["picture.png"];
+                this.toolStripMenuItem3.Image = iconos.Images["picture_link.png"];
+
+                if (zoomSvg != null)
+                {
+                    this.btnSee.Image = zoomSvg;
+                    this.toolStripOpenAs.Image = zoomSvg;
+                    this.btnSearch.Image = zoomSvg;
+                    this.btnSearch.AutoSize = true;
+                }
+
+                if (calculatorSvg != null)
+                {
+                    this.btnHex.Image = calculatorSvg;
+                    this.toolStripMenuItem4.Image = calculatorSvg;
+                    this.toolStripMenuItem5.Image = calculatorSvg;
+                }
+
+                RecreateHandle();
             }
 
             this.Show();

@@ -1,0 +1,14 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<!-- LICENSE: CC0 License. Uploaded to: SVG Repo, www.svgrepo.com, Transformed by: SVG Repo Mixer Tools -->
+<svg width="64px" height="64px" viewBox="0 0 64 64" class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" fill="#000000">
+    <g id="SVGRepo_bgCarrier" stroke-width="0"/>
+    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+    <g id="SVGRepo_iconCarrier">
+        <path d="M38.9 42.653l3.771-3.769 16.025 16.025-3.771 3.769z" fill="#616161"/>
+        <path d="M26.667 26.667m-21.333 0a21.333 21.333 0 1 0 42.666 0 21.333 21.333 0 1 0-42.666 0Z" fill="#616161"/>
+        <path d="M43.267 47.12l3.769-3.771 11.595 11.595-3.769 3.771z" fill="#37474F"/>
+        <path d="M26.667 26.667m-17.333 0a17.333 17.333 0 1 0 34.666 0 17.333 17.333 0 1 0-34.666 0Z" fill="#64B5F6"/>
+        <path d="M35.867 18.933c-2.267-2.667-5.6-4.267-9.2-4.267s-6.933 1.6-9.2 4.267c-0.533 0.533-0.4 1.467 0.133 1.867 0.533 0.533 1.467 0.4 1.867-0.133C21.333 18.533 23.867 17.333 26.667 17.333s5.333 1.2 7.2 3.333c0.267 0.267 0.667 0.533 1.067 0.533 0.267 0 0.667-0.133 0.8-0.267 0.533-0.533 0.533-1.467 0.133-2z" fill="#BBDEFB"/>
+    </g>
+</svg>
