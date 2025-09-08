@@ -1,7 +1,8 @@
 import argparse
-import xmltodict
+import xml.etree.ElementTree as ET
 from xml.dom.minidom import parseString
 import os
+import re
 
 LANG_MAP = {
     "English": "en-us",
@@ -14,41 +15,54 @@ LANG_MAP = {
 }
 
 def process_xml_file(input_file, output_base, encoding="utf-8"):
-    with open(input_file, "r", encoding=encoding) as f:
-        xml_string = f.read()
+    # Parse XML directly without using xmltodict to preserve mixed content order
+    tree = ET.parse(input_file)
+    root = tree.getroot()
+    
+    # Determine root element type
+    if root.tag == "Language":
+        sub_item = "Language"
+        languages = {child.tag: child for child in root}
+    elif root.tag == "Images":
+        sub_item = "Images"
+        languages = {child.tag: child for child in root}
+    else:
+        print(f"Skipped file (unsupported root): {input_file}")
+        return
 
-    data_dict = xmltodict.parse(xml_string)
-    sub_item = "Language"
-
-    if sub_item not in data_dict:
-        if "Images" not in data_dict:
-            print(f"Skipped file (no <Language> root): {input_file}")
-            return
-        else:
-            sub_item = "Images"
-
-    # Parent folder name of this XML file
+    # Get parent folder name
     parent_folder = os.path.basename(os.path.dirname(input_file))
     output_dir = os.path.join(output_base, parent_folder)
     os.makedirs(output_dir, exist_ok=True)
 
-    for lang_name, lang_content in data_dict[sub_item].items():
+    for lang_name, lang_element in languages.items():
         if lang_name not in LANG_MAP:
             print(f"Skipped unmapped language: {lang_name} in {input_file}")
             continue
 
         lang_code = LANG_MAP[lang_name]
 
-        # Build new XML structure
-        new_root = {
-            sub_item: {
-                "@name": lang_name,
-                **lang_content
-            }
-        }
+        # Create new root element
+        new_root = ET.Element(sub_item)
+        new_root.set("name", lang_name)
+        
+        # Copy all child elements while preserving original structure and content
+        for child in lang_element:
+            new_root.append(child)
 
-        xml_str = xmltodict.unparse(new_root, pretty=True, encoding=encoding)
-        xml_pretty = parseString(xml_str).toprettyxml(indent="  ")
+        # Generate formatted XML with proper encoding
+        xml_str = ET.tostring(new_root, encoding='unicode')
+        
+        # Use minidom for formatting with explicit encoding declaration
+        dom = parseString(xml_str)
+        xml_pretty = dom.toprettyxml(indent="  ", encoding=encoding)
+        
+        # Convert bytes to string if needed and remove extra blank lines
+        if isinstance(xml_pretty, bytes):
+            xml_pretty = xml_pretty.decode(encoding)
+        
+        xml_pretty = re.sub(r'\n\s*\n', '\n', xml_pretty)
+        xml_pretty = '\n'.join(line for line in xml_pretty.split('\n') if line.strip())
 
         output_path = os.path.join(output_dir, f"{lang_code}.xml")
         with open(output_path, "w", encoding=encoding) as out_file:
@@ -58,8 +72,10 @@ def process_xml_file(input_file, output_base, encoding="utf-8"):
 
 
 def split_xml_in_directory(input_root, output_root, encoding="utf-8"):
+    # Walk through directory tree to find XML files
     for root, _, files in os.walk(input_root):
         parts = os.path.normpath(root).split(os.sep)
+        # Process files in directories where folder name matches parent folder name
         if len(parts) >= 2 and parts[-1] == parts[-2]:
             for file in files:
                 if file.lower().endswith(".xml"):
