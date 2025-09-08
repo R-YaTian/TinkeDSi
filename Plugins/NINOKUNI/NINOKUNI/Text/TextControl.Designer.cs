@@ -64,9 +64,9 @@ namespace NINOKUNI.Text
             // 
             // btnExport
             // 
-            this.btnExport.Location = new System.Drawing.Point(343, 469);
+            this.btnExport.Location = new System.Drawing.Point(343, 433);
             this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(80, 40);
+            this.btnExport.Size = new System.Drawing.Size(80, 37);
             this.btnExport.TabIndex = 0;
             this.btnExport.Text = "Export";
             this.btnExport.UseVisualStyleBackColor = true;
@@ -74,9 +74,9 @@ namespace NINOKUNI.Text
             // 
             // btnImport
             // 
-            this.btnImport.Location = new System.Drawing.Point(429, 469);
+            this.btnImport.Location = new System.Drawing.Point(429, 433);
             this.btnImport.Name = "btnImport";
-            this.btnImport.Size = new System.Drawing.Size(80, 40);
+            this.btnImport.Size = new System.Drawing.Size(80, 37);
             this.btnImport.TabIndex = 1;
             this.btnImport.Text = "Import";
             this.btnImport.UseVisualStyleBackColor = true;
@@ -87,54 +87,55 @@ namespace NINOKUNI.Text
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(31, 13);
+            this.label1.Size = new System.Drawing.Size(35, 12);
             this.label1.TabIndex = 2;
             this.label1.Text = "Text:";
             // 
             // txtBlock
             // 
-            this.txtBlock.Location = new System.Drawing.Point(3, 16);
+            this.txtBlock.Location = new System.Drawing.Point(3, 15);
             this.txtBlock.Multiline = true;
             this.txtBlock.Name = "txtBlock";
             this.txtBlock.ReadOnly = true;
-            this.txtBlock.Size = new System.Drawing.Size(506, 326);
+            this.txtBlock.Size = new System.Drawing.Size(506, 301);
             this.txtBlock.TabIndex = 3;
             // 
             // numBlock
             // 
-            this.numBlock.Location = new System.Drawing.Point(82, 348);
+            this.numBlock.Location = new System.Drawing.Point(82, 321);
             this.numBlock.Maximum = new decimal(new int[] {
             65535,
             0,
             0,
             0});
             this.numBlock.Name = "numBlock";
-            this.numBlock.Size = new System.Drawing.Size(60, 20);
+            this.numBlock.Size = new System.Drawing.Size(60, 21);
             this.numBlock.TabIndex = 4;
             this.numBlock.ValueChanged += new System.EventHandler(this.numBlock_ValueChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 350);
+            this.label2.Location = new System.Drawing.Point(3, 323);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(73, 13);
+            this.label2.Size = new System.Drawing.Size(89, 12);
             this.label2.TabIndex = 5;
             this.label2.Text = "Current block:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(148, 350);
+            this.label3.Location = new System.Drawing.Point(148, 323);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(25, 13);
+            this.label3.Size = new System.Drawing.Size(29, 12);
             this.label3.TabIndex = 6;
             this.label3.Text = "of 0";
             // 
             // TextControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoSize = true;
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.numBlock);
@@ -143,7 +144,7 @@ namespace NINOKUNI.Text
             this.Controls.Add(this.btnImport);
             this.Controls.Add(this.btnExport);
             this.Name = "TextControl";
-            this.Size = new System.Drawing.Size(512, 512);
+            this.Size = new System.Drawing.Size(512, 473);
             ((System.ComponentModel.ISupportInitialize)(this.numBlock)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

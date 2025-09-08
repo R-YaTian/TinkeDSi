@@ -52,7 +52,7 @@ namespace NINOKUNI
             InitializeComponent();
             this.pluginHost = pluginHost;
 
-            xmlconf = Application.StartupPath + slash + "Plugins" + slash + "Ninokuni.xml";
+            xmlconf = Application.StartupPath + slash + "Plugins" + slash + "Ninokuni" + slash + "Ninokuni.xml";
             xmlImport = Application.StartupPath + slash + "Plugins" + slash + "Ninokuni" + slash + "ImportFiles.xml";
             XDocument doc = XDocument.Load(xmlconf);
             txtPath.Text = doc.Element("GameConfig").Element("Config").Element("CompilePath").Value;

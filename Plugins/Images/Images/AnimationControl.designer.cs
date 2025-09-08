@@ -77,7 +77,7 @@ namespace Images
             // 
             this.aniBox.Location = new System.Drawing.Point(0, 0);
             this.aniBox.Name = "aniBox";
-            this.aniBox.Size = new System.Drawing.Size(512, 256);
+            this.aniBox.Size = new System.Drawing.Size(512, 236);
             this.aniBox.TabIndex = 0;
             this.aniBox.TabStop = false;
             this.aniBox.DoubleClick += new System.EventHandler(this.aniBox_DoubleClick);
@@ -92,9 +92,9 @@ namespace Images
             this.btnPlay.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnPlay.ImageIndex = 0;
             this.btnPlay.ImageList = this.imageMedia;
-            this.btnPlay.Location = new System.Drawing.Point(104, 264);
+            this.btnPlay.Location = new System.Drawing.Point(104, 244);
             this.btnPlay.Name = "btnPlay";
-            this.btnPlay.Size = new System.Drawing.Size(25, 23);
+            this.btnPlay.Size = new System.Drawing.Size(25, 21);
             this.btnPlay.TabIndex = 2;
             this.btnPlay.UseVisualStyleBackColor = true;
             this.btnPlay.Click += new System.EventHandler(this.btnPlay_Click);
@@ -112,9 +112,9 @@ namespace Images
             // 
             this.comboAni.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboAni.FormattingEnabled = true;
-            this.comboAni.Location = new System.Drawing.Point(359, 360);
+            this.comboAni.Location = new System.Drawing.Point(359, 332);
             this.comboAni.Name = "comboAni";
-            this.comboAni.Size = new System.Drawing.Size(121, 21);
+            this.comboAni.Size = new System.Drawing.Size(121, 20);
             this.comboAni.TabIndex = 3;
             this.comboAni.SelectedIndexChanged += new System.EventHandler(this.comboAni_SelectedIndexChanged);
             // 
@@ -122,9 +122,9 @@ namespace Images
             // 
             this.btnNext.ImageIndex = 2;
             this.btnNext.ImageList = this.imageMedia;
-            this.btnNext.Location = new System.Drawing.Point(135, 264);
+            this.btnNext.Location = new System.Drawing.Point(135, 244);
             this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(35, 23);
+            this.btnNext.Size = new System.Drawing.Size(35, 21);
             this.btnNext.TabIndex = 4;
             this.btnNext.UseVisualStyleBackColor = true;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
@@ -133,9 +133,9 @@ namespace Images
             // 
             this.btnPrevious.ImageIndex = 1;
             this.btnPrevious.ImageList = this.imageMedia;
-            this.btnPrevious.Location = new System.Drawing.Point(32, 264);
+            this.btnPrevious.Location = new System.Drawing.Point(32, 244);
             this.btnPrevious.Name = "btnPrevious";
-            this.btnPrevious.Size = new System.Drawing.Size(35, 23);
+            this.btnPrevious.Size = new System.Drawing.Size(35, 21);
             this.btnPrevious.TabIndex = 5;
             this.btnPrevious.UseVisualStyleBackColor = true;
             this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
@@ -145,9 +145,9 @@ namespace Images
             this.btnStop.Enabled = false;
             this.btnStop.ImageIndex = 3;
             this.btnStop.ImageList = this.imageMedia;
-            this.btnStop.Location = new System.Drawing.Point(73, 264);
+            this.btnStop.Location = new System.Drawing.Point(73, 244);
             this.btnStop.Name = "btnStop";
-            this.btnStop.Size = new System.Drawing.Size(25, 23);
+            this.btnStop.Size = new System.Drawing.Size(25, 21);
             this.btnStop.TabIndex = 6;
             this.btnStop.UseVisualStyleBackColor = true;
             this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
@@ -159,9 +159,9 @@ namespace Images
             this.groupBox2.Controls.Add(this.checkNumeros);
             this.groupBox2.Controls.Add(this.checkCeldas);
             this.groupBox2.Controls.Add(this.checkEntorno);
-            this.groupBox2.Location = new System.Drawing.Point(2, 344);
+            this.groupBox2.Location = new System.Drawing.Point(2, 318);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(258, 114);
+            this.groupBox2.Size = new System.Drawing.Size(258, 105);
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "S03";
@@ -171,9 +171,9 @@ namespace Images
             this.checkImage.AutoSize = true;
             this.checkImage.Checked = true;
             this.checkImage.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkImage.Location = new System.Drawing.Point(7, 66);
+            this.checkImage.Location = new System.Drawing.Point(7, 61);
             this.checkImage.Name = "checkImage";
-            this.checkImage.Size = new System.Drawing.Size(45, 17);
+            this.checkImage.Size = new System.Drawing.Size(42, 16);
             this.checkImage.TabIndex = 4;
             this.checkImage.Text = "S06";
             this.checkImage.UseVisualStyleBackColor = true;
@@ -182,9 +182,9 @@ namespace Images
             // checkTransparencia
             // 
             this.checkTransparencia.AutoSize = true;
-            this.checkTransparencia.Location = new System.Drawing.Point(141, 20);
+            this.checkTransparencia.Location = new System.Drawing.Point(141, 18);
             this.checkTransparencia.Name = "checkTransparencia";
-            this.checkTransparencia.Size = new System.Drawing.Size(45, 17);
+            this.checkTransparencia.Size = new System.Drawing.Size(42, 16);
             this.checkTransparencia.TabIndex = 3;
             this.checkTransparencia.Text = "S07";
             this.checkTransparencia.UseVisualStyleBackColor = true;
@@ -193,9 +193,9 @@ namespace Images
             // checkNumeros
             // 
             this.checkNumeros.AutoSize = true;
-            this.checkNumeros.Location = new System.Drawing.Point(141, 43);
+            this.checkNumeros.Location = new System.Drawing.Point(141, 40);
             this.checkNumeros.Name = "checkNumeros";
-            this.checkNumeros.Size = new System.Drawing.Size(45, 17);
+            this.checkNumeros.Size = new System.Drawing.Size(42, 16);
             this.checkNumeros.TabIndex = 2;
             this.checkNumeros.Text = "S08";
             this.checkNumeros.UseVisualStyleBackColor = true;
@@ -204,9 +204,9 @@ namespace Images
             // checkCeldas
             // 
             this.checkCeldas.AutoSize = true;
-            this.checkCeldas.Location = new System.Drawing.Point(7, 43);
+            this.checkCeldas.Location = new System.Drawing.Point(7, 40);
             this.checkCeldas.Name = "checkCeldas";
-            this.checkCeldas.Size = new System.Drawing.Size(45, 17);
+            this.checkCeldas.Size = new System.Drawing.Size(42, 16);
             this.checkCeldas.TabIndex = 1;
             this.checkCeldas.Text = "S05";
             this.checkCeldas.UseVisualStyleBackColor = true;
@@ -215,9 +215,9 @@ namespace Images
             // checkEntorno
             // 
             this.checkEntorno.AutoSize = true;
-            this.checkEntorno.Location = new System.Drawing.Point(7, 20);
+            this.checkEntorno.Location = new System.Drawing.Point(7, 18);
             this.checkEntorno.Name = "checkEntorno";
-            this.checkEntorno.Size = new System.Drawing.Size(45, 17);
+            this.checkEntorno.Size = new System.Drawing.Size(42, 16);
             this.checkEntorno.TabIndex = 0;
             this.checkEntorno.Text = "S04";
             this.checkEntorno.UseVisualStyleBackColor = true;
@@ -225,9 +225,9 @@ namespace Images
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(4, 473);
+            this.btnSave.Location = new System.Drawing.Point(4, 437);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.Size = new System.Drawing.Size(75, 21);
             this.btnSave.TabIndex = 8;
             this.btnSave.Text = "S1C";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -236,9 +236,9 @@ namespace Images
             // txtTime
             // 
             this.txtTime.BeepOnError = true;
-            this.txtTime.Location = new System.Drawing.Point(76, 304);
+            this.txtTime.Location = new System.Drawing.Point(76, 281);
             this.txtTime.Name = "txtTime";
-            this.txtTime.Size = new System.Drawing.Size(37, 20);
+            this.txtTime.Size = new System.Drawing.Size(37, 21);
             this.txtTime.TabIndex = 9;
             this.txtTime.Text = "150";
             this.txtTime.TextChanged += new System.EventHandler(this.txtTime_TextChanged);
@@ -246,43 +246,44 @@ namespace Images
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(119, 307);
+            this.label1.Location = new System.Drawing.Point(119, 283);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(26, 13);
+            this.label1.Size = new System.Drawing.Size(23, 12);
             this.label1.TabIndex = 10;
             this.label1.Text = "S02";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(16, 306);
+            this.label2.Location = new System.Drawing.Point(16, 282);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(26, 13);
+            this.label2.Size = new System.Drawing.Size(23, 12);
             this.label2.TabIndex = 11;
             this.label2.Text = "S01";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(297, 364);
+            this.label3.Location = new System.Drawing.Point(297, 336);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(26, 13);
+            this.label3.Size = new System.Drawing.Size(23, 12);
             this.label3.TabIndex = 12;
             this.label3.Text = "S11";
             // 
             // lblFullImage
             // 
             this.lblFullImage.AutoSize = true;
-            this.lblFullImage.Location = new System.Drawing.Point(110, 478);
+            this.lblFullImage.Location = new System.Drawing.Point(110, 441);
             this.lblFullImage.Name = "lblFullImage";
-            this.lblFullImage.Size = new System.Drawing.Size(27, 13);
+            this.lblFullImage.Size = new System.Drawing.Size(23, 12);
             this.lblFullImage.TabIndex = 13;
             this.lblFullImage.Text = "S1E";
             // 
             // AnimationControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.lblFullImage);
             this.Controls.Add(this.label3);
@@ -298,7 +299,7 @@ namespace Images
             this.Controls.Add(this.btnPlay);
             this.Controls.Add(this.aniBox);
             this.Name = "AnimationControl";
-            this.Size = new System.Drawing.Size(512, 512);
+            this.Size = new System.Drawing.Size(515, 473);
             ((System.ComponentModel.ISupportInitialize)(this.aniBox)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();

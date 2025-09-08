@@ -37,7 +37,7 @@ namespace NINOKUNI
     {
         public static IPluginHost pluginHost;
 
-        static string xmlconf = Application.StartupPath + Path.DirectorySeparatorChar + "Plugins" + Path.DirectorySeparatorChar + "Ninokuni.xml";
+        static string xmlconf = Application.StartupPath + Path.DirectorySeparatorChar + "Plugins" + Path.DirectorySeparatorChar + "Ninokuni" + Path.DirectorySeparatorChar + "Ninokuni.xml";
         static string fontPath = Application.StartupPath + Path.DirectorySeparatorChar + "Plugins" + Path.DirectorySeparatorChar + "Ninokuni" + Path.DirectorySeparatorChar;
 
         static Dictionary<char, char> replaces;    // Chars to replace from Latin to SJIS

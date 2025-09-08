@@ -70,29 +70,29 @@ namespace NINOKUNI
             // 
             // txtOri
             // 
-            this.txtOri.Location = new System.Drawing.Point(9, 29);
+            this.txtOri.Location = new System.Drawing.Point(9, 27);
             this.txtOri.MaxLength = 65535;
             this.txtOri.Multiline = true;
             this.txtOri.Name = "txtOri";
             this.txtOri.ReadOnly = true;
-            this.txtOri.Size = new System.Drawing.Size(500, 125);
+            this.txtOri.Size = new System.Drawing.Size(500, 116);
             this.txtOri.TabIndex = 0;
             // 
             // txtTrans
             // 
-            this.txtTrans.Location = new System.Drawing.Point(9, 179);
+            this.txtTrans.Location = new System.Drawing.Point(9, 165);
             this.txtTrans.MaxLength = 65535;
             this.txtTrans.Multiline = true;
             this.txtTrans.Name = "txtTrans";
-            this.txtTrans.Size = new System.Drawing.Size(500, 125);
+            this.txtTrans.Size = new System.Drawing.Size(500, 116);
             this.txtTrans.TabIndex = 1;
             this.txtTrans.TextChanged += new System.EventHandler(this.txtTrans_TextChanged);
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(429, 420);
+            this.btnSave.Location = new System.Drawing.Point(429, 388);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(80, 40);
+            this.btnSave.Size = new System.Drawing.Size(80, 37);
             this.btnSave.TabIndex = 4;
             this.btnSave.Text = "Save";
             this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -102,61 +102,61 @@ namespace NINOKUNI
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(15, 466);
+            this.label1.Location = new System.Drawing.Point(15, 430);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(21, 13);
+            this.label1.Size = new System.Drawing.Size(23, 12);
             this.label1.TabIndex = 5;
             this.label1.Text = "ID:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 493);
+            this.label2.Location = new System.Drawing.Point(12, 455);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(48, 13);
+            this.label2.Size = new System.Drawing.Size(53, 12);
             this.label2.TabIndex = 6;
             this.label2.Text = "Element:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 163);
+            this.label3.Location = new System.Drawing.Point(6, 150);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 13);
+            this.label3.Size = new System.Drawing.Size(71, 12);
             this.label3.TabIndex = 7;
             this.label3.Text = "Translated:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 13);
+            this.label4.Location = new System.Drawing.Point(6, 12);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(45, 13);
+            this.label4.Size = new System.Drawing.Size(59, 12);
             this.label4.TabIndex = 8;
             this.label4.Text = "Original:";
             // 
             // numElement
             // 
-            this.numElement.Location = new System.Drawing.Point(87, 489);
+            this.numElement.Location = new System.Drawing.Point(87, 451);
             this.numElement.Name = "numElement";
-            this.numElement.Size = new System.Drawing.Size(100, 20);
+            this.numElement.Size = new System.Drawing.Size(100, 21);
             this.numElement.TabIndex = 9;
             this.numElement.ValueChanged += new System.EventHandler(this.numElement_ValueChanged);
             // 
             // lblNum
             // 
             this.lblNum.AutoSize = true;
-            this.lblNum.Location = new System.Drawing.Point(193, 493);
+            this.lblNum.Location = new System.Drawing.Point(193, 455);
             this.lblNum.Name = "lblNum";
-            this.lblNum.Size = new System.Drawing.Size(19, 13);
+            this.lblNum.Size = new System.Drawing.Size(23, 12);
             this.lblNum.TabIndex = 10;
             this.lblNum.Text = "of ";
             // 
             // btnImport
             // 
-            this.btnImport.Location = new System.Drawing.Point(429, 466);
+            this.btnImport.Location = new System.Drawing.Point(429, 430);
             this.btnImport.Name = "btnImport";
-            this.btnImport.Size = new System.Drawing.Size(80, 40);
+            this.btnImport.Size = new System.Drawing.Size(80, 37);
             this.btnImport.TabIndex = 13;
             this.btnImport.Text = "Import";
             this.btnImport.UseVisualStyleBackColor = true;
@@ -164,9 +164,9 @@ namespace NINOKUNI
             // 
             // btnExport
             // 
-            this.btnExport.Location = new System.Drawing.Point(343, 466);
+            this.btnExport.Location = new System.Drawing.Point(343, 430);
             this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(80, 40);
+            this.btnExport.Size = new System.Drawing.Size(80, 37);
             this.btnExport.TabIndex = 14;
             this.btnExport.Text = "Export";
             this.btnExport.UseVisualStyleBackColor = true;
@@ -175,21 +175,22 @@ namespace NINOKUNI
             // numID
             // 
             this.numID.Hexadecimal = true;
-            this.numID.Location = new System.Drawing.Point(87, 463);
+            this.numID.Location = new System.Drawing.Point(87, 427);
             this.numID.Maximum = new decimal(new int[] {
             -1,
             0,
             0,
             0});
             this.numID.Name = "numID";
-            this.numID.Size = new System.Drawing.Size(100, 20);
+            this.numID.Size = new System.Drawing.Size(100, 21);
             this.numID.TabIndex = 15;
             this.numID.ValueChanged += new System.EventHandler(this.numID_ValueChanged);
             // 
             // SystemText
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.numID);
             this.Controls.Add(this.btnExport);
@@ -204,7 +205,7 @@ namespace NINOKUNI
             this.Controls.Add(this.txtTrans);
             this.Controls.Add(this.txtOri);
             this.Name = "SystemText";
-            this.Size = new System.Drawing.Size(512, 512);
+            this.Size = new System.Drawing.Size(512, 475);
             ((System.ComponentModel.ISupportInitialize)(this.numElement)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numID)).EndInit();
             this.ResumeLayout(false);

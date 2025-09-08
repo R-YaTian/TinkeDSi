@@ -59,31 +59,8 @@ namespace NINOKUNI
 
             ReadLanguage();
             radio_CheckedChanged(null, null);
-            //TEST();
         }
 
-        private void TEST()
-        {
-            // Test method to know if it's working with all the files
-            // it could be useful later to import all of them in one time (batch mode)
-            string folder = @"G:\nds\projects\ninokuni\Quest\";
-            string[] files = Directory.GetFiles(folder, "*.sq");
-
-            for (int i = 0; i < files.Length; i++)
-            {
-                SQ temp = Read(files[i]);
-                string temp_xml = files[i] + ".xml";
-                Export_XML(temp_xml, temp);
-                Import_XML(temp_xml, ref temp);
-                string temp_sq = files[i] + ".nSQ";
-                Write(temp_sq, temp);
-
-                if (!Compare(files[i], temp_sq))
-                    MessageBox.Show("Test " + files[i]);
-                File.Delete(temp_sq);
-            }
-            MessageBox.Show("Final");
-        }
         private bool Compare(string f1, string f2)
         {
             byte[] b1 = File.ReadAllBytes(f1);
@@ -104,7 +81,7 @@ namespace NINOKUNI
             try
             {
                 System.Xml.Linq.XElement xml = System.Xml.Linq.XElement.Load(Application.StartupPath + System.IO.Path.DirectorySeparatorChar +
-                    "Plugins" + System.IO.Path.DirectorySeparatorChar + "Ninokuni.xml");
+                    "Plugins" + System.IO.Path.DirectorySeparatorChar + "NINOKUNILang.xml");
                 xml = xml.Element(pluginHost.Get_Language()).Element("SQcontrol");
 
                 label1.Text = xml.Element("S00").Value;

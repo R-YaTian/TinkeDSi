@@ -76,19 +76,19 @@ namespace NINOKUNI
             // 
             this.txtSub.BackColor = System.Drawing.Color.White;
             this.txtSub.Enabled = false;
-            this.txtSub.Location = new System.Drawing.Point(6, 91);
+            this.txtSub.Location = new System.Drawing.Point(6, 84);
             this.txtSub.Multiline = true;
             this.txtSub.Name = "txtSub";
-            this.txtSub.Size = new System.Drawing.Size(256, 65);
+            this.txtSub.Size = new System.Drawing.Size(256, 60);
             this.txtSub.TabIndex = 0;
             this.txtSub.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtSub.TextChanged += new System.EventHandler(this.txtSub_TextChanged);
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(257, 469);
+            this.btnSave.Location = new System.Drawing.Point(257, 433);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(80, 40);
+            this.btnSave.Size = new System.Drawing.Size(80, 37);
             this.btnSave.TabIndex = 1;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -96,9 +96,9 @@ namespace NINOKUNI
             // 
             // btnAddEntry
             // 
-            this.btnAddEntry.Location = new System.Drawing.Point(152, 16);
+            this.btnAddEntry.Location = new System.Drawing.Point(152, 15);
             this.btnAddEntry.Name = "btnAddEntry";
-            this.btnAddEntry.Size = new System.Drawing.Size(75, 23);
+            this.btnAddEntry.Size = new System.Drawing.Size(75, 21);
             this.btnAddEntry.TabIndex = 2;
             this.btnAddEntry.Text = "Add";
             this.btnAddEntry.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -107,9 +107,9 @@ namespace NINOKUNI
             // 
             // btnRemoveEntry
             // 
-            this.btnRemoveEntry.Location = new System.Drawing.Point(233, 16);
+            this.btnRemoveEntry.Location = new System.Drawing.Point(233, 15);
             this.btnRemoveEntry.Name = "btnRemoveEntry";
-            this.btnRemoveEntry.Size = new System.Drawing.Size(75, 23);
+            this.btnRemoveEntry.Size = new System.Drawing.Size(75, 21);
             this.btnRemoveEntry.TabIndex = 3;
             this.btnRemoveEntry.Text = "Remove";
             this.btnRemoveEntry.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -127,9 +127,9 @@ namespace NINOKUNI
             "SyncTime",
             "Voice",
             "Comment"});
-            this.comboType.Location = new System.Drawing.Point(187, 67);
+            this.comboType.Location = new System.Drawing.Point(187, 62);
             this.comboType.Name = "comboType";
-            this.comboType.Size = new System.Drawing.Size(121, 21);
+            this.comboType.Size = new System.Drawing.Size(121, 20);
             this.comboType.TabIndex = 4;
             // 
             // label1
@@ -137,33 +137,34 @@ namespace NINOKUNI
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(23, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 13);
+            this.label1.Size = new System.Drawing.Size(53, 12);
             this.label1.TabIndex = 5;
             this.label1.Text = "Content:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(146, 70);
+            this.label2.Location = new System.Drawing.Point(146, 65);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(34, 13);
+            this.label2.Size = new System.Drawing.Size(35, 12);
             this.label2.TabIndex = 6;
             this.label2.Text = "Type:";
             // 
             // listContent
             // 
             this.listContent.FormattingEnabled = true;
-            this.listContent.Location = new System.Drawing.Point(26, 16);
+            this.listContent.ItemHeight = 12;
+            this.listContent.Location = new System.Drawing.Point(26, 15);
             this.listContent.Name = "listContent";
-            this.listContent.Size = new System.Drawing.Size(120, 264);
+            this.listContent.Size = new System.Drawing.Size(120, 244);
             this.listContent.TabIndex = 7;
             this.listContent.SelectedIndexChanged += new System.EventHandler(this.listContent_SelectedIndexChanged);
             // 
             // btnExport
             // 
-            this.btnExport.Location = new System.Drawing.Point(429, 469);
+            this.btnExport.Location = new System.Drawing.Point(429, 433);
             this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(80, 40);
+            this.btnExport.Size = new System.Drawing.Size(80, 37);
             this.btnExport.TabIndex = 8;
             this.btnExport.Text = "Export";
             this.btnExport.UseVisualStyleBackColor = true;
@@ -171,9 +172,9 @@ namespace NINOKUNI
             // 
             // btnImport
             // 
-            this.btnImport.Location = new System.Drawing.Point(343, 469);
+            this.btnImport.Location = new System.Drawing.Point(343, 433);
             this.btnImport.Name = "btnImport";
-            this.btnImport.Size = new System.Drawing.Size(80, 40);
+            this.btnImport.Size = new System.Drawing.Size(80, 37);
             this.btnImport.TabIndex = 9;
             this.btnImport.Text = "Import";
             this.btnImport.UseVisualStyleBackColor = true;
@@ -182,32 +183,32 @@ namespace NINOKUNI
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 21);
+            this.label3.Location = new System.Drawing.Point(3, 19);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(56, 13);
+            this.label3.Size = new System.Drawing.Size(65, 12);
             this.label3.TabIndex = 10;
             this.label3.Text = "Sync time:";
             // 
             // numSyncTime
             // 
             this.numSyncTime.Enabled = false;
-            this.numSyncTime.Location = new System.Drawing.Point(86, 19);
+            this.numSyncTime.Location = new System.Drawing.Point(86, 18);
             this.numSyncTime.Maximum = new decimal(new int[] {
             -1,
             0,
             0,
             0});
             this.numSyncTime.Name = "numSyncTime";
-            this.numSyncTime.Size = new System.Drawing.Size(94, 20);
+            this.numSyncTime.Size = new System.Drawing.Size(94, 21);
             this.numSyncTime.TabIndex = 12;
             this.numSyncTime.ValueChanged += new System.EventHandler(this.numSyncTime_ValueChanged);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 75);
+            this.label4.Location = new System.Drawing.Point(3, 69);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(31, 13);
+            this.label4.Size = new System.Drawing.Size(35, 12);
             this.label4.TabIndex = 13;
             this.label4.Text = "Text:";
             // 
@@ -219,34 +220,35 @@ namespace NINOKUNI
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.txtSub);
-            this.groupBox1.Location = new System.Drawing.Point(152, 112);
+            this.groupBox1.Location = new System.Drawing.Point(152, 103);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(271, 168);
+            this.groupBox1.Size = new System.Drawing.Size(271, 155);
             this.groupBox1.TabIndex = 14;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Content data";
             // 
             // txtVoice
             // 
-            this.txtVoice.Location = new System.Drawing.Point(86, 48);
+            this.txtVoice.Location = new System.Drawing.Point(86, 44);
             this.txtVoice.Name = "txtVoice";
-            this.txtVoice.Size = new System.Drawing.Size(176, 20);
+            this.txtVoice.Size = new System.Drawing.Size(176, 21);
             this.txtVoice.TabIndex = 15;
             this.txtVoice.TextChanged += new System.EventHandler(this.txtVoice_TextChanged);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(5, 51);
+            this.label5.Location = new System.Drawing.Point(5, 47);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(53, 13);
+            this.label5.Size = new System.Drawing.Size(71, 12);
             this.label5.TabIndex = 14;
             this.label5.Text = "Voice file:";
             // 
             // SubtitleControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnImport);
@@ -259,7 +261,7 @@ namespace NINOKUNI
             this.Controls.Add(this.btnAddEntry);
             this.Controls.Add(this.btnSave);
             this.Name = "SubtitleControl";
-            this.Size = new System.Drawing.Size(512, 512);
+            this.Size = new System.Drawing.Size(512, 473);
             ((System.ComponentModel.ISupportInitialize)(this.numSyncTime)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

@@ -136,9 +136,9 @@ namespace Ekona.Images.Dialogs
             this.groupObj0.Controls.Add(this.label3);
             this.groupObj0.Controls.Add(this.numYoffset);
             this.groupObj0.Controls.Add(this.label1);
-            this.groupObj0.Location = new System.Drawing.Point(14, 33);
+            this.groupObj0.Location = new System.Drawing.Point(14, 30);
             this.groupObj0.Name = "groupObj0";
-            this.groupObj0.Size = new System.Drawing.Size(222, 197);
+            this.groupObj0.Size = new System.Drawing.Size(222, 182);
             this.groupObj0.TabIndex = 0;
             this.groupObj0.TabStop = false;
             this.groupObj0.Text = "Object 0";
@@ -152,18 +152,18 @@ namespace Ekona.Images.Dialogs
             "Horizontal",
             "Vertical",
             "Invalid"});
-            this.comboShape.Location = new System.Drawing.Point(98, 169);
+            this.comboShape.Location = new System.Drawing.Point(98, 156);
             this.comboShape.Name = "comboShape";
-            this.comboShape.Size = new System.Drawing.Size(110, 21);
+            this.comboShape.Size = new System.Drawing.Size(110, 20);
             this.comboShape.TabIndex = 22;
             this.comboShape.SelectedIndexChanged += new System.EventHandler(this.Change_OBJ0);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(7, 143);
+            this.label5.Location = new System.Drawing.Point(7, 132);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(39, 13);
+            this.label5.Size = new System.Drawing.Size(41, 12);
             this.label5.TabIndex = 21;
             this.label5.Text = "Depth:";
             // 
@@ -174,9 +174,9 @@ namespace Ekona.Images.Dialogs
             this.comboDepth.Items.AddRange(new object[] {
             "4 bpp (16 colors)",
             "8 bpp (256 colors)"});
-            this.comboDepth.Location = new System.Drawing.Point(98, 140);
+            this.comboDepth.Location = new System.Drawing.Point(98, 129);
             this.comboDepth.Name = "comboDepth";
-            this.comboDepth.Size = new System.Drawing.Size(110, 21);
+            this.comboDepth.Size = new System.Drawing.Size(110, 20);
             this.comboDepth.TabIndex = 20;
             this.comboDepth.SelectedIndexChanged += new System.EventHandler(this.Change_OBJ0);
             // 
@@ -189,18 +189,18 @@ namespace Ekona.Images.Dialogs
             "Semi-transparent",
             "Window",
             "Invalid"});
-            this.comboObjMode.Location = new System.Drawing.Point(98, 91);
+            this.comboObjMode.Location = new System.Drawing.Point(98, 84);
             this.comboObjMode.Name = "comboObjMode";
-            this.comboObjMode.Size = new System.Drawing.Size(110, 21);
+            this.comboObjMode.Size = new System.Drawing.Size(110, 20);
             this.comboObjMode.TabIndex = 19;
             this.comboObjMode.SelectedIndexChanged += new System.EventHandler(this.Change_OBJ0);
             // 
             // checkMosaic
             // 
             this.checkMosaic.AutoSize = true;
-            this.checkMosaic.Location = new System.Drawing.Point(9, 117);
+            this.checkMosaic.Location = new System.Drawing.Point(9, 108);
             this.checkMosaic.Name = "checkMosaic";
-            this.checkMosaic.Size = new System.Drawing.Size(60, 17);
+            this.checkMosaic.Size = new System.Drawing.Size(60, 16);
             this.checkMosaic.TabIndex = 17;
             this.checkMosaic.Text = "Mosaic";
             this.checkMosaic.UseVisualStyleBackColor = true;
@@ -209,9 +209,9 @@ namespace Ekona.Images.Dialogs
             // checkDoubleSize
             // 
             this.checkDoubleSize.AutoSize = true;
-            this.checkDoubleSize.Location = new System.Drawing.Point(135, 68);
+            this.checkDoubleSize.Location = new System.Drawing.Point(135, 63);
             this.checkDoubleSize.Name = "checkDoubleSize";
-            this.checkDoubleSize.Size = new System.Drawing.Size(81, 17);
+            this.checkDoubleSize.Size = new System.Drawing.Size(90, 16);
             this.checkDoubleSize.TabIndex = 16;
             this.checkDoubleSize.Text = "Double size";
             this.checkDoubleSize.UseVisualStyleBackColor = true;
@@ -220,9 +220,9 @@ namespace Ekona.Images.Dialogs
             // checkObjdisable
             // 
             this.checkObjdisable.AutoSize = true;
-            this.checkObjdisable.Location = new System.Drawing.Point(36, 68);
+            this.checkObjdisable.Location = new System.Drawing.Point(36, 63);
             this.checkObjdisable.Name = "checkObjdisable";
-            this.checkObjdisable.Size = new System.Drawing.Size(93, 17);
+            this.checkObjdisable.Size = new System.Drawing.Size(108, 16);
             this.checkObjdisable.TabIndex = 15;
             this.checkObjdisable.Text = "Object disable";
             this.checkObjdisable.UseVisualStyleBackColor = true;
@@ -231,9 +231,9 @@ namespace Ekona.Images.Dialogs
             // checkRSflag
             // 
             this.checkRSflag.AutoSize = true;
-            this.checkRSflag.Location = new System.Drawing.Point(10, 45);
+            this.checkRSflag.Location = new System.Drawing.Point(10, 42);
             this.checkRSflag.Name = "checkRSflag";
-            this.checkRSflag.Size = new System.Drawing.Size(104, 17);
+            this.checkRSflag.Size = new System.Drawing.Size(120, 16);
             this.checkRSflag.TabIndex = 14;
             this.checkRSflag.Text = "Rotation / Scale";
             this.checkRSflag.UseVisualStyleBackColor = true;
@@ -242,24 +242,24 @@ namespace Ekona.Images.Dialogs
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 169);
+            this.label4.Location = new System.Drawing.Point(6, 156);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(41, 13);
+            this.label4.Size = new System.Drawing.Size(41, 12);
             this.label4.TabIndex = 4;
             this.label4.Text = "Shape:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 94);
+            this.label3.Location = new System.Drawing.Point(6, 87);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(70, 13);
+            this.label3.Size = new System.Drawing.Size(77, 12);
             this.label3.TabIndex = 2;
             this.label3.Text = "Object mode:";
             // 
             // numYoffset
             // 
-            this.numYoffset.Location = new System.Drawing.Point(98, 19);
+            this.numYoffset.Location = new System.Drawing.Point(98, 18);
             this.numYoffset.Maximum = new decimal(new int[] {
             127,
             0,
@@ -271,16 +271,16 @@ namespace Ekona.Images.Dialogs
             0,
             -2147483648});
             this.numYoffset.Name = "numYoffset";
-            this.numYoffset.Size = new System.Drawing.Size(60, 20);
+            this.numYoffset.Size = new System.Drawing.Size(60, 21);
             this.numYoffset.TabIndex = 1;
             this.numYoffset.ValueChanged += new System.EventHandler(this.Change_OBJ0);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 21);
+            this.label1.Location = new System.Drawing.Point(6, 19);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(56, 13);
+            this.label1.Size = new System.Drawing.Size(71, 12);
             this.label1.TabIndex = 0;
             this.label1.Text = "Y position:";
             // 
@@ -294,50 +294,50 @@ namespace Ekona.Images.Dialogs
             this.groupObj1.Controls.Add(this.numSelectPar);
             this.groupObj1.Controls.Add(this.label2);
             this.groupObj1.Controls.Add(this.numXpos);
-            this.groupObj1.Location = new System.Drawing.Point(242, 33);
+            this.groupObj1.Location = new System.Drawing.Point(242, 30);
             this.groupObj1.Name = "groupObj1";
-            this.groupObj1.Size = new System.Drawing.Size(169, 118);
+            this.groupObj1.Size = new System.Drawing.Size(169, 109);
             this.groupObj1.TabIndex = 1;
             this.groupObj1.TabStop = false;
             this.groupObj1.Text = "Object 1";
             // 
             // numSize
             // 
-            this.numSize.Location = new System.Drawing.Point(99, 92);
+            this.numSize.Location = new System.Drawing.Point(99, 85);
             this.numSize.Maximum = new decimal(new int[] {
             3,
             0,
             0,
             0});
             this.numSize.Name = "numSize";
-            this.numSize.Size = new System.Drawing.Size(60, 20);
+            this.numSize.Size = new System.Drawing.Size(60, 21);
             this.numSize.TabIndex = 8;
             this.numSize.ValueChanged += new System.EventHandler(this.Change_OBJ1);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 94);
+            this.label7.Location = new System.Drawing.Point(6, 87);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(30, 13);
+            this.label7.Size = new System.Drawing.Size(35, 12);
             this.label7.TabIndex = 7;
             this.label7.Text = "Size:";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 48);
+            this.label6.Location = new System.Drawing.Point(6, 44);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(72, 13);
+            this.label6.Size = new System.Drawing.Size(83, 12);
             this.label6.TabIndex = 5;
             this.label6.Text = "Select param:";
             // 
             // checkFlipY
             // 
             this.checkFlipY.AutoSize = true;
-            this.checkFlipY.Location = new System.Drawing.Point(99, 72);
+            this.checkFlipY.Location = new System.Drawing.Point(99, 66);
             this.checkFlipY.Name = "checkFlipY";
-            this.checkFlipY.Size = new System.Drawing.Size(52, 17);
+            this.checkFlipY.Size = new System.Drawing.Size(60, 16);
             this.checkFlipY.TabIndex = 4;
             this.checkFlipY.Text = "Flip Y";
             this.checkFlipY.UseVisualStyleBackColor = true;
@@ -346,9 +346,9 @@ namespace Ekona.Images.Dialogs
             // checkFlipX
             // 
             this.checkFlipX.AutoSize = true;
-            this.checkFlipX.Location = new System.Drawing.Point(9, 72);
+            this.checkFlipX.Location = new System.Drawing.Point(9, 66);
             this.checkFlipX.Name = "checkFlipX";
-            this.checkFlipX.Size = new System.Drawing.Size(52, 17);
+            this.checkFlipX.Size = new System.Drawing.Size(60, 16);
             this.checkFlipX.TabIndex = 3;
             this.checkFlipX.Text = "Flip X";
             this.checkFlipX.UseVisualStyleBackColor = true;
@@ -356,29 +356,29 @@ namespace Ekona.Images.Dialogs
             // 
             // numSelectPar
             // 
-            this.numSelectPar.Location = new System.Drawing.Point(99, 46);
+            this.numSelectPar.Location = new System.Drawing.Point(99, 42);
             this.numSelectPar.Maximum = new decimal(new int[] {
             31,
             0,
             0,
             0});
             this.numSelectPar.Name = "numSelectPar";
-            this.numSelectPar.Size = new System.Drawing.Size(60, 20);
+            this.numSelectPar.Size = new System.Drawing.Size(60, 21);
             this.numSelectPar.TabIndex = 2;
             this.numSelectPar.ValueChanged += new System.EventHandler(this.Change_OBJ1);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 21);
+            this.label2.Location = new System.Drawing.Point(6, 19);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 13);
+            this.label2.Size = new System.Drawing.Size(71, 12);
             this.label2.TabIndex = 1;
             this.label2.Text = "X position:";
             // 
             // numXpos
             // 
-            this.numXpos.Location = new System.Drawing.Point(99, 19);
+            this.numXpos.Location = new System.Drawing.Point(99, 18);
             this.numXpos.Maximum = new decimal(new int[] {
             255,
             0,
@@ -390,7 +390,7 @@ namespace Ekona.Images.Dialogs
             0,
             -2147483648});
             this.numXpos.Name = "numXpos";
-            this.numXpos.Size = new System.Drawing.Size(60, 20);
+            this.numXpos.Size = new System.Drawing.Size(60, 21);
             this.numXpos.TabIndex = 0;
             this.numXpos.ValueChanged += new System.EventHandler(this.Change_OBJ1);
             // 
@@ -402,121 +402,121 @@ namespace Ekona.Images.Dialogs
             this.groupObj2.Controls.Add(this.label9);
             this.groupObj2.Controls.Add(this.numOffset);
             this.groupObj2.Controls.Add(this.label8);
-            this.groupObj2.Location = new System.Drawing.Point(242, 157);
+            this.groupObj2.Location = new System.Drawing.Point(242, 145);
             this.groupObj2.Name = "groupObj2";
-            this.groupObj2.Size = new System.Drawing.Size(169, 100);
+            this.groupObj2.Size = new System.Drawing.Size(169, 92);
             this.groupObj2.TabIndex = 1;
             this.groupObj2.TabStop = false;
             this.groupObj2.Text = "Object 2";
             // 
             // numPal
             // 
-            this.numPal.Location = new System.Drawing.Point(99, 71);
+            this.numPal.Location = new System.Drawing.Point(99, 66);
             this.numPal.Maximum = new decimal(new int[] {
             15,
             0,
             0,
             0});
             this.numPal.Name = "numPal";
-            this.numPal.Size = new System.Drawing.Size(60, 20);
+            this.numPal.Size = new System.Drawing.Size(60, 21);
             this.numPal.TabIndex = 7;
             this.numPal.ValueChanged += new System.EventHandler(this.Change_OBJ2);
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(7, 73);
+            this.label10.Location = new System.Drawing.Point(7, 67);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(71, 13);
+            this.label10.Size = new System.Drawing.Size(89, 12);
             this.label10.TabIndex = 6;
             this.label10.Text = "Palette index:";
             // 
             // numPrio
             // 
-            this.numPrio.Location = new System.Drawing.Point(99, 45);
+            this.numPrio.Location = new System.Drawing.Point(99, 42);
             this.numPrio.Maximum = new decimal(new int[] {
             3,
             0,
             0,
             0});
             this.numPrio.Name = "numPrio";
-            this.numPrio.Size = new System.Drawing.Size(60, 20);
+            this.numPrio.Size = new System.Drawing.Size(60, 21);
             this.numPrio.TabIndex = 5;
             this.numPrio.ValueChanged += new System.EventHandler(this.Change_OBJ2);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(7, 47);
+            this.label9.Location = new System.Drawing.Point(7, 43);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(41, 13);
+            this.label9.Size = new System.Drawing.Size(59, 12);
             this.label9.TabIndex = 4;
             this.label9.Text = "Priority:";
             // 
             // numOffset
             // 
             this.numOffset.Hexadecimal = true;
-            this.numOffset.Location = new System.Drawing.Point(99, 19);
+            this.numOffset.Location = new System.Drawing.Point(99, 18);
             this.numOffset.Maximum = new decimal(new int[] {
             1023,
             0,
             0,
             0});
             this.numOffset.Name = "numOffset";
-            this.numOffset.Size = new System.Drawing.Size(60, 20);
+            this.numOffset.Size = new System.Drawing.Size(60, 21);
             this.numOffset.TabIndex = 3;
             this.numOffset.ValueChanged += new System.EventHandler(this.Change_OBJ2);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(7, 21);
+            this.label8.Location = new System.Drawing.Point(7, 19);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(56, 13);
+            this.label8.Size = new System.Drawing.Size(77, 12);
             this.label8.TabIndex = 2;
             this.label8.Text = "Tile offset:";
             // 
             // numOAM
             // 
-            this.numOAM.Location = new System.Drawing.Point(52, 7);
+            this.numOAM.Location = new System.Drawing.Point(52, 6);
             this.numOAM.Name = "numOAM";
-            this.numOAM.Size = new System.Drawing.Size(60, 20);
+            this.numOAM.Size = new System.Drawing.Size(60, 21);
             this.numOAM.TabIndex = 2;
             this.numOAM.ValueChanged += new System.EventHandler(this.numOAM_ValueChanged);
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(12, 9);
+            this.label11.Location = new System.Drawing.Point(12, 8);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(34, 13);
+            this.label11.Size = new System.Drawing.Size(29, 12);
             this.label11.TabIndex = 3;
             this.label11.Text = "OAM:";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(118, 9);
+            this.label12.Location = new System.Drawing.Point(118, 8);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(19, 13);
+            this.label12.Size = new System.Drawing.Size(23, 12);
             this.label12.TabIndex = 4;
             this.label12.Text = "of ";
             // 
             // picBox
             // 
             this.picBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picBox.Location = new System.Drawing.Point(14, 289);
+            this.picBox.Location = new System.Drawing.Point(14, 267);
             this.picBox.Name = "picBox";
-            this.picBox.Size = new System.Drawing.Size(512, 256);
+            this.picBox.Size = new System.Drawing.Size(512, 236);
             this.picBox.TabIndex = 5;
             this.picBox.TabStop = false;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(13, 270);
+            this.label13.Location = new System.Drawing.Point(13, 249);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(48, 13);
+            this.label13.Size = new System.Drawing.Size(53, 12);
             this.label13.TabIndex = 6;
             this.label13.Text = "Preview:";
             // 
@@ -525,7 +525,7 @@ namespace Ekona.Images.Dialogs
             this.btnSave.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnSave.Location = new System.Drawing.Point(449, 4);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(80, 40);
+            this.btnSave.Size = new System.Drawing.Size(80, 37);
             this.btnSave.TabIndex = 7;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -534,9 +534,9 @@ namespace Ekona.Images.Dialogs
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(415, 57);
+            this.label14.Location = new System.Drawing.Point(415, 53);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(70, 13);
+            this.label14.Size = new System.Drawing.Size(89, 12);
             this.label14.TabIndex = 8;
             this.label14.Text = "Auto set size:";
             // 
@@ -557,9 +557,9 @@ namespace Ekona.Images.Dialogs
             "08x32",
             "16x32",
             "32x64"});
-            this.comboSize.Location = new System.Drawing.Point(415, 73);
+            this.comboSize.Location = new System.Drawing.Point(415, 67);
             this.comboSize.Name = "comboSize";
-            this.comboSize.Size = new System.Drawing.Size(110, 21);
+            this.comboSize.Size = new System.Drawing.Size(110, 20);
             this.comboSize.TabIndex = 9;
             this.comboSize.SelectedIndexChanged += new System.EventHandler(this.comboSize_SelectedIndexChanged);
             // 
@@ -568,9 +568,9 @@ namespace Ekona.Images.Dialogs
             this.checkGrid.AutoSize = true;
             this.checkGrid.Checked = true;
             this.checkGrid.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkGrid.Location = new System.Drawing.Point(3, 108);
+            this.checkGrid.Location = new System.Drawing.Point(3, 100);
             this.checkGrid.Name = "checkGrid";
-            this.checkGrid.Size = new System.Drawing.Size(69, 17);
+            this.checkGrid.Size = new System.Drawing.Size(78, 16);
             this.checkGrid.TabIndex = 10;
             this.checkGrid.Text = "View grid";
             this.checkGrid.UseVisualStyleBackColor = true;
@@ -579,9 +579,9 @@ namespace Ekona.Images.Dialogs
             // checkNumbers
             // 
             this.checkNumbers.AutoSize = true;
-            this.checkNumbers.Location = new System.Drawing.Point(3, 85);
+            this.checkNumbers.Location = new System.Drawing.Point(3, 78);
             this.checkNumbers.Name = "checkNumbers";
-            this.checkNumbers.Size = new System.Drawing.Size(92, 17);
+            this.checkNumbers.Size = new System.Drawing.Size(96, 16);
             this.checkNumbers.TabIndex = 11;
             this.checkNumbers.Text = "View numbers";
             this.checkNumbers.UseVisualStyleBackColor = true;
@@ -592,9 +592,9 @@ namespace Ekona.Images.Dialogs
             this.checkImage.AutoSize = true;
             this.checkImage.Checked = true;
             this.checkImage.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkImage.Location = new System.Drawing.Point(3, 62);
+            this.checkImage.Location = new System.Drawing.Point(3, 57);
             this.checkImage.Name = "checkImage";
-            this.checkImage.Size = new System.Drawing.Size(80, 17);
+            this.checkImage.Size = new System.Drawing.Size(84, 16);
             this.checkImage.TabIndex = 12;
             this.checkImage.Text = "View image";
             this.checkImage.UseVisualStyleBackColor = true;
@@ -605,9 +605,9 @@ namespace Ekona.Images.Dialogs
             this.checkOAM.AutoSize = true;
             this.checkOAM.Checked = true;
             this.checkOAM.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkOAM.Location = new System.Drawing.Point(3, 42);
+            this.checkOAM.Location = new System.Drawing.Point(3, 39);
             this.checkOAM.Name = "checkOAM";
-            this.checkOAM.Size = new System.Drawing.Size(105, 17);
+            this.checkOAM.Size = new System.Drawing.Size(114, 16);
             this.checkOAM.TabIndex = 13;
             this.checkOAM.Text = "View oam border";
             this.checkOAM.UseVisualStyleBackColor = true;
@@ -616,9 +616,9 @@ namespace Ekona.Images.Dialogs
             // checkTrans
             // 
             this.checkTrans.AutoSize = true;
-            this.checkTrans.Location = new System.Drawing.Point(3, 19);
+            this.checkTrans.Location = new System.Drawing.Point(3, 18);
             this.checkTrans.Name = "checkTrans";
-            this.checkTrans.Size = new System.Drawing.Size(91, 17);
+            this.checkTrans.Size = new System.Drawing.Size(96, 16);
             this.checkTrans.TabIndex = 14;
             this.checkTrans.Text = "Transparency";
             this.checkTrans.UseVisualStyleBackColor = true;
@@ -632,9 +632,9 @@ namespace Ekona.Images.Dialogs
             this.groupPreview.Controls.Add(this.checkOAM);
             this.groupPreview.Controls.Add(this.checkNumbers);
             this.groupPreview.Controls.Add(this.checkImage);
-            this.groupPreview.Location = new System.Drawing.Point(418, 105);
+            this.groupPreview.Location = new System.Drawing.Point(418, 97);
             this.groupPreview.Name = "groupPreview";
-            this.groupPreview.Size = new System.Drawing.Size(111, 152);
+            this.groupPreview.Size = new System.Drawing.Size(111, 140);
             this.groupPreview.TabIndex = 15;
             this.groupPreview.TabStop = false;
             this.groupPreview.Text = "Preview options";
@@ -644,9 +644,9 @@ namespace Ekona.Images.Dialogs
             this.checkCurrOAM.AutoSize = true;
             this.checkCurrOAM.Checked = true;
             this.checkCurrOAM.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkCurrOAM.Location = new System.Drawing.Point(3, 129);
+            this.checkCurrOAM.Location = new System.Drawing.Point(3, 119);
             this.checkCurrOAM.Name = "checkCurrOAM";
-            this.checkCurrOAM.Size = new System.Drawing.Size(79, 17);
+            this.checkCurrOAM.Size = new System.Drawing.Size(84, 16);
             this.checkCurrOAM.TabIndex = 15;
             this.checkCurrOAM.Text = "Select oam";
             this.checkCurrOAM.UseVisualStyleBackColor = true;
@@ -656,7 +656,7 @@ namespace Ekona.Images.Dialogs
             // 
             this.btnAddOAM.Location = new System.Drawing.Point(225, 4);
             this.btnAddOAM.Name = "btnAddOAM";
-            this.btnAddOAM.Size = new System.Drawing.Size(90, 23);
+            this.btnAddOAM.Size = new System.Drawing.Size(90, 21);
             this.btnAddOAM.TabIndex = 16;
             this.btnAddOAM.Text = "Add OAM";
             this.btnAddOAM.UseVisualStyleBackColor = true;
@@ -666,7 +666,7 @@ namespace Ekona.Images.Dialogs
             // 
             this.btnRemOAM.Location = new System.Drawing.Point(321, 4);
             this.btnRemOAM.Name = "btnRemOAM";
-            this.btnRemOAM.Size = new System.Drawing.Size(90, 23);
+            this.btnRemOAM.Size = new System.Drawing.Size(90, 21);
             this.btnRemOAM.TabIndex = 17;
             this.btnRemOAM.Text = "Remove OAM";
             this.btnRemOAM.UseVisualStyleBackColor = true;
@@ -674,37 +674,37 @@ namespace Ekona.Images.Dialogs
             // 
             // numNumOAM
             // 
-            this.numNumOAM.Location = new System.Drawing.Point(176, 236);
+            this.numNumOAM.Location = new System.Drawing.Point(176, 218);
             this.numNumOAM.Maximum = new decimal(new int[] {
             65535,
             0,
             0,
             0});
             this.numNumOAM.Name = "numNumOAM";
-            this.numNumOAM.Size = new System.Drawing.Size(60, 20);
+            this.numNumOAM.Size = new System.Drawing.Size(60, 21);
             this.numNumOAM.TabIndex = 18;
             this.numNumOAM.ValueChanged += new System.EventHandler(this.numNumOAM_ValueChanged);
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(125, 238);
+            this.label15.Location = new System.Drawing.Point(125, 220);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(45, 13);
+            this.label15.Size = new System.Drawing.Size(47, 12);
             this.label15.TabIndex = 19;
             this.label15.Text = "OAM id:";
             // 
             // numObj0
             // 
             this.numObj0.Hexadecimal = true;
-            this.numObj0.Location = new System.Drawing.Point(176, 263);
+            this.numObj0.Location = new System.Drawing.Point(176, 243);
             this.numObj0.Maximum = new decimal(new int[] {
             65535,
             0,
             0,
             0});
             this.numObj0.Name = "numObj0";
-            this.numObj0.Size = new System.Drawing.Size(60, 20);
+            this.numObj0.Size = new System.Drawing.Size(60, 21);
             this.numObj0.TabIndex = 20;
             this.numObj0.Value = new decimal(new int[] {
             65535,
@@ -716,32 +716,32 @@ namespace Ekona.Images.Dialogs
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(126, 265);
+            this.label16.Location = new System.Drawing.Point(126, 245);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(32, 13);
+            this.label16.Size = new System.Drawing.Size(35, 12);
             this.label16.TabIndex = 21;
             this.label16.Text = "Obj0:";
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(257, 265);
+            this.label17.Location = new System.Drawing.Point(257, 245);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(32, 13);
+            this.label17.Size = new System.Drawing.Size(35, 12);
             this.label17.TabIndex = 23;
             this.label17.Text = "Obj1:";
             // 
             // numObj1
             // 
             this.numObj1.Hexadecimal = true;
-            this.numObj1.Location = new System.Drawing.Point(307, 263);
+            this.numObj1.Location = new System.Drawing.Point(307, 243);
             this.numObj1.Maximum = new decimal(new int[] {
             65535,
             0,
             0,
             0});
             this.numObj1.Name = "numObj1";
-            this.numObj1.Size = new System.Drawing.Size(60, 20);
+            this.numObj1.Size = new System.Drawing.Size(60, 21);
             this.numObj1.TabIndex = 22;
             this.numObj1.Value = new decimal(new int[] {
             65535,
@@ -753,23 +753,23 @@ namespace Ekona.Images.Dialogs
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(383, 265);
+            this.label18.Location = new System.Drawing.Point(383, 245);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(32, 13);
+            this.label18.Size = new System.Drawing.Size(35, 12);
             this.label18.TabIndex = 25;
             this.label18.Text = "Obj2:";
             // 
             // numObj2
             // 
             this.numObj2.Hexadecimal = true;
-            this.numObj2.Location = new System.Drawing.Point(433, 263);
+            this.numObj2.Location = new System.Drawing.Point(433, 243);
             this.numObj2.Maximum = new decimal(new int[] {
             65535,
             0,
             0,
             0});
             this.numObj2.Name = "numObj2";
-            this.numObj2.Size = new System.Drawing.Size(60, 20);
+            this.numObj2.Size = new System.Drawing.Size(60, 21);
             this.numObj2.TabIndex = 24;
             this.numObj2.Value = new decimal(new int[] {
             65535,
@@ -783,19 +783,20 @@ namespace Ekona.Images.Dialogs
             this.checkAddFirst.AutoSize = true;
             this.checkAddFirst.Checked = true;
             this.checkAddFirst.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkAddFirst.Location = new System.Drawing.Point(14, 234);
+            this.checkAddFirst.Location = new System.Drawing.Point(14, 216);
             this.checkAddFirst.Name = "checkAddFirst";
-            this.checkAddFirst.Size = new System.Drawing.Size(78, 17);
+            this.checkAddFirst.Size = new System.Drawing.Size(96, 16);
             this.checkAddFirst.TabIndex = 26;
             this.checkAddFirst.Text = "Add first ID";
             this.checkAddFirst.UseVisualStyleBackColor = true;
             // 
             // OAMEditor
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.ClientSize = new System.Drawing.Size(533, 550);
+            this.ClientSize = new System.Drawing.Size(533, 508);
             this.Controls.Add(this.checkAddFirst);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.numObj2);

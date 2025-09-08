@@ -83,7 +83,7 @@ namespace NINOKUNI
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(4, 4);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(26, 13);
+            this.label1.Size = new System.Drawing.Size(23, 12);
             this.label1.TabIndex = 1;
             this.label1.Text = "S00";
             // 
@@ -92,7 +92,7 @@ namespace NINOKUNI
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(7, 135);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(26, 13);
+            this.label2.Size = new System.Drawing.Size(23, 12);
             this.label2.TabIndex = 2;
             this.label2.Text = "S01";
             // 
@@ -143,7 +143,7 @@ namespace NINOKUNI
             this.radioStart.Checked = true;
             this.radioStart.Location = new System.Drawing.Point(6, 23);
             this.radioStart.Name = "radioStart";
-            this.radioStart.Size = new System.Drawing.Size(76, 17);
+            this.radioStart.Size = new System.Drawing.Size(89, 16);
             this.radioStart.TabIndex = 11;
             this.radioStart.TabStop = true;
             this.radioStart.Text = "Start block";
@@ -155,7 +155,7 @@ namespace NINOKUNI
             this.radioEnd.AutoSize = true;
             this.radioEnd.Location = new System.Drawing.Point(6, 47);
             this.radioEnd.Name = "radioEnd";
-            this.radioEnd.Size = new System.Drawing.Size(73, 17);
+            this.radioEnd.Size = new System.Drawing.Size(77, 16);
             this.radioEnd.TabIndex = 12;
             this.radioEnd.TabStop = true;
             this.radioEnd.Text = "End block";
@@ -166,7 +166,7 @@ namespace NINOKUNI
             // 
             this.numString.Location = new System.Drawing.Point(66, 80);
             this.numString.Name = "numString";
-            this.numString.Size = new System.Drawing.Size(60, 20);
+            this.numString.Size = new System.Drawing.Size(60, 21);
             this.numString.TabIndex = 13;
             this.numString.ValueChanged += new System.EventHandler(this.numString_ValueChanged);
             // 
@@ -175,7 +175,7 @@ namespace NINOKUNI
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(132, 82);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(19, 13);
+            this.label5.Size = new System.Drawing.Size(23, 12);
             this.label5.TabIndex = 14;
             this.label5.Text = "of ";
             // 
@@ -184,7 +184,7 @@ namespace NINOKUNI
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(6, 82);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(40, 13);
+            this.label6.Size = new System.Drawing.Size(53, 12);
             this.label6.TabIndex = 15;
             this.label6.Text = "String: ";
             // 
@@ -204,7 +204,9 @@ namespace NINOKUNI
             // 
             // SQcontrol
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnImport);

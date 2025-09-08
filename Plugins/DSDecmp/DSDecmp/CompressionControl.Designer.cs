@@ -68,7 +68,7 @@ namespace DSDecmp
             this.checkLookAhead.AutoSize = true;
             this.checkLookAhead.Location = new System.Drawing.Point(146, 97);
             this.checkLookAhead.Name = "checkLookAhead";
-            this.checkLookAhead.Size = new System.Drawing.Size(45, 17);
+            this.checkLookAhead.Size = new System.Drawing.Size(42, 16);
             this.checkLookAhead.TabIndex = 0;
             this.checkLookAhead.Text = "S16";
             this.checkLookAhead.UseVisualStyleBackColor = true;
@@ -86,7 +86,7 @@ namespace DSDecmp
             "RLE"});
             this.comboFormat.Location = new System.Drawing.Point(9, 93);
             this.comboFormat.Name = "comboFormat";
-            this.comboFormat.Size = new System.Drawing.Size(121, 21);
+            this.comboFormat.Size = new System.Drawing.Size(121, 20);
             this.comboFormat.TabIndex = 1;
             this.comboFormat.SelectedIndexChanged += new System.EventHandler(this.comboFormat_SelectedIndexChanged);
             // 
@@ -115,7 +115,7 @@ namespace DSDecmp
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(6, 77);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(26, 13);
+            this.label1.Size = new System.Drawing.Size(23, 12);
             this.label1.TabIndex = 4;
             this.label1.Text = "S15";
             // 
@@ -124,7 +124,7 @@ namespace DSDecmp
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(6, 11);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(26, 13);
+            this.label2.Size = new System.Drawing.Size(23, 12);
             this.label2.TabIndex = 5;
             this.label2.Text = "S12";
             // 
@@ -133,7 +133,7 @@ namespace DSDecmp
             this.txtBoxOlderCompress.Location = new System.Drawing.Point(9, 27);
             this.txtBoxOlderCompress.Name = "txtBoxOlderCompress";
             this.txtBoxOlderCompress.ReadOnly = true;
-            this.txtBoxOlderCompress.Size = new System.Drawing.Size(100, 20);
+            this.txtBoxOlderCompress.Size = new System.Drawing.Size(100, 21);
             this.txtBoxOlderCompress.TabIndex = 6;
             // 
             // txtBoxNewCompress
@@ -141,7 +141,7 @@ namespace DSDecmp
             this.txtBoxNewCompress.Location = new System.Drawing.Point(253, 27);
             this.txtBoxNewCompress.Name = "txtBoxNewCompress";
             this.txtBoxNewCompress.ReadOnly = true;
-            this.txtBoxNewCompress.Size = new System.Drawing.Size(100, 20);
+            this.txtBoxNewCompress.Size = new System.Drawing.Size(100, 21);
             this.txtBoxNewCompress.TabIndex = 7;
             this.txtBoxNewCompress.Text = "S14";
             // 
@@ -150,13 +150,15 @@ namespace DSDecmp
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(253, 8);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(26, 13);
+            this.label3.Size = new System.Drawing.Size(23, 12);
             this.label3.TabIndex = 8;
             this.label3.Text = "S13";
             // 
             // CompressionControl
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Transparent;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.label3);
