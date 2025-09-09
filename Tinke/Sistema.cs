@@ -275,21 +275,11 @@ namespace Tinke
 
             using (Graphics g = this.CreateGraphics())
             {
-                float screenDPI = g.DpiX;
-                float scaleFactor = screenDPI / 96f;
-                int iconSize = (int)(24 * scaleFactor);
-
-                ImageList backupList = new ImageList();
-                foreach (string key in iconos.Images.Keys)
-                {
-                    backupList.Images.Add(key, iconos.Images[key]);
-                }
+                int realSize = Ekona.Helper.SVGLoader.GetRealIconSize(24);
 
                 iconos.Images.Clear();
-                iconos.ImageSize = new Size(iconSize, iconSize);
+                iconos.ImageSize = new Size(realSize, realSize);
                 iconos.ColorDepth = ColorDepth.Depth32Bit;
-
-                string iconDir = Path.Combine(Application.StartupPath, "Icons");
 
                 string[] keys = new string[]
                 {
@@ -320,37 +310,19 @@ namespace Tinke
                     "package_add.png"
                 };
 
-                bool error = false;
                 foreach (string key in keys)
                 {
-                    string svgFile = Path.Combine(iconDir, Path.ChangeExtension(key, ".svg"));
-                    if (File.Exists(svgFile))
-                    {
-                        var bmp = Helper.LoadSvgAsBitmap(svgFile, iconSize, iconSize);
-                        iconos.Images.Add(key, bmp);
-                    } else {
-                        error = true;
-                        break;
-                    }
+                    string svgFile = key.Substring(0, key.Length - 4);
+                    var bmp = Ekona.Helper.SVGLoader.LoadSvg(svgFile, 24);
+                    iconos.Images.Add(key, bmp);
                 }
 
-                if (error)
-                {
-                    iconos.Images.Clear();
-                    iconos.ImageSize = new Size(16, 16);
-                    iconos.ColorDepth = ColorDepth.Depth8Bit;
-                    foreach (string key in backupList.Images.Keys)
-                    {
-                        iconos.Images.Add(key, backupList.Images[key]);
-                    }
-                }
+                Bitmap zoomSvg = Ekona.Helper.SVGLoader.LoadSvg("zoom", 24);
+                Bitmap calculatorSvg = Ekona.Helper.SVGLoader.LoadSvg("calculator", 24);
 
-                Bitmap zoomSvg = Helper.LoadSvg("zoom", iconSize);
-                Bitmap calculatorSvg = Helper.LoadSvg("calculator", iconSize);
-
-                this.toolStrip2.ImageScalingSize = new Size(iconSize, iconSize);
-                this.toolStrip3.ImageScalingSize = new Size(iconSize, iconSize);
-                this.toolStripToolkit.Image = iconos.Images["package.png"];
+                this.toolStrip2.ImageScalingSize = new Size(realSize, realSize);
+                this.toolStrip3.ImageScalingSize = new Size(realSize, realSize);
+                this.toolStripToolkit.Image = Ekona.Helper.SVGLoader.Package;
                 this.toolStripAbrirFat.Image = iconos.Images["package.png"];
                 this.toolStripMenuComprimido.Image = iconos.Images["compress.png"];
                 this.toolStripAbrirTexto.Image = iconos.Images["page_white_text.png"];

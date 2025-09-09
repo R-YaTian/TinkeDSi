@@ -59,8 +59,15 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Fizzler, Version=1.1.21209.0, Culture=neutral, PublicKeyToken=4ebff4844e382110, processorArchitecture=MSIL">
+      <HintPath>..\packages\Fizzler.1.1.0\lib\net35\Fizzler.dll</HintPath>
+    </Reference>
+    <Reference Include="Svg, Version=3.0.0.0, Culture=neutral, PublicKeyToken=12a0bac221edeae2, processorArchitecture=MSIL">
+      <HintPath>..\packages\Svg.3.0.84\lib\net35\Svg.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -73,6 +80,7 @@
     <Compile Include="Helper\CRC.cs" />
     <Compile Include="Helper\IOutil.cs" />
     <Compile Include="Helper\LNK.cs" />
+    <Compile Include="Helper\SVGLoader.cs" />
     <Compile Include="Helper\Translation.cs" />
     <Compile Include="Images\Actions.cs" />
     <Compile Include="Images\Formats\ACO.cs" />
@@ -140,7 +148,44 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Icons\accept.svg" />
+    <EmbeddedResource Include="Icons\calculator.svg" />
+    <EmbeddedResource Include="Icons\cancel.svg" />
+    <EmbeddedResource Include="Icons\compress.svg" />
+    <EmbeddedResource Include="Icons\disk.svg" />
+    <EmbeddedResource Include="Icons\film.svg" />
+    <EmbeddedResource Include="Icons\folder.svg" />
+    <EmbeddedResource Include="Icons\folder_add.svg" />
+    <EmbeddedResource Include="Icons\folder_go.svg" />
+    <EmbeddedResource Include="Icons\font.svg" />
+    <EmbeddedResource Include="Icons\image.svg" />
+    <EmbeddedResource Include="Icons\image_edit.svg" />
+    <EmbeddedResource Include="Icons\map.svg" />
+    <EmbeddedResource Include="Icons\music.svg" />
+    <EmbeddedResource Include="Icons\package.svg" />
+    <EmbeddedResource Include="Icons\package_add.svg" />
+    <EmbeddedResource Include="Icons\package_go.svg" />
+    <EmbeddedResource Include="Icons\page_gear.svg" />
+    <EmbeddedResource Include="Icons\page_white.svg" />
+    <EmbeddedResource Include="Icons\page_white_text.svg" />
+    <EmbeddedResource Include="Icons\palette.svg" />
+    <EmbeddedResource Include="Icons\pencil.svg" />
+    <EmbeddedResource Include="Icons\photo.svg" />
+    <EmbeddedResource Include="Icons\picture.svg" />
+    <EmbeddedResource Include="Icons\pictures.svg" />
+    <EmbeddedResource Include="Icons\picture_delete.svg" />
+    <EmbeddedResource Include="Icons\picture_edit.svg" />
+    <EmbeddedResource Include="Icons\picture_go.svg" />
+    <EmbeddedResource Include="Icons\picture_link.svg" />
+    <EmbeddedResource Include="Icons\picture_save.svg" />
+    <EmbeddedResource Include="Icons\plugin_go.svg" />
+    <EmbeddedResource Include="Icons\script.svg" />
+    <EmbeddedResource Include="Icons\zoom.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -17,11 +17,8 @@
  * By: pleoNeX
  * 
  */
-using Svg;
 using System;
-using System.Drawing;
 using System.IO;
-using System.Windows.Forms;
 using System.Xml.Linq;
 
 namespace Tinke.Tools
@@ -104,19 +101,6 @@ namespace Tinke.Tools
                     return langFile;
             }
             return "";
-        }
-        public static Bitmap LoadSvgAsBitmap(string svgPath, int width, int height)
-        {
-            SvgDocument svgDoc = SvgDocument.Open(svgPath);
-            Bitmap bmp = svgDoc.Draw(width, height);
-            return bmp;
-        }
-        public static Bitmap LoadSvg(string svgName, int size)
-        {
-            string svgPath = Path.Combine(Application.StartupPath, "Icons", svgName + ".svg");
-            if (File.Exists(svgPath))
-                 return LoadSvgAsBitmap(svgPath, size, size);
-            return null;
         }
     }
 }

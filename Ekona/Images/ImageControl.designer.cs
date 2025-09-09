@@ -94,7 +94,7 @@ namespace Ekona.Images
             // 
             // numericWidth
             // 
-            this.numericWidth.Location = new System.Drawing.Point(48, 76);
+            this.numericWidth.Location = new System.Drawing.Point(62, 76);
             this.numericWidth.Maximum = new decimal(new int[] {
             65536,
             0,
@@ -106,7 +106,7 @@ namespace Ekona.Images
             0,
             0});
             this.numericWidth.Name = "numericWidth";
-            this.numericWidth.Size = new System.Drawing.Size(71, 21);
+            this.numericWidth.Size = new System.Drawing.Size(57, 21);
             this.numericWidth.TabIndex = 1;
             this.numericWidth.Value = new decimal(new int[] {
             1,
@@ -135,7 +135,7 @@ namespace Ekona.Images
             // 
             // numericHeight
             // 
-            this.numericHeight.Location = new System.Drawing.Point(165, 76);
+            this.numericHeight.Location = new System.Drawing.Point(178, 76);
             this.numericHeight.Maximum = new decimal(new int[] {
             65536,
             0,
@@ -147,7 +147,7 @@ namespace Ekona.Images
             0,
             0});
             this.numericHeight.Name = "numericHeight";
-            this.numericHeight.Size = new System.Drawing.Size(71, 21);
+            this.numericHeight.Size = new System.Drawing.Size(58, 21);
             this.numericHeight.TabIndex = 4;
             this.numericHeight.Value = new decimal(new int[] {
             1,
@@ -216,7 +216,7 @@ namespace Ekona.Images
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(128, 174);
+            this.label9.Location = new System.Drawing.Point(114, 174);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(23, 12);
             this.label9.TabIndex = 26;
@@ -244,7 +244,7 @@ namespace Ekona.Images
             // checkTransparency
             // 
             this.checkTransparency.AutoSize = true;
-            this.checkTransparency.Location = new System.Drawing.Point(9, 175);
+            this.checkTransparency.Location = new System.Drawing.Point(6, 146);
             this.checkTransparency.Name = "checkTransparency";
             this.checkTransparency.Size = new System.Drawing.Size(42, 16);
             this.checkTransparency.TabIndex = 19;
@@ -315,14 +315,14 @@ namespace Ekona.Images
             // 
             // numericStart
             // 
-            this.numericStart.Location = new System.Drawing.Point(48, 20);
+            this.numericStart.Location = new System.Drawing.Point(62, 20);
             this.numericStart.Maximum = new decimal(new int[] {
             65535,
             0,
             0,
             0});
             this.numericStart.Name = "numericStart";
-            this.numericStart.Size = new System.Drawing.Size(71, 21);
+            this.numericStart.Size = new System.Drawing.Size(57, 21);
             this.numericStart.TabIndex = 6;
             this.numericStart.ValueChanged += new System.EventHandler(this.numericStart_ValueChanged);
             // 
@@ -345,7 +345,7 @@ namespace Ekona.Images
             this.groupBox2.Controls.Add(this.numThreshold);
             this.groupBox2.Location = new System.Drawing.Point(258, 352);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(254, 86);
+            this.groupBox2.Size = new System.Drawing.Size(301, 86);
             this.groupBox2.TabIndex = 47;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "S16";
@@ -386,7 +386,7 @@ namespace Ekona.Images
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(174, 13);
+            this.label7.Location = new System.Drawing.Point(209, 17);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(23, 12);
             this.label7.TabIndex = 43;
@@ -401,7 +401,7 @@ namespace Ekona.Images
             0,
             0,
             65536});
-            this.numThreshold.Location = new System.Drawing.Point(177, 29);
+            this.numThreshold.Location = new System.Drawing.Point(211, 37);
             this.numThreshold.Maximum = new decimal(new int[] {
             442,
             0,
@@ -504,7 +504,7 @@ namespace Ekona.Images
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(525, 287);
+            this.panel1.Size = new System.Drawing.Size(562, 287);
             this.panel1.TabIndex = 7;
             // 
             // ImageControl
@@ -525,7 +525,7 @@ namespace Ekona.Images
             this.Controls.Add(this.btnBgdRem);
             this.Controls.Add(this.btnBgd);
             this.Name = "ImageControl";
-            this.Size = new System.Drawing.Size(525, 515);
+            this.Size = new System.Drawing.Size(562, 515);
             ((System.ComponentModel.ISupportInitialize)(this.numericWidth)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericHeight)).EndInit();
             this.groupProp.ResumeLayout(false);
