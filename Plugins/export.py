@@ -18,7 +18,7 @@ def process_xml_file(input_file, output_base, encoding="utf-8"):
     # Parse XML directly without using xmltodict to preserve mixed content order
     tree = ET.parse(input_file)
     root = tree.getroot()
-    
+
     # Determine root element type
     if root.tag == "Language":
         sub_item = "Language"
@@ -45,22 +45,22 @@ def process_xml_file(input_file, output_base, encoding="utf-8"):
         # Create new root element
         new_root = ET.Element(sub_item)
         new_root.set("name", lang_name)
-        
+
         # Copy all child elements while preserving original structure and content
         for child in lang_element:
             new_root.append(child)
 
         # Generate formatted XML with proper encoding
         xml_str = ET.tostring(new_root, encoding='unicode')
-        
+
         # Use minidom for formatting with explicit encoding declaration
         dom = parseString(xml_str)
         xml_pretty = dom.toprettyxml(indent="  ", encoding=encoding)
-        
+
         # Convert bytes to string if needed and remove extra blank lines
         if isinstance(xml_pretty, bytes):
             xml_pretty = xml_pretty.decode(encoding)
-        
+
         xml_pretty = re.sub(r'\n\s*\n', '\n', xml_pretty)
         xml_pretty = '\n'.join(line for line in xml_pretty.split('\n') if line.strip())
 
