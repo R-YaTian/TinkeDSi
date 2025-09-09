@@ -1,77 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <Language>
-  <Español>
-    <NFTR>
-      <S00>Leyendo fuente NFTR...</S00>
-      <S01>Número de secciones: {0}</S01>
-      <S02>Sección: {0}</S02>
-      <S03>Tamaño de la sección: 0x{0}</S03>
-      <S04>Desconocido 1: 0x{0}</S04>
-      <S05>Desconocido 2: 0x{0}</S05>
-      <S06>Posición PLGC: 0x{0}</S06>
-      <S07>Posición HDWC: 0x{0}</S07>
-      <S08>Posición PAMC: 0x{0}</S08>
-      <S09>Desconocido 5: 0x{0}</S09>
-      <S0A>Ancho de tile: {0}</S0A>
-      <S0B>Alto de tile: {0}</S0B>
-      <S0C>Longitud de tile: {0}</S0C>
-      <S0D>Desconocido: 0x{0}</S0D>
-      <S0E>Profundidad: {0}</S0E>
-      <S0F>Modo de rotación: {0}</S0F>
-      <S10>Desconocido 2: {0}</S10>
-      <S11>Primer código: 0x{0}</S11>
-      <S12>Último código: 0x{0}</S12>
-      <S13>Desconocido 1: 0x{0}</S13>
-      <S14>Primer caracter: 0x{0}</S14>
-      <S15>Último caracter: 0x{0}</S15>
-      <S16>Tipo: {0}</S16>
-      <S17>Tipo de información {0}</S17>
-      <S18>Primer código de caracter: 0x{0}</S18>
-      <S19>Número de elementos: {0}</S19>
-      <S1A>Código de caracter {0}: 0x{1} ({2})</S1A>
-      <S1B>Número de caracteres: {0}</S1B>
-      <S1C>Código de caracter {0}: 0x{1}</S1C>
-      <S1D>Caracter {0}: {1}</S1D>
-      <S1E>Altura: 0x{0}</S1E>
-      <S1F>Desconocido 3: 0x{0}</S1F>
-      <S20>Desconocido 4: 0x{0}</S20>
-      <S21>Ancho: 0x{0}</S21>
-      <S22>Ancho (duplicado): 0x{0}</S22>
-      <S23>Codificación: 0x{0}</S23>
-      <S24>Altura: 0x{0}</S24>
-      <S25>Ancho: 0x{0}</S25>
-      <S26>Bearing Y: 0x{0}</S26>
-    </NFTR>
-    <FontControl>
-      <S00>Guardar nueva fuente</S00>
-      <S01>Aplicar cambios</S01>
-      <S02>Codificación:</S02>
-      <S03>Añadir caracter</S03>
-      <S04>Eliminar caracter</S04>
-      <S05>Usar paleta abierta</S05>
-      <S06>Cambiar mapa</S06>
-    </FontControl>
-    <CharControl>
-      <S00>Ancho:</S00>
-      <S01>Inicio:</S01>
-      <S02>Longitud:</S02>
-      <S03>Código:</S03>
-    </CharControl>
-    <MapChar>
-      <S00>Mapa de caracteres</S00>
-      <S01>Sección</S01>
-      <S02>de {0}</S02>
-      <S03>Aceptar</S03>
-      <S04>Información de la sección</S04>
-      <S05>Tipo:</S05>
-      <S06>Primer caracter:</S06>
-      <S07>Último caracter:</S07>
-      <S08>Añadir sección</S08>
-      <S09>Eliminar sección</S09>
-      <S0A>Númbero de imagen</S0A>
-      <S0B>Código del caracter</S0B>
-    </MapChar>
-  </Español>
   <English>
     <NFTR>
       <S00>Reading NFTR font file...</S00>
@@ -144,6 +72,78 @@
       <S0B>Char code</S0B>
     </MapChar>
   </English>
+  <Español>
+    <NFTR>
+      <S00>Leyendo fuente NFTR...</S00>
+      <S01>Número de secciones: {0}</S01>
+      <S02>Sección: {0}</S02>
+      <S03>Tamaño de la sección: 0x{0}</S03>
+      <S04>Desconocido 1: 0x{0}</S04>
+      <S05>Desconocido 2: 0x{0}</S05>
+      <S06>Posición PLGC: 0x{0}</S06>
+      <S07>Posición HDWC: 0x{0}</S07>
+      <S08>Posición PAMC: 0x{0}</S08>
+      <S09>Desconocido 5: 0x{0}</S09>
+      <S0A>Ancho de tile: {0}</S0A>
+      <S0B>Alto de tile: {0}</S0B>
+      <S0C>Longitud de tile: {0}</S0C>
+      <S0D>Desconocido: 0x{0}</S0D>
+      <S0E>Profundidad: {0}</S0E>
+      <S0F>Modo de rotación: {0}</S0F>
+      <S10>Desconocido 2: {0}</S10>
+      <S11>Primer código: 0x{0}</S11>
+      <S12>Último código: 0x{0}</S12>
+      <S13>Desconocido 1: 0x{0}</S13>
+      <S14>Primer caracter: 0x{0}</S14>
+      <S15>Último caracter: 0x{0}</S15>
+      <S16>Tipo: {0}</S16>
+      <S17>Tipo de información {0}</S17>
+      <S18>Primer código de caracter: 0x{0}</S18>
+      <S19>Número de elementos: {0}</S19>
+      <S1A>Código de caracter {0}: 0x{1} ({2})</S1A>
+      <S1B>Número de caracteres: {0}</S1B>
+      <S1C>Código de caracter {0}: 0x{1}</S1C>
+      <S1D>Caracter {0}: {1}</S1D>
+      <S1E>Altura: 0x{0}</S1E>
+      <S1F>Desconocido 3: 0x{0}</S1F>
+      <S20>Desconocido 4: 0x{0}</S20>
+      <S21>Ancho: 0x{0}</S21>
+      <S22>Ancho (duplicado): 0x{0}</S22>
+      <S23>Codificación: 0x{0}</S23>
+      <S24>Altura: 0x{0}</S24>
+      <S25>Ancho: 0x{0}</S25>
+      <S26>Bearing Y: 0x{0}</S26>
+    </NFTR>
+    <FontControl>
+      <S00>Guardar nueva fuente</S00>
+      <S01>Aplicar cambios</S01>
+      <S02>Codificación:</S02>
+      <S03>Añadir caracter</S03>
+      <S04>Eliminar caracter</S04>
+      <S05>Usar paleta abierta</S05>
+      <S06>Cambiar mapa</S06>
+    </FontControl>
+    <CharControl>
+      <S00>Ancho:</S00>
+      <S01>Inicio:</S01>
+      <S02>Longitud:</S02>
+      <S03>Código:</S03>
+    </CharControl>
+    <MapChar>
+      <S00>Mapa de caracteres</S00>
+      <S01>Sección</S01>
+      <S02>de {0}</S02>
+      <S03>Aceptar</S03>
+      <S04>Información de la sección</S04>
+      <S05>Tipo:</S05>
+      <S06>Primer caracter:</S06>
+      <S07>Último caracter:</S07>
+      <S08>Añadir sección</S08>
+      <S09>Eliminar sección</S09>
+      <S0A>Númbero de imagen</S0A>
+      <S0B>Código del caracter</S0B>
+    </MapChar>
+  </Español>
   <Français>
     <NFTR>
       <S00>Lecture du fichier police NFTR...</S00>
@@ -218,6 +218,7 @@
   </Français>
   <Italiano>
     <NFTR>
+      <S00>Reading NFTR font file...</S00>
       <S01>Numero di blocco: {0}</S01>
       <S02>Sezione: {0}</S02>
       <S03>Dimensione di blocco: 0x{0}</S03>
@@ -287,4 +288,76 @@
       <S0B>Codice di caratteri</S0B>
     </MapChar>
   </Italiano>
+  <简体中文>
+    <NFTR>
+      <S00>读取 NFTR 字体文件...</S00>
+      <S01>块数量: {0}</S01>
+      <S02>段: {0}</S02>
+      <S03>区块大小: 0x{0}</S03>
+      <S04>未知 1: 0x{0}</S04>
+      <S05>未知 2: 0x{0}</S05>
+      <S06>PLGC 偏移: 0x{0}</S06>
+      <S07>HDWC 偏移: 0x{0}</S07>
+      <S08>PAMC 偏移: 0x{0}</S08>
+      <S09>未知 5: 0x{0}</S09>
+      <S0A>Tile 宽度: {0}</S0A>
+      <S0B>Tile 高度: {0}</S0B>
+      <S0C>Tile 长度: {0}</S0C>
+      <S0D>未知: 0x{0}</S0D>
+      <S0E>深度: {0}</S0E>
+      <S0F>旋转模式: {0}</S0F>
+      <S10>未知 2: {0}</S10>
+      <S11>首位代码:  0x{0}</S11>
+      <S12>末位代码:  0x{0}</S12>
+      <S13>未知 1: 0x{0}</S13>
+      <S14>首位字符: 0x{0}</S14>
+      <S15>末位字符: 0x{0}</S15>
+      <S16>类型: {0}</S16>
+      <S17>信息类型 {0}</S17>
+      <S18>首位字符代码: 0x{0}</S18>
+      <S19>元素数量: {0}</S19>
+      <S1A>字符代码 {0}: 0x{1} ({2})</S1A>
+      <S1B>字符数量: {0}</S1B>
+      <S1C>字符代码 {0}: 0x{1}</S1C>
+      <S1D>字符 {0}: {1}</S1D>
+      <S1E>高度: 0x{0}</S1E>
+      <S1F>未知 3: 0x{0}</S1F>
+      <S20>未知 4: 0x{0}</S20>
+      <S21>宽度: 0x{0}</S21>
+      <S22>宽度(bis): 0x{0}</S22>
+      <S23>编码: 0x{0}</S23>
+      <S24>高度: 0x{0}</S24>
+      <S25>宽度: 0x{0}</S25>
+      <S26>坐标轴 Y: 0x{0}</S26>
+    </NFTR>
+    <FontControl>
+      <S00>保存新字体</S00>
+      <S01>应用更改</S01>
+      <S02>编码:</S02>
+      <S03>添加字符</S03>
+      <S04>移除字符</S04>
+      <S05>使用自定义调色板</S05>
+      <S06>更改映射字符</S06>
+    </FontControl>
+    <CharControl>
+      <S00>宽度:</S00>
+      <S01>开始:</S01>
+      <S02>长度:</S02>
+      <S03>字符代码:</S03>
+    </CharControl>
+    <MapChar>
+      <S00>字符映射表</S00>
+      <S01>段</S01>
+      <S02>{0} 的</S02>
+      <S03>接受</S03>
+      <S04>映射信息</S04>
+      <S05>类型:</S05>
+      <S06>首位字符:</S06>
+      <S07>末位字符:</S07>
+      <S08>添加段</S08>
+      <S09>移除段</S09>
+      <S0A>图像编号</S0A>
+      <S0B>字符代码</S0B>
+    </MapChar>
+  </简体中文>
 </Language>

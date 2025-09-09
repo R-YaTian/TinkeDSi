@@ -1,28 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <Language>
-  <Español>
-    <TXT>
-      <S00>Cambiar</S00>
-      <S01>Codificación:</S01>
-      <S02>WordWrap</S02>
-    </TXT>
-    <BMG>
-      <S01>Campo</S01>
-      <S02>Valor</S02>
-      <S03>Codificación</S03>
-      <S04>Sección</S04>
-      <S05># mensajes</S05>
-      <S06>Tamaño offset</S06>
-      <S07>Desconocido 1</S07>
-      <S08>Desconocido 2</S08>
-      <S09>Mensaje:</S09>
-      <S0A>Sí</S0A>
-      <S0B>No</S0B>
-      <S0C>Detectado archivo de texto <b>MESGbmg1</b>. Analizando...</S0C>
-      <S0D>Contiene {0} mensajes.</S0D>
-      <S0E>Datos desconocidos {0}, {1}</S0E>
-    </BMG>
-  </Español>
   <English>
     <TXT>
       <S00>Change</S00>
@@ -41,20 +18,51 @@
       <S09>Message:</S09>
       <S0A>Yes</S0A>
       <S0B>No</S0B>
-      <S0C>File text <b>MESGbmg1</b> detected.</S0C>
+      <S0C>
+      File text 
+        <b>MESGbmg1</b>
+       detected.
+      </S0C>
       <S0D>There are {0} messages.</S0D>
       <S0E>Unknown data: {0}, {1}</S0E>
     </BMG>
   </English>
+  <Español>
+    <TXT>
+      <S00>Cambiar</S00>
+      <S01>Codificación:</S01>
+      <S02>WordWrap</S02>
+    </TXT>
+    <BMG>
+      <S01>Campo</S01>
+      <S02>Contenido</S02>
+      <S03>Codificación</S03>
+      <S04>Sección</S04>
+      <S05># mensajes</S05>
+      <S06>Tamaño offset</S06>
+      <S07>Desconocido 1</S07>
+      <S08>Desconocido 2</S08>
+      <S09>Mensaje:</S09>
+      <S0A>Sí</S0A>
+      <S0B>No</S0B>
+      <S0C>
+      Detectado archivo de texto 
+        <b>MESGbmg1</b>
+        Analizando.
+      </S0C>
+      <S0D>Contiene {0} mensajes.</S0D>
+      <S0E>Datos desconocidos {0}, {1}</S0E>
+    </BMG>
+  </Español>
   <Français>
     <TXT>
       <S00>Changer</S00>
       <S01>Codage :</S01>
-      <S02>Retour auto à la ligne</S02>
+      <S02>WordWrap</S02>
     </TXT>
     <BMG>
-      <S01>Champ</S01>
-      <S02>Valeur</S02>
+      <S01>Propriété</S01>
+      <S02>Donnée</S02>
       <S03>Codage</S03>
       <S04>Section</S04>
       <S05>Nombre de messages</S05>
@@ -64,9 +72,67 @@
       <S09>Message :</S09>
       <S0A>Oui</S0A>
       <S0B>Non</S0B>
-      <S0C>Fichier texte détecté <b>MESGbmg1</b>. Analyse en cours...</S0C>
+      <S0C>
+      Fichier texte détecté 
+        <b>MESGbmg1</b>
+        Analyse en cours.
+      </S0C>
       <S0D>Il y a {0} message(s).</S0D>
       <S0E>Données inconnues : {0}, {1}</S0E>
     </BMG>
   </Français>
+  <Italiano>
+    <TXT>
+      <S00>Change</S00>
+      <S01>Encoding:</S01>
+      <S02>WordWrap</S02>
+    </TXT>
+    <BMG>
+      <S01>Property</S01>
+      <S02>Content</S02>
+      <S03>Codification</S03>
+      <S04>Section</S04>
+      <S05># messages</S05>
+      <S06>Offset length</S06>
+      <S07>Unknown 1</S07>
+      <S08>Unknown 2</S08>
+      <S09>Message:</S09>
+      <S0A>Yes</S0A>
+      <S0B>No</S0B>
+      <S0C>
+      File text 
+        <b>MESGbmg1</b>
+       detected.
+      </S0C>
+      <S0D>There are {0} messages.</S0D>
+      <S0E>Unknown data: {0}, {1}</S0E>
+    </BMG>
+  </Italiano>
+  <简体中文>
+    <TXT>
+      <S00>更改</S00>
+      <S01>编码:</S01>
+      <S02>自动换行</S02>
+    </TXT>
+    <BMG>
+      <S01>属性</S01>
+      <S02>内容</S02>
+      <S03>编纂</S03>
+      <S04>段</S04>
+      <S05># 消息</S05>
+      <S06>偏移长度</S06>
+      <S07>未知 1</S07>
+      <S08>未知 2</S08>
+      <S09>信息: </S09>
+      <S0A>是</S0A>
+      <S0B>否</S0B>
+      <S0C>
+      文件文本 
+        <b>MESGbmg1</b>
+       已检测到。
+      </S0C>
+      <S0D>共有 {0} 条消息。</S0D>
+      <S0E>未知数据: {0}, {1}</S0E>
+    </BMG>
+  </简体中文>
 </Language>

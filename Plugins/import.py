@@ -3,6 +3,8 @@ import xml.etree.ElementTree as ET
 from xml.dom.minidom import parseString
 import os
 import re
+import zipfile
+import shutil
 
 # Reverse mapping from language codes to language names
 LANG_CODE_MAP = {
@@ -11,8 +13,8 @@ LANG_CODE_MAP = {
     "fr-fr": "Français",
     "it-it": "Italiano",
     "zh-hans": "简体中文",
-    "zh-hant": "繁體中文",
-    "ru": "Русский",
+    # "zh-hant": "繁體中文",
+    # "ru": "Русский",
 }
 
 def merge_xml_files_in_directory(input_dir, output_file):
@@ -135,6 +137,12 @@ def merge_xml_in_directory_tree(input_root, output_root, encoding="utf-8"):
             dir_name = parts[-1]  # This is the XXX part
             if dir_name == "Images":
                 output_filename = "Images.xml"
+            elif dir_name == "Sounds":
+                output_filename = "SoundLang.xml"
+            elif dir_name == "Fonts":
+                output_filename = "FontLang.xml"
+            elif dir_name == "TETRIS DS":
+                output_filename = "TETRISDSLang.xml"
             else:
                 output_filename = f"{dir_name}Lang.xml"
             output_file = os.path.join(output_dir, output_filename)
@@ -142,10 +150,118 @@ def merge_xml_in_directory_tree(input_root, output_root, encoding="utf-8"):
             print(f"Processing directory: {root}")
             merge_xml_files_in_directory(root, output_file)
 
+def extract_zip_to_temp(zip_path, temp_dir):
+    """
+    Extract zip file to temporary directory.
+
+    Args:
+        zip_path: Path to the zip file
+        temp_dir: Temporary directory to extract to
+    """
+    print(f"Extracting {zip_path} to {temp_dir}")
+    with zipfile.ZipFile(zip_path, 'r') as zip_ref:
+        zip_ref.extractall(temp_dir)
+    print(f"Extraction completed")
+
+def copy_translated_files(translated_zip_path, temp_dir):
+    """
+    Extract translated zip and merge language files into the existing directory structure.
+
+    Args:
+        translated_zip_path: Path to the translated zip file
+        temp_dir: Temporary directory where original files are extracted
+    """
+    # Create a temporary directory for translated files
+    translated_temp = os.path.join(temp_dir, "translated_temp")
+    os.makedirs(translated_temp, exist_ok=True)
+
+    print(f"Extracting translated files from {translated_zip_path}")
+    with zipfile.ZipFile(translated_zip_path, 'r') as zip_ref:
+        zip_ref.extractall(translated_temp)
+
+    # Get first-level directories in translated files (language folders)
+    first_level_items = os.listdir(translated_temp)
+
+    for lang_folder in first_level_items:
+        lang_folder_path = os.path.join(translated_temp, lang_folder)
+        if os.path.isdir(lang_folder_path):
+            print(f"Processing language folder: {lang_folder}")
+
+            # Walk through the language folder and copy all files to corresponding locations in temp_dir
+            for root, dirs, files in os.walk(lang_folder_path):
+                for file in files:
+                    src_file = os.path.join(root, file)
+                    # Get relative path from language folder
+                    rel_path = os.path.relpath(src_file, lang_folder_path)
+                    # Destination should be directly in temp_dir (not under language folder)
+                    dest_file = os.path.join(temp_dir, rel_path)
+
+                    # Create destination directory if it doesn't exist
+                    os.makedirs(os.path.dirname(dest_file), exist_ok=True)
+
+                    # Copy file (overwrite if exists)
+                    shutil.copy2(src_file, dest_file)
+                    print(f"Copied: {rel_path}")
+
+    # Clean up translated temp directory
+    shutil.rmtree(translated_temp)
+    print("Translated files processing completed")
+
+def process_zip_files(src_zip_path, translated_zip_path, output_root):
+    """
+    Process two zip files: extract source, copy translated files, then merge.
+
+    Args:
+        src_zip_path: Path to source zip file
+        translated_zip_path: Path to translated zip file
+        output_root: Output root directory
+    """
+    # Create temporary directory
+    temp_dir = os.path.join(os.getcwd(), "tmp")
+
+    # Clean up existing temp directory if it exists
+    if os.path.exists(temp_dir):
+        shutil.rmtree(temp_dir)
+
+    os.makedirs(temp_dir, exist_ok=True)
+
+    try:
+        # Step 1: Extract source zip to temp directory
+        extract_zip_to_temp(src_zip_path, temp_dir)
+
+        # Step 2: Copy translated files to temp directory
+        copy_translated_files(translated_zip_path, temp_dir)
+
+        # Step 3: Merge XML files using Plugins directory as input
+        plugins_dir = os.path.join(temp_dir, "Plugins")
+        if os.path.exists(plugins_dir):
+            print(f"Starting merge process with input: {plugins_dir}")
+            merge_xml_in_directory_tree(plugins_dir, output_root)
+        else:
+            print(f"Warning: Plugins directory not found in {temp_dir}")
+            print(f"Available directories: {os.listdir(temp_dir)}")
+
+        # Step 4: Merge TinkeDSi main language files
+        tinke_dir = os.path.join(temp_dir, "Tinke")
+        if os.path.exists(tinke_dir):
+            abs_output_root = os.path.abspath(output_root)
+            parent_dir = os.path.dirname(abs_output_root)
+            tinke_output_dir = os.path.join(parent_dir, "Tinke")
+            shutil.copytree(tinke_dir, tinke_output_dir, dirs_exist_ok=True)
+        else:
+            print(f"Warning: TinkeDSi directory not found in {temp_dir}")
+
+    finally:
+        # Clean up temporary directory
+        if os.path.exists(temp_dir):
+            shutil.rmtree(temp_dir)
+            print(f"Cleaned up temporary directory: {temp_dir}")
+
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Merge multiple language XML files into multilingual XML files.")
-    parser.add_argument("input", help="Input root directory containing XXX/XXX/ subdirectories with language XML files")
+    parser = argparse.ArgumentParser(description="Merge multiple language XML files from zip archives into multilingual XML files.")
+    parser.add_argument("src_zip", help="Source zip file containing original files")
+    parser.add_argument("translated_zip", help="Translated zip file containing translated language files")
     parser.add_argument("output", help="Output root directory")
     args = parser.parse_args()
 
-    merge_xml_in_directory_tree(args.input, args.output)
+    process_zip_files(args.src_zip, args.translated_zip, args.output)

@@ -1,78 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Language name="Français">
   <Sistema>
-    <S01>Ouvrir archive(s)</S01>
+    <S01>Ouvrir fichier(s)</S01>
     <S02>Informations du jeu</S02>
-    <S03>Messages d'erreur</S03>
+    <S03>Messages de débogage</S03>
     <S04>Mode fenêtre</S04>
-    <S05>Plugins</S05>
-    <S06>Recharger les plugins</S06>
-    <S07>Champ</S07>
-    <S08>Données</S08>
+    <S05>Extensions</S05>
+    <S06>Recharger les extensions</S06>
+    <S07>Propriété</S07>
+    <S08>Donnée</S08>
     <S09>Nom</S09>
     <S0A>ID</S0A>
     <S0B>Offset</S0B>
     <S0C>Taille</S0C>
-    <S0D>Format</S0D>
+    <S0D>Type</S0D>
     <S0E>Chemin d'accès</S0E>
-    <S0F>À propos de</S0F>
+    <S0F>À propos</S0F>
     <S10>Effacer chaîne de caractères</S10>
     <S11>Effacer palette</S11>
     <S12>Effacer tuile</S12>
     <S13>Effacer map</S13>
     <S14>Effacer cellule</S14>
     <S15>Effacer animation</S15>
-    <S16>Ouvrir sous...</S16>
+    <S16>Ouvrir sous…</S16>
     <S17>Palette</S17>
     <S18>Tuile</S18>
-    <S19>Map</S19>
+    <S19>Carte</S19>
     <S1A>Décompresser</S1A>
     <S1B>Extraire</S1B>
     <S1C>Voir</S1C>
     <S1D>Hexadécimal</S1D>
     <S1E>Langues</S1E>
-    <S1F>Répertoire</S1F>
+    <S1F>Dossier</S1F>
     <S20>Palette</S20>
-    <S21>Tuiles (Tiles)</S21>
-    <S22>Map</S22>
+    <S21>Tuiles</S21>
+    <S22>Carte</S22>
     <S23>Cellules</S23>
     <S24>Animation</S24>
     <S25>Image</S25>
-    <S26>Texte</S26>
+    <S26>Textes</S26>
     <S27>Vidéo</S27>
     <S28>Son</S28>
-    <S29>Police de caractères (Font)</S29>
+    <S29>Police de caractères</S29>
     <S2A>Compressé</S2A>
     <S2B>Inconnu</S2B>
     <S2C>Sélectionnez le dossier où vous souhaitez enregistrer les fichiers</S2C>
     <S2D>Recherche</S2D>
     <S2E>Recherche instantanée</S2E>
-    <S2F>Rechercher mots :</S2F>
+    <S2F>Rechercher des mots-clés :</S2F>
     <S30>Fichiers reconnus :</S30>
     <S31>Système</S31>
     <S32>Changer de fichier</S32>
-    <S33>Créer ROM</S33>
+    <S33>Enregistrer la ROM</S33>
     <S34>Script</S34>
     <S35>
-      Êtes-vous sûr à propos de la décompression de TOUT les fichiers
-      depuis cette archive ? Cela prendra un long moment...
+      Voulez-vous vraiment décompresser TOUT les fichiers
+      de ce dossier ? Cela peut prendre un certain temps…
     </S35>
     <S36>
-      La décompression est un échec.
-      Êtes-vous sûr qu'il s'agisse d'une archive compressée ?
+      La décompression a échoué.
+      Êtes-vous sûr·e qu'il s'agit d'un fichier compressé ?
     </S36>
-    <S37>Il y a une erreur en sauvegardant les préférences de l'utilisateur.</S37>
-    <S38>Il y a une erreur en chargeant les préférences de l'utilisateur.</S38>
+    <S37>Une erreur est survenue en sauvegardant les préférences utilisateur.</S37>
+    <S38>Une erreur est survenue en chargeant les préférences utilisateur.</S38>
     <S39>
-      Vous avez changé des fichiers mais la nouvelle ROM n'a pas été sauvegardée.
-      Êtes-vous sûr de vouloir quitter ? Toutes les modifications seront perdues.
+      Vous avez modifié certains fichiers mais la nouvelle ROM n'a pas été sauvegardée.
+      Voulez-vous vraiment quitter ? Toutes les modifications seront perdues.
     </S39>
     <S3A>Attention</S3A>
     <S3B>
-      Voulez-vous exporter le dossier décompressé au lieu de
+      Voulez-vous exporter le dossier décompressé plutôt que
       l'archive compressée ?
     </S3B>
-    <S3C>Information complète de l'archive</S3C>
+    <S3C>Informations complètes du fichier</S3C>
     <S3D>Compresser</S3D>
     <S3E>Texture</S3E>
     <S3F>Modèle 3D</S3F>
@@ -80,28 +80,28 @@
     <S41>Visionneuse hexadécimale</S41>
     <S42>Compresser</S42>
     <S43>
-      Il y a une erreur à la compression de l'archive.
-      Vérifiez les messages d'erreur.
+      Une erreur est survenue lors de la compression du fichier.
+      Vérifiez les messages de débogage.
     </S43>
     <S44>
       Désolé, vous ne pouvez pas écraser l'archive
       ouverte actuellement.
     </S44>
-    <S45>Rafraîchir message</S45>
+    <S45>Rafraîchir messages</S45>
     <S46>Changer par répertoire</S46>
-    <S47>Le dossier sélectionné doit être "root".</S47>
-    <S48>Toolkit</S48>
-    <S49>Call plugin</S49>
-    <S4A>Get CRC32 for r4cce</S4A>
-    <S4B>Get CRC32 for TTdT</S4B>
-    <S4C>Copy to clipboard?</S4C>
-    <S4D>Header CRC32 for r4cce</S4D>
-    <S4E>Header CRC32 for TTdT</S4E>
+    <S47>Le dossier sélectionné doit être « root ».</S47>
+    <S48>Boîte à outils</S48>
+    <S49>Appeler l'extension</S49>
+    <S4A>Obtenir le CRC32 pour r4cce</S4A>
+    <S4B>Obtenir le CRC32 pour TTdT</S4B>
+    <S4C>Copier dans le presse-papiers ?</S4C>
+    <S4D>En-tête CRC32 pour r4cce</S4D>
+    <S4E>En-tête CRC32 pour TTdT</S4E>
   </Sistema>
   <RomInfo>
-    <S01>Informations de la ROM</S01>
+    <S01>Informations du jeu</S01>
     <S02>Bannière</S02>
-    <S03>Sauvegarder...</S03>
+    <S03>Enregistrer sous…</S03>
     <S04>Version :</S04>
     <S05>Réservé :</S05>
     <S06>Japonais</S06>
@@ -111,35 +111,35 @@
     <S0A>Italien</S0A>
     <S0B>Espagnol</S0B>
     <S0C>Position</S0C>
-    <S0D>Champ</S0D>
+    <S0D>Propriété</S0D>
     <S0E>Données</S0E>
     <S0F>Titre du jeu</S0F>
     <S10>Code du jeu</S10>
     <S11>Code du créateur</S11>
-    <S12>Code de console</S12>
-    <S13>Amorce de cryptage</S13>
+    <S12>Code de l'appareil</S12>
+    <S13>Graine de chiffrement</S13>
     <S14>Taille du fichier</S14>
     <S15>Réservé</S15>
     <S16>Version de la ROM</S16>
     <S17>Indicateurs internes</S17>
     <S18>Offset de ROM ARM9</S18>
     <S19>Adresse entrée ARM9</S19>
-    <S1A>Adresse chargée ARM9</S1A>
+    <S1A>Adresse chargement ARM9</S1A>
     <S1B>Taille ARM9</S1B>
     <S1C>Offset de ROM ARM7</S1C>
     <S1D>Adresse entrée ARM7</S1D>
-    <S1E>Adresse chargée ARM7</S1E>
+    <S1E>Adresse chargement ARM7</S1E>
     <S1F>Taille ARM7</S1F>
-    <S20>Offset du File Name Table (FNT)</S20>
-    <S21>Taille du File Name Table (FNT)</S21>
-    <S22>Offset du File Allocation Table (FAT)</S22>
-    <S23>Taille du File Allocation Table (FAT)</S23>
+    <S20>Offset de la File Name Table (FNT)</S20>
+    <S21>Taille de la File Name Table (FNT)</S21>
+    <S22>Offset de la File Allocation Table (FAT)</S22>
+    <S23>Taille de la File Allocation Table (FAT)</S23>
     <S24>Offset d'overlay ARM9</S24>
     <S25>Taille d'overlay ARM9</S25>
     <S26>Offset d'overlay ARM7</S26>
     <S27>Taille d'overlay ARM7</S27>
-    <S28>Ajustements de contrôle normal</S28>
-    <S29>Ajustements de contrôle sécurité</S29>
+    <S28>Paramètres registre de contrôle carte normaux</S28>
+    <S29>Paramètres registre de contrôle carte de sécurité</S29>
     <S2A>Offset de l'icône de bannière</S2A>
     <S2B>Secteur de sécurité CRC</S2B>
     <S2C>Délai de transfert sécurisé</S2C>
@@ -147,150 +147,151 @@
     <S2E>Auto-charger ARM7</S2E>
     <S2F>Sécurité désactivée</S2F>
     <S30>Taille de la ROM</S30>
-    <S31>Taille de l'Entête</S31>
+    <S31>Taille de l'en-tête</S31>
     <S32>Réservé</S32>
     <S33>CRC du logo de Nintendo</S33>
-    <S34>CRC de l'En-tête</S34>
-    <S35>Offset de debug de la ROM</S35>
-    <S36>Taille de debug</S36>
-    <S37>Offset de la RAM de debug</S37>
+    <S34>CRC de l'en-tête</S34>
+    <S35>Offset de la ROM débug</S35>
+    <S36>Taille de débogage</S36>
+    <S37>Offset de la RAM débug</S37>
     <S38>Réservé</S38>
     <S39>Invalide</S39>
     <S3A>Transparence</S3A>
-    <S3B>Éditer En-tête/bannière</S3B>
+    <S3B>Éditer l'en-tête/bannière</S3B>
     <S3C>Chinois</S3C>
     <S3D>Coréen</S3D>
-    <S3E>Dump icon data</S3E>
-    <S3F>Dump animation data</S3F>
-    <S40>Dump donor iheader</S40>
+    <S3E>Dumper données icône</S3E>
+    <S3F>Dumper données animation</S3F>
+    <S40>Dumper iheader donateur</S40>
     <S41>Titres du jeu :</S41>
-    <S42>Do you want to copy the content to clipboard?</S42>
-    <S43>Info</S43>
+    <S42>Voulez-vous copier le contenu dans le presse-papiers ?</S42>
+    <S43>Infos</S43>
   </RomInfo>
   <Autores>
-    <S01>À propos de</S01>
+    <S01>À propos</S01>
     <S02>Version</S02>
-    <S03>Programmé par :</S03>
-    <S04>Traduit en français par :</S04>
+    <S03>Codé par :</S03>
+    <S04>Traduction française par :</S04>
     <S05>Code source :</S05>
     <S06>
-      Ce logiciel est sous les termes de la license GPL V3.
+      Ce programme est un logiciel libre selon les termes de la
+      licence GNU General Public License version 3.
     </S06>
     <S07>
-    Ce logiciel a pu être réalisé grâce à l'information
-    et les outils open source trouvés sous :
+    Ce programme est réalisé avec l'aide des pages web suivantes :
     </S07>
-    <S08>Bibliothèque de décompression de formats</S08>
-    <S09>Informations techniques sur la structure de la rom.</S09>
-    <S0A>Informations sur la structure de formats de Nintendo.</S0A>
-    <S0B>Icônes utilisées pour ce logiciel.</S0B>
-    <S0C>Rafael1193, Vix33, Valioukha</S0C>
+    <S08>Bibliothèque de décompression des formats</S08>
+    <S09>Informations sur l'en-tête des ROMs.</S09>
+    <S0A>Informations sur le format des fichiers Nintendo.</S0A>
+    <S0B>Icônes utilisées par ce programme.</S0B>
+    <S0C>Rafael1193, Vix33, Valioukha
+    SombrAbsol</S0C>
     <S0D>Remerciements spéciaux :</S0D>
     <S0E>Éditeur hexadécimal par {0}</S0E>
-    <S0F>Plugins :</S0F>
+    <S0F>Extensions :</S0F>
   </Autores>
   <Espera>
-    <S01>Chargement...</S01>
-    <S02>Chargement du jeu...</S02>
-    <S03>Extraction des fichiers...</S03>
-    <S04>Décompression des fichiers...</S04>
-    <S05>Création d'une nouvelle ROM...</S05>
-    <S06>Sauvegarde d'une nouvelle ROM...</S06>
-    <S07>Recherche des fichiers...</S07>
-    <S08>Veuillez patienter...</S08>
+    <S01>Chargement…</S01>
+    <S02>Chargement du système de fichiers…</S02>
+    <S03>Extraction des fichiers…</S03>
+    <S04>Décompression des fichiers…</S04>
+    <S05>Création d'une nouvelle ROM…</S05>
+    <S06>Enregistrement d'une nouvelle ROM…</S06>
+    <S07>Recherche des fichiers…</S07>
+    <S08>Veuillez patienter…</S08>
   </Espera>
   <Messages>
     <S01>Erreur</S01>
-    <S02>Le jeu n'a pas pu être identifié. Est-ce que le fichier est un jeu NDS ?</S02>
-    <S03>Jeu en train d'être analysé :</S03>
-    <S04>Données du jeu :</S04>
-    <S05>Logiciel en train d'être chargé...</S05>
+    <S02>Impossible d'ouvrir le jeu. Êtes-vous sûr·e qu'il s'agit d'un jeu NDS ?</S02>
+    <S03>Analyse du jeu en cours :</S03>
+    <S04>informations du jeu :</S04>
+    <S05>Chargement du programme…</S05>
     <S06>
-      Ce fichier .NSCR est incompatible avec le fichier .NCGR sélectionné.
-      Essayez avec un fichier différent.
+      Le fichier .NSCR actuel est incompatible avec le fichier .NCGR sélectionné.
+      Essayez un autre fichier.
     </S06>
-    <S07>Veuillez redémarrer le logiciel.</S07>
+    <S07>Veuillez redémarrer le programme.</S07>
     <S08>
-      Prêt pour sauvegarder la nouvelle ROM...<br>Écriture des sections :</br>
+      Démarrage de la sauvegarde de la nouvelle ROM…<br>Écriture des sections :</br>
     </S08>
     <S09> {0} octets écrits avec succès.</S09>
-    <S0A>En-tête...</S0A>
-    <S0B>Fichiers...</S0B>
+    <S0A>En-tête…</S0A>
+    <S0B>Fichiers…</S0B>
     <S0C> {0} fichiers écrits avec succès.</S0C>
     <S0D>
-      <br>La nouvelle ROM a été sauvegardée dans : {0}</br>
+      <br>La nouvelle ROM sera sauvegardée dans : {0}</br>
     </S0D>
-    <S0E>Exporter le registre</S0E>
-    <S0F>Temps du registre :</S0F>
+    <S0E>Exporter le journal</S0E>
+    <S0F>Temps du journal :</S0F>
     <S10>Temps total :</S10>
     <S11>Temps de lecture de l'en-tête :</S11>
     <S12>Temps de démarrage des variables depuis Acciones.cs :</S12>
-    <S13>Temps de lecture du FNT :</S13>
-    <S14>Temps d'ajout des fichiers du système :</S14>
-    <S15>Temps de lecture du FAT :</S15>
-    <S16>Temps de configuration du ROOT :</S16>
-    <S17>Temps d'obtention du format des fichiers :</S17>
+    <S13>Temps de lecture de la FNT :</S13>
+    <S14>Temps d'ajout des fichiers système :</S14>
+    <S15>Temps de lecture de la FAT :</S15>
+    <S16>Temps de configuration de la ROOT :</S16>
+    <S17>Temps d'obtention des formats des fichiers :</S17>
     <S18>Temps de la création de l'arborescence des fichiers :</S18>
     <S19>Temps de reconnaissance des fichiers :</S19>
-    <S1A>Archive compressée</S1A>
-    <S1B>Pour voir cette archive vous devez double-cliquer en premier sur une archive palette</S1B>
-    <S1C>Pour voir cette archive vous devez double-cliquer sur une archive palette et tuile</S1C>
-    <S1D>Pour le moment la compression normale ne montre pas d'information.</S1D>
-    <S1E>Pour voir cette archive vous devez double-cliquer sur une archive palette, tuile et cellule</S1E>
+    <S1A>Fichier compressé</S1A>
+    <S1B>Pour voir ce fichier, vous devez d'abord double-cliquer sur un fichier de palette</S1B>
+    <S1C>Pour voir ce fichier, vous devez double-cliquer sur un fichier de palette et de tuiles</S1C>
+    <S1D>Pour l'instant, la compression normale n'affiche pas d'informations.</S1D>
+    <S1E>Pour voir ce fichier, vous devez double-cliquer sur un fichier de palette, de tuile ou de cellule</S1E>
     <S1F>
-      Le programme nécessite les fichiers suivants :
+      Le programme a besoin des fichiers suivants :
       {0}
 
-      Veuillez télécharger le programme depuis la page web :
+      Veuillez télécharger le programme à partir de la page web :
       https://github.com/R-YaTian/TinkeDSi/releases
     </S1F>
     <S20>
-      Erreur de chargement de l'archive : {0}.
+      Erreur de chargement du fichier : {0}.
       L'assemblage ne peut pas être obtenu. Erreur :
       {1}
     </S20>
-    <S21>Temps de lecture des archives externes :</S21>
-    <S22>Le dossier temporaire (temp) ne peut pas être supprimé</S22>
-    <S23>Il y a une erreur de tentative à la compression de l'archive.</S23>
+    <S21>Temps de lecture des fichiers externes :</S21>
+    <S22>Le dossier temp ne peut pas être supprimé</S22>
+    <S23>Une erreur est survenue lors de la compression du fichier.</S23>
     <S24>Toutes les couleurs sont utilisées par l'image.</S24>
     <S25>Rien à faire.</S25>
-    <S26>Effacer le registre</S26>
-    <S27>The Version 2 Banner is good!</S27>
-    <S28>The Version 2 Banner is incomplete or corrupted.</S28>
-    <S29>The Version 3 Banner is good!</S29>
-    <S2A>The Version 3 Banner is incomplete or corrupted.</S2A>
-    <S2B>The DSi Banner is good!</S2B>
-    <S2C>The DSi Banner is incomplete or corrupted.</S2C>
-    <S2D>The donor iheader mismatch!</S2D>
+    <S26>Effacer le journal</S26>
+    <S27>La bannière (version 2) est correcte !</S27>
+    <S28>La bannière (version 2) est incomplète ou corrompue.</S28>
+    <S29>La bannière (version 3) est correcte !</S29>
+    <S2A>La bannière (version 3) est incomplète ou corrompue.</S2A>
+    <S2B>La bannière DSi est correcte !</S2B>
+    <S2C>La bannière DSi est incomplète ou corrompue.</S2C>
+    <S2D>Le doneur iheader ne correspond pas !</S2D>
     <S2E>File(s) not found!</S2E>
   </Messages>
   <DSDecmp>
     <!-- LZ10 -->
     <S00>
-      L'archive fournie n'est pas une archive valide compressée de type LZ-0x10.
+      Le flux fourni n'est pas un flux compressé LZ-0x10 valide.
       Type invalide 0x{0}
     </S00>
     <S01>
-      Ne peut pas revenir en arrière car les données sont déjà écrites.
+      Impossible de revenir plus loin que ce qui a déjà été écrit.
       DISP = 0x{0}, #octets écrits = 0x{1} à 0x{2}
     </S01>
     <S02>disp est trop grand</S02>
     <!-- LZ11 -->
     <S03>
-      L'archive fournie n'est pas une archive valide compressée de type LZ-0x11.
+      Le flux fourni n'est pas un flux compressé LZ-0x11 valide.
       Type invalide 0x{1}
     </S03>
     <S04>
-      Ne peut pas revenir en arrière car les données sont déjà écrites. DISP = {0},
+      Impossible de revenir plus loin que ce qui a déjà été écrit. DISP = {0},
       #octets écrits = 0x{1} avant 0x{2} avec l'indicateur 0x{3}
     </S04>
     <!-- Huffman -->
     <S05>
-      L'archive fournie n'est pas une archive valide compressée de type Huffman.
+      Le flux fourni n'est pas un flux compressé Huffman valide.
       Type invalide 0x{0} ; taille du bloc inconnue.
     </S05>
-    <S06>L'archive est trop courte pour contenir une arborescence Huffman.</S06>
-    <S07>L'arborescence Huffman est trop grande pour l'archive entrée donnée.</S07>
+    <S06>Le flux est trop petit pour contenir une arborescence Huffman.</S06>
+    <S07>L'arborescence Huffman est trop grande pour le flux d'entrée.</S07>
     <S08>Taille du bloc inconnue {0}</S08>
     <S09>Taille du bloc non supportée {0}</S09>
     <S0A>Référence à un nœud non défini dans l'arborescence Huffman.</S0A>

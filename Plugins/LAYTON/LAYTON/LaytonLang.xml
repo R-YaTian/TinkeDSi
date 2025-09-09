@@ -1,42 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <Language>
-  <Español>
-    <InfoAni>
-      <S01>Intervalo:</S01>
-      <S02>Transparencia</S02>
-      <S03>Guardar imagen</S03>
-      <S04>Guardar animación</S04>
-      <S05>Importación de imágenes</S05>
-    </InfoAni>
-    <InfoImage>
-      <S01>Imágenes:</S01>
-      <S02>Tamaño img:</S02>
-      <S03>Ancho:</S03>
-      <S04>Alto:</S04>
-      <S05>Nº partes:</S05>
-      <S06>Nombre:</S06>
-      <S07>Información de partes:</S07>
-      <S08>Parte</S08>
-    </InfoImage>
-    <InfoParte>
-      <S01>Posición:</S01>
-      <S02>Tamaño:</S02>
-      <S03>Ancho:</S03>
-      <S04>Alto:</S04>
-      <S05>Posición X:</S05>
-      <S06>Posición Y:</S06>
-    </InfoParte>
-    <InfoPicture>
-      <S01>Información del archivo:</S01>
-      <S02>Tipo:</S02>
-      <S03># imágenes:</S03>
-      <S04>Información de las imágenes</S04>
-      <S05>Imagen</S05>
-    </InfoPicture>
-    <Text>
-      <S00>Cambiar</S00>
-    </Text>
-  </Español>
   <English>
     <InfoAni>
       <S01>Delay:</S01>
@@ -74,6 +37,43 @@
       <S00>Change</S00>
     </Text>
   </English>
+  <Español>
+    <InfoAni>
+      <S01>Intervalo:</S01>
+      <S02>Transparencia</S02>
+      <S03>Guardar imagen</S03>
+      <S04>Guardar animación</S04>
+      <S05>Importación de imágenes</S05>
+    </InfoAni>
+    <InfoImage>
+      <S01>Imágenes:</S01>
+      <S02>Tamaño img:</S02>
+      <S03>Ancho:</S03>
+      <S04>Alto:</S04>
+      <S05>Nº partes:</S05>
+      <S06>Nombre:</S06>
+      <S07>Información de partes:</S07>
+      <S08>Parte</S08>
+    </InfoImage>
+    <InfoParte>
+      <S01>Intervalo:</S01>
+      <S02>Tamaño:</S02>
+      <S03>Ancho:</S03>
+      <S04>Alto:</S04>
+      <S05>Posición X:</S05>
+      <S06>Posición Y:</S06>
+    </InfoParte>
+    <InfoPicture>
+      <S01>Información del archivo:</S01>
+      <S02>Tipo:</S02>
+      <S03># imágenes:</S03>
+      <S04>Información de las imágenes</S04>
+      <S05>Imagen</S05>
+    </InfoPicture>
+    <Text>
+      <S00>Cambiar</S00>
+    </Text>
+  </Español>
   <Français>
     <InfoAni>
       <S01>Intervalle :</S01>
@@ -111,4 +111,78 @@
       <S00>Changer</S00>
     </Text>
   </Français>
+  <Italiano>
+    <InfoAni>
+      <S01>Delay:</S01>
+      <S02>Transparency</S02>
+      <S03>Save image</S03>
+      <S04>Save animation</S04>
+      <S05>Import Image</S05>
+    </InfoAni>
+    <InfoImage>
+      <S01>Images:</S01>
+      <S02>Image length:</S02>
+      <S03>Width:</S03>
+      <S04>Height:</S04>
+      <S05># part:</S05>
+      <S06>Name:</S06>
+      <S07>Part information:</S07>
+      <S08>Part</S08>
+    </InfoImage>
+    <InfoParte>
+      <S01>Offset:</S01>
+      <S02>Size:</S02>
+      <S03>Width:</S03>
+      <S04>Height:</S04>
+      <S05>X Position:</S05>
+      <S06>Y Position:</S06>
+    </InfoParte>
+    <InfoPicture>
+      <S01>File information:</S01>
+      <S02>Type:</S02>
+      <S03># images:</S03>
+      <S04>Image information</S04>
+      <S05>Image</S05>
+    </InfoPicture>
+    <Text>
+      <S00>Change</S00>
+    </Text>
+  </Italiano>
+  <简体中文>
+    <InfoAni>
+      <S01>Delay:</S01>
+      <S02>Transparency</S02>
+      <S03>Save image</S03>
+      <S04>Save animation</S04>
+      <S05>Import Image</S05>
+    </InfoAni>
+    <InfoImage>
+      <S01>Images:</S01>
+      <S02>Image length:</S02>
+      <S03>Width:</S03>
+      <S04>Height:</S04>
+      <S05># part:</S05>
+      <S06>Name:</S06>
+      <S07>Part information:</S07>
+      <S08>Part</S08>
+    </InfoImage>
+    <InfoParte>
+      <S01>Offset:</S01>
+      <S02>Size:</S02>
+      <S03>Width:</S03>
+      <S04>Height:</S04>
+      <S05>X Position:</S05>
+      <S06>Y Position:</S06>
+    </InfoParte>
+    <InfoPicture>
+      <S01>File information:</S01>
+      <S02>Type:</S02>
+      <S03># images:</S03>
+      <S04>Image information</S04>
+      <S05>Image</S05>
+    </InfoPicture>
+    <Text>
+      <S00>Change</S00>
+    </Text>
+  </简体中文>
 </Language>

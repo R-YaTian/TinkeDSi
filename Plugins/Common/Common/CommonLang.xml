@@ -1,14 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <Language>
-  <Español>
-    <BasicControl>
-      <S00>Guardar</S00>
-    </BasicControl>
-    <iWav>
-      <S00>Reproducir</S00>
-      <S01>Parar</S01>
-    </iWav>
-  </Español>
   <English>
     <BasicControl>
       <S00>Save</S00>
@@ -18,6 +9,15 @@
       <S01>Stop</S01>
     </iWav>
   </English>
+  <Español>
+    <BasicControl>
+      <S00>Guardar</S00>
+    </BasicControl>
+    <iWav>
+      <S00>Reproducir</S00>
+      <S01>Parar</S01>
+    </iWav>
+  </Español>
   <Français>
     <BasicControl>
       <S00>Enregistrer</S00>
@@ -27,4 +27,22 @@
       <S01>Arrêter</S01>
     </iWav>
   </Français>
+  <Italiano>
+    <BasicControl>
+      <S00>Save</S00>
+    </BasicControl>
+    <iWav>
+      <S00>Play</S00>
+      <S01>Stop</S01>
+    </iWav>
+  </Italiano>
+  <简体中文>
+    <BasicControl>
+      <S00>保存</S00>
+    </BasicControl>
+    <iWav>
+      <S00>播放</S00>
+      <S01>停止</S01>
+    </iWav>
+  </简体中文>
 </Language>

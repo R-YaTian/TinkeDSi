@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <Language>
   <English>
     <BMD0>
@@ -33,14 +33,14 @@
       <S1C>Bounding box depth: {0}</S1C>
       <S1D>Object {0} ({1})</S1D>
       <S1E>Translation flag: 0x{0}</S1E>
-      <S1F>Parameters-> N: {0}, P: {1}, S: {2}, R: {3}, T: {4}</S1F>
-      <S20>Translation XYZ-> X: {0}, Y: {1}, Z: {2}</S20>
-      <S21>Pivot-> Value1: {0}, Value2: {1}</S21>
-      <S22>Scale XYZ-> X: {0}, Y: {1}, Z: {2}</S22>
-      <S23>Rotation-> 1: {0}, 2: {1}, 3: {2}, 4: {3}, 5: {4}, 6: {5}, 7: {6}, 8: {7}</S23>
+      <S1F>Parameters-&gt; N: {0}, P: {1}, S: {2}, R: {3}, T: {4}</S1F>
+      <S20>Translation XYZ-&gt; X: {0}, Y: {1}, Z: {2}</S20>
+      <S21>Pivot-&gt; Value1: {0}, Value2: {1}</S21>
+      <S22>Scale XYZ-&gt; X: {0}, Y: {1}, Z: {2}</S22>
+      <S23>Rotation-&gt; 1: {0}, 2: {1}, 3: {2}, 4: {3}, 5: {4}, 6: {5}, 7: {6}, 8: {7}</S23>
       <S24>Object section:</S24>
       <S25>Bones commands:</S25>
-      <S26>Cmd {0}-> ID: {1}, Size: {2}, Parameters: {3}</S26>
+      <S26>Cmd {0}-&gt; ID: {1}, Size: {2}, Parameters: {3}</S26>
       <S27>Material section:</S27>
       <S28>Texture offset: 0x{0}</S28>
       <S29>Palette offset: 0x{0}</S29>
@@ -54,7 +54,7 @@
       <S31>Palette {0} ({1})</S31>
       <S32>Polygon section:</S32>
       <S33>Polygon {0} ({1})</S33>
-      <S34>Display-> offset: {0}, size: {1}, unknown1: {2}, unknown2: {3}</S34>
+      <S34>Display-&gt; offset: {0}, size: {1}, unknown1: {2}, unknown2: {3}</S34>
       <S35>Geometry commands:</S35>
       <S36>Parameters: </S36>
       <S37>End of section</S37>
@@ -77,8 +77,8 @@
       <S0E>*Objs: {0} ({1})</S0E>
       <S0F>|_ Offset 0x{0}</S0F>
       <S10>|_ Parameters 0x{0}</S10>
-      <S11>~~ Repeat: X->{0}, Y->{1}</S11>
-      <S12> | Flip: X-> {0}, Y->{1}</S12>
+      <S11>~~ Repeat: X-&gt;{0}, Y-&gt;{1}</S11>
+      <S12> | Flip: X-&gt; {0}, Y-&gt;{1}</S12>
       <S13> | Size: {0}x{1}</S13>
       <S14> | Format: {0} ({1})</S14>
       <S15> | Color0: {0}</S15>
@@ -145,14 +145,14 @@
       <S1C>Profundidad de la caja: {0}</S1C>
       <S1D>Objecto {0} ({1})</S1D>
       <S1E>Indicador de transformación: 0x{0}</S1E>
-      <S1F>Parámetros-> N: {0}, P: {1}, S: {2}, R: {3}, T: {4}</S1F>
-      <S20>Traslado XYZ-> X: {0}, Y: {1}, Z: {2}</S20>
-      <S21>Pivote-> Valor1: {0}, Valor2: {1}</S21>
-      <S22>Escala XYZ-> X: {0}, Y: {1}, Z: {2}</S22>
-      <S23>Rotación-> 1: {0}, 2: {1}, 3: {2}, 4: {3}, 5: {4}, 6: {5}, 7: {6}, 8: {7}</S23>
+      <S1F>Parámetros-&gt; N: {0}, P: {1}, S: {2}, R: {3}, T: {4}</S1F>
+      <S20>Traslado XYZ-&gt; X: {0}, Y: {1}, Z: {2}</S20>
+      <S21>Pivot-&gt; Value1: {0}, Value2: {1}</S21>
+      <S22>Escala XYZ-&gt; X: {0}, Y: {1}, Z: {2}</S22>
+      <S23>Rotación-&gt; 1: {0}, 2: {1}, 3: {2}, 4: {3}, 5: {4}, 6: {5}, 7: {6}, 8: {7}</S23>
       <S24>Sección de objetos:</S24>
       <S25>Comandos del esqueleto:</S25>
-      <S26>Cmd {0}-> ID: {1}, Tamaño: {2}, Parámetros: {3}</S26>
+      <S26>Cmd {0}-&gt; ID: {1}, Tamaño: {2}, Parámetros: {3}</S26>
       <S27>Sección de materiales:</S27>
       <S28>Posición de la textura: 0x{0}</S28>
       <S29>Posición de la paleta: 0x{0}</S29>
@@ -166,9 +166,9 @@
       <S31>Paleta {0} ({1})</S31>
       <S32>Sección de los polígonos:</S32>
       <S33>Polígono {0} ({1})</S33>
-      <S34>Lista de visualización-> posición: {0}, tamaño: {1}, desconocido1: {2}, desconocido2: {3}</S34>
+      <S34>Lista de visualización-&gt; posición: {0}, tamaño: {1}, desconocido1: {2}, desconocido2: {3}</S34>
       <S35>Comandos geométricos:</S35>
-      <S36>Parámetros:</S36>
+      <S36>Parámetros: </S36>
       <S37>Fin de sección</S37>
     </BMD0>
     <BTX0>
@@ -189,8 +189,8 @@
       <S0E>*Obj: {0} ({1})</S0E>
       <S0F>|_ Posición 0x{0}</S0F>
       <S10>|_ Parametros 0x{0}</S10>
-      <S11>~~ Repetición: X->{0}, Y->{1}</S11>
-      <S12> | Flip: X-> {0}, Y->{1}</S12>
+      <S11>~~ Repetición: X-&gt;{0}, Y-&gt;{1}</S11>
+      <S12> | Flip: X-&gt; {0}, Y-&gt;{1}</S12>
       <S13> | Tamaño: {0}x{1}</S13>
       <S14> | Formato: {0} ({1})</S14>
       <S15> | Color0: {0}</S15>
@@ -257,14 +257,14 @@
       <S1C>Profondeur de la limite de la boîte : {0}</S1C>
       <S1D>Objet {0} ({1})</S1D>
       <S1E>Indicateur de transformation : 0x{0}</S1E>
-      <S1F>Paramètres -> N : {0}, P : {1}, S : {2}, R : {3}, T : {4}</S1F>
-      <S20>Traduction XYZ -> X : {0}, Y : {1}, Z : {2}</S20>
-      <S21>Pivot -> Valeur1 : {0}, Valeur2 : {1}</S21>
-      <S22>Échelle XYZ -> X : {0}, Y : {1}, Z : {2}</S22>
-      <S23>Basculement -> 1 : {0}, 2 : {1}, 3 : {2}, 4 : {3}, 5 : {4}, 6 : {5}, 7 : {6}, 8 : {7}</S23>
+      <S1F>Paramètres -&gt; N : {0}, P : {1}, S : {2}, R : {3}, T : {4}</S1F>
+      <S20>Traduction XYZ -&gt; X : {0}, Y : {1}, Z : {2}</S20>
+      <S21>Pivot -&gt; Valeur1 : {0}, Valeur2 : {1}</S21>
+      <S22>Échelle XYZ -&gt; X : {0}, Y : {1}, Z : {2}</S22>
+      <S23>Basculement -&gt; 1 : {0}, 2 : {1}, 3 : {2}, 4 : {3}, 5 : {4}, 6 : {5}, 7 : {6}, 8 : {7}</S23>
       <S24>Section de l'objet :</S24>
       <S25>Commandes de l'ossature :</S25>
-      <S26>Cmd {0} -> ID : {1}, Taille : {2}, Paramètres : {3}</S26>
+      <S26>Cmd {0} -&gt; ID : {1}, Taille : {2}, Paramètres : {3}</S26>
       <S27>Section du matériel :</S27>
       <S28>Offset de la texture : 0x{0}</S28>
       <S29>Offset de la palette : 0x{0}</S29>
@@ -278,9 +278,9 @@
       <S31>Palette {0} ({1})</S31>
       <S32>Section du polygone :</S32>
       <S33>Polygone {0} ({1})</S33>
-      <S34>Affichage -> offset : {0}, taille : {1}, inconnu1 : {2}, inconnu2 : {3}</S34>
+      <S34>Affichage -&gt; offset : {0}, taille : {1}, inconnu1 : {2}, inconnu2 : {3}</S34>
       <S35>Commandes de géométrie :</S35>
-      <S36>Paramètres :</S36>
+      <S36>Paramètres : </S36>
       <S37>Fin de section</S37>
     </BMD0>
     <BTX0>
@@ -301,8 +301,8 @@
       <S0E>*Objets : {0} ({1})</S0E>
       <S0F>|_ Offset 0x{0}</S0F>
       <S10>|_ Paramètres 0x{0}</S10>
-      <S11>~~ Répétition : X->{0}, Y->{1}</S11>
-      <S12> | Basculement : X-> {0}, Y->{1}</S12>
+      <S11>~~ Répétition : X-&gt;{0}, Y-&gt;{1}</S11>
+      <S12> | Basculement : X-&gt; {0}, Y-&gt;{1}</S12>
       <S13> | Taille : {0}x{1}</S13>
       <S14> | Format : {0} ({1})</S14>
       <S15> | Color0 : {0}</S15>
@@ -314,7 +314,7 @@
       <S1B>EOF</S1B>
     </BTX0>
     <TextureControl>
-      <S00>Champ</S00>
+      <S00>Propriété</S00>
       <S01>Valeur</S01>
       <S02>Section</S02>
       <S03>Info. Texture</S03>
@@ -336,4 +336,228 @@
       <S13>Sauver texture</S13>
     </TextureControl>
   </Français>
+  <Italiano>
+    <BMD0>
+      <S00>Read BMD0 file</S00>
+      <S01>MDL0 section</S01>
+      <S02>Number of sections: {0}</S02>
+      <S03>Number of models: {0}</S03>
+      <S04>Model {0} ({1})</S04>
+      <S05>Header:</S05>
+      <S06>Bones offset: 0x{0}</S06>
+      <S07>Material offset: 0x{0}</S07>
+      <S08>Polygon start offset: 0x{0}</S08>
+      <S09>Polygon end offset: 0x{0}</S09>
+      <S0A>Unknown 1: 0x{0}</S0A>
+      <S0B>Unknown 2: 0x{0}</S0B>
+      <S0C>Unknown 3: 0x{0}</S0C>
+      <S0D>Number of objects: 0x{0}</S0D>
+      <S0E>Number of materials: 0x{0}</S0E>
+      <S0F>Number of polygons: 0x{0}</S0F>
+      <S10>Unknown 4: 0x{0}</S10>
+      <S11>Scale mode: 0x{0}</S11>
+      <S12>Unknown 5: 0x{0}</S12>
+      <S13>Number of vertices: 0x{0}</S13>
+      <S14>Number of surfaces: 0x{0}</S14>
+      <S15>Number of triangles: 0x{0}</S15>
+      <S16>Number of quads: 0x{0}</S16>
+      <S17>Bounding box X: {0}</S17>
+      <S18>Bounding box Y: {0}</S18>
+      <S19>Bounding box Z: {0}</S19>
+      <S1A>Bounding box width: {0}</S1A>
+      <S1B>Bounding box height: {0}</S1B>
+      <S1C>Bounding box depth: {0}</S1C>
+      <S1D>Object {0} ({1})</S1D>
+      <S1E>Translation flag: 0x{0}</S1E>
+      <S1F>Parameters-&gt; N: {0}, P: {1}, S: {2}, R: {3}, T: {4}</S1F>
+      <S20>Translation XYZ-&gt; X: {0}, Y: {1}, Z: {2}</S20>
+      <S21>Pivot-&gt; Value1: {0}, Value2: {1}</S21>
+      <S22>Scale XYZ-&gt; X: {0}, Y: {1}, Z: {2}</S22>
+      <S23>Rotation-&gt; 1: {0}, 2: {1}, 3: {2}, 4: {3}, 5: {4}, 6: {5}, 7: {6}, 8: {7}</S23>
+      <S24>Object section:</S24>
+      <S25>Bones commands:</S25>
+      <S26>Cmd {0}-&gt; ID: {1}, Size: {2}, Parameters: {3}</S26>
+      <S27>Material section:</S27>
+      <S28>Texture offset: 0x{0}</S28>
+      <S29>Palette offset: 0x{0}</S29>
+      <S2A>Material {0} ({1})</S2A>
+      <S2B>Definition: {0}</S2B>
+      <S2C>Texture section:</S2C>
+      <S2D>Texture {0} ({1})</S2D>
+      <S2E>Matching data offset: {0}</S2E>
+      <S2F>Associated material number: {0}</S2F>
+      <S30>Palette section:</S30>
+      <S31>Palette {0} ({1})</S31>
+      <S32>Polygon section:</S32>
+      <S33>Polygon {0} ({1})</S33>
+      <S34>Display-&gt; offset: {0}, size: {1}, unknown1: {2}, unknown2: {3}</S34>
+      <S35>Geometry commands:</S35>
+      <S36>Parameters: </S36>
+      <S37>End of section</S37>
+    </BMD0>
+    <BTX0>
+      <S00>Read BTX0 file</S00>
+      <S01>Texture section</S01>
+      <S02>Header:</S02>
+      <S03>Texture Info offset: 0x{0}</S03>
+      <S04>Texture Data offset: 0x{0}</S04>
+      <S05>Texture Data size: 0x{0}</S05>
+      <S06>Compressed Texture Data offset: 0x{0}</S06>
+      <S07>Compressed Texture Data size: 0x{0}</S07>
+      <S08>Compressed Info offset: 0x{0}</S08>
+      <S09>Compressed Info Data offset: 0x{0}</S09>
+      <S0A>Palette Data offset: 0x{0}</S0A>
+      <S0B>Palette Data size: 0x{0}</S0B>
+      <S0C>Palette Info offset: 0x{0}</S0C>
+      <S0D>Texture Information:</S0D>
+      <S0E>*Objs: {0} ({1})</S0E>
+      <S0F>|_ Offset 0x{0}</S0F>
+      <S10>|_ Parameters 0x{0}</S10>
+      <S11>~~ Repeat: X-&gt;{0}, Y-&gt;{1}</S11>
+      <S12> | Flip: X-&gt; {0}, Y-&gt;{1}</S12>
+      <S13> | Size: {0}x{1}</S13>
+      <S14> | Format: {0} ({1})</S14>
+      <S15> | Color0: {0}</S15>
+      <S16>    | Coordinates Transformation Modes: {0} ({1})</S16>
+      <S17> | Unknown1 {0} | Unknown2 {1} | Unknown3 {2}</S17>
+      <S18>Palette Information:</S18>
+      <S19>*Pal: {0} ({1})</S19>
+      <S1A>|_Offset 0x{0}</S1A>
+      <S1B>EOF</S1B>
+    </BTX0>
+    <TextureControl>
+      <S00>Property</S00>
+      <S01>Value</S01>
+      <S02>Section</S02>
+      <S03>Texture Info</S03>
+      <S04>Offset (hex)</S04>
+      <S05>Repeat X</S05>
+      <S06>Repeat Y</S06>
+      <S07>Flip X</S07>
+      <S08>Flip Y</S08>
+      <S09>Width</S09>
+      <S0A>Height</S0A>
+      <S0B>Format</S0B>
+      <S0C>Color0</S0C>
+      <S0D>Transforms</S0D>
+      <S0E>Palette Info</S0E>
+      <S0F>Texture:</S0F>
+      <S10>Palette:</S10>
+      <S11>Palette image</S11>
+      <S12>Set background color</S12>
+      <S13>Save texture</S13>
+    </TextureControl>
+  </Italiano>
+  <简体中文>
+    <BMD0>
+      <S00>读取 BMD0 文件</S00>
+      <S01>MDL0 段</S01>
+      <S02>字段数量: {0}</S02>
+      <S03>模型数量: {0}</S03>
+      <S04>模型 {0} ({1})</S04>
+      <S05>标头:</S05>
+      <S06>骨骼偏移: 0x{0}</S06>
+      <S07>材质偏移: 0x{0}</S07>
+      <S08>多边形起始偏移: 0x{0}</S08>
+      <S09>多边形末端偏移: 0x{0}</S09>
+      <S0A>未知 1: 0x{0}</S0A>
+      <S0B>未知 2: 0x{0}</S0B>
+      <S0C>未知 3: 0x{0}</S0C>
+      <S0D>对象数量: 0x{0}</S0D>
+      <S0E>材质数量: 0x{0}</S0E>
+      <S0F>多边形数量: 0x{0}</S0F>
+      <S10>未知 4: 0x{0}</S10>
+      <S11>缩放模式: 0x{0}</S11>
+      <S12>未知 5: 0x{0}</S12>
+      <S13>顶点数量: 0x{0}</S13>
+      <S14>面数量: 0x{0}</S14>
+      <S15>三角形数量: 0x{0}</S15>
+      <S16>四边形数量: 0x{0}</S16>
+      <S17>边界框 X: {0}</S17>
+      <S18>边界框 Y: {0}</S18>
+      <S19>边界框 Z: {0}</S19>
+      <S1A>边界框宽度: {0}</S1A>
+      <S1B>边界框高度: {0}</S1B>
+      <S1C>边界框深度: {0}</S1C>
+      <S1D>对象 {0} ({1})</S1D>
+      <S1E>平移标志: 0x{0}</S1E>
+      <S1F>参数-&gt; N: {0}, P: {1}, S: {2}, R: {3}, T: {4}</S1F>
+      <S20>平移 XYZ-&gt; X: {0}, Y: {1}, Z: {2}</S20>
+      <S21>支点-&gt; 数值1: {0}, 数值2: {1}</S21>
+      <S22>缩放 XYZ-&gt; X: {0}, Y: {1}, Z: {2}</S22>
+      <S23>旋转-&gt; 1: {0}, 2: {1}, 3: {2}, 4: {3}, 5: {4}, 6: {5}, 7: {6}, 8: {7}</S23>
+      <S24>对象部分:</S24>
+      <S25>骨骼命令:</S25>
+      <S26>Cmd {0}-&gt; ID: {1}, 大小: {2}, 参数: {3}</S26>
+      <S27>材质部分:</S27>
+      <S28>纹理偏移: 0x{0}</S28>
+      <S29>调色板偏移: 0x{0}</S29>
+      <S2A>材质 {0} ({1})</S2A>
+      <S2B>定义: {0}</S2B>
+      <S2C>纹理部分:</S2C>
+      <S2D>纹理 {0} ({1})</S2D>
+      <S2E>匹配数据编译: {0}</S2E>
+      <S2F>相关材质编号: {0}</S2F>
+      <S30>调色板部分:</S30>
+      <S31>调色板 {0} ({1})</S31>
+      <S32>多边形部分:</S32>
+      <S33>多边形 {0} ({1})</S33>
+      <S34>显示-&gt; 偏移: {0}, 大小: {1}, 未知1: {2}, 未知2: {3}</S34>
+      <S35>Geometry commands:</S35>
+      <S36>Parameters: </S36>
+      <S37>End of section</S37>
+    </BMD0>
+    <BTX0>
+      <S00>Read BTX0 file</S00>
+      <S01>Texture section</S01>
+      <S02>Header:</S02>
+      <S03>Texture Info offset: 0x{0}</S03>
+      <S04>Texture Data offset: 0x{0}</S04>
+      <S05>Texture Data size: 0x{0}</S05>
+      <S06>Compressed Texture Data offset: 0x{0}</S06>
+      <S07>Compressed Texture Data size: 0x{0}</S07>
+      <S08>Compressed Info offset: 0x{0}</S08>
+      <S09>Compressed Info Data offset: 0x{0}</S09>
+      <S0A>Palette Data offset: 0x{0}</S0A>
+      <S0B>Palette Data size: 0x{0}</S0B>
+      <S0C>Palette Info offset: 0x{0}</S0C>
+      <S0D>Texture Information:</S0D>
+      <S0E>*Objs: {0} ({1})</S0E>
+      <S0F>|_ Offset 0x{0}</S0F>
+      <S10>|_ Parameters 0x{0}</S10>
+      <S11>~~ Repeat: X-&gt;{0}, Y-&gt;{1}</S11>
+      <S12> | Flip: X-&gt; {0}, Y-&gt;{1}</S12>
+      <S13> | Size: {0}x{1}</S13>
+      <S14> | Format: {0} ({1})</S14>
+      <S15> | Color0: {0}</S15>
+      <S16>    | Coordinates Transformation Modes: {0} ({1})</S16>
+      <S17> | Unknown1 {0} | Unknown2 {1} | Unknown3 {2}</S17>
+      <S18>Palette Information:</S18>
+      <S19>*Pal: {0} ({1})</S19>
+      <S1A>|_Offset 0x{0}</S1A>
+      <S1B>EOF</S1B>
+    </BTX0>
+    <TextureControl>
+      <S00>Property</S00>
+      <S01>Value</S01>
+      <S02>Section</S02>
+      <S03>Texture Info</S03>
+      <S04>Offset (hex)</S04>
+      <S05>Repeat X</S05>
+      <S06>Repeat Y</S06>
+      <S07>Flip X</S07>
+      <S08>Flip Y</S08>
+      <S09>Width</S09>
+      <S0A>Height</S0A>
+      <S0B>Format</S0B>
+      <S0C>Color0</S0C>
+      <S0D>Transforms</S0D>
+      <S0E>Palette Info</S0E>
+      <S0F>Texture:</S0F>
+      <S10>Palette:</S10>
+      <S11>Palette image</S11>
+      <S12>Set background color</S12>
+      <S13>保存纹理</S13>
+    </TextureControl>
+  </简体中文>
 </Language>

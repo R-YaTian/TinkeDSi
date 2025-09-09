@@ -1,18 +1,28 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <Language>
-  <Español>
-    <S00>Empaquetar archivo</S00>
-    <S01>Empaquetando...</S01>
-    <S02>Extrayendo...</S02>
-  </Español>
   <English>
     <S00>Pack file</S00>
     <S01>Packing...</S01>
     <S02>Unpacking...</S02>
   </English>
+  <Español>
+    <S00>Empaquetar archivo</S00>
+    <S01>Empaquetando...</S01>
+    <S02>Extrayendo...</S02>
+  </Español>
   <Français>
     <S00>Compresser l'archive</S00>
     <S01>Compression en cours...</S01>
     <S02>Décompression en cours...</S02>
   </Français>
+  <Italiano>
+    <S00>Pack file</S00>
+    <S01>Packing...</S01>
+    <S02>Unpacking...</S02>
+  </Italiano>
+  <简体中文>
+    <S00>打包文件</S00>
+    <S01>打包中...</S01>
+    <S02>解包中...</S02>
+  </简体中文>
 </Language>

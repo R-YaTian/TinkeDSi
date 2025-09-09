@@ -1,17 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <Language>
-  <Español>
-    <BMPControl>
-      <S00>Exportar</S00>
-      <S01>Importar</S01>
-    </BMPControl>
-    <SQcontrol>
-      <S00>Texto traducido:</S00>
-      <S01>Texto original:</S01>
-      <S02>Bloques</S02>
-      <S03>Escribir archivo</S03>
-    </SQcontrol>
-  </Español>
   <English>
     <BMPControl>
       <S00>Export</S00>
@@ -24,6 +12,18 @@
       <S03>Write file</S03>
     </SQcontrol>
   </English>
+  <Español>
+    <BMPControl>
+      <S00>Exportar</S00>
+      <S01>Importar</S01>
+    </BMPControl>
+    <SQcontrol>
+      <S00>Texto traducido:</S00>
+      <S01>Texto original:</S01>
+      <S02>Bloques</S02>
+      <S03>Escribir archivo</S03>
+    </SQcontrol>
+  </Español>
   <Français>
     <BMPControl>
       <S00>Exporter</S00>
@@ -36,4 +36,28 @@
       <S03>Écrire l'archive</S03>
     </SQcontrol>
   </Français>
+  <Italiano>
+    <BMPControl>
+      <S00>Export</S00>
+      <S01>Import</S01>
+    </BMPControl>
+    <SQcontrol>
+      <S00>Translated text:</S00>
+      <S01>Original text:</S01>
+      <S02>Blocks</S02>
+      <S03>Write file</S03>
+    </SQcontrol>
+  </Italiano>
+  <简体中文>
+    <BMPControl>
+      <S00>导出</S00>
+      <S01>导入</S01>
+    </BMPControl>
+    <SQcontrol>
+      <S00>已翻译文本:</S00>
+      <S01>原文:</S01>
+      <S02>Blocks</S02>
+      <S03>写入文件</S03>
+    </SQcontrol>
+  </简体中文>
 </Language>

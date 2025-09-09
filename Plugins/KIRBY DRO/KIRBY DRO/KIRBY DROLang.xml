@@ -1,18 +1,28 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <Language>
-  <Español>
-    <ImageControl>
-      <S00>Guardar</S00>
-    </ImageControl>
-  </Español>
   <English>
     <ImageControl>
       <S00>Save</S00>
     </ImageControl>
   </English>
+  <Español>
+    <ImageControl>
+      <S00>Guardar</S00>
+    </ImageControl>
+  </Español>
   <Français>
     <ImageControl>
       <S00>Enregistrer</S00>
     </ImageControl>
   </Français>
+  <Italiano>
+    <ImageControl>
+      <S00>Save</S00>
+    </ImageControl>
+  </Italiano>
+  <简体中文>
+    <ImageControl>
+      <S00>保存</S00>
+    </ImageControl>
+  </简体中文>
 </Language>
