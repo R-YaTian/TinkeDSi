@@ -150,39 +150,39 @@
   </Italiano>
   <简体中文>
     <InfoAni>
-      <S01>Delay:</S01>
-      <S02>Transparency</S02>
-      <S03>Save image</S03>
-      <S04>Save animation</S04>
-      <S05>Import Image</S05>
+      <S01>延迟:</S01>
+      <S02>透明层</S02>
+      <S03>保存图像</S03>
+      <S04>保存动画</S04>
+      <S05>导入图像</S05>
     </InfoAni>
     <InfoImage>
-      <S01>Images:</S01>
-      <S02>Image length:</S02>
-      <S03>Width:</S03>
-      <S04>Height:</S04>
-      <S05># part:</S05>
-      <S06>Name:</S06>
-      <S07>Part information:</S07>
-      <S08>Part</S08>
+      <S01>图像:</S01>
+      <S02>图像长度:</S02>
+      <S03>宽度:</S03>
+      <S04>高度:</S04>
+      <S05># 部件:</S05>
+      <S06>名称:</S06>
+      <S07>部件信息:</S07>
+      <S08>部件</S08>
     </InfoImage>
     <InfoParte>
-      <S01>Offset:</S01>
-      <S02>Size:</S02>
-      <S03>Width:</S03>
-      <S04>Height:</S04>
-      <S05>X Position:</S05>
-      <S06>Y Position:</S06>
+      <S01>偏移:</S01>
+      <S02>大小:</S02>
+      <S03>宽度:</S03>
+      <S04>高度:</S04>
+      <S05>X 坐标:</S05>
+      <S06>Y 坐标:</S06>
     </InfoParte>
     <InfoPicture>
-      <S01>File information:</S01>
-      <S02>Type:</S02>
-      <S03># images:</S03>
-      <S04>Image information</S04>
-      <S05>Image</S05>
+      <S01>文件信息:</S01>
+      <S02>类型:</S02>
+      <S03># 图像:</S03>
+      <S04>图像信息</S04>
+      <S05>图像</S05>
     </InfoPicture>
     <Text>
-      <S00>Change</S00>
+      <S00>更改</S00>
     </Text>
   </简体中文>
 </Language>

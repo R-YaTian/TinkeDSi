@@ -66,17 +66,17 @@
   </Italiano>
   <简体中文>
     <BinControl>
-      <S00>Number of image:</S00>
-      <S01>Width:</S01>
-      <S02>Height:</S02>
-      <S03>Transparency</S03>
-      <S04>Background color</S04>
-      <S05>Remove background</S05>
-      <S06>Zoom</S06>
-      <S07>Save</S07>
+      <S00>图像编号:</S00>
+      <S01>宽度:</S01>
+      <S02>高度:</S02>
+      <S03>透明层</S03>
+      <S04>背景颜色</S04>
+      <S05>移除背景</S05>
+      <S06>缩放</S06>
+      <S07>保存</S07>
       <S08>
-        Double click the image to
-        see in full size.
+        双击图像以查看
+        完整大小。
       </S08>
     </BinControl>
   </简体中文>

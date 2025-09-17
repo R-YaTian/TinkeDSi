@@ -302,77 +302,77 @@
   </Italiano>
   <简体中文>
     <iSDAT>
-      <S00>Property</S00>
-      <S01>Content</S01>
+      <S00>属性</S00>
+      <S01>内容</S01>
       <S02>ID</S02>
-      <S03>Format</S03>
-      <S04>Offset</S04>
-      <S05>Size</S05>
-      <S06>Enabled loop</S06>
-      <S07>Unpack</S07>
-      <S08>Extract</S08>
-      <S09>Save MIDI</S09>
-      <S0A>Save WAV</S0A>
-      <S0B>Import</S0B>
-      <S0C>Save SDAT</S0C>
-      <S0D>Change file</S0D>
-      <S0E>Information</S0E>
-      <S0F>Select the folder to save the files</S0F>
+      <S03>格式</S03>
+      <S04>偏移</S04>
+      <S05>大小</S05>
+      <S06>启用循环</S06>
+      <S07>解包</S07>
+      <S08>导出</S08>
+      <S09>保存 MIDI</S09>
+      <S0A>保存 WAV</S0A>
+      <S0B>导入</S0B>
+      <S0C>保存 SDAT</S0C>
+      <S0D>替换文件</S0D>
+      <S0E>信息</S0E>
+      <S0F>选择文件夹以保存文件</S0F>
       <S10>
-        Do you want to extract the decompressed folder instead of
-        the compressed files?
+        您是否要提取已解压的文件夹
+        而不是压缩的文件？
       </S10>
-      <S11>Path</S11>
-      <S12>Pack</S12>
+      <S11>路径</S11>
+      <S12>打包</S12>
     </iSDAT>
     <Messages>
-      <S00>SDAT reading completed</S00>
+      <S00>SDAT 读取已完成</S00>
       <S01>
-        Files: 
+        文件: 
         <b>{0}</b>
       </S01>
     </Messages>
     <NewAudioOptions>
-      <S00>Audio file options</S00>
-      <S01>Compression:</S01>
-      <S02>Enable loop:</S02>
-      <S03>Loop options</S03>
-      <S04>Start offset:</S04>
-      <S05>Length:</S05>
-      <S06>Block size (STRM):</S06>
-      <S07>Volume (0 to not change):</S07>
-      <S08>Accept</S08>
-      <S09>Loop measure</S09>
-      <S0A>Seconds</S0A>
-      <S0B>Milliseconds</S0B>
-      <S0C>Samples</S0C>
+      <S00>音频文件选项</S00>
+      <S01>压缩:</S01>
+      <S02>启用循环:</S02>
+      <S03>循环选项</S03>
+      <S04>起始偏移:</S04>
+      <S05>长度:</S05>
+      <S06>区块大小(STRM):</S06>
+      <S07>音量(0为不变动):</S07>
+      <S08>接受</S08>
+      <S09>循环小节</S09>
+      <S0A>秒</S0A>
+      <S0B>毫秒</S0B>
+      <S0C>采样</S0C>
     </NewAudioOptions>
     <Information>
-      <S00>/bSection</S00>
-      <S01>Standar header</S01>
-      <S02>Type</S02>
-      <S03>Magic</S03>
-      <S04>File size</S04>
-      <S05>/bSection 1</S05>
-      <S06>Size 1</S06>
-      <S07>Wave type</S07>
-      <S08>Loop flag</S08>
-      <S09>Loop offset</S09>
-      <S0A>Channels</S0A>
-      <S0B>Sample rate</S0B>
-      <S0C>Time</S0C>
-      <S0D>Samples</S0D>
-      <S0E>Data offset</S0E>
-      <S0F>Number of blocks</S0F>
-      <S10>Block length</S10>
-      <S11>Samples per block</S11>
-      <S12>Last block length</S12>
-      <S13>Samples per last block</S13>
-      <S14>/bSection 2</S14>
-      <S15>Size 2</S15>
-      <S16>Number of samples</S16>
-      <S17>SWAV Info</S17>
-      <S18>Non loop length</S18>
+      <S00>/b段</S00>
+      <S01>标准标头</S01>
+      <S02>类型</S02>
+      <S03>文件头魔数</S03>
+      <S04>文件大小</S04>
+      <S05>/b段 1</S05>
+      <S06>大小 1</S06>
+      <S07>波形类型</S07>
+      <S08>循环标记</S08>
+      <S09>循环偏移</S09>
+      <S0A>声道</S0A>
+      <S0B>采样率</S0B>
+      <S0C>时长</S0C>
+      <S0D>采样</S0D>
+      <S0E>数据偏移</S0E>
+      <S0F>区块数量</S0F>
+      <S10>区块长度</S10>
+      <S11>每区块采样数</S11>
+      <S12>末尾区块长度</S12>
+      <S13>每末尾区块采样数</S13>
+      <S14>/b段 2</S14>
+      <S15>大小 2</S15>
+      <S16>采样数</S16>
+      <S17>SWAV 信息</S17>
+      <S18>非循环长度</S18>
     </Information>
   </简体中文>
 </Language>

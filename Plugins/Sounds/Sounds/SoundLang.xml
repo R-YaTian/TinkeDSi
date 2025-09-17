@@ -106,28 +106,28 @@
   </Italiano>
   <简体中文>
     <SoundControl>
-      <S00>Property</S00>
-      <S01>Value</S01>
-      <S02>Export</S02>
-      <S03>Import</S03>
-      <S04>Enable loop</S04>
-      <S05>Do you want to save the loop file also?</S05>
-      <S06>Format</S06>
-      <S07>Channels</S07>
-      <S08>Loop</S08>
-      <S09>Begin of loop</S09>
-      <S0A>End of loop</S0A>
-      <S0B>Sample rate</S0B>
-      <S0C>Number of samples</S0C>
-      <S0D>Block size</S0D>
-      <S0E>Sample bit depth</S0E>
-      <S0F>Credits</S0F>
+      <S00>属性</S00>
+      <S01>值</S01>
+      <S02>导出</S02>
+      <S03>导入</S03>
+      <S04>启用循环</S04>
+      <S05>您还要保存循环文件吗？</S05>
+      <S06>格式</S06>
+      <S07>声道</S07>
+      <S08>循环</S08>
+      <S09>循环开始</S09>
+      <S0A>循环结束</S0A>
+      <S0B>采样率</S0B>
+      <S0C>采样数</S0C>
+      <S0D>区块大小</S0D>
+      <S0E>采样位深度</S0E>
+      <S0F>致谢</S0F>
     </SoundControl>
     <Messages>
-      <S00>Converting sound file</S00>
-      <S01>Wait</S01>
-      <S02>Saving new WAV file</S02>
-      <S03>Encoding: </S03>
+      <S00>正在转换声音文件</S00>
+      <S01>请稍等</S01>
+      <S02>正在保存新的 WAV 文件</S02>
+      <S03>编码: </S03>
     </Messages>
   </简体中文>
 </Language>

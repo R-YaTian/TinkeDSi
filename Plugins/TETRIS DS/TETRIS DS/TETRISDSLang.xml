@@ -345,87 +345,87 @@
   </Italiano>
   <简体中文>
     <PaletteControl>
-      <S01># palette:</S01>
-      <S02>Properties</S02>
-      <S03>Property</S03>
-      <S04>Content</S04>
-      <S05># palettes</S05>
-      <S06>Depth</S06>
-      <S07>Padding</S07>
-      <S08>Colors per palette</S08>
-      <S09>Palette length</S09>
-      <S0A>Save</S0A>
-      <S0B>Show all palettes</S0B>
-      <S0C>Palette</S0C>
-      <S0D>Analyzing NCLR palette:</S0D>
-      <S0E>Strange number of sections ¿?: </S0E>
-      <S0F>palettes found</S0F>
-      <S10>colors.</S10>
-      <S11>Modify</S11>
-      <S12>Start byte:</S12>
-      <S13>Import</S13>
-      <S14>Change the depth</S14>
+      <S01># 调色板:</S01>
+      <S02>属性</S02>
+      <S03>属性</S03>
+      <S04>内容</S04>
+      <S05># 调色板</S05>
+      <S06>深度</S06>
+      <S07>填充</S07>
+      <S08>每个调色板颜色数</S08>
+      <S09>调色板长度</S09>
+      <S0A>保存</S0A>
+      <S0B>显示所有调色板</S0B>
+      <S0C>调色板</S0C>
+      <S0D>分析 NCLR 调色板:</S0D>
+      <S0E>区段数不正确: </S0E>
+      <S0F>已找到调色板</S0F>
+      <S10>颜色。</S10>
+      <S11>修改</S11>
+      <S12>起始字节:</S12>
+      <S13>导入</S13>
+      <S14>更改深度</S14>
     </PaletteControl>
     <ImageControl>
-      <S01>Double-click to see the full image.</S01>
-      <S02>Properties</S02>
-      <S03>Offset</S03>
-      <S04>Property</S04>
-      <S05>Content</S05>
-      <S06>Unknown</S06>
-      <S07>Number of sections</S07>
-      <S08>ID Section 1</S08>
-      <S09>Length</S09>
-      <S0A>Tiles Y</S0A>
-      <S0B>Tiles X</S0B>
-      <S0C>Tile form</S0C>
-      <S0D>Unknown</S0D>
-      <S0E>Unknown</S0E>
-      <S0F>Length of pixels data</S0F>
-      <S10>Unknown</S10>
-      <S11>Offset:</S11>
-      <S12>Width:</S12>
-      <S13>Height:</S13>
-      <S14>Image pattern:</S14>
-      <S15>Save</S15>
-      <S16>No tiled</S16>
-      <S17>Horizontal</S17>
-      <S18>Vertical</S18>
-      <S19>Full size image</S19>
-      <S1A>Divide images</S1A>
-      <S1B>Image</S1B>
-      <S1C>Transparency</S1C>
-      <S1D>Restore</S1D>
-      <S1E>Zoom</S1E>
-      <S1F>Background colour</S1F>
-      <S20>Remove</S20>
-      <S21>Import</S21>
+      <S01>双击以查看完整图像。</S01>
+      <S02>属性</S02>
+      <S03>偏移</S03>
+      <S04>属性</S04>
+      <S05>内容</S05>
+      <S06>未知</S06>
+      <S07>区段数量</S07>
+      <S08>ID 段 1</S08>
+      <S09>长度</S09>
+      <S0A>图块 Y</S0A>
+      <S0B>图块 X</S0B>
+      <S0C>图块格式</S0C>
+      <S0D>未知</S0D>
+      <S0E>未知</S0E>
+      <S0F>像素数据长度</S0F>
+      <S10>未知</S10>
+      <S11>偏移:</S11>
+      <S12>宽度:</S12>
+      <S13>高度:</S13>
+      <S14>图像模式:</S14>
+      <S15>保存</S15>
+      <S16>无图块</S16>
+      <S17>水平</S17>
+      <S18>垂直</S18>
+      <S19>完整大小图像</S19>
+      <S1A>分割图像</S1A>
+      <S1B>图像</S1B>
+      <S1C>透明层</S1C>
+      <S1D>还原</S1D>
+      <S1E>缩放</S1E>
+      <S1F>背景颜色</S1F>
+      <S20>移除</S20>
+      <S21>导入</S21>
     </ImageControl>
     <CellControl>
-      <S01>Bank:</S01>
-      <S02>Show all banks</S02>
-      <S03>Save</S03>
-      <S04>Properties</S04>
-      <S05>Property</S05>
-      <S06>Content</S06>
-      <S07>Section</S07>
-      <S08>Number of banks</S08>
-      <S09>Type of banks</S09>
-      <S0A>Constant</S0A>
-      <S0B>Block size</S0B>
-      <S0C>Unknown 1</S0C>
-      <S0D>Unknown 2</S0D>
-      <S0E>Unknown (Section UEXT)</S0E>
-      <S0F>Show guides</S0F>
-      <S10>Show cells</S10>
-      <S11>Show image</S11>
-      <S12>Transparency</S12>
-      <S13>Show numbers</S13>
-      <S14>Cells</S14>
-      <S15>Double-click to the image to see it in full size.</S15>
-      <S16>Zoom</S16>
-      <S17>Background colour</S17>
-      <S18>Remove</S18>
+      <S01>组:</S01>
+      <S02>显示所有组</S02>
+      <S03>保存</S03>
+      <S04>属性</S04>
+      <S05>属性</S05>
+      <S06>内容</S06>
+      <S07>段</S07>
+      <S08>组数量</S08>
+      <S09>组类型</S09>
+      <S0A>常量</S0A>
+      <S0B>区块大小</S0B>
+      <S0C>未知 1</S0C>
+      <S0D>未知 2</S0D>
+      <S0E>未知(区段 UEXT)</S0E>
+      <S0F>显示参考线</S0F>
+      <S10>显示单元格</S10>
+      <S11>显示图像</S11>
+      <S12>透明层</S12>
+      <S13>显示编号</S13>
+      <S14>单元格</S14>
+      <S15>双击图像以查看完整大小</S15>
+      <S16>缩放</S16>
+      <S17>背景颜色</S17>
+      <S18>移除</S18>
     </CellControl>
   </简体中文>
 </Language>

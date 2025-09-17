@@ -65,12 +65,12 @@
     <AnimationControl>
       <label2>间隔:</label2>
       <label1>毫秒</label1>
-      <groupBox2>Guides options</groupBox2>
-      <checkEntorno>Show guides</checkEntorno>
-      <checkCeldas>Show cells</checkCeldas>
+      <groupBox2>参考线选项</groupBox2>
+      <checkEntorno>显示参考线</checkEntorno>
+      <checkCeldas>显示单元格</checkCeldas>
       <checkImage>显示图像</checkImage>
       <checkTransparencia>透明层</checkTransparencia>
-      <checkNumeros>Show numbers</checkNumeros>
+      <checkNumeros>显示编号</checkNumeros>
       <label3>动画:</label3>
       <btnSave>保存</btnSave>
       <lblFullImage>双击动画以查看完整大小</lblFullImage>
