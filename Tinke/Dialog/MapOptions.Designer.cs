@@ -90,7 +90,6 @@ namespace Tinke.Dialog
             // btnOk
             // 
             this.btnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOk.Image = global::Tinke.Properties.Resources.accept;
             this.btnOk.Location = new System.Drawing.Point(15, 347);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(90, 40);
@@ -330,7 +329,6 @@ namespace Tinke.Dialog
             // 
             // btnCancel
             // 
-            this.btnCancel.Image = global::Tinke.Properties.Resources.cancel;
             this.btnCancel.Location = new System.Drawing.Point(131, 347);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(90, 40);

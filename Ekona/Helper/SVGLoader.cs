@@ -20,12 +20,29 @@ namespace Ekona.Helper
         [DllImport("user32.dll")]
         static extern int ReleaseDC(IntPtr hWnd, IntPtr hDC);
 
+        [DllImport("user32.dll", SetLastError = true)]
+        private static extern bool DestroyIcon(IntPtr hIcon);
+
         public static float GetScreenDpi()
         {
             IntPtr hdc = GetDC(IntPtr.Zero);
             int dpi = GetDeviceCaps(hdc, 88);
             ReleaseDC(IntPtr.Zero, hdc);
             return dpi == 0 ? 96f : (float)dpi;
+        }
+
+        private static Icon BitmapToIcon(Bitmap bitmap)
+        {
+            IntPtr hIcon = bitmap.GetHicon();
+            try
+            {
+                Icon icon = Icon.FromHandle(hIcon);
+                return (Icon)icon.Clone();
+            }
+            finally
+            {
+                DestroyIcon(hIcon);
+            }
         }
 
         public static Bitmap LoadSvgFromStream(Stream s, int width, int height)
@@ -50,6 +67,11 @@ namespace Ekona.Helper
             }
         }
 
+        public static Icon LoadSvgToIcon(string svgName, int baseSize)
+        {
+            return BitmapToIcon(LoadSvg(svgName, baseSize));
+        }
+
         public static int GetRealIconSize(int baseSize)
         {
             if (screenDPI == 0.0f) screenDPI = GetScreenDpi();
@@ -59,8 +81,5 @@ namespace Ekona.Helper
 
             return iconSize;
         }
-
-        public static Bitmap Folder { get { return LoadSvg("folder", 24); } }
-        public static Bitmap Package { get { return LoadSvg("package", 24); } }
     }
 }

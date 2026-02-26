@@ -31,6 +31,7 @@ using System.Linq;
 using System.Text;
 using System.Xml.Linq;
 using System.Windows.Forms;
+using Ekona;
 
 namespace Tinke.Dialog
 {
@@ -41,6 +42,8 @@ namespace Tinke.Dialog
             InitializeComponent();
 
             ReadLanguage();
+
+            this.btnOK.Image = Ekona.Helper.SVGLoader.LoadSvg("accept", 16);
         }
         private void ReadLanguage()
         {

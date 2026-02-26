@@ -1,0 +1,12 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<!-- LICENSE: PD License. Uploaded to: SVG Repo, www.svgrepo.com, Transformed by: SVG Repo Mixer Tools -->
+<svg fill="#000000" width="64px" height="64px" viewBox="0 0 24 24" id="refresh-round" data-name="Flat Color"
+    xmlns="http://www.w3.org/2000/svg" class="icon flat-color">
+    <g id="SVGRepo_bgCarrier" stroke-width="0"/>
+    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+    <g id="SVGRepo_iconCarrier">
+        <path id="secondary" d="M14.71,17.29l-2-2a1,1,0,0,0-1.42,1.42l.3.29H9A5,5,0,0,1,6.11,7.93,1,1,0,1,0,5,6.29,7,7,0,0,0,2,12a7,7,0,0,0,7,7h2.59l-.3.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0l2-2A1,1,0,0,0,14.71,17.29Z" style="fill: #2ca9bc;"/>
+        <path id="primary" d="M20,7.06A6.89,6.89,0,0,0,15,5H12.41l.3-.29a1,1,0,1,0-1.42-1.42l-2,2a1,1,0,0,0,0,1.42l2,2a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42L12.41,7H15a5,5,0,0,1,2.89,9.07A1,1,0,1,0,19,17.71,7,7,0,0,0,22,12,6.89,6.89,0,0,0,20,7.06Z" style="fill: #000000;"/>
+    </g>
+</svg>

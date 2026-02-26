@@ -71,7 +71,6 @@ namespace Tinke.Dialog
             // btnOK
             // 
             this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOK.Image = global::Tinke.Properties.Resources.accept;
             this.btnOK.Location = new System.Drawing.Point(182, 30);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(90, 30);

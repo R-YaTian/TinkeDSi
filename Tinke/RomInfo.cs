@@ -18,13 +18,8 @@
  * 
  */
 using System;
-//using System.Collections.Generic;
-//using System.ComponentModel;
-//using System.Data;
 using System.Drawing;
 using System.IO;
-//using System.Linq;
-//using System.Text;
 using System.Windows.Forms;
 using Ekona.Helper;
 
@@ -37,16 +32,27 @@ namespace Tinke
         Bitmap picBanner;
         string[] titulos;
 
+        private void LoadImage()
+        {
+            this.btnDumpiheader.Image = Ekona.Helper.SVGLoader.LoadSvg("package", 16);
+            this.btnDumpAdata.Image = Ekona.Helper.SVGLoader.LoadSvg("picture_go", 16);
+            this.btnDumpicondata.Image = Ekona.Helper.SVGLoader.LoadSvg("disk", 16);
+            this.btnEdit.Image = Ekona.Helper.SVGLoader.LoadSvg("pencil", 16);
+            this.btnBannerGuardar.Image =  Ekona.Helper.SVGLoader.LoadSvg("picture_save", 16);
+            this.Icon = Ekona.Helper.SVGLoader.LoadSvgToIcon("information", 32);
+        }
+
         public RomInfo()
         {
             InitializeComponent();
+            LoadImage();
         }
 
         public RomInfo(string archivo)
         {
             InitializeComponent();
 
-            this.btnBannerGuardar.Image = Properties.Resources.picture_save;
+            LoadImage();
 
             try
             {
@@ -69,6 +75,7 @@ namespace Tinke
 
             LeerIdioma();
         }
+
         public void LeerIdioma()
         {
             System.Xml.Linq.XElement xml = Tools.Helper.GetTranslation("RomInfo");

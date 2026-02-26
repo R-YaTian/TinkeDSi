@@ -36,15 +36,27 @@ namespace Tinke.Dialog
 {
     public partial class SelectFile : Form
     {
-       sFile[] files;
+        sFile[] files;
+
+        private void LoadImage()
+        {
+            this.btnAccept.Image = Ekona.Helper.SVGLoader.LoadSvg("accept", 16);
+            this.btnSkip.Image = Ekona.Helper.SVGLoader.LoadSvg("cancel", 16);
+            this.Icon = Ekona.Helper.SVGLoader.LoadSvgToIcon("page_gear", 32);
+        }
 
         public SelectFile()
         {
             InitializeComponent();
+
+            LoadImage();
         }
+
         public SelectFile(sFile[] files)
         {
             InitializeComponent();
+
+            LoadImage();
 
             this.files = files;
 

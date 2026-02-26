@@ -43,11 +43,16 @@ namespace Tinke.Dialog
 
             ReadLanguage();
 
+            this.btnAccept.Image = Ekona.Helper.SVGLoader.LoadSvg("accept", 16);
+            this.btnCancel.Image = Ekona.Helper.SVGLoader.LoadSvg("cancel", 16);
+            this.btnHex.Image = Ekona.Helper.SVGLoader.LoadSvg("calculator", 16);
+
             this.file = file;
             fat = new FAT();
 
             Read_NumFiles();
         }
+
         private void ReadLanguage()
         {
             try
@@ -333,7 +338,6 @@ namespace Tinke.Dialog
             else
                 newFile.size = (uint)numSize.Value;
 
-
             // Get the extension
             BinaryReader br = new BinaryReader(File.OpenRead(file));
             br.BaseStream.Position = newFile.offset;
@@ -356,14 +360,17 @@ namespace Tinke.Dialog
             fat.files.Add(newFile);
             listBoxFiles.Items.Add(newFile.name);
         }
+
         private void btnAccept_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
         private void btnHex_Click(object sender, EventArgs e)
         {
             var selectedFile = fat.files[listBoxFiles.SelectedIndex];
@@ -386,6 +393,7 @@ namespace Tinke.Dialog
                 return newFolder;
             }
         }
+
         public String TempFolder
         {
             set
@@ -400,7 +408,5 @@ namespace Tinke.Dialog
             public uint num_files;
             public List<sFile> files;
         }
-
-
     }
 }

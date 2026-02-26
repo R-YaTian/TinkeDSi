@@ -137,7 +137,7 @@ namespace Tinke
                     Program.FreeConsole();
                     SendKeys.SendWait("{ENTER}");
                 }
-                if (Program.bIsFolder)
+                if (Program.bIsFolder || !string.IsNullOrWhiteSpace(Program.openDirPath))
                 {
                     if (string.IsNullOrWhiteSpace(Program.openDirPath))
                     {
@@ -322,13 +322,20 @@ namespace Tinke
 
                 this.toolStrip2.ImageScalingSize = new Size(realSize, realSize);
                 this.toolStrip3.ImageScalingSize = new Size(realSize, realSize);
-                this.toolStripToolkit.Image = Ekona.Helper.SVGLoader.Package;
+                this.toolStripToolkit.Image = iconos.Images["package.png"];
                 this.toolStripAbrirFat.Image = iconos.Images["package.png"];
+                this.callPluginToolStripMenuItem.Image = Ekona.Helper.SVGLoader.LoadSvg("plugin_go", 24);
                 this.toolStripMenuComprimido.Image = iconos.Images["compress.png"];
                 this.toolStripAbrirTexto.Image = iconos.Images["page_white_text.png"];
                 this.toolStripMenuItem1.Image = iconos.Images["palette.png"];
                 this.toolStripMenuItem2.Image = iconos.Images["picture.png"];
                 this.toolStripMenuItem3.Image = iconos.Images["picture_link.png"];
+
+                this.toolStripOpen.Image = Ekona.Helper.SVGLoader.LoadSvg("open_file", 24);
+                this.toolStripInfoRom.Image = Ekona.Helper.SVGLoader.LoadSvg("information", 24);
+                this.toolStripDebug.Image = Ekona.Helper.SVGLoader.LoadSvg("terminal", 24);
+                this.toolStripLanguage.Image = Ekona.Helper.SVGLoader.LoadSvg("earth", 24);
+                this.stripRefreshMsg.Image = Ekona.Helper.SVGLoader.LoadSvg("refresh", 24);
 
                 if (zoomSvg != null)
                 {

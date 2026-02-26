@@ -52,7 +52,6 @@ namespace Tinke.Dialog
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SelectFile));
             this.listFiles = new System.Windows.Forms.ListBox();
             this.btnAccept = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -71,7 +70,6 @@ namespace Tinke.Dialog
             // btnAccept
             // 
             this.btnAccept.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnAccept.Image = global::Tinke.Properties.Resources.accept;
             this.btnAccept.Location = new System.Drawing.Point(238, 236);
             this.btnAccept.Name = "btnAccept";
             this.btnAccept.Size = new System.Drawing.Size(83, 28);
@@ -92,7 +90,6 @@ namespace Tinke.Dialog
             // btnSkip
             // 
             this.btnSkip.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnSkip.Image = global::Tinke.Properties.Resources.cancel;
             this.btnSkip.Location = new System.Drawing.Point(149, 236);
             this.btnSkip.Name = "btnSkip";
             this.btnSkip.Size = new System.Drawing.Size(83, 28);
@@ -115,7 +112,6 @@ namespace Tinke.Dialog
             this.Controls.Add(this.btnAccept);
             this.Controls.Add(this.listFiles);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "SelectFile";

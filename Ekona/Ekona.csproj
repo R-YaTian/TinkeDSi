@@ -182,6 +182,11 @@
     <EmbeddedResource Include="Icons\plugin_go.svg" />
     <EmbeddedResource Include="Icons\script.svg" />
     <EmbeddedResource Include="Icons\zoom.svg" />
+    <EmbeddedResource Include="Icons\earth.svg" />
+    <EmbeddedResource Include="Icons\information.svg" />
+    <EmbeddedResource Include="Icons\open_file.svg" />
+    <EmbeddedResource Include="Icons\refresh.svg" />
+    <EmbeddedResource Include="Icons\terminal.svg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

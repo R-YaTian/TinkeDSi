@@ -529,7 +529,6 @@ namespace Tinke.Dialog
             // btnAccept
             // 
             this.btnAccept.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnAccept.Image = global::Tinke.Properties.Resources.accept;
             this.btnAccept.Location = new System.Drawing.Point(13, 294);
             this.btnAccept.Name = "btnAccept";
             this.btnAccept.Size = new System.Drawing.Size(90, 37);
@@ -551,7 +550,6 @@ namespace Tinke.Dialog
             // 
             // btnHex
             // 
-            this.btnHex.Image = global::Tinke.Properties.Resources.calculator;
             this.btnHex.Location = new System.Drawing.Point(548, 294);
             this.btnHex.Name = "btnHex";
             this.btnHex.Size = new System.Drawing.Size(192, 29);
@@ -564,7 +562,6 @@ namespace Tinke.Dialog
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Image = global::Tinke.Properties.Resources.cancel;
             this.btnCancel.Location = new System.Drawing.Point(110, 294);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(90, 37);

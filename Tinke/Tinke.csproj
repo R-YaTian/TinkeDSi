@@ -165,6 +165,11 @@
       <DependentUpon>SaveOptions.cs</DependentUpon>
     </Compile>
     <Compile Include="Nitro\SecureArea.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Tools\ARM9BLZ.cs" />
     <Compile Include="Tools\Cryptography\AES128CounterMode.cs" />
     <Compile Include="Autores.cs">
@@ -304,14 +309,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="Visor.resx">
       <DependentUpon>Visor.cs</DependentUpon>
     </EmbeddedResource>
@@ -372,17 +372,13 @@
     </Content>
     <Content Include="nintendo-ds.ico" />
     <Content Include="Nitro\MakerCodes.txt" />
-    <None Include="Resources\compress.png" />
     <None Include="Resources\picture_edit.png" />
-    <None Include="Resources\image_edit.png" />
     <None Include="Resources\pencil.png" />
     <None Include="Resources\cancel.png" />
     <None Include="Resources\accept.png" />
     <None Include="Resources\picture_go.png" />
-    <None Include="Resources\page_white_text.png" />
     <None Include="Resources\package.png" />
     <None Include="Resources\picture_save.png" />
-    <None Include="Resources\zoom.png" />
     <None Include="Resources\calculator.png" />
     <None Include="Resources\disk.png" />
   </ItemGroup>

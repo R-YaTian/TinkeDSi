@@ -47,7 +47,6 @@ namespace Tinke.Dialog
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CallPlugin));
             this.comboPlugin = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -119,7 +118,6 @@ namespace Tinke.Dialog
             // btnAccept
             // 
             this.btnAccept.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnAccept.Image = global::Tinke.Properties.Resources.accept;
             this.btnAccept.Location = new System.Drawing.Point(272, 110);
             this.btnAccept.Name = "btnAccept";
             this.btnAccept.Size = new System.Drawing.Size(100, 23);
@@ -213,7 +211,6 @@ namespace Tinke.Dialog
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboPlugin);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "CallPlugin";

@@ -175,7 +175,6 @@ namespace Tinke
             System.Windows.Forms.ListViewItem listViewItem42 = new System.Windows.Forms.ListViewItem(new string[] {
             "0x16C",
             "S38"}, -1);
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RomInfo));
             this.groupBanner = new System.Windows.Forms.GroupBox();
             this.btnDumpiheader = new System.Windows.Forms.Button();
             this.btnDumpAdata = new System.Windows.Forms.Button();
@@ -231,7 +230,6 @@ namespace Tinke
             // btnDumpiheader
             // 
             this.btnDumpiheader.Enabled = false;
-            this.btnDumpiheader.Image = global::Tinke.Properties.Resources.package;
             this.btnDumpiheader.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDumpiheader.Location = new System.Drawing.Point(9, 413);
             this.btnDumpiheader.Name = "btnDumpiheader";
@@ -246,7 +244,6 @@ namespace Tinke
             // btnDumpAdata
             // 
             this.btnDumpAdata.Enabled = false;
-            this.btnDumpAdata.Image = global::Tinke.Properties.Resources.picture_go;
             this.btnDumpAdata.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDumpAdata.Location = new System.Drawing.Point(9, 379);
             this.btnDumpAdata.Name = "btnDumpAdata";
@@ -260,7 +257,6 @@ namespace Tinke
             // 
             // btnDumpicondata
             // 
-            this.btnDumpicondata.Image = global::Tinke.Properties.Resources.disk;
             this.btnDumpicondata.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDumpicondata.Location = new System.Drawing.Point(9, 345);
             this.btnDumpicondata.Name = "btnDumpicondata";
@@ -274,7 +270,6 @@ namespace Tinke
             // 
             // btnEdit
             // 
-            this.btnEdit.Image = global::Tinke.Properties.Resources.pencil;
             this.btnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEdit.Location = new System.Drawing.Point(9, 447);
             this.btnEdit.Name = "btnEdit";
@@ -493,7 +488,6 @@ namespace Tinke
             this.Controls.Add(this.groupBanner);
             this.Controls.Add(this.listInfo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(710, 354);
             this.Name = "RomInfo";

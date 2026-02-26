@@ -478,7 +478,7 @@ namespace Ekona.Images
                 tiles = bmp.Tiles;
                 pal = bmp.Palette.Palette[0];
             }
-            else
+            else if (!multiPalMode.Checked)
             {
                 try { Actions.Indexed_Image(bitmap, image.FormatColor, out tiles, out pal); }
                 catch (Exception ex) { MessageBox.Show(ex.Message); Console.WriteLine(ex.Message); return; }
@@ -529,7 +529,7 @@ namespace Ekona.Images
                 else if (isMap)
                 {
                     int num_tiles = (tiles.Length * 8 / image.BPP) / (image.TileSize * image.TileSize);
-                    map.Set_Map(Actions.Create_BasicMap(num_tiles, 0, palIdx), map.CanEdit);
+                    map.Set_Map(Actions.Create_BasicMap(num_tiles, 0, palIdx), map.CanEdit, bitmap.Width, bitmap.Height);
                 }
             }
 

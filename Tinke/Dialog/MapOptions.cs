@@ -30,25 +30,37 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Ekona;
 
 namespace Tinke.Dialog
 {
     public partial class MapOptions : Form
     {
+        private void LoadImage()
+        {
+            this.btnOk.Image = Ekona.Helper.SVGLoader.LoadSvg("accept", 16);
+            this.btnCancel.Image = Ekona.Helper.SVGLoader.LoadSvg("cancel", 16);
+        }
 
         public MapOptions()
         {
             InitializeComponent();
+
+            LoadImage();
         }
+
         public MapOptions(int width, int height)
         {
             InitializeComponent();
+
+            LoadImage();
 
             ReadLanguage();
 
             numericWidth.Value = width;
             numericHeight.Value = height;
         }
+
         private void ReadLanguage()
         {
             try
@@ -77,30 +89,37 @@ namespace Tinke.Dialog
         {
             get { return (int)numericWidth.Value; }
         }
+
         public int ImageHeight
         {
             get { return (int)numericHeight.Value; }
         }
+
         public bool FillTiles
         {
             get { return checkFillTile.Checked; }
         }
+
         public int StartFillTiles
         {
             get { return (int)numericStartTile.Value; }
         }
+
         public int FillTilesWith
         {
             get { return (int)numericFillTile.Value; }
         }
+
         public bool SubImages
         {
             get { return checkSubImage.Checked; }
         }
+
         public int SubImagesStart
         {
             get { return (int)numericSubStart.Value; }
         }
+
         public int SubPalette
         {
             get { return (int)numericSubPalette.Value; }
@@ -111,6 +130,7 @@ namespace Tinke.Dialog
         {
             groupFill.Enabled = checkFillTile.Checked;
         }
+
         private void btnOk_Click(object sender, EventArgs e)
         {
             this.DialogResult = System.Windows.Forms.DialogResult.OK;
@@ -121,6 +141,7 @@ namespace Tinke.Dialog
         {
             numericStartTile.Value = (numericMaxHeight.Value * numericMaxWidth.Value) / 64;
         }
+
         private void numericStartTile_ValueChanged(object sender, EventArgs e)
         {
             numericMaxHeight.Value = (numericStartTile.Value * 64) / numericWidth.Value;

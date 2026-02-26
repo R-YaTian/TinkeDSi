@@ -60,7 +60,6 @@
             // btn_OK
             // 
             this.btn_OK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btn_OK.Image = global::Tinke.Properties.Resources.accept;
             this.btn_OK.Location = new System.Drawing.Point(12, 139);
             this.btn_OK.Name = "btn_OK";
             this.btn_OK.Size = new System.Drawing.Size(90, 30);
@@ -73,7 +72,6 @@
             // btn_Cancel
             // 
             this.btn_Cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btn_Cancel.Image = global::Tinke.Properties.Resources.cancel;
             this.btn_Cancel.Location = new System.Drawing.Point(137, 139);
             this.btn_Cancel.Name = "btn_Cancel";
             this.btn_Cancel.Size = new System.Drawing.Size(90, 30);

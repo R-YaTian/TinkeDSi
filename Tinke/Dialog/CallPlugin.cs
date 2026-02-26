@@ -31,13 +31,23 @@ namespace Tinke.Dialog
 {
     public partial class CallPlugin : Form
     {
+        private void LoadImage()
+        {
+            this.btnAccept.Image = Ekona.Helper.SVGLoader.LoadSvg("accept", 16);
+            this.Icon = Ekona.Helper.SVGLoader.LoadSvgToIcon("plugin_go", 32);
+        }
+
         public CallPlugin()
         {
             InitializeComponent();
+            LoadImage();
         }
+
         public CallPlugin(string[] list)
         {
             InitializeComponent();
+
+            LoadImage();
 
             comboPlugin.Items.AddRange(list);
         }
@@ -59,6 +69,7 @@ namespace Tinke.Dialog
                 txtHeaderHex.Text = BitConverter.ToString(Encoding.ASCII.GetBytes(txtHeader.Text.ToCharArray()));
             }
         }
+
         public String Header
         {
             get 
@@ -69,14 +80,17 @@ namespace Tinke.Dialog
             }
             set { txtHeader.Text = value; }
         }
+
         public String Plugin
         {
             get { return comboPlugin.Text; }
         }
+
         public int Action
         {
             get { return comboAction.SelectedIndex; }
         }
+
         public ushort ID
         {
             get { return (ushort)numericID.Value; }
@@ -88,6 +102,7 @@ namespace Tinke.Dialog
             if (txtHeader.Focused)
                 txtHeaderHex.Text = BitConverter.ToString(Encoding.ASCII.GetBytes(txtHeader.Text.ToCharArray()));
         }
+
         private void txtHeaderHex_TextChanged(object sender, EventArgs e)
         {
             if (txtHeaderHex.Focused)
