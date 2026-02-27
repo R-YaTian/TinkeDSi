@@ -273,87 +273,84 @@ namespace Tinke
             romInfo.FormClosing += new FormClosingEventHandler(romInfo_FormClosing);
             LoadPreferences();
 
-            using (Graphics g = this.CreateGraphics())
+            int realSize = Ekona.Helper.SVGLoader.GetRealIconSize(24);
+
+            iconos.Images.Clear();
+            iconos.ImageSize = new Size(realSize, realSize);
+            iconos.ColorDepth = ColorDepth.Depth32Bit;
+
+            string[] keys = new string[]
             {
-                int realSize = Ekona.Helper.SVGLoader.GetRealIconSize(24);
+                "folder.png",
+                "page_white.png",
+                "palette.png",
+                "picture.png",
+                "page_white_text.png",
+                "compress.png",
+                "package.png",
+                "folder_go.png",
+                "pictures.png",
+                "picture_link.png",
+                "photo.png",
+                "picture_save.png",
+                "picture_delete.png",
+                "film.png",
+                "music.png",
+                "picture_go.png",
+                "font.png",
+                "script.png",
+                "folder_add.png",
+                "disk.png",
+                "page_gear.png",
+                "image.png",
+                "map.png",
+                "package_go.png",
+                "package_add.png"
+            };
 
-                iconos.Images.Clear();
-                iconos.ImageSize = new Size(realSize, realSize);
-                iconos.ColorDepth = ColorDepth.Depth32Bit;
-
-                string[] keys = new string[]
-                {
-                    "folder.png",
-                    "page_white.png",
-                    "palette.png",
-                    "picture.png",
-                    "page_white_text.png",
-                    "compress.png",
-                    "package.png",
-                    "folder_go.png",
-                    "pictures.png",
-                    "picture_link.png",
-                    "photo.png",
-                    "picture_save.png",
-                    "picture_delete.png",
-                    "film.png",
-                    "music.png",
-                    "picture_go.png",
-                    "font.png",
-                    "script.png",
-                    "folder_add.png",
-                    "disk.png",
-                    "page_gear.png",
-                    "image.png",
-                    "map.png",
-                    "package_go.png",
-                    "package_add.png"
-                };
-
-                foreach (string key in keys)
-                {
-                    string svgFile = key.Substring(0, key.Length - 4);
-                    var bmp = Ekona.Helper.SVGLoader.LoadSvg(svgFile, 24);
-                    iconos.Images.Add(key, bmp);
-                }
-
-                Bitmap zoomSvg = Ekona.Helper.SVGLoader.LoadSvg("zoom", 24);
-                Bitmap calculatorSvg = Ekona.Helper.SVGLoader.LoadSvg("calculator", 24);
-
-                this.toolStrip2.ImageScalingSize = new Size(realSize, realSize);
-                this.toolStrip3.ImageScalingSize = new Size(realSize, realSize);
-                this.toolStripToolkit.Image = iconos.Images["package.png"];
-                this.toolStripAbrirFat.Image = iconos.Images["package.png"];
-                this.callPluginToolStripMenuItem.Image = Ekona.Helper.SVGLoader.LoadSvg("plugin_go", 24);
-                this.toolStripMenuComprimido.Image = iconos.Images["compress.png"];
-                this.toolStripAbrirTexto.Image = iconos.Images["page_white_text.png"];
-                this.toolStripMenuItem1.Image = iconos.Images["palette.png"];
-                this.toolStripMenuItem2.Image = iconos.Images["picture.png"];
-                this.toolStripMenuItem3.Image = iconos.Images["picture_link.png"];
-
-                this.toolStripOpen.Image = Ekona.Helper.SVGLoader.LoadSvg("open_file", 24);
-                this.toolStripInfoRom.Image = Ekona.Helper.SVGLoader.LoadSvg("information", 24);
-                this.toolStripDebug.Image = Ekona.Helper.SVGLoader.LoadSvg("terminal", 24);
-                this.toolStripLanguage.Image = Ekona.Helper.SVGLoader.LoadSvg("earth", 24);
-                this.stripRefreshMsg.Image = Ekona.Helper.SVGLoader.LoadSvg("refresh", 24);
-
-                if (zoomSvg != null)
-                {
-                    this.btnSee.Image = zoomSvg;
-                    this.toolStripOpenAs.Image = zoomSvg;
-                    this.btnSearch.Image = zoomSvg;
-                    this.btnSearch.AutoSize = true;
-                }
-
-                if (calculatorSvg != null)
-                {
-                    this.btnHex.Image = calculatorSvg;
-                    this.toolStripMenuItem4.Image = calculatorSvg;
-                    this.toolStripMenuItem5.Image = calculatorSvg;
-                }
-
-                RecreateHandle();
+            foreach (string key in keys)
+            {
+                string svgFile = key.Substring(0, key.Length - 4);
+                var bmp = Ekona.Helper.SVGLoader.LoadSvg(svgFile, 24);
+                iconos.Images.Add(key, bmp);
             }
+
+            Bitmap zoomSvg = Ekona.Helper.SVGLoader.LoadSvg("zoom", 24);
+            Bitmap calculatorSvg = Ekona.Helper.SVGLoader.LoadSvg("calculator", 24);
+
+            this.toolStrip2.ImageScalingSize = new Size(realSize, realSize);
+            this.toolStrip3.ImageScalingSize = new Size(realSize, realSize);
+            this.toolStripToolkit.Image = iconos.Images["package.png"];
+            this.toolStripAbrirFat.Image = iconos.Images["package.png"];
+            this.callPluginToolStripMenuItem.Image = Ekona.Helper.SVGLoader.LoadSvg("plugin_go", 24);
+            this.toolStripMenuComprimido.Image = iconos.Images["compress.png"];
+            this.toolStripAbrirTexto.Image = iconos.Images["page_white_text.png"];
+            this.toolStripMenuItem1.Image = iconos.Images["palette.png"];
+            this.toolStripMenuItem2.Image = iconos.Images["picture.png"];
+            this.toolStripMenuItem3.Image = iconos.Images["picture_link.png"];
+
+            this.toolStripOpen.Image = Ekona.Helper.SVGLoader.LoadSvg("open_file", 24);
+            this.toolStripInfoRom.Image = Ekona.Helper.SVGLoader.LoadSvg("information", 24);
+            this.toolStripDebug.Image = Ekona.Helper.SVGLoader.LoadSvg("terminal", 24);
+            this.toolStripLanguage.Image = Ekona.Helper.SVGLoader.LoadSvg("earth", 24);
+            this.stripRefreshMsg.Image = Ekona.Helper.SVGLoader.LoadSvg("refresh", 24);
+
+            if (zoomSvg != null)
+            {
+                this.btnSee.Image = zoomSvg;
+                this.toolStripOpenAs.Image = zoomSvg;
+                this.btnSearch.Image = zoomSvg;
+                this.btnSearch.AutoSize = true;
+            }
+
+            if (calculatorSvg != null)
+            {
+                this.btnHex.Image = calculatorSvg;
+                this.toolStripMenuItem4.Image = calculatorSvg;
+                this.toolStripMenuItem5.Image = calculatorSvg;
+            }
+
+            RecreateHandle();
 
             this.Show();
             if (!isMono)
