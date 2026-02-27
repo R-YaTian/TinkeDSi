@@ -53,7 +53,6 @@ namespace Tinke
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Debug));
             this.txtInfo = new System.Windows.Forms.WebBrowser();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.s0EToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -96,7 +95,6 @@ namespace Tinke
             this.ClientSize = new System.Drawing.Size(644, 140);
             this.ContextMenuStrip = this.contextMenuStrip1;
             this.Controls.Add(this.txtInfo);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Debug";
             this.ShowInTaskbar = false;
             this.Text = "Mensajes";

@@ -19,10 +19,6 @@
  */
 using System;
 using System.Collections.Generic;
-//using System.ComponentModel;
-//using System.Data;
-//using System.Drawing;
-//using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
@@ -39,9 +35,18 @@ namespace Tinke
         IByteCharConverter bcc;
         bool allowEdit;
 
+        private void LoadImage()
+        {
+            this.saveToolStripMenuItem.Image = Ekona.Helper.SVGLoader.LoadSvg("disk", 16);
+            this.goToolStripMenuItem.Image = Ekona.Helper.SVGLoader.LoadSvg("accept", 16);
+            this.goToolStripMenuItem1.Image = Ekona.Helper.SVGLoader.LoadSvg("accept", 16);
+            this.Icon = Ekona.Helper.SVGLoader.LoadSvgToIcon("page_white_text", 32);
+        }
+
         public VisorHex(string hexFile, int id, bool edit)
         {
             InitializeComponent();
+            LoadImage();
             ReadLanguage();
             this.id = id;
             this.hexFile = hexFile;
@@ -53,9 +58,11 @@ namespace Tinke
             encodingCombo.SelectedIndex = 0;
             toolStripComboBox1.SelectedIndex = 0;
         }
+
         public VisorHex(sFile file)
         {
             InitializeComponent();
+            LoadImage();
             ReadLanguage();
 
             hexFile = Path.GetTempFileName();
@@ -71,6 +78,7 @@ namespace Tinke
             encodingCombo.SelectedIndex = 0;
             toolStripComboBox1.SelectedIndex = 0;
         }
+
         private void VisorHex_FormClosed(object sender, FormClosedEventArgs e)
         {
             hexBox1.Dispose();

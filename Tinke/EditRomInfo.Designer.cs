@@ -52,7 +52,6 @@ namespace Tinke
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditRomInfo));
             this.groupHeader = new System.Windows.Forms.GroupBox();
             this.btnImportiheader = new System.Windows.Forms.Button();
             this.lblEncryptionSeed = new System.Windows.Forms.Label();
@@ -825,7 +824,6 @@ namespace Tinke
             // 
             // btnImage
             // 
-            this.btnImage.Image = global::Tinke.Properties.Resources.picture_edit;
             this.btnImage.Location = new System.Drawing.Point(96, 20);
             this.btnImage.Name = "btnImage";
             this.btnImage.Size = new System.Drawing.Size(84, 45);
@@ -846,7 +844,6 @@ namespace Tinke
             // btnSave
             // 
             this.btnSave.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnSave.Image = global::Tinke.Properties.Resources.accept;
             this.btnSave.Location = new System.Drawing.Point(706, 430);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(90, 30);
@@ -859,7 +856,6 @@ namespace Tinke
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Image = global::Tinke.Properties.Resources.cancel;
             this.btnCancel.Location = new System.Drawing.Point(610, 430);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(90, 30);
@@ -872,7 +868,6 @@ namespace Tinke
             // btnImportAdata
             // 
             this.btnImportAdata.Enabled = false;
-            this.btnImportAdata.Image = global::Tinke.Properties.Resources.plugin_go;
             this.btnImportAdata.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnImportAdata.Location = new System.Drawing.Point(610, 394);
             this.btnImportAdata.Name = "btnImportAdata";
@@ -897,7 +892,6 @@ namespace Tinke
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "EditRomInfo";
             this.Text = "S00";

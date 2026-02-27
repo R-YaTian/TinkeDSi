@@ -23,12 +23,8 @@
 // <date>28/04/2012 14:25:12</date>
 // -----------------------------------------------------------------------
 using System;
-//using System.Collections.Generic;
-//using System.ComponentModel;
-//using System.Data;
 using System.Drawing;
 using System.Linq;
-//using System.Text;
 using System.Windows.Forms;
 using System.IO;
 using Ekona.Helper;
@@ -40,15 +36,25 @@ namespace Tinke
         Nitro.Estructuras.ROMHeader header;
         Nitro.Estructuras.Banner banner;
 
+        private void LoadImage()
+        {
+            this.btnImage.Image = Ekona.Helper.SVGLoader.LoadSvg("picture_edit", 16);
+            this.btnSave.Image = Ekona.Helper.SVGLoader.LoadSvg("accept", 16);
+            this.btnCancel.Image = Ekona.Helper.SVGLoader.LoadSvg("cancel", 16);
+            this.btnImportAdata.Image = Ekona.Helper.SVGLoader.LoadSvg("plugin_go", 16);
+            this.Icon = Ekona.Helper.SVGLoader.LoadSvgToIcon("pencil", 32);
+        }
+
         public EditRomInfo()
         {
             InitializeComponent();
+            LoadImage();
         }
 
         public EditRomInfo(Nitro.Estructuras.ROMHeader header, Nitro.Estructuras.Banner banner)
         {
             InitializeComponent();
-
+            LoadImage();
             ReadLanguage();
 
             this.header = header;
@@ -64,6 +70,7 @@ namespace Tinke
             if ((header.unitCode & 2) > 0 && (header.twlInternalFlags & 1) > 0 && Sistema.twl_flag != true)
                 this.btnImportiheader.Enabled = true;
         }
+
         private void ReadLanguage()
         {
             System.Xml.Linq.XElement xml = Tools.Helper.GetTranslation("EditRomInfo");

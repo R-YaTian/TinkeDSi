@@ -489,14 +489,7 @@ namespace Tinke
             ftc.files.AddRange(Nitro.Overlay.ReadBasicOverlays(
                 accion.ROMFile, romInfo.Cabecera.ARM7overlayOffset, romInfo.Cabecera.ARM7overlaySize, false, fatTable));
 
-            sFile rom = new sFile();
-            rom.name = "rom.nds";
-            rom.offset = 0x00;
-            rom.size = (uint)new FileInfo(accion.ROMFile).Length;
-            rom.path = accion.ROMFile;
-            rom.id = (ushort)accion.LastFileID;
             accion.LastFileID++;
-            ftc.files.Add(rom);
 
             sFile fnt = new sFile();
             fnt.name = "fnt.bin";
@@ -729,8 +722,6 @@ namespace Tinke
                 }
                 if (xml.Element("InstantSearch").Value == "True")
                     checkSearch.Checked = true;
-                //if (xml.Element("ModeWindow").Value == "True")
-                //toolStripVentana.Checked = true;
             }
             catch { MessageBox.Show(Tools.Helper.GetTranslation("Sistema", "S38"), Tools.Helper.GetTranslation("Sistema", "S3A")); }
         }
@@ -744,9 +735,6 @@ namespace Tinke
                 toolStripOpen.Text = xml.Element("S01").Value;
                 toolStripInfoRom.Text = xml.Element("S02").Value;
                 toolStripDebug.Text = xml.Element("S03").Value;
-                //toolStripVentana.Text = xml.Element("S04").Value;
-                //toolStripPlugin.Text = xml.Element("S05").Value;
-                //recargarPluginsToolStripMenuItem.Text = xml.Element("S06").Value;
                 toolStripLanguage.Text = xml.Element("S1E").Value;
                 columnHeader1.Text = xml.Element("S07").Value;
                 columnHeader2.Text = xml.Element("S08").Value;
@@ -758,13 +746,6 @@ namespace Tinke
                 listFile.Items[5].Text = xml.Element("S0E").Value;
                 listFile.Items[6].Text = xml.Element("S40").Value;
                 linkAboutBox.Text = xml.Element("S0F").Value;
-                //toolStripDeleteChain.Text = xml.Element("S10").Value;
-                //borrarPaletaToolStripMenuItem.Text = xml.Element("S11").Value;
-                //borrarTileToolStripMenuItem.Text = xml.Element("S12").Value;
-                //borrarScreenToolStripMenuItem.Text = xml.Element("S13").Value;
-                //borrarCeldasToolStripMenuItem.Text = xml.Element("S14").Value;
-                //borrarAnimaciónToolStripMenuItem.Text = xml.Element("S15").Value;
-                //s10ToolStripMenuItem.Text = xml.Element("S10").Value;
                 toolStripOpenAs.Text = xml.Element("S16").Value;
                 toolStripToolkit.Text = xml.Element("S48").Value;
                 toolStripMenuItem1.Text = xml.Element("S17").Value;
@@ -1305,7 +1286,7 @@ namespace Tinke
 
             Form hex;
             if (!isMono) {
-                hex = new VisorHex(filePath, file.id, file.name != "rom.nds");
+                hex = new VisorHex(filePath, file.id, true);
                 hex.FormClosed += hex_FormClosed;
             } else {
                 hex = new VisorHexBasic(filePath, 0, file.size);
@@ -1324,15 +1305,6 @@ namespace Tinke
         private void BtnSee(object sender, EventArgs e)
         {
             this.Cursor = Cursors.WaitCursor;
-            //if (toolStripVentana.Checked)
-            //{
-            //Visor visor = new Visor();
-            //visor.Controls.Add(accion.See_File());
-            //visor.Text += " - " + accion.Selected_File().name;
-            //visor.Show();
-            //}
-            //else
-            //{
             for (int i = 0; i < panelObj.Controls.Count; i++)
                 panelObj.Controls[i].Dispose();
             panelObj.Controls.Clear();
@@ -1347,7 +1319,7 @@ namespace Tinke
             else
                 if (btnDesplazar.Text == "<<<<<")
                 btnDesplazar.PerformClick();
-            //}
+
             this.Cursor = Cursors.Default;
 
             if (!isMono)
@@ -2215,26 +2187,7 @@ namespace Tinke
         {
             System.Diagnostics.Process.Start(Application.ExecutablePath);
         }
-        /*private void toolStripVentana_Click(object sender, EventArgs e)
-        {
-            if (toolStripVentana.Checked)
-            {
-                this.Width = 650;
-                btnDesplazar.Enabled = false;
-                if (panelObj.Controls.Count > 0)
-                {
-                    Visor visor = new Visor();
-                    visor.Controls.Add(panelObj.Controls[0]);
-                    visor.Show();
-                }
-            }
-            else
-            {
-                btnDesplazar.Enabled = true;
-                btnDesplazar.Text = ">>>>>";
-            }
 
-        }*/
         void romInfo_FormClosing(object sender, FormClosingEventArgs e)
         {
             toolStripInfoRom.Checked = romInfo.Visible;
@@ -2248,15 +2201,6 @@ namespace Tinke
         #region Menu-> Open as...
         private void ShowControl(Control control, string name)
         {
-            /*
-            if (toolStripVentana.Checked)
-            {
-                Visor visor = new Visor();
-                visor.Controls.Add(control);
-                visor.Text += " - " + name;
-                visor.Show();
-            }
-            */
             if (control is Control)
             {
                 panelObj.Controls.Clear();
@@ -2471,30 +2415,21 @@ namespace Tinke
                     if (action == null)
                         break;
 
-                    //if (toolStripVentana.Checked)
-                    //{
-                        //Visor visor = new Visor();
-                        //visor.Controls.Add((Control)action);
-                        //visor.Text += " - " + opFile.name;
-                       // visor.Show();
-                   // }
-                    //else
-                    //{
-                        for (int i = 0; i < panelObj.Controls.Count; i++)
-                            panelObj.Controls[i].Dispose();
-                        panelObj.Controls.Clear();
+                    for (int i = 0; i < panelObj.Controls.Count; i++)
+                        panelObj.Controls[i].Dispose();
+                    panelObj.Controls.Clear();
 
-                        Control control = (Control)action;
-                        if (control.Size.Height != 0 && control.Size.Width != 0)
-                        {
-                            panelObj.Controls.Add(control);
-                            if (btnDesplazar.Text == ">>>>>")
-                                btnDesplazar.PerformClick();
-                        }
-                        else
-                            if (btnDesplazar.Text == "<<<<<")
-                                btnDesplazar.PerformClick();
-                    //}
+                    Control control = (Control)action;
+                    if (control.Size.Height != 0 && control.Size.Width != 0)
+                    {
+                        panelObj.Controls.Add(control);
+                        if (btnDesplazar.Text == ">>>>>")
+                            btnDesplazar.PerformClick();
+                    }
+                    else
+                        if (btnDesplazar.Text == "<<<<<")
+                            btnDesplazar.PerformClick();
+
                     break;
 
                 case 2:     // Unpack

@@ -40,6 +40,7 @@ namespace Tinke.Dialog
         {
             this.btnOk.Image = Ekona.Helper.SVGLoader.LoadSvg("accept", 16);
             this.btnCancel.Image = Ekona.Helper.SVGLoader.LoadSvg("cancel", 16);
+            this.Icon = Ekona.Helper.SVGLoader.LoadSvgToIcon("picture_link", 32);
         }
 
         public MapOptions()

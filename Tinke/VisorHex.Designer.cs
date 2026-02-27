@@ -47,7 +47,6 @@ namespace Tinke
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VisorHex));
             this.hexBox1 = new Be.Windows.Forms.HexBox();
             this.menuStripTop = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -129,9 +128,8 @@ namespace Tinke
             // 
             // saveToolStripMenuItem
             // 
-            this.saveToolStripMenuItem.Image = global::Tinke.Properties.Resources.disk;
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(97, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.saveToolStripMenuItem.Text = "S01";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.btnSave_Click);
             // 
@@ -151,7 +149,7 @@ namespace Tinke
             this.toolStripTextBox1,
             this.goToolStripMenuItem});
             this.gotoToolStripMenuItem.Name = "gotoToolStripMenuItem";
-            this.gotoToolStripMenuItem.Size = new System.Drawing.Size(97, 22);
+            this.gotoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.gotoToolStripMenuItem.Text = "S03";
             // 
             // toolStripTextBox1
@@ -164,7 +162,6 @@ namespace Tinke
             // 
             // goToolStripMenuItem
             // 
-            this.goToolStripMenuItem.Image = global::Tinke.Properties.Resources.accept;
             this.goToolStripMenuItem.Name = "goToolStripMenuItem";
             this.goToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.goToolStripMenuItem.Text = "S05";
@@ -179,7 +176,7 @@ namespace Tinke
             this.relativeToolStripMenuItem,
             this.goToolStripMenuItem1});
             this.selectRangeToolStripMenuItem.Name = "selectRangeToolStripMenuItem";
-            this.selectRangeToolStripMenuItem.Size = new System.Drawing.Size(97, 22);
+            this.selectRangeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.selectRangeToolStripMenuItem.Text = "S04";
             // 
             // startOffsetToolStripMenuItem
@@ -187,7 +184,7 @@ namespace Tinke
             this.startOffsetToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.startOffsetSelect});
             this.startOffsetToolStripMenuItem.Name = "startOffsetToolStripMenuItem";
-            this.startOffsetToolStripMenuItem.Size = new System.Drawing.Size(97, 22);
+            this.startOffsetToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.startOffsetToolStripMenuItem.Text = "S06";
             // 
             // startOffsetSelect
@@ -203,7 +200,7 @@ namespace Tinke
             this.endOffsetToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.endOffsetSelect});
             this.endOffsetToolStripMenuItem.Name = "endOffsetToolStripMenuItem";
-            this.endOffsetToolStripMenuItem.Size = new System.Drawing.Size(97, 22);
+            this.endOffsetToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.endOffsetToolStripMenuItem.Text = "S07";
             // 
             // endOffsetSelect
@@ -218,15 +215,14 @@ namespace Tinke
             // 
             this.relativeToolStripMenuItem.CheckOnClick = true;
             this.relativeToolStripMenuItem.Name = "relativeToolStripMenuItem";
-            this.relativeToolStripMenuItem.Size = new System.Drawing.Size(97, 22);
+            this.relativeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.relativeToolStripMenuItem.Text = "S08";
             this.relativeToolStripMenuItem.Click += new System.EventHandler(this.relativeToolStripMenuItem_Click);
             // 
             // goToolStripMenuItem1
             // 
-            this.goToolStripMenuItem1.Image = global::Tinke.Properties.Resources.accept;
             this.goToolStripMenuItem1.Name = "goToolStripMenuItem1";
-            this.goToolStripMenuItem1.Size = new System.Drawing.Size(97, 22);
+            this.goToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.goToolStripMenuItem1.Text = "S05";
             this.goToolStripMenuItem1.Click += new System.EventHandler(this.goToolStripMenuItem1_Click);
             // 
@@ -238,7 +234,7 @@ namespace Tinke
             this.FindPrvToolStripMenuItem,
             this.FindNextToolStripMenuItem});
             this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
-            this.searchToolStripMenuItem.Size = new System.Drawing.Size(97, 22);
+            this.searchToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.searchToolStripMenuItem.Text = "S09";
             // 
             // toolStripSearchBox
@@ -421,7 +417,6 @@ namespace Tinke
             this.Controls.Add(this.tableGrid);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStripTop);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.MainMenuStrip = this.menuStripTop;
             this.Name = "VisorHex";

@@ -120,29 +120,4 @@
   <metadata name="contextMenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        AAABAAEAEBAAAAAAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAA
-        AAD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
-        /wD///8Aw5Ftm8OOaP/Ai2b/vohk/7uFYf+5g1//toBe/7R+XP+yfFr/sXtY/655V/+tdlb/q3VU/6lz
-        U/+pcVH/o3BRm8iSbP9SUlL/U1NT/1RUVP9VVVX/VlZW/1dXV/9XV1f/WFhY/1lZWf9aWlr/W1tb/1xc
-        XP9cXFz/XV1d/6lyUf/KlG7/Tk5O/z09Pf89PT3/Pj4+/z8/P/9BQUH/QkJC/0NDQ/9ERET/RUVF/0ZG
-        Rv9GRkb/SEhI/1paWv+qc1P/zJdv/0tLS/84ODj/OTk5/zo6Ov88PDz/PT09/z8/P/8/Pz//QUFB/0JC
-        Qv9CQkL/RERE/0VFRf9XV1f/rHVU/8+acv9HR0f/MzMz/zQ0NP82Njb/Nzc3/zk5Of86Ojr/Ozs7/zw8
-        PP8+Pj7/Pz8//0BAQP9BQUH/VVVV/614Vv/RnHP/QkJC/y8vL/8wMDD/MTEx/zMzM/80NDT/NjY2/zY2
-        Nv84ODj/Ojo6/zs7O/89PT3/PT09/1JSUv+welj/1J51/z09Pf8pKSn/0dHR/62trf8uLi7/Ly8v/zEx
-        Mf8yMjL/NDQ0/zY2Nv83Nzf/ODg4/zo6Ov9OTk7/snxa/9Wgdv85OTn/JSUl/yYmJv/e3t7/dHR0/yoq
-        Kv8sLCz/LS0t/y8vL/8xMTH/MjIy/zQ0NP81NTX/S0tL/7V+XP/Yonn/NDQ0/yAgIP/Pz8//qKio/yQk
-        JP8lJSX/JiYm/ygoKP8qKir/LCws/y0tLf8vLy//MTEx/0ZGRv+3gV7/2aN5/zQ0NP8gICD/ISEh/yIi
-        Iv8kJCT/JSUl/yYmJv8oKCj/Kioq/ywsLP8tLS3/Ly8v/zExMf9GRkb/uoVg/9ukev8xMTH/MjIy/zMz
-        M/80NDT/NTU1/zY2Nv83Nzf/OTk5/zs7O/88PDz/PT09/z8/P/9BQUH/Q0ND/72HY//cp3v/26R6/9qj
-        ef/Yonn/16F4/9Wfdv/TnnT/0Zxz/8+acv/Nl3D/y5Vu/8mUbP/HkWv/xI9p/8ONZ//Ai2b/3ayF/fHc
-        zv/qwaD/6LmS/+i5kv/ouZL/6LmS/+i5kv/ouZL/zcjF/+i5kv/NyMX/6LmS/0Rk///oxKf/wZBv/d2s
-        hsLdsY303Kd7/9ymev/apHr/2KJ5/9ihef/VoHb/1J51/9Kdc//PmnL/zplw/8uWb//JlGz/xJp69MOT
-        ccL///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
-        /wD///8A//8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAA//8AAA==
-</value>
-  </data>
 </root>

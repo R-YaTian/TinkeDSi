@@ -59,9 +59,10 @@ namespace Tinke
         private void Initialize()
         {
             InitializeComponent();
+            this.Icon = Ekona.Helper.SVGLoader.LoadSvgToIcon("page_white_text", 32);
             Text = Tools.Helper.GetTranslation("Sistema", "S41");
             FormClosed += (sender, e) => file.Close();
-            
+
             txtHex.Font = new Font(FontFamily.GenericMonospace, 11F);
             txtHex.ReadOnly = true;
             txtHex.HideSelection = false;
@@ -77,7 +78,6 @@ namespace Tinke
         {
             txtHex.Text = string.Empty;
         }
-
 
         private void TxtHex_KeyDown(object sender, KeyEventArgs e)
         {

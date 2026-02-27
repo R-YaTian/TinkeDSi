@@ -60,11 +60,11 @@ internal class ReplaceOptions
     public bool BlzCue { get; set; }
 }
 
-[Verb("open", HelpText = "Open file(s) or a folder via TinkeDSi GUI")]
+[Verb("open", true, HelpText = "Open file(s) or a folder via TinkeDSi GUI")]
 internal class OpenOptions
 {
     [Option('f', "folder", HelpText = "Call a folder select dialog then open the selected folder.")]
-    public bool IsFolder { get; set; }
+    public bool SelectFolder { get; set; }
 
     [Option('d', "dir", HelpText = "Open the folder directly instead of calling folder select dialog. Will be ignore if -f/--folder not passed.")]
     public string DirPath { get; set; }
@@ -185,17 +185,29 @@ namespace Tinke
         //process OpenOptions
         private static void RunOpen(OpenOptions opts)
         {
-            if (Environment.GetCommandLineArgs().Length <= 2)
+            if (Environment.GetCommandLineArgs().Length == 2 && Environment.GetCommandLineArgs()[1] == "open")
             {
                 bOpenDefault = true;
                 curCommand = -1;
                 return;
             }
             else
+            {
                 curCommand = 3;
-            tblRoms = opts.Props.ToList();
-            openDirPath = opts.DirPath;
-            bIsFolder = opts.IsFolder;
+            }
+
+            List<String> values = opts.Props.ToList();
+            if (values.Count() == 1 && Directory.Exists(values[0]))
+            {
+                openDirPath = values[0];
+                bIsFolder = false;
+            }
+            else
+            {
+                tblRoms = values;
+                openDirPath = opts.DirPath;
+                bIsFolder = opts.SelectFolder;
+            }
         }
 
         private static void HandleErrors(IEnumerable<Error> obj)

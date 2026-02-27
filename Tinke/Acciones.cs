@@ -1855,8 +1855,6 @@ namespace Tinke
         public Control See_File()
         {
             sFile selectFile = Selected_File();
-            if (selectFile.name == "rom.nds")
-                goto NDS;
 
             // Save the file
             string tempFile = pluginHost.Get_TempFolder() + Path.DirectorySeparatorChar + Path.GetRandomFileName() + selectFile.name;
@@ -1927,13 +1925,6 @@ namespace Tinke
             {
                 MessageBox.Show(e.Message);
                 Console.WriteLine(e.Message);
-            }
-
-        NDS:
-            if (selectFile.name == "rom.nds")
-            {
-                System.Diagnostics.Process.Start(Application.ExecutablePath, '\"' + ROMFile + '\"');
-                return new Control();
             }
             #endregion
 
