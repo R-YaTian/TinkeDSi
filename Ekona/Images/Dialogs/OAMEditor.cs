@@ -152,6 +152,7 @@ namespace Ekona.Images.Dialogs
                 checkNumbers.Text = xml.Element("S2A").Value;
                 checkGrid.Text = xml.Element("S2B").Value;
                 checkCurrOAM.Text = xml.Element("S2C").Value;
+                checkAddFirst.Text = xml.Element("S2D").Value;
             }
             catch { throw new Exception("There was an error reading the XML file of language."); }
         }

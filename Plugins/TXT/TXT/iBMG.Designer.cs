@@ -67,22 +67,22 @@ namespace TXT
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(334, 278);
+            this.label1.Location = new System.Drawing.Point(334, 257);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(26, 13);
+            this.label1.Size = new System.Drawing.Size(23, 12);
             this.label1.TabIndex = 7;
             this.label1.Text = "S09";
             // 
             // numericMsg
             // 
-            this.numericMsg.Location = new System.Drawing.Point(445, 276);
+            this.numericMsg.Location = new System.Drawing.Point(445, 255);
             this.numericMsg.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
             this.numericMsg.Name = "numericMsg";
-            this.numericMsg.Size = new System.Drawing.Size(61, 20);
+            this.numericMsg.Size = new System.Drawing.Size(61, 21);
             this.numericMsg.TabIndex = 6;
             this.numericMsg.Value = new decimal(new int[] {
             1,
@@ -96,6 +96,7 @@ namespace TXT
             this.listProp.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2});
+            this.listProp.HideSelection = false;
             this.listProp.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
             listViewItem1,
             listViewItem2,
@@ -105,7 +106,7 @@ namespace TXT
             listViewItem6});
             this.listProp.Location = new System.Drawing.Point(337, 0);
             this.listProp.Name = "listProp";
-            this.listProp.Size = new System.Drawing.Size(170, 264);
+            this.listProp.Size = new System.Drawing.Size(170, 244);
             this.listProp.TabIndex = 5;
             this.listProp.UseCompatibleStateImageBehavior = false;
             this.listProp.View = System.Windows.Forms.View.Details;
@@ -127,14 +128,15 @@ namespace TXT
             this.txtMsg.Name = "txtMsg";
             this.txtMsg.ReadOnly = true;
             this.txtMsg.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtMsg.Size = new System.Drawing.Size(325, 296);
+            this.txtMsg.Size = new System.Drawing.Size(325, 274);
             this.txtMsg.TabIndex = 4;
             this.txtMsg.WordWrap = false;
             // 
             // iBMG
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Transparent;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.label1);
@@ -142,7 +144,7 @@ namespace TXT
             this.Controls.Add(this.listProp);
             this.Controls.Add(this.txtMsg);
             this.Name = "iBMG";
-            this.Size = new System.Drawing.Size(510, 510);
+            this.Size = new System.Drawing.Size(510, 471);
             ((System.ComponentModel.ISupportInitialize)(this.numericMsg)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

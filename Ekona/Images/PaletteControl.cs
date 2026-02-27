@@ -98,6 +98,7 @@ namespace Ekona.Images
                 checkHex.Text = xml.Element("S0B").Value;
                 label5.Text = xml.Element("S0C").Value;
                 btnFillColors.Text = xml.Element("S0D").Value;
+                checkDuplicated.Text = xml.Element("S0E").Value;
 
                 translation = new string[3];
                 translation[0] = xml.Element("S07").Value;

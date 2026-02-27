@@ -36,11 +36,56 @@ namespace Ekona.Images
         string trans;
 
         bool selectColor;
+        private ContextMenuStrip contextMenu;
+        private ToolStripMenuItem selectAllItem;
+        private ToolStripMenuItem selectNoneItem;
+        private ToolStripMenuItem invertItem;
+
+        private void InitializeContextMenu()
+        {
+            contextMenu = new ContextMenuStrip();
+
+            selectAllItem = new ToolStripMenuItem("S1B");
+            selectAllItem.Click += (s, e) => SetAllItemsChecked(true);
+
+            selectNoneItem = new ToolStripMenuItem("S1C");
+            selectNoneItem.Click += (s, e) => SetAllItemsChecked(false);
+
+            invertItem = new ToolStripMenuItem("S1D");
+            invertItem.Click += (s, e) => InvertSelection();
+
+            contextMenu.Items.AddRange(new ToolStripItem[]
+            {
+                selectAllItem,
+                selectNoneItem,
+                invertItem
+            });
+
+            checkListOAM.ContextMenuStrip = contextMenu;
+        }
+
+        private void SetAllItemsChecked(bool isChecked)
+        {
+            for (int i = 0; i < checkListOAM.Items.Count; i++)
+            {
+                checkListOAM.SetItemChecked(i, isChecked);
+            }
+        }
+
+        private void InvertSelection()
+        {
+            for (int i = 0; i < checkListOAM.Items.Count; i++)
+            {
+                checkListOAM.SetItemChecked(i, !checkListOAM.GetItemChecked(i));
+            }
+        }
 
         public SpriteControl()
         {
             InitializeComponent();
+            InitializeContextMenu();
         }
+
         public SpriteControl(IPluginHost pluginHost)
         {
             InitializeComponent();
@@ -50,9 +95,11 @@ namespace Ekona.Images
             this.image = pluginHost.Get_Image();
             this.palette = pluginHost.Get_Palette();
 
+            InitializeContextMenu();
             Read_Language();
             Update_Info();
         }
+
         public SpriteControl(IPluginHost pluginHost, SpriteBase sprite)
         {
             InitializeComponent();
@@ -62,9 +109,11 @@ namespace Ekona.Images
             this.palette = pluginHost.Get_Palette();
             this.pluginHost = pluginHost;
 
+            InitializeContextMenu();
             Read_Language();
             Update_Info();
         }
+
         public SpriteControl(IPluginHost pluginHost, SpriteBase sprite, ImageBase image, PaletteBase palette)
         {
             InitializeComponent();
@@ -74,9 +123,11 @@ namespace Ekona.Images
             this.palette = palette;
             this.pluginHost = pluginHost;
 
+            InitializeContextMenu();
             Read_Language();
             Update_Info();
         }
+
         public SpriteControl(XElement lang, SpriteBase sprite, ImageBase image, PaletteBase palette)
         {
             InitializeComponent();
@@ -86,10 +137,10 @@ namespace Ekona.Images
             this.palette = palette;
             this.lang = lang;
 
+            InitializeContextMenu();
             Read_Language(lang);
             Update_Info();
         }
-
 
         private void Read_Language()
         {
@@ -101,6 +152,7 @@ namespace Ekona.Images
             }
             catch { throw new Exception("There was an error reading the XML language file."); }
         }
+
         private void Read_Language(XElement xml)
         {
             try
@@ -125,7 +177,7 @@ namespace Ekona.Images
                 checkNumber.Text = xml.Element("S10").Value;
                 radioSwapPal.Text = xml.Element("S11").Value;
                 trans = xml.Element("S12").Value;
-                label4.Text = "of " + sprite.NumBanks.ToString();
+                label4.Text = "/ " + sprite.NumBanks.ToString();
                 radioReplacePal.Text = xml.Element("S14").Value;
                 radioOriginalPal.Text = xml.Element("S13").Value;
                 groupBox2.Text = xml.Element("S15").Value;
@@ -134,6 +186,11 @@ namespace Ekona.Images
                 radioImgAdd.Text = xml.Element("S18").Value;
                 radioImgReplace.Text = xml.Element("S19").Value;
                 checkCrop.Text = xml.Element("S1A").Value;
+                selectAllItem.Text = xml.Element("S1B").Value;
+                selectNoneItem.Text = xml.Element("S1C").Value;
+                invertItem.Text = xml.Element("S1D").Value;
+                checkSelectOAM.Text = xml.Element("S1E").Value;
+                label5.Text = xml.Element("S1F").Value;
             }
             catch { throw new Exception("There was an error reading the XML language file."); }
         }
@@ -153,6 +210,7 @@ namespace Ekona.Images
 
             return imgBox.Image;
         }
+
         private void Update_Info()
         {
             this.btnImport.Enabled = (sprite.CanEdit && image.CanEdit && palette.CanEdit ? true : false);
@@ -170,6 +228,7 @@ namespace Ekona.Images
 
             Update_BankInfo(0);
         }
+
         private void Update_BankInfo(int i)
         {
             checkListOAM.Items.Clear();
@@ -182,6 +241,7 @@ namespace Ekona.Images
             Update_BankInfo(comboBank.SelectedIndex);
             Update_Image();
         }
+
         private void check_CheckedChanged(object sender, EventArgs e)
         {
             Update_Image();
@@ -230,13 +290,14 @@ namespace Ekona.Images
             win.MaximizeBox = true;
             win.Show();
         }
-        
+
         private void btnBgdTrans_Click(object sender, EventArgs e)
         {
             btnBgdTrans.Enabled = false;
 
             imgBox.BackColor = Color.Transparent;
         }
+
         private void btnBgd_Click(object sender, EventArgs e)
         {
             ColorDialog o = new ColorDialog();
@@ -254,6 +315,7 @@ namespace Ekona.Images
         {
             selectColor = true;
         }
+
         private void SetTransFromImage(Color color)
         {
             int pal_index = sprite.Banks[comboBank.SelectedIndex].oams[0].obj2.index_palette;  // How can I know that? yeah, I'm too lazy to do a new windows ;)
@@ -283,6 +345,7 @@ namespace Ekona.Images
 
             Save_Files();
         }
+
         private void imgBox_MouseClick(object sender, MouseEventArgs e)
         {
             if (selectColor && imgBox.Image is Image)
@@ -299,6 +362,7 @@ namespace Ekona.Images
             else
                 Export_All();
         }
+
         private void Export_Single()
         {
             SaveFileDialog o = new SaveFileDialog();

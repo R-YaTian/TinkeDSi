@@ -372,15 +372,6 @@
     </Content>
     <Content Include="nintendo-ds.ico" />
     <Content Include="Nitro\MakerCodes.txt" />
-    <None Include="Resources\picture_edit.png" />
-    <None Include="Resources\pencil.png" />
-    <None Include="Resources\cancel.png" />
-    <None Include="Resources\accept.png" />
-    <None Include="Resources\picture_go.png" />
-    <None Include="Resources\package.png" />
-    <None Include="Resources\picture_save.png" />
-    <None Include="Resources\calculator.png" />
-    <None Include="Resources\disk.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

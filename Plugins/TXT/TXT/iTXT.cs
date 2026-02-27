@@ -36,6 +36,7 @@ namespace TXT
         public iTXT(byte[] text, IPluginHost pluginHost, int id)
         {
             InitializeComponent();
+            this.btnSave.Image = Ekona.Helper.SVGLoader.LoadSvg("disk", 16);
 
             // TextBox parameter
             this.txtBox.Dock = DockStyle.Top;

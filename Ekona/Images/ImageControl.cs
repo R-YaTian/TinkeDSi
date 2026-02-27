@@ -175,6 +175,7 @@ namespace Ekona.Images
                 radioSwapPal.Text = xml.Element("S17").Value;
                 radioReplacePal.Text = xml.Element("S18").Value;
                 label7.Text = xml.Element("S19").Value;
+                multiPalMode.Text = xml.Element("S1A").Value;
             }
             catch { throw new Exception("There was an error reading the XML file of language."); }
         }

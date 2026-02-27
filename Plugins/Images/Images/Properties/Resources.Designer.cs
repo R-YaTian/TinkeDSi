@@ -59,12 +59,5 @@ namespace Images.Properties {
                 resourceCulture = value;
             }
         }
-        
-        internal static System.Drawing.Bitmap picture_save {
-            get {
-                object obj = ResourceManager.GetObject("picture_save", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
     }
 }

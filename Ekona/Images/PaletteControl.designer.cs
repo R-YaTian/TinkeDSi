@@ -83,7 +83,7 @@ namespace Ekona.Images
             // 
             // numericPalette
             // 
-            this.numericPalette.Location = new System.Drawing.Point(101, 168);
+            this.numericPalette.Location = new System.Drawing.Point(132, 168);
             this.numericPalette.Name = "numericPalette";
             this.numericPalette.Size = new System.Drawing.Size(37, 21);
             this.numericPalette.TabIndex = 2;
@@ -164,7 +164,7 @@ namespace Ekona.Images
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(142, 170);
+            this.label3.Location = new System.Drawing.Point(175, 170);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(23, 12);
             this.label3.TabIndex = 9;
@@ -216,7 +216,7 @@ namespace Ekona.Images
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(259, 192);
+            this.label5.Location = new System.Drawing.Point(244, 192);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(23, 12);
             this.label5.TabIndex = 14;
@@ -250,9 +250,9 @@ namespace Ekona.Images
             this.checkDuplicated.Enabled = false;
             this.checkDuplicated.Location = new System.Drawing.Point(166, 66);
             this.checkDuplicated.Name = "checkDuplicated";
-            this.checkDuplicated.Size = new System.Drawing.Size(150, 16);
+            this.checkDuplicated.Size = new System.Drawing.Size(42, 16);
             this.checkDuplicated.TabIndex = 17;
-            this.checkDuplicated.Text = "Has duplicated colors";
+            this.checkDuplicated.Text = "S0E";
             this.checkDuplicated.UseVisualStyleBackColor = true;
             // 
             // PaletteControl

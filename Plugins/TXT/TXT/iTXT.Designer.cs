@@ -47,11 +47,8 @@ namespace TXT
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(iTXT));
             this.txtBox = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.comboEncod = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.checkWordWrap = new System.Windows.Forms.CheckBox();
@@ -61,12 +58,11 @@ namespace TXT
             // 
             this.txtBox.Location = new System.Drawing.Point(0, 0);
             this.txtBox.Name = "txtBox";
+            this.txtBox.Size = new System.Drawing.Size(100, 21);
             this.txtBox.TabIndex = 0;
             // 
             // btnSave
             // 
-            this.btnSave.ImageKey = "page_save.png";
-            this.btnSave.ImageList = this.imageList1;
             this.btnSave.Location = new System.Drawing.Point(408, 472);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(99, 35);
@@ -75,12 +71,6 @@ namespace TXT
             this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "page_save.png");
             // 
             // comboEncod
             // 
@@ -96,7 +86,7 @@ namespace TXT
             "IBM00858"});
             this.comboEncod.Location = new System.Drawing.Point(82, 480);
             this.comboEncod.Name = "comboEncod";
-            this.comboEncod.Size = new System.Drawing.Size(121, 21);
+            this.comboEncod.Size = new System.Drawing.Size(121, 20);
             this.comboEncod.TabIndex = 2;
             this.comboEncod.SelectedIndexChanged += new System.EventHandler(this.comboEncod_SelectedIndexChanged);
             // 
@@ -105,7 +95,7 @@ namespace TXT
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(3, 483);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(26, 13);
+            this.label1.Size = new System.Drawing.Size(23, 12);
             this.label1.TabIndex = 3;
             this.label1.Text = "S01";
             // 
@@ -114,7 +104,7 @@ namespace TXT
             this.checkWordWrap.AutoSize = true;
             this.checkWordWrap.Location = new System.Drawing.Point(236, 483);
             this.checkWordWrap.Name = "checkWordWrap";
-            this.checkWordWrap.Size = new System.Drawing.Size(45, 17);
+            this.checkWordWrap.Size = new System.Drawing.Size(42, 16);
             this.checkWordWrap.TabIndex = 4;
             this.checkWordWrap.Text = "S02";
             this.checkWordWrap.UseVisualStyleBackColor = true;
@@ -122,7 +112,9 @@ namespace TXT
             // 
             // iTXT
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Transparent;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.checkWordWrap);
@@ -141,7 +133,6 @@ namespace TXT
 
         private System.Windows.Forms.TextBox txtBox;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.ComboBox comboEncod;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox checkWordWrap;

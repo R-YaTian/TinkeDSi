@@ -262,9 +262,9 @@ namespace Ekona.Images
             this.checkSelectOAM.AutoSize = true;
             this.checkSelectOAM.Location = new System.Drawing.Point(147, 58);
             this.checkSelectOAM.Name = "checkSelectOAM";
-            this.checkSelectOAM.Size = new System.Drawing.Size(84, 16);
+            this.checkSelectOAM.Size = new System.Drawing.Size(42, 16);
             this.checkSelectOAM.TabIndex = 11;
-            this.checkSelectOAM.Text = "Select OAM";
+            this.checkSelectOAM.Text = "S1E";
             this.checkSelectOAM.UseVisualStyleBackColor = true;
             this.checkSelectOAM.CheckedChanged += new System.EventHandler(this.check_CheckedChanged);
             // 
@@ -417,9 +417,9 @@ namespace Ekona.Images
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(261, 246);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(23, 12);
+            this.label4.Size = new System.Drawing.Size(17, 12);
             this.label4.TabIndex = 48;
-            this.label4.Text = "of ";
+            this.label4.Text = "/ ";
             // 
             // checkListOAM
             // 
@@ -431,7 +431,7 @@ namespace Ekona.Images
             "OAM 3",
             "OAM 4",
             "OAM 5"});
-            this.checkListOAM.Location = new System.Drawing.Point(432, 371);
+            this.checkListOAM.Location = new System.Drawing.Point(440, 386);
             this.checkListOAM.Name = "checkListOAM";
             this.checkListOAM.Size = new System.Drawing.Size(78, 84);
             this.checkListOAM.TabIndex = 49;
@@ -440,11 +440,11 @@ namespace Ekona.Images
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(344, 371);
+            this.label5.Location = new System.Drawing.Point(343, 369);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(89, 24);
+            this.label5.Size = new System.Drawing.Size(23, 12);
             this.label5.TabIndex = 50;
-            this.label5.Text = "Check the OAMs\r\nto work with.";
+            this.label5.Text = "S1F";
             // 
             // checkCrop
             // 
@@ -484,7 +484,7 @@ namespace Ekona.Images
             this.Controls.Add(this.comboBank);
             this.Controls.Add(this.label1);
             this.Name = "SpriteControl";
-            this.Size = new System.Drawing.Size(515, 475);
+            this.Size = new System.Drawing.Size(525, 475);
             ((System.ComponentModel.ISupportInitialize)(this.imgBox)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -497,7 +497,6 @@ namespace Ekona.Images
             this.PerformLayout();
 
         }
-
         #endregion
 
         private System.Windows.Forms.PictureBox imgBox;

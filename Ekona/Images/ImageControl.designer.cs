@@ -418,9 +418,9 @@ namespace Ekona.Images
             this.multiPalMode.CheckState = System.Windows.Forms.CheckState.Checked;
             this.multiPalMode.Location = new System.Drawing.Point(378, 444);
             this.multiPalMode.Name = "multiPalMode";
-            this.multiPalMode.Size = new System.Drawing.Size(144, 16);
+            this.multiPalMode.Size = new System.Drawing.Size(42, 16);
             this.multiPalMode.TabIndex = 44;
-            this.multiPalMode.Text = "Multi Palette Import";
+            this.multiPalMode.Text = "S1A";
             this.multiPalMode.UseVisualStyleBackColor = true;
             // 
             // btnSetTrans

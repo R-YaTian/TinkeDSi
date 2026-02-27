@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Copyright (C) 2011  pleoNeX
  *
  *   This program is free software: you can redistribute it and/or modify
@@ -12,10 +12,10 @@
  *   GNU General Public License for more details.
  *
  *   You should have received a copy of the GNU General Public License
- *   along with this program.  If not, see <http://www.gnu.org/licenses/>. 
+ *   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  * By: pleoNeX
- * 
+ *
  */
 using System;
 using System.Collections.Generic;
@@ -29,18 +29,18 @@ using Ekona.Images;
 
 namespace Images
 {
-	public class Main : IPlugin
-	{
-		IPluginHost pluginHost;
+    public class Main : IPlugin
+    {
+        IPluginHost pluginHost;
         NANR nanr;  // TEMP
 
-		public void Initialize(IPluginHost pluginHost)
-		{
-			this.pluginHost = pluginHost;
-		}
-		
-		public Format Get_Format(sFile file, byte[] magic)
-		{
+        public void Initialize(IPluginHost pluginHost)
+        {
+            this.pluginHost = pluginHost;
+        }
+
+        public Format Get_Format(sFile file, byte[] magic)
+        {
             file.name = file.name.ToUpper();
 
             string ext = "";
@@ -93,34 +93,44 @@ namespace Images
             if (ext == "RNAN")
                 return Format.Animation;
 
-			return Format.Unknown;
-		}
-		
-		public Control Show_Info(sFile file)
-		{
+            return Format.Unknown;
+        }
+
+        public Control Show_Info(sFile file)
+        {
             Format format = Read2(file);
 
             if (format == Format.Palette)
                 return new PaletteControl(pluginHost, pluginHost.Get_Palette());
 
-            if (format == Format.Tile && pluginHost.Get_Palette().Loaded)
+            if (format == Format.Tile &&
+                pluginHost.Get_Palette() != null && pluginHost.Get_Palette().Loaded)
                 return new ImageControl(pluginHost, pluginHost.Get_Image(), pluginHost.Get_Palette());
 
-            if (format == Format.Map && pluginHost.Get_Palette().Loaded && pluginHost.Get_Image().Loaded)
+            if (format == Format.Map &&
+                pluginHost.Get_Palette() != null && pluginHost.Get_Palette().Loaded &&
+                pluginHost.Get_Image() != null && pluginHost.Get_Image().Loaded)
                 return new ImageControl(pluginHost, pluginHost.Get_Image(), pluginHost.Get_Palette(), pluginHost.Get_Map());
 
-            if (format == Format.Cell && pluginHost.Get_Palette().Loaded && pluginHost.Get_Image().Loaded)
+            if (format == Format.Cell &&
+                pluginHost.Get_Palette() != null && pluginHost.Get_Palette().Loaded &&
+                pluginHost.Get_Image() != null && pluginHost.Get_Image().Loaded)
                 return new SpriteControl(pluginHost, pluginHost.Get_Sprite());
 
-            if (format == Format.Animation && pluginHost.Get_Palette().Loaded && pluginHost.Get_Image().Loaded && pluginHost.Get_Sprite().Loaded)
+            if (format == Format.Animation &&
+                pluginHost.Get_Palette() != null && pluginHost.Get_Palette().Loaded &&
+                pluginHost.Get_Image() != null && pluginHost.Get_Image().Loaded &&
+                pluginHost.Get_Sprite() != null && pluginHost.Get_Sprite().Loaded)
                 return new AnimationControl(pluginHost, nanr);
-			
-			return new Control();
-		}		
-		public void Read(sFile file)
-		{
+
+            return new Control();
+        }
+
+        public void Read(sFile file)
+        {
             Read2(file);
-		}
+        }
+
         public Format Read2(sFile file)
         {
             string ext = "";
@@ -165,10 +175,9 @@ namespace Images
                 return Format.Palette;
             }
 
-
             // Tile
             ColorFormat depth = ColorFormat.colors256;
-            if (pluginHost.Get_Palette().Loaded)
+            if (pluginHost.Get_Palette() != null && pluginHost.Get_Palette().Loaded)
                 depth = pluginHost.Get_Palette().Depth;
 
             if (file.name.ToUpper().EndsWith(".NTFT"))
@@ -256,5 +265,5 @@ namespace Images
 
         public String Pack(ref sFolder unpacked, sFile file) { return null; }
         public sFolder Unpack(sFile file) { return new sFolder(); }
-	}
+    }
 }

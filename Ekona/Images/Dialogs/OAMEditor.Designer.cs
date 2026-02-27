@@ -47,7 +47,6 @@ namespace Ekona.Images.Dialogs
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OAMEditor));
             this.groupObj0 = new System.Windows.Forms.GroupBox();
             this.comboShape = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -220,7 +219,7 @@ namespace Ekona.Images.Dialogs
             // checkObjdisable
             // 
             this.checkObjdisable.AutoSize = true;
-            this.checkObjdisable.Location = new System.Drawing.Point(36, 63);
+            this.checkObjdisable.Location = new System.Drawing.Point(22, 63);
             this.checkObjdisable.Name = "checkObjdisable";
             this.checkObjdisable.Size = new System.Drawing.Size(108, 16);
             this.checkObjdisable.TabIndex = 15;
@@ -632,9 +631,9 @@ namespace Ekona.Images.Dialogs
             this.groupPreview.Controls.Add(this.checkOAM);
             this.groupPreview.Controls.Add(this.checkNumbers);
             this.groupPreview.Controls.Add(this.checkImage);
-            this.groupPreview.Location = new System.Drawing.Point(418, 97);
+            this.groupPreview.Location = new System.Drawing.Point(415, 97);
             this.groupPreview.Name = "groupPreview";
-            this.groupPreview.Size = new System.Drawing.Size(111, 140);
+            this.groupPreview.Size = new System.Drawing.Size(123, 140);
             this.groupPreview.TabIndex = 15;
             this.groupPreview.TabStop = false;
             this.groupPreview.Text = "Preview options";
@@ -796,7 +795,7 @@ namespace Ekona.Images.Dialogs
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.ClientSize = new System.Drawing.Size(533, 508);
+            this.ClientSize = new System.Drawing.Size(541, 508);
             this.Controls.Add(this.checkAddFirst);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.numObj2);
@@ -821,9 +820,9 @@ namespace Ekona.Images.Dialogs
             this.Controls.Add(this.groupObj2);
             this.Controls.Add(this.groupObj0);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "OAMEditor";
+            this.ShowIcon = false;
             this.Text = "OAM Editor";
             this.Load += new System.EventHandler(this.OAMEditor_Load);
             this.groupObj0.ResumeLayout(false);

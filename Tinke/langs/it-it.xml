@@ -476,6 +476,7 @@
       <S0B>Esadecimale</S0B>
       <S0C>Colors to fill:</S0C>
       <S0D>Fill colors</S0D>
+      <S0E>Has duplicated colors</S0E>
     </PaletteControl>
     <ImageControl>
       <S01>Double-click to see the full image.</S01>
@@ -503,6 +504,7 @@
       <S17>Swap to original palette</S17>
       <S18>Replace palette</S18>
       <S19>Threshold</S19>
+      <S1A>Multi Palette Import</S1A>
     </ImageControl>
     <SpriteControl>
       <S01>Bank:</S01>
@@ -534,6 +536,11 @@ Base name (without extension)
       <S18>Add image</S18>
       <S19>Replace image</S19>
       <S1A>Crop</S1A>
+      <S1B>Seleziona tutto</S1B>
+      <S1C>Deseleziona tutto</S1C>
+      <S1D>Inverti selezione</S1D>
+      <S1E>Select OAM</S1E>
+      <S1F>Check the OAMs to work with.</S1F>
     </SpriteControl>
     <OAMEditor>
       <S01>OAM Editor</S01>
@@ -580,6 +587,7 @@ Base name (without extension)
       <S2A>View numbers</S2A>
       <S2B>View grid</S2B>
       <S2C>Select OAM</S2C>
+      <S2D>Add first ID</S2D>
     </OAMEditor>
   </Ekona>
 </Language>
