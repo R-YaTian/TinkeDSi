@@ -127,5 +127,6 @@ rm -f "$BUILD_DIR/Plugins/Ekona.dll"
 rm -f "$BUILD_DIR/Plugins/DSDecmp.dll"
 rm -f "$BUILD_DIR/Plugins/Fizzler.*"
 rm -f "$BUILD_DIR/Plugins/Svg.*"
+rm -f "$BUILD_DIR/Tinke.exe.config"
 
 echo "Done!"

@@ -314,7 +314,7 @@ namespace Tinke
             // 
             // toolStrip2
             // 
-            this.toolStrip2.BackColor = System.Drawing.Color.Transparent;
+            this.toolStrip2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.toolStrip2.Dock = System.Windows.Forms.DockStyle.None;
             this.toolStrip2.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -332,7 +332,7 @@ namespace Tinke
             // toolStripOpenAs
             // 
             this.toolStripOpenAs.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripOpenAs.BackColor = System.Drawing.Color.Transparent;
+            this.toolStripOpenAs.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.toolStripOpenAs.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1,
             this.toolStripMenuItem2,
@@ -349,49 +349,49 @@ namespace Tinke
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(99, 22);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem1.Text = "S17";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.toolAbrirComoItemPaleta_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(99, 22);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem2.Text = "S18";
             this.toolStripMenuItem2.Click += new System.EventHandler(this.toolAbrirComoItemTile_Click);
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(99, 22);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem3.Text = "S19";
             this.toolStripMenuItem3.Click += new System.EventHandler(this.toolAbrirComoItemScreen_Click);
             // 
             // toolStripMenuComprimido
             // 
             this.toolStripMenuComprimido.Name = "toolStripMenuComprimido";
-            this.toolStripMenuComprimido.Size = new System.Drawing.Size(99, 22);
+            this.toolStripMenuComprimido.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuComprimido.Text = "S2A";
             this.toolStripMenuComprimido.Click += new System.EventHandler(this.s2AToolStripMenuItem_Click);
             // 
             // toolStripAbrirFat
             // 
             this.toolStripAbrirFat.Name = "toolStripAbrirFat";
-            this.toolStripAbrirFat.Size = new System.Drawing.Size(99, 22);
+            this.toolStripAbrirFat.Size = new System.Drawing.Size(180, 22);
             this.toolStripAbrirFat.Text = "S3D";
             this.toolStripAbrirFat.Click += new System.EventHandler(this.toolStripAbrirFat_Click);
             // 
             // toolStripAbrirTexto
             // 
             this.toolStripAbrirTexto.Name = "toolStripAbrirTexto";
-            this.toolStripAbrirTexto.Size = new System.Drawing.Size(99, 22);
+            this.toolStripAbrirTexto.Size = new System.Drawing.Size(180, 22);
             this.toolStripAbrirTexto.Text = "S26";
             this.toolStripAbrirTexto.Click += new System.EventHandler(this.toolStripAbrirTexto_Click);
             // 
             // callPluginToolStripMenuItem
             // 
             this.callPluginToolStripMenuItem.Name = "callPluginToolStripMenuItem";
-            this.callPluginToolStripMenuItem.Size = new System.Drawing.Size(99, 22);
+            this.callPluginToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.callPluginToolStripMenuItem.Text = "S49";
             this.callPluginToolStripMenuItem.Click += new System.EventHandler(this.callPluginToolStripMenuItem_Click);
             // 
@@ -523,7 +523,7 @@ namespace Tinke
             // 
             // toolStrip3
             // 
-            this.toolStrip3.BackColor = System.Drawing.Color.Transparent;
+            this.toolStrip3.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.toolStrip3.Dock = System.Windows.Forms.DockStyle.None;
             this.toolStrip3.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip3.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -534,14 +534,14 @@ namespace Tinke
             this.toolStrip3.Name = "toolStrip3";
             this.toolStrip3.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.toolStrip3.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.toolStrip3.Size = new System.Drawing.Size(43, 24);
+            this.toolStrip3.Size = new System.Drawing.Size(43, 43);
             this.toolStrip3.TabIndex = 23;
             this.toolStrip3.Text = "toolStrip3";
             // 
             // toolStripToolkit
             // 
             this.toolStripToolkit.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripToolkit.BackColor = System.Drawing.Color.Transparent;
+            this.toolStripToolkit.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.toolStripToolkit.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem4,
             this.toolStripMenuItem5});
@@ -553,14 +553,14 @@ namespace Tinke
             // toolStripMenuItem4
             // 
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(98, 22);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem4.Text = "S4A";
             this.toolStripMenuItem4.Click += new System.EventHandler(this.toolStripMenuItem4_Click);
             // 
             // toolStripMenuItem5
             // 
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(98, 22);
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem5.Text = "S4B";
             this.toolStripMenuItem5.Click += new System.EventHandler(this.toolStripMenuItem5_Click);
             // 
