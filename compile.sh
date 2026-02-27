@@ -125,5 +125,7 @@ rm -rf $BUILD_DIR/*.pdb
 rm -rf $BUILD_DIR/Plugins/*.pdb
 rm -f "$BUILD_DIR/Plugins/Ekona.dll"
 rm -f "$BUILD_DIR/Plugins/DSDecmp.dll"
+rm -f "$BUILD_DIR/Plugins/Fizzler.*"
+rm -f "$BUILD_DIR/Plugins/Svg.*"
 
 echo "Done!"

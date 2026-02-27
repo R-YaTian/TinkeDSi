@@ -124,6 +124,8 @@ ECHO Removing unneeded files
 DEL /Q "%build_dir%\Plugins\*.nlp" > nul || (EXIT /B 1)
 DEL /Q "%build_dir%\Plugins\Ekona.dll" > nul || (EXIT /B 1)
 DEL /Q "%build_dir%\Plugins\DSDecmp.dll" > nul || (EXIT /B 1)
+DEL /Q "%build_dir%\Plugins\Fizzler.*" > nul || (EXIT /B 1)
+DEL /Q "%build_dir%\Plugins\Svg.*" > nul || (EXIT /B 1)
 DEL /S /Q "%build_dir%\Plugins\mscorlib.*" > nul || (EXIT /B 1)
 
 REM The End
