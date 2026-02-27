@@ -350,8 +350,6 @@ namespace Tinke
                 this.toolStripMenuItem5.Image = calculatorSvg;
             }
 
-            RecreateHandle();
-
             this.Show();
             if (!isMono)
                 debug.ShowInTaskbar = true;
