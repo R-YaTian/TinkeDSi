@@ -25,6 +25,10 @@ namespace Ekona.Helper
 
         public static float GetScreenDpi()
         {
+            if (Type.GetType("Mono.Runtime") != null)
+            {
+                return 96f;
+            }
             IntPtr hdc = GetDC(IntPtr.Zero);
             int dpi = GetDeviceCaps(hdc, 88);
             ReleaseDC(IntPtr.Zero, hdc);
@@ -41,7 +45,8 @@ namespace Ekona.Helper
             }
             finally
             {
-                DestroyIcon(hIcon);
+                if (Type.GetType("Mono.Runtime") == null)
+                    DestroyIcon(hIcon);
             }
         }
 
