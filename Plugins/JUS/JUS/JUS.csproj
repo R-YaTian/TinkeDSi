@@ -49,6 +49,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTX.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DIG.cs" />
     <Compile Include="Main.cs" />

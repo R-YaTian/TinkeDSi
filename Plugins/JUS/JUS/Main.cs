@@ -42,7 +42,9 @@ namespace JUS
             string ext = new String(Encoding.ASCII.GetChars(magic));
 
             if (ext == "DSIG")
-              return Format.FullImage;
+                return Format.FullImage;
+            else if (ext == "DSTX")
+                return Format.FullImage;
             else if (ext == "ALAR")
                 return Format.Pack;
             else if (ext == "DSCP")
@@ -58,33 +60,37 @@ namespace JUS
 
         public sFolder Unpack(sFile file)
         {
-          System.IO.BinaryReader br = new System.IO.BinaryReader(System.IO.File.OpenRead(file.path));
-          string type = new String(Encoding.ASCII.GetChars(br.ReadBytes(4)));
-          br.Close();
+            System.IO.BinaryReader br = new System.IO.BinaryReader(
+                System.IO.File.OpenRead(file.path)
+            );
+            string type = new String(Encoding.ASCII.GetChars(br.ReadBytes(4)));
+            br.Close();
 
-          if (type == "ALAR")
-              return new ALAR(pluginHost).Unpack(file);
-          else if (type == "DSCP")
-              return new ALAR(pluginHost).Unpack(file);
+            if (type == "ALAR")
+                return new ALAR(pluginHost).Unpack(file);
+            else if (type == "DSCP")
+                return new ALAR(pluginHost).Unpack(file);
 
-          return new sFolder();
+            return new sFolder();
         }
 
-        public void Read(sFile file)
-        {
-        }
+        public void Read(sFile file) { }
 
         public System.Windows.Forms.Control Show_Info(sFile file)
         {
-
             if (file.name.EndsWith(".dig", StringComparison.CurrentCulture))
             {
-              new DIG(pluginHost, file.path, file. id);
-              return new Ekona.Images.ImageControl(pluginHost, false);
+                new DIG(pluginHost, file.path, file.id);
+                return new Ekona.Images.ImageControl(pluginHost, false);
+            }
+
+            if (file.name.EndsWith(".dtx", StringComparison.CurrentCulture))
+            {
+                new DTX(pluginHost, file.path, file.id);
+                return new Ekona.Images.ImageControl(pluginHost, false);
             }
 
             return new System.Windows.Forms.Control();
         }
-
     }
 }
