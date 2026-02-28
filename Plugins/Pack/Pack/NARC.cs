@@ -284,7 +284,8 @@ namespace Pack
             {
                 sFile currFile = Search_File(i + decompressed.id, decompressed);
                 currFile.offset = offset;
-
+                if (offset % 4 != 0)
+                    offset += (4 - (offset % 4));
                 bw.Write(offset);
                 offset += currFile.size;
                 bw.Write(offset);
@@ -304,6 +305,8 @@ namespace Pack
                 br.BaseStream.Position = currFile.offset;
 
                 bw.Write(br.ReadBytes((int)currFile.size));
+                while (bw.BaseStream.Position % 4 != 0)
+                    bw.Write((byte)0xFF);
                 br.Close();
                 bw.Flush();
             }
