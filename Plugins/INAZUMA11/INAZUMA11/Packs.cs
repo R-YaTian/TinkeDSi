@@ -27,6 +27,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.IO;
+using System.Windows.Forms;
+using System.Runtime.Remoting.Contexts;
 using Ekona;
 
 namespace INAZUMA11
@@ -166,7 +168,19 @@ namespace INAZUMA11
 
     public static class PKB
     {
-        public static sFolder Unpack(sFile pkb, sFile pkh)
+        public class PKBContentIdentifier
+        {
+            public byte[] ID;
+            public int subID;
+        }
+
+        public class PKBContents
+        {
+            public List<PKBContentIdentifier> Identifiers = new List<PKBContentIdentifier>();
+            public sFolder FolderContents = new sFolder();
+        }
+
+        public static PKBContents Unpack(sFile pkb, sFile pkh)
         {
             BinaryReader br = new BinaryReader(File.OpenRead(pkh.path));
             string type = new String(Encoding.ASCII.GetChars(br.ReadBytes(8)));
@@ -177,12 +191,14 @@ namespace INAZUMA11
             else
                 return Unpack_PKH2(pkb, pkh);
         }
-        public static sFolder Unpack_PKH1(sFile pkb, sFile pkh)
+
+        public static PKBContents Unpack_PKH1(sFile pkb, sFile pkh)
         {
             // Fixed problem with some files thanks to ouioui2003
             BinaryReader br = new BinaryReader(File.OpenRead(pkh.path));
-            sFolder unpacked = new sFolder();
-            unpacked.files = new List<sFile>();
+            PKBContents contents = new PKBContents();
+            contents.FolderContents = new sFolder();
+            contents.FolderContents.files = new List<sFile>();
 
             br.BaseStream.Position = 0x10;  // Skip the header name
             ushort file_size = br.ReadUInt16();
@@ -198,7 +214,14 @@ namespace INAZUMA11
             {
                 for (int i = 0; i < num_files; i++)
                 {
-                    br.ReadUInt32();    // Unknown, ID¿?
+                    byte[] b = br.ReadBytes(4);
+                    int idCount = contents.Identifiers.FindAll(
+                        id => id.ID[0].Equals(b[0])
+                            && id.ID[1].Equals(b[1])
+                            && id.ID[2].Equals(b[2])
+                            && id.ID[3].Equals(b[3])
+                            ).Count();
+                    contents.Identifiers.Add(new PKBContentIdentifier() { ID = b, subID = idCount });    // Unknown, ID¿?
 
                     sFile newFile = new sFile();
                     newFile.name = pkb.name + '_' + i.ToString() + ".pac_";
@@ -206,14 +229,16 @@ namespace INAZUMA11
                     newFile.size = br.ReadUInt32();
                     newFile.path = pkb.path;
 
-                    unpacked.files.Add(newFile);
+                    contents.FolderContents.files.Add(newFile);
                 }
             }
             else if (type == 3 || type == 2)
             {
                 for (int i = 0; i < num_files; i++)
                 {
-                    br.ReadUInt32();    // Unknown, ID¿?
+                    byte[] b = br.ReadBytes(4);
+                    int idCount = contents.Identifiers.FindAll(id => id.ID.Equals(b)).Count();
+                    contents.Identifiers.Add(new PKBContentIdentifier() { ID = b, subID = idCount });    // Unknown, ID¿?
 
                     sFile newFile = new sFile();
                     newFile.name = pkb.name + '_' + i.ToString() + ".pac_";
@@ -221,24 +246,28 @@ namespace INAZUMA11
                     newFile.size = block_length;
                     newFile.path = pkb.path;
 
-                    unpacked.files.Add(newFile);
+                    contents.FolderContents.files.Add(newFile);
                 }
             }
 
             br.Close();
-            return unpacked;
+            return contents;
         }
-        public static sFolder Unpack_PKH2(sFile pkb, sFile pkh)
+
+        public static PKBContents Unpack_PKH2(sFile pkb, sFile pkh)
         {
             BinaryReader br = new BinaryReader(File.OpenRead(pkh.path));
-            sFolder unpacked = new sFolder();
-            unpacked.files = new List<sFile>();
+            PKBContents contents = new PKBContents();
+            contents.FolderContents = new sFolder();
+            contents.FolderContents.files = new List<sFile>();
 
             int num_files = (int)br.BaseStream.Length / 0x10;
 
             for (int i = 0; i < num_files; i++)
             {
-                br.ReadUInt32();    // Unknown - ID¿?
+                byte[] b = br.ReadBytes(4);
+                int idCount = contents.Identifiers.FindAll(id => id.ID.Equals(b)).Count();
+                contents.Identifiers.Add(new PKBContentIdentifier() { ID = b, subID = idCount });    // Unknown, ID¿?
 
                 sFile newFile = new sFile();
                 newFile.name = pkb.name + '_' + i.ToString() + ".pac_";
@@ -248,11 +277,11 @@ namespace INAZUMA11
 
                 br.ReadUInt32();    // First four bytes that indicates the type of compression and the final size
 
-                unpacked.files.Add(newFile);
+                contents.FolderContents.files.Add(newFile);
             }
 
             br.Close();
-            return unpacked;
+            return contents;
         }
 
         public static void Pack(ref sFolder unpacked, sFile pkh, string fileOut, IPluginHost pluginHost)

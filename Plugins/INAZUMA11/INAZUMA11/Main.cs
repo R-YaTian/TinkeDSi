@@ -119,7 +119,7 @@ namespace INAZUMA11
                     return new sFolder();
                 }
 
-                return PKB.Unpack(file, pkh);
+                return PKB.Unpack(file, pkh).FolderContents;
             }
 
             if (file.name.ToUpper().EndsWith(".SPD"))
