@@ -68,16 +68,19 @@ namespace TXT
             bmg.inf1.offsetLength = br.ReadUInt16();
             bmg.inf1.unknown1 = br.ReadUInt16();
             bmg.inf1.unknown2 = br.ReadUInt16();
-            Console.WriteLine(xml.Element("S0E").Value, bmg.inf1.unknown1, bmg.inf1.unknown2);
+            // Console.WriteLine(xml.Element("S0E").Value, bmg.inf1.unknown1, bmg.inf1.unknown2);
 
             bmg.inf1.offset = new uint[bmg.inf1.nMsg];
-            if (bmg.inf1.offsetLength == 0x08)
-                bmg.inf1.msgType = new uint[bmg.inf1.nMsg];
+            int msgTypeSize = bmg.inf1.offsetLength > 0x04 ? bmg.inf1.offsetLength - 4 : 0;
+            if (msgTypeSize > 0)
+                bmg.inf1.msgType = new byte[bmg.inf1.nMsg][];
             for (int i = 0; i < bmg.inf1.nMsg; i++)
             {
                 bmg.inf1.offset[i] = br.ReadUInt32();
-                if (bmg.inf1.offsetLength == 0x08)
-                    bmg.inf1.msgType[i] = br.ReadUInt32();
+                if (msgTypeSize > 0)
+                {
+                    bmg.inf1.msgType[i] = br.ReadBytes(msgTypeSize);
+                }
             }
             // Sección DAT1
             br.BaseStream.Position = 0x20 + bmg.inf1.length;
@@ -89,7 +92,6 @@ namespace TXT
             for (int i = 0; i < bmg.inf1.nMsg; i++)
             {
                 br.BaseStream.Position = posIni + bmg.inf1.offset[i];
-               
 
                 char c = new char();
                 do
@@ -147,13 +149,16 @@ namespace TXT
             Console.WriteLine("Datos desconocidos {0}, {1}", bmg.inf1.unknown1, bmg.inf1.unknown2);
 
             bmg.inf1.offset = new uint[bmg.inf1.nMsg];
-            if (bmg.inf1.offsetLength == 0x08)
-                bmg.inf1.msgType = new uint[bmg.inf1.nMsg];
+            int msgTypeSize = bmg.inf1.offsetLength > 0x04 ? bmg.inf1.offsetLength - 4 : 0;
+            if (msgTypeSize > 0)
+                bmg.inf1.msgType = new byte[bmg.inf1.nMsg][];
             for (int i = 0; i < bmg.inf1.nMsg; i++)
             {
                 bmg.inf1.offset[i] = BitConverter.ToUInt32(br.ReadBytes(4).Reverse().ToArray(), 0);
-                if (bmg.inf1.offsetLength == 0x08)
-                    bmg.inf1.msgType[i] = BitConverter.ToUInt32(br.ReadBytes(4).Reverse().ToArray(), 0);
+                if (msgTypeSize > 0)
+                {
+                    bmg.inf1.msgType[i] = br.ReadBytes(msgTypeSize).Reverse().ToArray();
+                }
             }
             // Sección DAT1
             br.BaseStream.Position = 0x20 + bmg.inf1.length;
@@ -218,7 +223,7 @@ namespace TXT
         public ushort unknown1;
         public ushort unknown2;
         public uint[] offset;
-        public uint[] msgType;
+        public byte[][] msgType;
     }
     public struct sDAT1
     {
