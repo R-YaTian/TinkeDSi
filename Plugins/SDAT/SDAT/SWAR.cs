@@ -109,9 +109,9 @@ namespace SDAT
         public static void Write(sSWAV[] sounds, string fileout)
         {
             BinaryWriter bw = new BinaryWriter(File.OpenWrite(fileout));
-            uint file_size = (uint)(0x10 + 0x10 + 0x04 * sounds.Length);
+            uint file_size = (uint)(0x3C + 0x04 * sounds.Length);
             for (int i = 0; i < sounds.Length; i++)
-                file_size += (uint)sounds[i].data.data.Length + 0x0A;
+                file_size += (uint)sounds[i].data.data.Length + 0x0C;
 
             bw.Write(new char[] { 'S', 'W', 'A', 'R' });
             bw.Write((uint)0x0100FEFF);
@@ -130,7 +130,7 @@ namespace SDAT
             for (int i = 0; i < sounds.Length; i++)
             {
                 bw.Write(currOffset);
-                currOffset += (uint)sounds[i].data.data.Length + 0x0A;
+                currOffset += (uint)sounds[i].data.data.Length + 0x0C;
             }
 
             // Write data
@@ -193,9 +193,9 @@ namespace SDAT
 
                 swav[i].header.type = new char[] { 'S', 'W', 'A', 'V' };
                 swav[i].header.magic = 0x0100feff;
-                swav[i].header.nSize = 16;
+                swav[i].header.nSize = 0x10;
                 swav[i].header.nBlock = 1;
-                swav[i].header.nFileSize = 16 + ((uint)swav[i].data.data.Length + 1 * sizeof(uint) + 4 * sizeof(byte) + (2 * sizeof(byte) + 3 * sizeof(ushort) + sizeof(uint)));
+                swav[i].header.nFileSize = 0x10 + ((uint)swav[i].data.data.Length + 1 * sizeof(uint) + 4 * sizeof(byte) + (2 * sizeof(byte) + 3 * sizeof(ushort) + sizeof(uint)));
             }
 
             return swav;

@@ -224,9 +224,9 @@ namespace SDAT
             else
                 swav.data.data = wav.wave.data.data;
 
-            swav.data.nSize = (uint)swav.data.data.Length + 0x0A;
             swav.data.info.nNonLoopLen = (uint)swav.data.data.Length;
-            swav.header.nFileSize = swav.data.nSize + swav.header.nSize;
+            swav.header.nFileSize = (uint)swav.data.data.Length + swav.header.nSize + 0x08 + 0x0C;
+            swav.data.nSize = swav.header.nFileSize - 0x10;
 
             return swav;
         }

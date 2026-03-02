@@ -17,18 +17,14 @@
  * Programador: pleoNeX
  * 
  */
+using Ekona;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
 using System.IO;
 using System.Media;
 using System.Threading;
-using Ekona;
+using System.Windows.Forms;
 
 namespace SDAT
 {
@@ -550,19 +546,27 @@ namespace SDAT
         private void RecursivoExtractFolder(Folder currFolder, String path)
         {
             if (currFolder.files is List<Sound>)
+            {
                 foreach (Sound archivo in currFolder.files)
                 {
-                    BinaryReader br = new BinaryReader(File.OpenRead(sdat.archivo));
-                    br.BaseStream.Position = archivo.offset;
-
                     String fileName = archivo.name;
                     foreach (char c in Path.GetInvalidFileNameChars())
                         fileName = fileName.Replace(c.ToString(), "");
                     fileName = path + Path.DirectorySeparatorChar + fileName;
 
+                    if (archivo.offset == 0x00)
+                    {
+                        File.Copy(archivo.path, fileName, true);
+                        continue;
+                    }
+
+                    BinaryReader br = new BinaryReader(File.OpenRead(sdat.archivo));
+                    br.BaseStream.Position = archivo.offset;
+
                     File.WriteAllBytes(fileName, br.ReadBytes((int)archivo.size));
                     br.Close();
                 }
+            }
 
             if (currFolder.folders is List<Folder>)
             {
@@ -949,14 +953,16 @@ namespace SDAT
 
             // FAT section
             String fatTemp = Path.GetTempFileName();
-            Write_FAT(fatTemp, sdat.cabecera.fileOffset + 0x10);
+            uint alignedOffset = (sdat.cabecera.fileOffset + 0xC + 31) & ~31u;
+            uint paddingSize = alignedOffset - sdat.cabecera.fileOffset - 0xC;
+            Write_FAT(fatTemp, alignedOffset);
 
             // File section
             String fileTemp = Path.GetTempFileName();
-            Write_Files(fileTemp); // File without header
+            Write_Files(fileTemp, sdat.cabecera.fileOffset + 0xC + paddingSize, paddingSize); // File without header
 
             // Write the new SDAT file
-            int file_size = (int)(sdat.cabecera.symbSize + sdat.cabecera.infoSize + sdat.cabecera.fatSize + sdat.cabecera.fileSize);
+            int file_size = (int)(sdat.symbol.size + sdat.cabecera.infoSize + sdat.cabecera.fatSize + sdat.cabecera.fileSize) + sdat.generico.header_size;
             BinaryWriter bw = new BinaryWriter(File.OpenWrite(fileout));
 
             // Common header
@@ -985,7 +991,9 @@ namespace SDAT
             bw.Write(sdat.files.header.id);
             bw.Write(sdat.files.header.size);
             bw.Write(sdat.files.header.nSounds);
-            bw.Write(sdat.files.header.reserved);
+            while (paddingSize-- != 0)
+                bw.Write((byte)0x00);
+
             bw.Write(File.ReadAllBytes(fileTemp));
 
             bw.Flush();
@@ -1014,12 +1022,13 @@ namespace SDAT
                 bw.Write((uint)0x00);
                 bw.Write((uint)0x00);
                 currOffset += currSound.size;
+                currOffset = (currOffset + 31) & ~31u;
             }
 
             bw.Flush();
             bw.Close();
         }
-        private void Write_Files(string fileout)
+        private void Write_Files(string fileout, uint startOffset, uint paddingSize)
         {
             BinaryWriter bw = new BinaryWriter(File.OpenWrite(fileout));
             BinaryReader br = new BinaryReader(File.OpenRead(sdat.archivo));
@@ -1030,19 +1039,22 @@ namespace SDAT
                 if (currSound.offset == 0x00)
                 {
                     bw.Write(File.ReadAllBytes(currSound.path));
-                    bw.Flush();
                 }
                 else
                 {
                     br.BaseStream.Position = currSound.offset;
                     bw.Write(br.ReadBytes((int)currSound.size));
-                    bw.Flush();
                 }
+                uint alignedSize = ((uint)bw.BaseStream.Position + startOffset + 31) & ~31u;
+                alignedSize -= ((uint)bw.BaseStream.Position + startOffset);
+                while (alignedSize-- != 0)
+                    bw.Write((byte)0x00);
+                bw.Flush();
             }
 
             bw.Close();
 
-            sdat.files.header.size = (uint)new FileInfo(fileout).Length + 0x10;
+            sdat.files.header.size = (uint)new FileInfo(fileout).Length + 0xC + paddingSize;
             sdat.cabecera.fileSize = sdat.files.header.size;
         }
 

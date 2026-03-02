@@ -169,6 +169,8 @@ namespace Tinke
             #region Muestra la información de la cabecera
             listInfo.Items[0].SubItems.Add(new String(cabecera.gameTitle));
             listInfo.Items[1].SubItems.Add(new String(cabecera.gameCode));
+            System.Xml.Linq.XElement xml = Tools.Helper.GetTranslation("Sistema");
+            String unknownStr = xml.Element("S2B").Value;
             try
             {
 
@@ -177,7 +179,7 @@ namespace Tinke
             }
             catch
             {
-                listInfo.Items[2].SubItems.Add(new String(cabecera.makerCode) + " (Desconocido)");
+                listInfo.Items[2].SubItems.Add(new String(cabecera.makerCode) + " (" + unknownStr + ")");
             }
             try
             {
@@ -186,7 +188,7 @@ namespace Tinke
             }
             catch
             {
-                listInfo.Items[3].SubItems.Add("0x" + String.Format("{0:X}", cabecera.unitCode) + " (Desconocido)");
+                listInfo.Items[3].SubItems.Add("0x" + String.Format("{0:X}", cabecera.unitCode) + " (" + unknownStr + ")");
             }
             listInfo.Items[4].SubItems.Add(Convert.ToString(cabecera.encryptionSeed));
             listInfo.Items[5].SubItems.Add((cabecera.tamaño / Math.Pow(2, 20)).ToString() + " MB");

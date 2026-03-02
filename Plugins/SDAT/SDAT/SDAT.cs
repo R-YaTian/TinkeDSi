@@ -394,7 +394,7 @@ namespace SDAT
             sdat.files.header.id = br.ReadChars(4);
             sdat.files.header.size = br.ReadUInt32();
             sdat.files.header.nSounds = br.ReadUInt32();
-            sdat.files.header.reserved = br.ReadUInt32();
+            // sdat.files.header.reserved = br.ReadUInt32();
             #endregion
 
             br.Close();
@@ -850,7 +850,6 @@ namespace SDAT
             public char[] id;
             public uint size;
             public uint nSounds;
-            public uint reserved;
         }
     }
 }

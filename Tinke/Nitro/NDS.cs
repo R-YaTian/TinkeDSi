@@ -783,6 +783,7 @@ namespace Tinke.Nitro
             diccionario.Add("NP", "Nobilis Publishing");
             diccionario.Add("PG", "Phoenix Games");
             diccionario.Add("PL", "Playlogic");
+            diccionario.Add("PQ", "PopCap Games");
             diccionario.Add("SU", "Slitherine Software UK Ltd");
             diccionario.Add("SV", "SevenOne Intermedia GmbH");
             diccionario.Add("RM", "rondomedia");
