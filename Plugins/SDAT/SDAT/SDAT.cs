@@ -315,9 +315,17 @@ namespace SDAT
                 br.BaseStream.Position = sdat.cabecera.infoOffset + info.block[4].offsetEntries[i];
 
                 Info.PLAYER player = new Info.PLAYER();
-                player.unknown = br.ReadByte();
-                player.padding = br.ReadBytes(3);
-                player.unknown2 = br.ReadUInt32();
+                if (info.block[4].offsetEntries[i] != 0)
+                {
+                    player.unknown = br.ReadByte();
+                    player.padding = br.ReadBytes(3);
+                    player.unknown2 = br.ReadUInt32();
+                }
+                else
+                {
+                    player.unknown = 0;
+                    player.unknown2 = 0;
+                }
                 info.block[4].entries[i] = player;
             }
             // GROUP

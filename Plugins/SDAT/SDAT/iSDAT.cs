@@ -44,12 +44,19 @@ namespace SDAT
         {
             InitializeComponent();
         }
+
         public iSDAT(sSDAT sdat, IPluginHost pluginHost)
         {
             InitializeComponent();
 
             this.sdat = sdat;
             this.pluginHost = pluginHost;
+            this.btnChangeFile.Image = Ekona.Helper.SVGLoader.LoadSvg("package_add", 24);
+            this.btnUncompress.Image = Ekona.Helper.SVGLoader.LoadSvg("package", 24);
+            this.btnExtract.Image = Ekona.Helper.SVGLoader.LoadSvg("package_go", 24);
+            this.btnInfo.Image = Ekona.Helper.SVGLoader.LoadSvg("information", 24);
+            this.btnImport.Image = Ekona.Helper.SVGLoader.LoadSvg("music", 24);
+            this.btnInfoSect.Image = Ekona.Helper.SVGLoader.LoadSvg("pencil", 24);
             ReadLanguage();
 
             if (sdat.files.root.name == "SWAV" || sdat.files.root.name == "STRM")
@@ -1084,14 +1091,13 @@ namespace SDAT
                     break;
             }
 
-
             Form ven = new Form();
             ven.Size = new System.Drawing.Size(260, 440);
             ven.FormBorderStyle = FormBorderStyle.FixedDialog;
-            ven.ShowIcon = false;
+            ven.ShowIcon = true;
             ven.MaximizeBox = false;
             ven.MinimizeBox = false;
-            ven.Icon = Icon.FromHandle(Properties.Resources.information.GetHicon());
+            ven.Icon = Ekona.Helper.SVGLoader.LoadSvgToIcon("information", 32);
 
             ListView list = new ListView();
             ColumnHeader column1 = new ColumnHeader();

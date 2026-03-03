@@ -104,6 +104,7 @@ namespace SDAT
             this.listProp.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnCampo,
             this.columnValor});
+            this.listProp.HideSelection = false;
             this.listProp.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
             listViewItem1,
             listViewItem2,
@@ -157,7 +158,7 @@ namespace SDAT
             this.checkLoop.Enabled = false;
             this.checkLoop.Location = new System.Drawing.Point(251, 327);
             this.checkLoop.Name = "checkLoop";
-            this.checkLoop.Size = new System.Drawing.Size(45, 17);
+            this.checkLoop.Size = new System.Drawing.Size(42, 16);
             this.checkLoop.TabIndex = 8;
             this.checkLoop.Text = "S06";
             this.checkLoop.UseVisualStyleBackColor = true;
@@ -175,7 +176,6 @@ namespace SDAT
             // btnChangeFile
             // 
             this.btnChangeFile.Enabled = false;
-            this.btnChangeFile.Image = global::SDAT.Properties.Resources.package_add;
             this.btnChangeFile.Location = new System.Drawing.Point(251, 350);
             this.btnChangeFile.Name = "btnChangeFile";
             this.btnChangeFile.Size = new System.Drawing.Size(100, 34);
@@ -188,7 +188,6 @@ namespace SDAT
             // btnInfo
             // 
             this.btnInfo.Enabled = false;
-            this.btnInfo.Image = global::SDAT.Properties.Resources.information;
             this.btnInfo.Location = new System.Drawing.Point(408, 391);
             this.btnInfo.Name = "btnInfo";
             this.btnInfo.Size = new System.Drawing.Size(99, 34);
@@ -201,7 +200,6 @@ namespace SDAT
             // btnImport
             // 
             this.btnImport.Enabled = false;
-            this.btnImport.Image = global::SDAT.Properties.Resources.sound_add;
             this.btnImport.Location = new System.Drawing.Point(407, 431);
             this.btnImport.Name = "btnImport";
             this.btnImport.Size = new System.Drawing.Size(99, 35);
@@ -214,8 +212,6 @@ namespace SDAT
             // btnUncompress
             // 
             this.btnUncompress.Enabled = false;
-            this.btnUncompress.ImageKey = "package.png";
-            this.btnUncompress.ImageList = this.imageList;
             this.btnUncompress.Location = new System.Drawing.Point(251, 391);
             this.btnUncompress.Name = "btnUncompress";
             this.btnUncompress.Size = new System.Drawing.Size(100, 34);
@@ -251,8 +247,6 @@ namespace SDAT
             // btnExtract
             // 
             this.btnExtract.Enabled = false;
-            this.btnExtract.ImageIndex = 3;
-            this.btnExtract.ImageList = this.imageList;
             this.btnExtract.Location = new System.Drawing.Point(251, 431);
             this.btnExtract.Name = "btnExtract";
             this.btnExtract.Size = new System.Drawing.Size(100, 35);
@@ -264,7 +258,6 @@ namespace SDAT
             // 
             // btnInfoSect
             // 
-            this.btnInfoSect.Image = global::SDAT.Properties.Resources.tag_blue_edit;
             this.btnInfoSect.Location = new System.Drawing.Point(251, 126);
             this.btnInfoSect.Name = "btnInfoSect";
             this.btnInfoSect.Size = new System.Drawing.Size(100, 34);
@@ -276,7 +269,8 @@ namespace SDAT
             // 
             // iSDAT
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.Transparent;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.btnInfoSect);

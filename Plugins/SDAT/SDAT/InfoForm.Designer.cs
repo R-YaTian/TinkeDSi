@@ -47,7 +47,6 @@ namespace SDAT
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InfoForm));
             this.btnAccept = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -262,7 +261,6 @@ namespace SDAT
             // btnAccept
             // 
             this.btnAccept.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnAccept.Image = global::SDAT.Properties.Resources.accept;
             this.btnAccept.Location = new System.Drawing.Point(285, 274);
             this.btnAccept.Name = "btnAccept";
             this.btnAccept.Size = new System.Drawing.Size(90, 34);
@@ -335,7 +333,7 @@ namespace SDAT
             0,
             0});
             this.numericSSEQcpr.Name = "numericSSEQcpr";
-            this.numericSSEQcpr.Size = new System.Drawing.Size(120, 20);
+            this.numericSSEQcpr.Size = new System.Drawing.Size(120, 21);
             this.numericSSEQcpr.TabIndex = 17;
             this.numericSSEQcpr.ValueChanged += new System.EventHandler(this.numericSSEQ_ValueChanged);
             // 
@@ -348,7 +346,7 @@ namespace SDAT
             0,
             0});
             this.numericSSEQppr.Name = "numericSSEQppr";
-            this.numericSSEQppr.Size = new System.Drawing.Size(120, 20);
+            this.numericSSEQppr.Size = new System.Drawing.Size(120, 21);
             this.numericSSEQppr.TabIndex = 16;
             this.numericSSEQppr.ValueChanged += new System.EventHandler(this.numericSSEQ_ValueChanged);
             // 
@@ -361,7 +359,7 @@ namespace SDAT
             0,
             0});
             this.numericSSEQVol.Name = "numericSSEQVol";
-            this.numericSSEQVol.Size = new System.Drawing.Size(120, 20);
+            this.numericSSEQVol.Size = new System.Drawing.Size(120, 21);
             this.numericSSEQVol.TabIndex = 14;
             this.numericSSEQVol.ValueChanged += new System.EventHandler(this.numericSSEQ_ValueChanged);
             // 
@@ -374,7 +372,7 @@ namespace SDAT
             0,
             0});
             this.numericSSEQBnk.Name = "numericSSEQBnk";
-            this.numericSSEQBnk.Size = new System.Drawing.Size(120, 20);
+            this.numericSSEQBnk.Size = new System.Drawing.Size(120, 21);
             this.numericSSEQBnk.TabIndex = 12;
             this.numericSSEQBnk.ValueChanged += new System.EventHandler(this.numericSSEQ_ValueChanged);
             // 
@@ -387,7 +385,7 @@ namespace SDAT
             0,
             0});
             this.numericSSEQply.Name = "numericSSEQply";
-            this.numericSSEQply.Size = new System.Drawing.Size(120, 20);
+            this.numericSSEQply.Size = new System.Drawing.Size(120, 21);
             this.numericSSEQply.TabIndex = 11;
             this.numericSSEQply.ValueChanged += new System.EventHandler(this.numericSSEQ_ValueChanged);
             // 
@@ -400,7 +398,7 @@ namespace SDAT
             0,
             0});
             this.numericSSEQunknown.Name = "numericSSEQunknown";
-            this.numericSSEQunknown.Size = new System.Drawing.Size(120, 20);
+            this.numericSSEQunknown.Size = new System.Drawing.Size(120, 21);
             this.numericSSEQunknown.TabIndex = 10;
             this.numericSSEQunknown.ValueChanged += new System.EventHandler(this.numericSSEQ_ValueChanged);
             // 
@@ -413,7 +411,7 @@ namespace SDAT
             0,
             0});
             this.numericSSEQfileID.Name = "numericSSEQfileID";
-            this.numericSSEQfileID.Size = new System.Drawing.Size(120, 20);
+            this.numericSSEQfileID.Size = new System.Drawing.Size(120, 21);
             this.numericSSEQfileID.TabIndex = 9;
             this.numericSSEQfileID.ValueChanged += new System.EventHandler(this.numericSSEQ_ValueChanged);
             // 
@@ -422,7 +420,7 @@ namespace SDAT
             this.labelSSEQply.AutoSize = true;
             this.labelSSEQply.Location = new System.Drawing.Point(6, 177);
             this.labelSSEQply.Name = "labelSSEQply";
-            this.labelSSEQply.Size = new System.Drawing.Size(30, 13);
+            this.labelSSEQply.Size = new System.Drawing.Size(35, 12);
             this.labelSSEQply.TabIndex = 7;
             this.labelSSEQply.Text = "Play:";
             // 
@@ -431,7 +429,7 @@ namespace SDAT
             this.labelSSEQppr.AutoSize = true;
             this.labelSSEQppr.Location = new System.Drawing.Point(6, 151);
             this.labelSSEQppr.Name = "labelSSEQppr";
-            this.labelSSEQppr.Size = new System.Drawing.Size(105, 13);
+            this.labelSSEQppr.Size = new System.Drawing.Size(125, 12);
             this.labelSSEQppr.TabIndex = 6;
             this.labelSSEQppr.Text = "Polyphonic pressure:";
             // 
@@ -440,7 +438,7 @@ namespace SDAT
             this.labelSSEQcpr.AutoSize = true;
             this.labelSSEQcpr.Location = new System.Drawing.Point(6, 125);
             this.labelSSEQcpr.Name = "labelSSEQcpr";
-            this.labelSSEQcpr.Size = new System.Drawing.Size(92, 13);
+            this.labelSSEQcpr.Size = new System.Drawing.Size(107, 12);
             this.labelSSEQcpr.TabIndex = 5;
             this.labelSSEQcpr.Text = "Channel pressure:";
             // 
@@ -449,7 +447,7 @@ namespace SDAT
             this.labelSSEQvol.AutoSize = true;
             this.labelSSEQvol.Location = new System.Drawing.Point(6, 99);
             this.labelSSEQvol.Name = "labelSSEQvol";
-            this.labelSSEQvol.Size = new System.Drawing.Size(45, 13);
+            this.labelSSEQvol.Size = new System.Drawing.Size(47, 12);
             this.labelSSEQvol.TabIndex = 4;
             this.labelSSEQvol.Text = "Volume:";
             // 
@@ -458,7 +456,7 @@ namespace SDAT
             this.labelSSEQbnk.AutoSize = true;
             this.labelSSEQbnk.Location = new System.Drawing.Point(6, 73);
             this.labelSSEQbnk.Name = "labelSSEQbnk";
-            this.labelSSEQbnk.Size = new System.Drawing.Size(35, 13);
+            this.labelSSEQbnk.Size = new System.Drawing.Size(35, 12);
             this.labelSSEQbnk.TabIndex = 3;
             this.labelSSEQbnk.Text = "Bank:";
             // 
@@ -467,7 +465,7 @@ namespace SDAT
             this.labelSSEQunknown.AutoSize = true;
             this.labelSSEQunknown.Location = new System.Drawing.Point(6, 47);
             this.labelSSEQunknown.Name = "labelSSEQunknown";
-            this.labelSSEQunknown.Size = new System.Drawing.Size(56, 13);
+            this.labelSSEQunknown.Size = new System.Drawing.Size(53, 12);
             this.labelSSEQunknown.TabIndex = 2;
             this.labelSSEQunknown.Text = "Unknown:";
             // 
@@ -476,16 +474,16 @@ namespace SDAT
             this.labelSSEQfileID.AutoSize = true;
             this.labelSSEQfileID.Location = new System.Drawing.Point(6, 21);
             this.labelSSEQfileID.Name = "labelSSEQfileID";
-            this.labelSSEQfileID.Size = new System.Drawing.Size(40, 13);
+            this.labelSSEQfileID.Size = new System.Drawing.Size(53, 12);
             this.labelSSEQfileID.TabIndex = 0;
             this.labelSSEQfileID.Text = "File ID:";
             // 
             // labelSSEQtotal
             // 
             this.labelSSEQtotal.AutoSize = true;
-            this.labelSSEQtotal.Location = new System.Drawing.Point(177, 8);
+            this.labelSSEQtotal.Location = new System.Drawing.Point(201, 8);
             this.labelSSEQtotal.Name = "labelSSEQtotal";
-            this.labelSSEQtotal.Size = new System.Drawing.Size(16, 13);
+            this.labelSSEQtotal.Size = new System.Drawing.Size(17, 12);
             this.labelSSEQtotal.TabIndex = 2;
             this.labelSSEQtotal.Text = "of";
             // 
@@ -494,20 +492,20 @@ namespace SDAT
             this.labelSSEQcurrent.AutoSize = true;
             this.labelSSEQcurrent.Location = new System.Drawing.Point(8, 8);
             this.labelSSEQcurrent.Name = "labelSSEQcurrent";
-            this.labelSSEQcurrent.Size = new System.Drawing.Size(77, 13);
+            this.labelSSEQcurrent.Size = new System.Drawing.Size(95, 12);
             this.labelSSEQcurrent.TabIndex = 1;
             this.labelSSEQcurrent.Text = "Current record:";
             // 
             // numericSSEQrecord
             // 
-            this.numericSSEQrecord.Location = new System.Drawing.Point(91, 6);
+            this.numericSSEQrecord.Location = new System.Drawing.Point(115, 6);
             this.numericSSEQrecord.Maximum = new decimal(new int[] {
             -1,
             0,
             0,
             0});
             this.numericSSEQrecord.Name = "numericSSEQrecord";
-            this.numericSSEQrecord.Size = new System.Drawing.Size(80, 20);
+            this.numericSSEQrecord.Size = new System.Drawing.Size(80, 21);
             this.numericSSEQrecord.TabIndex = 0;
             this.numericSSEQrecord.Value = new decimal(new int[] {
             1,
@@ -552,7 +550,7 @@ namespace SDAT
             0,
             0});
             this.numericSSARunknown.Name = "numericSSARunknown";
-            this.numericSSARunknown.Size = new System.Drawing.Size(120, 20);
+            this.numericSSARunknown.Size = new System.Drawing.Size(120, 21);
             this.numericSSARunknown.TabIndex = 3;
             this.numericSSARunknown.ValueChanged += new System.EventHandler(this.numericSSAR_ValueChanged);
             // 
@@ -561,7 +559,7 @@ namespace SDAT
             this.labelSSARunknown.AutoSize = true;
             this.labelSSARunknown.Location = new System.Drawing.Point(6, 47);
             this.labelSSARunknown.Name = "labelSSARunknown";
-            this.labelSSARunknown.Size = new System.Drawing.Size(56, 13);
+            this.labelSSARunknown.Size = new System.Drawing.Size(53, 12);
             this.labelSSARunknown.TabIndex = 2;
             this.labelSSARunknown.Text = "Unknown:";
             // 
@@ -570,7 +568,7 @@ namespace SDAT
             this.labelSSARfileID.AutoSize = true;
             this.labelSSARfileID.Location = new System.Drawing.Point(6, 21);
             this.labelSSARfileID.Name = "labelSSARfileID";
-            this.labelSSARfileID.Size = new System.Drawing.Size(40, 13);
+            this.labelSSARfileID.Size = new System.Drawing.Size(53, 12);
             this.labelSSARfileID.TabIndex = 1;
             this.labelSSARfileID.Text = "File ID:";
             // 
@@ -583,16 +581,16 @@ namespace SDAT
             0,
             0});
             this.numericSSARfileID.Name = "numericSSARfileID";
-            this.numericSSARfileID.Size = new System.Drawing.Size(120, 20);
+            this.numericSSARfileID.Size = new System.Drawing.Size(120, 21);
             this.numericSSARfileID.TabIndex = 0;
             this.numericSSARfileID.ValueChanged += new System.EventHandler(this.numericSSAR_ValueChanged);
             // 
             // labelSSARtotal
             // 
             this.labelSSARtotal.AutoSize = true;
-            this.labelSSARtotal.Location = new System.Drawing.Point(177, 8);
+            this.labelSSARtotal.Location = new System.Drawing.Point(208, 8);
             this.labelSSARtotal.Name = "labelSSARtotal";
-            this.labelSSARtotal.Size = new System.Drawing.Size(16, 13);
+            this.labelSSARtotal.Size = new System.Drawing.Size(17, 12);
             this.labelSSARtotal.TabIndex = 5;
             this.labelSSARtotal.Text = "of";
             // 
@@ -601,20 +599,20 @@ namespace SDAT
             this.labelSSARcurrent.AutoSize = true;
             this.labelSSARcurrent.Location = new System.Drawing.Point(8, 8);
             this.labelSSARcurrent.Name = "labelSSARcurrent";
-            this.labelSSARcurrent.Size = new System.Drawing.Size(77, 13);
+            this.labelSSARcurrent.Size = new System.Drawing.Size(95, 12);
             this.labelSSARcurrent.TabIndex = 4;
             this.labelSSARcurrent.Text = "Current record:";
             // 
             // numericSSARrecord
             // 
-            this.numericSSARrecord.Location = new System.Drawing.Point(91, 6);
+            this.numericSSARrecord.Location = new System.Drawing.Point(122, 6);
             this.numericSSARrecord.Maximum = new decimal(new int[] {
             -1,
             0,
             0,
             0});
             this.numericSSARrecord.Name = "numericSSARrecord";
-            this.numericSSARrecord.Size = new System.Drawing.Size(80, 20);
+            this.numericSSARrecord.Size = new System.Drawing.Size(80, 21);
             this.numericSSARrecord.TabIndex = 3;
             this.numericSSARrecord.Value = new decimal(new int[] {
             1,
@@ -653,7 +651,7 @@ namespace SDAT
             this.groupSBNK.Controls.Add(this.numericSBNKwa1);
             this.groupSBNK.Location = new System.Drawing.Point(10, 32);
             this.groupSBNK.Name = "groupSBNK";
-            this.groupSBNK.Size = new System.Drawing.Size(253, 182);
+            this.groupSBNK.Size = new System.Drawing.Size(261, 182);
             this.groupSBNK.TabIndex = 6;
             this.groupSBNK.TabStop = false;
             this.groupSBNK.Text = "Properties";
@@ -663,20 +661,20 @@ namespace SDAT
             this.labelSBNKunknown.AutoSize = true;
             this.labelSBNKunknown.Location = new System.Drawing.Point(6, 47);
             this.labelSBNKunknown.Name = "labelSBNKunknown";
-            this.labelSBNKunknown.Size = new System.Drawing.Size(53, 13);
+            this.labelSBNKunknown.Size = new System.Drawing.Size(47, 12);
             this.labelSBNKunknown.TabIndex = 13;
             this.labelSBNKunknown.Text = "Unknown";
             // 
             // numericSBNKunknown
             // 
-            this.numericSBNKunknown.Location = new System.Drawing.Point(117, 45);
+            this.numericSBNKunknown.Location = new System.Drawing.Point(133, 45);
             this.numericSBNKunknown.Maximum = new decimal(new int[] {
             65535,
             0,
             0,
             0});
             this.numericSBNKunknown.Name = "numericSBNKunknown";
-            this.numericSBNKunknown.Size = new System.Drawing.Size(120, 20);
+            this.numericSBNKunknown.Size = new System.Drawing.Size(120, 21);
             this.numericSBNKunknown.TabIndex = 12;
             this.numericSBNKunknown.ValueChanged += new System.EventHandler(this.numericSBNK_ValueChanged);
             // 
@@ -685,20 +683,20 @@ namespace SDAT
             this.labelSBNKfileID.AutoSize = true;
             this.labelSBNKfileID.Location = new System.Drawing.Point(6, 21);
             this.labelSBNKfileID.Name = "labelSBNKfileID";
-            this.labelSBNKfileID.Size = new System.Drawing.Size(40, 13);
+            this.labelSBNKfileID.Size = new System.Drawing.Size(53, 12);
             this.labelSBNKfileID.TabIndex = 11;
             this.labelSBNKfileID.Text = "File ID:";
             // 
             // numericSBNKfileID
             // 
-            this.numericSBNKfileID.Location = new System.Drawing.Point(117, 19);
+            this.numericSBNKfileID.Location = new System.Drawing.Point(133, 19);
             this.numericSBNKfileID.Maximum = new decimal(new int[] {
             65535,
             0,
             0,
             0});
             this.numericSBNKfileID.Name = "numericSBNKfileID";
-            this.numericSBNKfileID.Size = new System.Drawing.Size(120, 20);
+            this.numericSBNKfileID.Size = new System.Drawing.Size(120, 21);
             this.numericSBNKfileID.TabIndex = 10;
             this.numericSBNKfileID.ValueChanged += new System.EventHandler(this.numericSBNK_ValueChanged);
             // 
@@ -707,20 +705,20 @@ namespace SDAT
             this.labelSBNKwa4.AutoSize = true;
             this.labelSBNKwa4.Location = new System.Drawing.Point(6, 151);
             this.labelSBNKwa4.Name = "labelSBNKwa4";
-            this.labelSBNKwa4.Size = new System.Drawing.Size(106, 13);
+            this.labelSBNKwa4.Size = new System.Drawing.Size(113, 12);
             this.labelSBNKwa4.TabIndex = 9;
             this.labelSBNKwa4.Text = "SWAR associated 4:";
             // 
             // numericSBNKwa4
             // 
-            this.numericSBNKwa4.Location = new System.Drawing.Point(117, 149);
+            this.numericSBNKwa4.Location = new System.Drawing.Point(133, 151);
             this.numericSBNKwa4.Maximum = new decimal(new int[] {
             65535,
             0,
             0,
             0});
             this.numericSBNKwa4.Name = "numericSBNKwa4";
-            this.numericSBNKwa4.Size = new System.Drawing.Size(120, 20);
+            this.numericSBNKwa4.Size = new System.Drawing.Size(120, 21);
             this.numericSBNKwa4.TabIndex = 8;
             this.numericSBNKwa4.ValueChanged += new System.EventHandler(this.numericSBNK_ValueChanged);
             // 
@@ -729,20 +727,20 @@ namespace SDAT
             this.labelSBNKwa3.AutoSize = true;
             this.labelSBNKwa3.Location = new System.Drawing.Point(6, 125);
             this.labelSBNKwa3.Name = "labelSBNKwa3";
-            this.labelSBNKwa3.Size = new System.Drawing.Size(106, 13);
+            this.labelSBNKwa3.Size = new System.Drawing.Size(113, 12);
             this.labelSBNKwa3.TabIndex = 7;
             this.labelSBNKwa3.Text = "SWAR associated 3:";
             // 
             // numericSBNKwa3
             // 
-            this.numericSBNKwa3.Location = new System.Drawing.Point(117, 123);
+            this.numericSBNKwa3.Location = new System.Drawing.Point(133, 124);
             this.numericSBNKwa3.Maximum = new decimal(new int[] {
             65535,
             0,
             0,
             0});
             this.numericSBNKwa3.Name = "numericSBNKwa3";
-            this.numericSBNKwa3.Size = new System.Drawing.Size(120, 20);
+            this.numericSBNKwa3.Size = new System.Drawing.Size(120, 21);
             this.numericSBNKwa3.TabIndex = 6;
             this.numericSBNKwa3.ValueChanged += new System.EventHandler(this.numericSBNK_ValueChanged);
             // 
@@ -751,20 +749,20 @@ namespace SDAT
             this.labelSBNKwa2.AutoSize = true;
             this.labelSBNKwa2.Location = new System.Drawing.Point(6, 99);
             this.labelSBNKwa2.Name = "labelSBNKwa2";
-            this.labelSBNKwa2.Size = new System.Drawing.Size(106, 13);
+            this.labelSBNKwa2.Size = new System.Drawing.Size(113, 12);
             this.labelSBNKwa2.TabIndex = 5;
             this.labelSBNKwa2.Text = "SWAR associated 2:";
             // 
             // numericSBNKwa2
             // 
-            this.numericSBNKwa2.Location = new System.Drawing.Point(117, 97);
+            this.numericSBNKwa2.Location = new System.Drawing.Point(133, 97);
             this.numericSBNKwa2.Maximum = new decimal(new int[] {
             65535,
             0,
             0,
             0});
             this.numericSBNKwa2.Name = "numericSBNKwa2";
-            this.numericSBNKwa2.Size = new System.Drawing.Size(120, 20);
+            this.numericSBNKwa2.Size = new System.Drawing.Size(120, 21);
             this.numericSBNKwa2.TabIndex = 4;
             this.numericSBNKwa2.ValueChanged += new System.EventHandler(this.numericSBNK_ValueChanged);
             // 
@@ -773,29 +771,29 @@ namespace SDAT
             this.labelSBNKwa1.AutoSize = true;
             this.labelSBNKwa1.Location = new System.Drawing.Point(6, 73);
             this.labelSBNKwa1.Name = "labelSBNKwa1";
-            this.labelSBNKwa1.Size = new System.Drawing.Size(106, 13);
+            this.labelSBNKwa1.Size = new System.Drawing.Size(113, 12);
             this.labelSBNKwa1.TabIndex = 3;
             this.labelSBNKwa1.Text = "SWAR associated 1:";
             // 
             // numericSBNKwa1
             // 
-            this.numericSBNKwa1.Location = new System.Drawing.Point(117, 71);
+            this.numericSBNKwa1.Location = new System.Drawing.Point(133, 71);
             this.numericSBNKwa1.Maximum = new decimal(new int[] {
             65535,
             0,
             0,
             0});
             this.numericSBNKwa1.Name = "numericSBNKwa1";
-            this.numericSBNKwa1.Size = new System.Drawing.Size(120, 20);
+            this.numericSBNKwa1.Size = new System.Drawing.Size(120, 21);
             this.numericSBNKwa1.TabIndex = 2;
             this.numericSBNKwa1.ValueChanged += new System.EventHandler(this.numericSBNK_ValueChanged);
             // 
             // labelSBNKtotal
             // 
             this.labelSBNKtotal.AutoSize = true;
-            this.labelSBNKtotal.Location = new System.Drawing.Point(177, 8);
+            this.labelSBNKtotal.Location = new System.Drawing.Point(207, 8);
             this.labelSBNKtotal.Name = "labelSBNKtotal";
-            this.labelSBNKtotal.Size = new System.Drawing.Size(16, 13);
+            this.labelSBNKtotal.Size = new System.Drawing.Size(17, 12);
             this.labelSBNKtotal.TabIndex = 5;
             this.labelSBNKtotal.Text = "of";
             // 
@@ -804,20 +802,20 @@ namespace SDAT
             this.labelSBNKcurrent.AutoSize = true;
             this.labelSBNKcurrent.Location = new System.Drawing.Point(8, 8);
             this.labelSBNKcurrent.Name = "labelSBNKcurrent";
-            this.labelSBNKcurrent.Size = new System.Drawing.Size(77, 13);
+            this.labelSBNKcurrent.Size = new System.Drawing.Size(95, 12);
             this.labelSBNKcurrent.TabIndex = 4;
             this.labelSBNKcurrent.Text = "Current record:";
             // 
             // numericSBNKrecord
             // 
-            this.numericSBNKrecord.Location = new System.Drawing.Point(91, 6);
+            this.numericSBNKrecord.Location = new System.Drawing.Point(121, 6);
             this.numericSBNKrecord.Maximum = new decimal(new int[] {
             -1,
             0,
             0,
             0});
             this.numericSBNKrecord.Name = "numericSBNKrecord";
-            this.numericSBNKrecord.Size = new System.Drawing.Size(80, 20);
+            this.numericSBNKrecord.Size = new System.Drawing.Size(80, 21);
             this.numericSBNKrecord.TabIndex = 3;
             this.numericSBNKrecord.Value = new decimal(new int[] {
             1,
@@ -862,7 +860,7 @@ namespace SDAT
             0,
             0});
             this.numericSWARunknown.Name = "numericSWARunknown";
-            this.numericSWARunknown.Size = new System.Drawing.Size(120, 20);
+            this.numericSWARunknown.Size = new System.Drawing.Size(120, 21);
             this.numericSWARunknown.TabIndex = 3;
             this.numericSWARunknown.ValueChanged += new System.EventHandler(this.numericSWAR_ValueChanged);
             // 
@@ -875,7 +873,7 @@ namespace SDAT
             0,
             0});
             this.numericSWARfileID.Name = "numericSWARfileID";
-            this.numericSWARfileID.Size = new System.Drawing.Size(120, 20);
+            this.numericSWARfileID.Size = new System.Drawing.Size(120, 21);
             this.numericSWARfileID.TabIndex = 2;
             this.numericSWARfileID.ValueChanged += new System.EventHandler(this.numericSWAR_ValueChanged);
             // 
@@ -884,7 +882,7 @@ namespace SDAT
             this.labelSWARunknown.AutoSize = true;
             this.labelSWARunknown.Location = new System.Drawing.Point(6, 47);
             this.labelSWARunknown.Name = "labelSWARunknown";
-            this.labelSWARunknown.Size = new System.Drawing.Size(56, 13);
+            this.labelSWARunknown.Size = new System.Drawing.Size(53, 12);
             this.labelSWARunknown.TabIndex = 1;
             this.labelSWARunknown.Text = "Unknown:";
             // 
@@ -893,16 +891,16 @@ namespace SDAT
             this.labelSWARfileID.AutoSize = true;
             this.labelSWARfileID.Location = new System.Drawing.Point(6, 21);
             this.labelSWARfileID.Name = "labelSWARfileID";
-            this.labelSWARfileID.Size = new System.Drawing.Size(40, 13);
+            this.labelSWARfileID.Size = new System.Drawing.Size(53, 12);
             this.labelSWARfileID.TabIndex = 0;
             this.labelSWARfileID.Text = "File ID:";
             // 
             // labelSWARtotal
             // 
             this.labelSWARtotal.AutoSize = true;
-            this.labelSWARtotal.Location = new System.Drawing.Point(177, 8);
+            this.labelSWARtotal.Location = new System.Drawing.Point(207, 8);
             this.labelSWARtotal.Name = "labelSWARtotal";
-            this.labelSWARtotal.Size = new System.Drawing.Size(16, 13);
+            this.labelSWARtotal.Size = new System.Drawing.Size(17, 12);
             this.labelSWARtotal.TabIndex = 5;
             this.labelSWARtotal.Text = "of";
             // 
@@ -911,20 +909,20 @@ namespace SDAT
             this.labelSWARcurrent.AutoSize = true;
             this.labelSWARcurrent.Location = new System.Drawing.Point(8, 8);
             this.labelSWARcurrent.Name = "labelSWARcurrent";
-            this.labelSWARcurrent.Size = new System.Drawing.Size(77, 13);
+            this.labelSWARcurrent.Size = new System.Drawing.Size(95, 12);
             this.labelSWARcurrent.TabIndex = 4;
             this.labelSWARcurrent.Text = "Current record:";
             // 
             // numericSWARrecord
             // 
-            this.numericSWARrecord.Location = new System.Drawing.Point(91, 6);
+            this.numericSWARrecord.Location = new System.Drawing.Point(121, 6);
             this.numericSWARrecord.Maximum = new decimal(new int[] {
             -1,
             0,
             0,
             0});
             this.numericSWARrecord.Name = "numericSWARrecord";
-            this.numericSWARrecord.Size = new System.Drawing.Size(80, 20);
+            this.numericSWARrecord.Size = new System.Drawing.Size(80, 21);
             this.numericSWARrecord.TabIndex = 3;
             this.numericSWARrecord.Value = new decimal(new int[] {
             1,
@@ -975,7 +973,7 @@ namespace SDAT
             0,
             0});
             this.numericSTRMply.Name = "numericSTRMply";
-            this.numericSTRMply.Size = new System.Drawing.Size(120, 20);
+            this.numericSTRMply.Size = new System.Drawing.Size(120, 21);
             this.numericSTRMply.TabIndex = 13;
             this.numericSTRMply.ValueChanged += new System.EventHandler(this.numericSTRM_ValueChanged);
             // 
@@ -984,7 +982,7 @@ namespace SDAT
             this.labelSTRMply.AutoSize = true;
             this.labelSTRMply.Location = new System.Drawing.Point(6, 124);
             this.labelSTRMply.Name = "labelSTRMply";
-            this.labelSTRMply.Size = new System.Drawing.Size(30, 13);
+            this.labelSTRMply.Size = new System.Drawing.Size(35, 12);
             this.labelSTRMply.TabIndex = 12;
             this.labelSTRMply.Text = "Play:";
             // 
@@ -997,7 +995,7 @@ namespace SDAT
             0,
             0});
             this.numericSTRMpri.Name = "numericSTRMpri";
-            this.numericSTRMpri.Size = new System.Drawing.Size(120, 20);
+            this.numericSTRMpri.Size = new System.Drawing.Size(120, 21);
             this.numericSTRMpri.TabIndex = 11;
             this.numericSTRMpri.ValueChanged += new System.EventHandler(this.numericSTRM_ValueChanged);
             // 
@@ -1006,7 +1004,7 @@ namespace SDAT
             this.labelSTRMpri.AutoSize = true;
             this.labelSTRMpri.Location = new System.Drawing.Point(6, 98);
             this.labelSTRMpri.Name = "labelSTRMpri";
-            this.labelSTRMpri.Size = new System.Drawing.Size(41, 13);
+            this.labelSTRMpri.Size = new System.Drawing.Size(59, 12);
             this.labelSTRMpri.TabIndex = 10;
             this.labelSTRMpri.Text = "Priority:";
             // 
@@ -1019,7 +1017,7 @@ namespace SDAT
             0,
             0});
             this.numericSTRMvol.Name = "numericSTRMvol";
-            this.numericSTRMvol.Size = new System.Drawing.Size(120, 20);
+            this.numericSTRMvol.Size = new System.Drawing.Size(120, 21);
             this.numericSTRMvol.TabIndex = 9;
             this.numericSTRMvol.ValueChanged += new System.EventHandler(this.numericSTRM_ValueChanged);
             // 
@@ -1028,7 +1026,7 @@ namespace SDAT
             this.labelSTRMvol.AutoSize = true;
             this.labelSTRMvol.Location = new System.Drawing.Point(6, 73);
             this.labelSTRMvol.Name = "labelSTRMvol";
-            this.labelSTRMvol.Size = new System.Drawing.Size(45, 13);
+            this.labelSTRMvol.Size = new System.Drawing.Size(47, 12);
             this.labelSTRMvol.TabIndex = 8;
             this.labelSTRMvol.Text = "Volume:";
             // 
@@ -1041,7 +1039,7 @@ namespace SDAT
             0,
             0});
             this.numericSTRMunknown.Name = "numericSTRMunknown";
-            this.numericSTRMunknown.Size = new System.Drawing.Size(120, 20);
+            this.numericSTRMunknown.Size = new System.Drawing.Size(120, 21);
             this.numericSTRMunknown.TabIndex = 7;
             this.numericSTRMunknown.ValueChanged += new System.EventHandler(this.numericSTRM_ValueChanged);
             // 
@@ -1054,7 +1052,7 @@ namespace SDAT
             0,
             0});
             this.numericSTRMfileID.Name = "numericSTRMfileID";
-            this.numericSTRMfileID.Size = new System.Drawing.Size(120, 20);
+            this.numericSTRMfileID.Size = new System.Drawing.Size(120, 21);
             this.numericSTRMfileID.TabIndex = 6;
             this.numericSTRMfileID.ValueChanged += new System.EventHandler(this.numericSTRM_ValueChanged);
             // 
@@ -1063,7 +1061,7 @@ namespace SDAT
             this.labelSTRMunknown.AutoSize = true;
             this.labelSTRMunknown.Location = new System.Drawing.Point(6, 47);
             this.labelSTRMunknown.Name = "labelSTRMunknown";
-            this.labelSTRMunknown.Size = new System.Drawing.Size(56, 13);
+            this.labelSTRMunknown.Size = new System.Drawing.Size(53, 12);
             this.labelSTRMunknown.TabIndex = 5;
             this.labelSTRMunknown.Text = "Unknown:";
             // 
@@ -1072,16 +1070,16 @@ namespace SDAT
             this.labelSTRMfileID.AutoSize = true;
             this.labelSTRMfileID.Location = new System.Drawing.Point(6, 21);
             this.labelSTRMfileID.Name = "labelSTRMfileID";
-            this.labelSTRMfileID.Size = new System.Drawing.Size(40, 13);
+            this.labelSTRMfileID.Size = new System.Drawing.Size(53, 12);
             this.labelSTRMfileID.TabIndex = 4;
             this.labelSTRMfileID.Text = "File ID:";
             // 
             // labelSTRMtotal
             // 
             this.labelSTRMtotal.AutoSize = true;
-            this.labelSTRMtotal.Location = new System.Drawing.Point(177, 8);
+            this.labelSTRMtotal.Location = new System.Drawing.Point(208, 8);
             this.labelSTRMtotal.Name = "labelSTRMtotal";
-            this.labelSTRMtotal.Size = new System.Drawing.Size(16, 13);
+            this.labelSTRMtotal.Size = new System.Drawing.Size(17, 12);
             this.labelSTRMtotal.TabIndex = 5;
             this.labelSTRMtotal.Text = "of";
             // 
@@ -1090,20 +1088,20 @@ namespace SDAT
             this.labelSTRMcurrent.AutoSize = true;
             this.labelSTRMcurrent.Location = new System.Drawing.Point(8, 8);
             this.labelSTRMcurrent.Name = "labelSTRMcurrent";
-            this.labelSTRMcurrent.Size = new System.Drawing.Size(77, 13);
+            this.labelSTRMcurrent.Size = new System.Drawing.Size(95, 12);
             this.labelSTRMcurrent.TabIndex = 4;
             this.labelSTRMcurrent.Text = "Current record:";
             // 
             // numericSTRMrecord
             // 
-            this.numericSTRMrecord.Location = new System.Drawing.Point(91, 6);
+            this.numericSTRMrecord.Location = new System.Drawing.Point(122, 6);
             this.numericSTRMrecord.Maximum = new decimal(new int[] {
             -1,
             0,
             0,
             0});
             this.numericSTRMrecord.Name = "numericSTRMrecord";
-            this.numericSTRMrecord.Size = new System.Drawing.Size(80, 20);
+            this.numericSTRMrecord.Size = new System.Drawing.Size(80, 21);
             this.numericSTRMrecord.TabIndex = 3;
             this.numericSTRMrecord.Value = new decimal(new int[] {
             1,
@@ -1167,33 +1165,33 @@ namespace SDAT
             this.labelPLAYERunknown2.AutoSize = true;
             this.labelPLAYERunknown2.Location = new System.Drawing.Point(6, 47);
             this.labelPLAYERunknown2.Name = "labelPLAYERunknown2";
-            this.labelPLAYERunknown2.Size = new System.Drawing.Size(65, 13);
+            this.labelPLAYERunknown2.Size = new System.Drawing.Size(65, 12);
             this.labelPLAYERunknown2.TabIndex = 3;
             this.labelPLAYERunknown2.Text = "Unknown 2:";
             // 
             // numericPLAYERunknown2
             // 
-            this.numericPLAYERunknown2.Location = new System.Drawing.Point(81, 45);
+            this.numericPLAYERunknown2.Location = new System.Drawing.Point(90, 45);
             this.numericPLAYERunknown2.Maximum = new decimal(new int[] {
             -1,
             0,
             0,
             0});
             this.numericPLAYERunknown2.Name = "numericPLAYERunknown2";
-            this.numericPLAYERunknown2.Size = new System.Drawing.Size(120, 20);
+            this.numericPLAYERunknown2.Size = new System.Drawing.Size(120, 21);
             this.numericPLAYERunknown2.TabIndex = 2;
             this.numericPLAYERunknown2.ValueChanged += new System.EventHandler(this.numericPLAYER_ValueChanged);
             // 
             // numericPLAYERunknown
             // 
-            this.numericPLAYERunknown.Location = new System.Drawing.Point(81, 19);
+            this.numericPLAYERunknown.Location = new System.Drawing.Point(90, 18);
             this.numericPLAYERunknown.Maximum = new decimal(new int[] {
             255,
             0,
             0,
             0});
             this.numericPLAYERunknown.Name = "numericPLAYERunknown";
-            this.numericPLAYERunknown.Size = new System.Drawing.Size(120, 20);
+            this.numericPLAYERunknown.Size = new System.Drawing.Size(120, 21);
             this.numericPLAYERunknown.TabIndex = 1;
             this.numericPLAYERunknown.ValueChanged += new System.EventHandler(this.numericPLAYER_ValueChanged);
             // 
@@ -1202,16 +1200,16 @@ namespace SDAT
             this.labelPLAYERunknown.AutoSize = true;
             this.labelPLAYERunknown.Location = new System.Drawing.Point(6, 21);
             this.labelPLAYERunknown.Name = "labelPLAYERunknown";
-            this.labelPLAYERunknown.Size = new System.Drawing.Size(65, 13);
+            this.labelPLAYERunknown.Size = new System.Drawing.Size(65, 12);
             this.labelPLAYERunknown.TabIndex = 0;
             this.labelPLAYERunknown.Text = "Unknown 1:";
             // 
             // labelPLAYERtotal
             // 
             this.labelPLAYERtotal.AutoSize = true;
-            this.labelPLAYERtotal.Location = new System.Drawing.Point(177, 8);
+            this.labelPLAYERtotal.Location = new System.Drawing.Point(209, 8);
             this.labelPLAYERtotal.Name = "labelPLAYERtotal";
-            this.labelPLAYERtotal.Size = new System.Drawing.Size(16, 13);
+            this.labelPLAYERtotal.Size = new System.Drawing.Size(17, 12);
             this.labelPLAYERtotal.TabIndex = 5;
             this.labelPLAYERtotal.Text = "of";
             // 
@@ -1220,26 +1218,21 @@ namespace SDAT
             this.labelPLAYERcurrent.AutoSize = true;
             this.labelPLAYERcurrent.Location = new System.Drawing.Point(8, 8);
             this.labelPLAYERcurrent.Name = "labelPLAYERcurrent";
-            this.labelPLAYERcurrent.Size = new System.Drawing.Size(77, 13);
+            this.labelPLAYERcurrent.Size = new System.Drawing.Size(95, 12);
             this.labelPLAYERcurrent.TabIndex = 4;
             this.labelPLAYERcurrent.Text = "Current record:";
             // 
             // numericPLAYERrecord
             // 
-            this.numericPLAYERrecord.Location = new System.Drawing.Point(91, 6);
+            this.numericPLAYERrecord.Location = new System.Drawing.Point(123, 6);
             this.numericPLAYERrecord.Maximum = new decimal(new int[] {
             -1,
             0,
             0,
             0});
             this.numericPLAYERrecord.Name = "numericPLAYERrecord";
-            this.numericPLAYERrecord.Size = new System.Drawing.Size(80, 20);
+            this.numericPLAYERrecord.Size = new System.Drawing.Size(80, 21);
             this.numericPLAYERrecord.TabIndex = 3;
-            this.numericPLAYERrecord.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             this.numericPLAYERrecord.ValueChanged += new System.EventHandler(this.numericPLAYERrecord_ValueChanged);
             // 
             // tabPage7
@@ -1331,7 +1324,7 @@ namespace SDAT
             0,
             0});
             this.numericPLAYER2v9.Name = "numericPLAYER2v9";
-            this.numericPLAYER2v9.Size = new System.Drawing.Size(48, 20);
+            this.numericPLAYER2v9.Size = new System.Drawing.Size(48, 21);
             this.numericPLAYER2v9.TabIndex = 33;
             this.numericPLAYER2v9.ValueChanged += new System.EventHandler(this.numericPLAYER2_ValueChanged);
             // 
@@ -1340,7 +1333,7 @@ namespace SDAT
             this.labelPLAYER2v9.AutoSize = true;
             this.labelPLAYER2v9.Location = new System.Drawing.Point(131, 21);
             this.labelPLAYER2v9.Name = "labelPLAYER2v9";
-            this.labelPLAYER2v9.Size = new System.Drawing.Size(23, 13);
+            this.labelPLAYER2v9.Size = new System.Drawing.Size(23, 12);
             this.labelPLAYER2v9.TabIndex = 32;
             this.labelPLAYER2v9.Text = "V9:";
             // 
@@ -1353,7 +1346,7 @@ namespace SDAT
             0,
             0});
             this.numericPLAYER2v5.Name = "numericPLAYER2v5";
-            this.numericPLAYER2v5.Size = new System.Drawing.Size(48, 20);
+            this.numericPLAYER2v5.Size = new System.Drawing.Size(48, 21);
             this.numericPLAYER2v5.TabIndex = 31;
             this.numericPLAYER2v5.ValueChanged += new System.EventHandler(this.numericPLAYER2_ValueChanged);
             // 
@@ -1362,7 +1355,7 @@ namespace SDAT
             this.labelPLAYERv5.AutoSize = true;
             this.labelPLAYERv5.Location = new System.Drawing.Point(6, 151);
             this.labelPLAYERv5.Name = "labelPLAYERv5";
-            this.labelPLAYERv5.Size = new System.Drawing.Size(23, 13);
+            this.labelPLAYERv5.Size = new System.Drawing.Size(23, 12);
             this.labelPLAYERv5.TabIndex = 30;
             this.labelPLAYERv5.Text = "V5:";
             // 
@@ -1375,7 +1368,7 @@ namespace SDAT
             0,
             0});
             this.numericPLAYER2v4.Name = "numericPLAYER2v4";
-            this.numericPLAYER2v4.Size = new System.Drawing.Size(48, 20);
+            this.numericPLAYER2v4.Size = new System.Drawing.Size(48, 21);
             this.numericPLAYER2v4.TabIndex = 29;
             this.numericPLAYER2v4.ValueChanged += new System.EventHandler(this.numericPLAYER2_ValueChanged);
             // 
@@ -1384,7 +1377,7 @@ namespace SDAT
             this.labelPLAYERv4.AutoSize = true;
             this.labelPLAYERv4.Location = new System.Drawing.Point(6, 126);
             this.labelPLAYERv4.Name = "labelPLAYERv4";
-            this.labelPLAYERv4.Size = new System.Drawing.Size(23, 13);
+            this.labelPLAYERv4.Size = new System.Drawing.Size(23, 12);
             this.labelPLAYERv4.TabIndex = 28;
             this.labelPLAYERv4.Text = "V4:";
             // 
@@ -1397,7 +1390,7 @@ namespace SDAT
             0,
             0});
             this.numericPLAYER2v3.Name = "numericPLAYER2v3";
-            this.numericPLAYER2v3.Size = new System.Drawing.Size(48, 20);
+            this.numericPLAYER2v3.Size = new System.Drawing.Size(48, 21);
             this.numericPLAYER2v3.TabIndex = 27;
             this.numericPLAYER2v3.ValueChanged += new System.EventHandler(this.numericPLAYER2_ValueChanged);
             // 
@@ -1406,7 +1399,7 @@ namespace SDAT
             this.labelPLAYER2v3.AutoSize = true;
             this.labelPLAYER2v3.Location = new System.Drawing.Point(6, 99);
             this.labelPLAYER2v3.Name = "labelPLAYER2v3";
-            this.labelPLAYER2v3.Size = new System.Drawing.Size(23, 13);
+            this.labelPLAYER2v3.Size = new System.Drawing.Size(23, 12);
             this.labelPLAYER2v3.TabIndex = 26;
             this.labelPLAYER2v3.Text = "V3:";
             // 
@@ -1419,7 +1412,7 @@ namespace SDAT
             0,
             0});
             this.numericPLAYER2v1.Name = "numericPLAYER2v1";
-            this.numericPLAYER2v1.Size = new System.Drawing.Size(48, 20);
+            this.numericPLAYER2v1.Size = new System.Drawing.Size(48, 21);
             this.numericPLAYER2v1.TabIndex = 25;
             this.numericPLAYER2v1.ValueChanged += new System.EventHandler(this.numericPLAYER2_ValueChanged);
             // 
@@ -1428,7 +1421,7 @@ namespace SDAT
             this.labelPLAYER2v1.AutoSize = true;
             this.labelPLAYER2v1.Location = new System.Drawing.Point(6, 47);
             this.labelPLAYER2v1.Name = "labelPLAYER2v1";
-            this.labelPLAYER2v1.Size = new System.Drawing.Size(23, 13);
+            this.labelPLAYER2v1.Size = new System.Drawing.Size(23, 12);
             this.labelPLAYER2v1.TabIndex = 24;
             this.labelPLAYER2v1.Text = "V1:";
             // 
@@ -1441,7 +1434,7 @@ namespace SDAT
             0,
             0});
             this.numericPLAYER2v6.Name = "numericPLAYER2v6";
-            this.numericPLAYER2v6.Size = new System.Drawing.Size(48, 20);
+            this.numericPLAYER2v6.Size = new System.Drawing.Size(48, 21);
             this.numericPLAYER2v6.TabIndex = 23;
             this.numericPLAYER2v6.ValueChanged += new System.EventHandler(this.numericPLAYER2_ValueChanged);
             // 
@@ -1450,7 +1443,7 @@ namespace SDAT
             this.labelPLAYERv6.AutoSize = true;
             this.labelPLAYERv6.Location = new System.Drawing.Point(6, 177);
             this.labelPLAYERv6.Name = "labelPLAYERv6";
-            this.labelPLAYERv6.Size = new System.Drawing.Size(23, 13);
+            this.labelPLAYERv6.Size = new System.Drawing.Size(23, 12);
             this.labelPLAYERv6.TabIndex = 22;
             this.labelPLAYERv6.Text = "V6:";
             // 
@@ -1463,7 +1456,7 @@ namespace SDAT
             0,
             0});
             this.numericPLAYER2v7.Name = "numericPLAYER2v7";
-            this.numericPLAYER2v7.Size = new System.Drawing.Size(48, 20);
+            this.numericPLAYER2v7.Size = new System.Drawing.Size(48, 21);
             this.numericPLAYER2v7.TabIndex = 21;
             this.numericPLAYER2v7.ValueChanged += new System.EventHandler(this.numericPLAYER2_ValueChanged);
             // 
@@ -1472,7 +1465,7 @@ namespace SDAT
             this.labelPLAYERv7.AutoSize = true;
             this.labelPLAYERv7.Location = new System.Drawing.Point(6, 203);
             this.labelPLAYERv7.Name = "labelPLAYERv7";
-            this.labelPLAYERv7.Size = new System.Drawing.Size(23, 13);
+            this.labelPLAYERv7.Size = new System.Drawing.Size(23, 12);
             this.labelPLAYERv7.TabIndex = 20;
             this.labelPLAYERv7.Text = "V7:";
             // 
@@ -1485,7 +1478,7 @@ namespace SDAT
             0,
             0});
             this.numericPLAYER2v8.Name = "numericPLAYER2v8";
-            this.numericPLAYER2v8.Size = new System.Drawing.Size(48, 20);
+            this.numericPLAYER2v8.Size = new System.Drawing.Size(48, 21);
             this.numericPLAYER2v8.TabIndex = 19;
             this.numericPLAYER2v8.ValueChanged += new System.EventHandler(this.numericPLAYER2_ValueChanged);
             // 
@@ -1494,7 +1487,7 @@ namespace SDAT
             this.labelPLAYERv8.AutoSize = true;
             this.labelPLAYERv8.Location = new System.Drawing.Point(6, 229);
             this.labelPLAYERv8.Name = "labelPLAYERv8";
-            this.labelPLAYERv8.Size = new System.Drawing.Size(23, 13);
+            this.labelPLAYERv8.Size = new System.Drawing.Size(23, 12);
             this.labelPLAYERv8.TabIndex = 18;
             this.labelPLAYERv8.Text = "V8:";
             // 
@@ -1507,7 +1500,7 @@ namespace SDAT
             0,
             0});
             this.numericPLAYER2v16.Name = "numericPLAYER2v16";
-            this.numericPLAYER2v16.Size = new System.Drawing.Size(48, 20);
+            this.numericPLAYER2v16.Size = new System.Drawing.Size(48, 21);
             this.numericPLAYER2v16.TabIndex = 17;
             this.numericPLAYER2v16.ValueChanged += new System.EventHandler(this.numericPLAYER2_ValueChanged);
             // 
@@ -1516,7 +1509,7 @@ namespace SDAT
             this.labelPLAYER2v15.AutoSize = true;
             this.labelPLAYER2v15.Location = new System.Drawing.Point(132, 177);
             this.labelPLAYER2v15.Name = "labelPLAYER2v15";
-            this.labelPLAYER2v15.Size = new System.Drawing.Size(29, 13);
+            this.labelPLAYER2v15.Size = new System.Drawing.Size(29, 12);
             this.labelPLAYER2v15.TabIndex = 16;
             this.labelPLAYER2v15.Text = "V15:";
             // 
@@ -1529,7 +1522,7 @@ namespace SDAT
             0,
             0});
             this.numericPLAYER2v15.Name = "numericPLAYER2v15";
-            this.numericPLAYER2v15.Size = new System.Drawing.Size(48, 20);
+            this.numericPLAYER2v15.Size = new System.Drawing.Size(48, 21);
             this.numericPLAYER2v15.TabIndex = 15;
             this.numericPLAYER2v15.ValueChanged += new System.EventHandler(this.numericPLAYER2_ValueChanged);
             // 
@@ -1538,7 +1531,7 @@ namespace SDAT
             this.labelPLAYER2v14.AutoSize = true;
             this.labelPLAYER2v14.Location = new System.Drawing.Point(131, 151);
             this.labelPLAYER2v14.Name = "labelPLAYER2v14";
-            this.labelPLAYER2v14.Size = new System.Drawing.Size(29, 13);
+            this.labelPLAYER2v14.Size = new System.Drawing.Size(29, 12);
             this.labelPLAYER2v14.TabIndex = 14;
             this.labelPLAYER2v14.Text = "V14:";
             // 
@@ -1551,7 +1544,7 @@ namespace SDAT
             0,
             0});
             this.numericPLAYER2v14.Name = "numericPLAYER2v14";
-            this.numericPLAYER2v14.Size = new System.Drawing.Size(48, 20);
+            this.numericPLAYER2v14.Size = new System.Drawing.Size(48, 21);
             this.numericPLAYER2v14.TabIndex = 13;
             this.numericPLAYER2v14.ValueChanged += new System.EventHandler(this.numericPLAYER2_ValueChanged);
             // 
@@ -1560,7 +1553,7 @@ namespace SDAT
             this.labelPLAYER2v16.AutoSize = true;
             this.labelPLAYER2v16.Location = new System.Drawing.Point(131, 203);
             this.labelPLAYER2v16.Name = "labelPLAYER2v16";
-            this.labelPLAYER2v16.Size = new System.Drawing.Size(29, 13);
+            this.labelPLAYER2v16.Size = new System.Drawing.Size(29, 12);
             this.labelPLAYER2v16.TabIndex = 12;
             this.labelPLAYER2v16.Text = "V16:";
             // 
@@ -1573,7 +1566,7 @@ namespace SDAT
             0,
             0});
             this.numericPLAYER2v13.Name = "numericPLAYER2v13";
-            this.numericPLAYER2v13.Size = new System.Drawing.Size(48, 20);
+            this.numericPLAYER2v13.Size = new System.Drawing.Size(48, 21);
             this.numericPLAYER2v13.TabIndex = 11;
             this.numericPLAYER2v13.ValueChanged += new System.EventHandler(this.numericPLAYER2_ValueChanged);
             // 
@@ -1582,7 +1575,7 @@ namespace SDAT
             this.labelPLAYER2v13.AutoSize = true;
             this.labelPLAYER2v13.Location = new System.Drawing.Point(131, 125);
             this.labelPLAYER2v13.Name = "labelPLAYER2v13";
-            this.labelPLAYER2v13.Size = new System.Drawing.Size(29, 13);
+            this.labelPLAYER2v13.Size = new System.Drawing.Size(29, 12);
             this.labelPLAYER2v13.TabIndex = 10;
             this.labelPLAYER2v13.Text = "V13:";
             // 
@@ -1595,7 +1588,7 @@ namespace SDAT
             0,
             0});
             this.numericPLAYER2v12.Name = "numericPLAYER2v12";
-            this.numericPLAYER2v12.Size = new System.Drawing.Size(48, 20);
+            this.numericPLAYER2v12.Size = new System.Drawing.Size(48, 21);
             this.numericPLAYER2v12.TabIndex = 9;
             this.numericPLAYER2v12.ValueChanged += new System.EventHandler(this.numericPLAYER2_ValueChanged);
             // 
@@ -1604,7 +1597,7 @@ namespace SDAT
             this.labelPLAYER2v12.AutoSize = true;
             this.labelPLAYER2v12.Location = new System.Drawing.Point(131, 99);
             this.labelPLAYER2v12.Name = "labelPLAYER2v12";
-            this.labelPLAYER2v12.Size = new System.Drawing.Size(29, 13);
+            this.labelPLAYER2v12.Size = new System.Drawing.Size(29, 12);
             this.labelPLAYER2v12.TabIndex = 8;
             this.labelPLAYER2v12.Text = "V12:";
             // 
@@ -1617,7 +1610,7 @@ namespace SDAT
             0,
             0});
             this.numericPLAYER2v11.Name = "numericPLAYER2v11";
-            this.numericPLAYER2v11.Size = new System.Drawing.Size(48, 20);
+            this.numericPLAYER2v11.Size = new System.Drawing.Size(48, 21);
             this.numericPLAYER2v11.TabIndex = 7;
             this.numericPLAYER2v11.ValueChanged += new System.EventHandler(this.numericPLAYER2_ValueChanged);
             // 
@@ -1626,7 +1619,7 @@ namespace SDAT
             this.labelPLAYER2v11.AutoSize = true;
             this.labelPLAYER2v11.Location = new System.Drawing.Point(131, 73);
             this.labelPLAYER2v11.Name = "labelPLAYER2v11";
-            this.labelPLAYER2v11.Size = new System.Drawing.Size(29, 13);
+            this.labelPLAYER2v11.Size = new System.Drawing.Size(29, 12);
             this.labelPLAYER2v11.TabIndex = 6;
             this.labelPLAYER2v11.Text = "V11:";
             // 
@@ -1639,7 +1632,7 @@ namespace SDAT
             0,
             0});
             this.numericPLAYER2v10.Name = "numericPLAYER2v10";
-            this.numericPLAYER2v10.Size = new System.Drawing.Size(48, 20);
+            this.numericPLAYER2v10.Size = new System.Drawing.Size(48, 21);
             this.numericPLAYER2v10.TabIndex = 5;
             this.numericPLAYER2v10.ValueChanged += new System.EventHandler(this.numericPLAYER2_ValueChanged);
             // 
@@ -1648,7 +1641,7 @@ namespace SDAT
             this.labelPLAYER2v10.AutoSize = true;
             this.labelPLAYER2v10.Location = new System.Drawing.Point(131, 49);
             this.labelPLAYER2v10.Name = "labelPLAYER2v10";
-            this.labelPLAYER2v10.Size = new System.Drawing.Size(29, 13);
+            this.labelPLAYER2v10.Size = new System.Drawing.Size(29, 12);
             this.labelPLAYER2v10.TabIndex = 4;
             this.labelPLAYER2v10.Text = "V10:";
             // 
@@ -1661,7 +1654,7 @@ namespace SDAT
             0,
             0});
             this.numericPLAYER2v2.Name = "numericPLAYER2v2";
-            this.numericPLAYER2v2.Size = new System.Drawing.Size(48, 20);
+            this.numericPLAYER2v2.Size = new System.Drawing.Size(48, 21);
             this.numericPLAYER2v2.TabIndex = 3;
             this.numericPLAYER2v2.ValueChanged += new System.EventHandler(this.numericPLAYER2_ValueChanged);
             // 
@@ -1670,7 +1663,7 @@ namespace SDAT
             this.labelPLAYER2v2.AutoSize = true;
             this.labelPLAYER2v2.Location = new System.Drawing.Point(6, 73);
             this.labelPLAYER2v2.Name = "labelPLAYER2v2";
-            this.labelPLAYER2v2.Size = new System.Drawing.Size(23, 13);
+            this.labelPLAYER2v2.Size = new System.Drawing.Size(23, 12);
             this.labelPLAYER2v2.TabIndex = 2;
             this.labelPLAYER2v2.Text = "V2:";
             // 
@@ -1683,7 +1676,7 @@ namespace SDAT
             0,
             0});
             this.numericPLAYER2count.Name = "numericPLAYER2count";
-            this.numericPLAYER2count.Size = new System.Drawing.Size(48, 20);
+            this.numericPLAYER2count.Size = new System.Drawing.Size(48, 21);
             this.numericPLAYER2count.TabIndex = 1;
             this.numericPLAYER2count.ValueChanged += new System.EventHandler(this.numericPLAYER2_ValueChanged);
             // 
@@ -1692,16 +1685,16 @@ namespace SDAT
             this.labelPLAYER2count.AutoSize = true;
             this.labelPLAYER2count.Location = new System.Drawing.Point(6, 21);
             this.labelPLAYER2count.Name = "labelPLAYER2count";
-            this.labelPLAYER2count.Size = new System.Drawing.Size(35, 13);
+            this.labelPLAYER2count.Size = new System.Drawing.Size(35, 12);
             this.labelPLAYER2count.TabIndex = 0;
             this.labelPLAYER2count.Text = "Used:";
             // 
             // labelPLAYER2total
             // 
             this.labelPLAYER2total.AutoSize = true;
-            this.labelPLAYER2total.Location = new System.Drawing.Point(177, 8);
+            this.labelPLAYER2total.Location = new System.Drawing.Point(200, 8);
             this.labelPLAYER2total.Name = "labelPLAYER2total";
-            this.labelPLAYER2total.Size = new System.Drawing.Size(16, 13);
+            this.labelPLAYER2total.Size = new System.Drawing.Size(17, 12);
             this.labelPLAYER2total.TabIndex = 5;
             this.labelPLAYER2total.Text = "of";
             // 
@@ -1710,20 +1703,20 @@ namespace SDAT
             this.labelPLAYER2current.AutoSize = true;
             this.labelPLAYER2current.Location = new System.Drawing.Point(8, 8);
             this.labelPLAYER2current.Name = "labelPLAYER2current";
-            this.labelPLAYER2current.Size = new System.Drawing.Size(77, 13);
+            this.labelPLAYER2current.Size = new System.Drawing.Size(95, 12);
             this.labelPLAYER2current.TabIndex = 4;
             this.labelPLAYER2current.Text = "Current record:";
             // 
             // numericPLAYER2record
             // 
-            this.numericPLAYER2record.Location = new System.Drawing.Point(91, 6);
+            this.numericPLAYER2record.Location = new System.Drawing.Point(114, 6);
             this.numericPLAYER2record.Maximum = new decimal(new int[] {
             -1,
             0,
             0,
             0});
             this.numericPLAYER2record.Name = "numericPLAYER2record";
-            this.numericPLAYER2record.Size = new System.Drawing.Size(80, 20);
+            this.numericPLAYER2record.Size = new System.Drawing.Size(80, 21);
             this.numericPLAYER2record.TabIndex = 3;
             this.numericPLAYER2record.Value = new decimal(new int[] {
             1,
@@ -1816,7 +1809,7 @@ namespace SDAT
             "SWAR"});
             this.comboBoxGROUPtype.Location = new System.Drawing.Point(61, 24);
             this.comboBoxGROUPtype.Name = "comboBoxGROUPtype";
-            this.comboBoxGROUPtype.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxGROUPtype.Size = new System.Drawing.Size(121, 20);
             this.comboBoxGROUPtype.TabIndex = 4;
             this.comboBoxGROUPtype.SelectedIndexChanged += new System.EventHandler(this.comboBoxGROUPtype_SelectedIndexChanged);
             // 
@@ -1829,7 +1822,7 @@ namespace SDAT
             0,
             0});
             this.numericGROUPentry.Name = "numericGROUPentry";
-            this.numericGROUPentry.Size = new System.Drawing.Size(120, 20);
+            this.numericGROUPentry.Size = new System.Drawing.Size(120, 21);
             this.numericGROUPentry.TabIndex = 3;
             this.numericGROUPentry.ValueChanged += new System.EventHandler(this.numericGROUPentry_ValueChanged);
             // 
@@ -1838,7 +1831,7 @@ namespace SDAT
             this.labelGROUPentry.AutoSize = true;
             this.labelGROUPentry.Location = new System.Drawing.Point(6, 53);
             this.labelGROUPentry.Name = "labelGROUPentry";
-            this.labelGROUPentry.Size = new System.Drawing.Size(34, 13);
+            this.labelGROUPentry.Size = new System.Drawing.Size(41, 12);
             this.labelGROUPentry.TabIndex = 1;
             this.labelGROUPentry.Text = "Entry:";
             // 
@@ -1847,7 +1840,7 @@ namespace SDAT
             this.labelGROUPtype.AutoSize = true;
             this.labelGROUPtype.Location = new System.Drawing.Point(6, 27);
             this.labelGROUPtype.Name = "labelGROUPtype";
-            this.labelGROUPtype.Size = new System.Drawing.Size(34, 13);
+            this.labelGROUPtype.Size = new System.Drawing.Size(35, 12);
             this.labelGROUPtype.TabIndex = 0;
             this.labelGROUPtype.Text = "Type:";
             // 
@@ -1856,7 +1849,7 @@ namespace SDAT
             this.labelGROUPsubgroupTotal.AutoSize = true;
             this.labelGROUPsubgroupTotal.Location = new System.Drawing.Point(167, 21);
             this.labelGROUPsubgroupTotal.Name = "labelGROUPsubgroupTotal";
-            this.labelGROUPsubgroupTotal.Size = new System.Drawing.Size(19, 13);
+            this.labelGROUPsubgroupTotal.Size = new System.Drawing.Size(23, 12);
             this.labelGROUPsubgroupTotal.TabIndex = 2;
             this.labelGROUPsubgroupTotal.Text = "of ";
             // 
@@ -1865,7 +1858,7 @@ namespace SDAT
             this.labelGROUPsubgroup.AutoSize = true;
             this.labelGROUPsubgroup.Location = new System.Drawing.Point(6, 21);
             this.labelGROUPsubgroup.Name = "labelGROUPsubgroup";
-            this.labelGROUPsubgroup.Size = new System.Drawing.Size(56, 13);
+            this.labelGROUPsubgroup.Size = new System.Drawing.Size(59, 12);
             this.labelGROUPsubgroup.TabIndex = 1;
             this.labelGROUPsubgroup.Text = "Subgroup:";
             // 
@@ -1878,7 +1871,7 @@ namespace SDAT
             0,
             0});
             this.numericGROUPcurrentSubgroup.Name = "numericGROUPcurrentSubgroup";
-            this.numericGROUPcurrentSubgroup.Size = new System.Drawing.Size(91, 20);
+            this.numericGROUPcurrentSubgroup.Size = new System.Drawing.Size(91, 21);
             this.numericGROUPcurrentSubgroup.TabIndex = 0;
             this.numericGROUPcurrentSubgroup.ValueChanged += new System.EventHandler(this.numericGROUPcurrentGroup_ValueChanged);
             // 
@@ -1896,9 +1889,9 @@ namespace SDAT
             // labelGROUPtotal
             // 
             this.labelGROUPtotal.AutoSize = true;
-            this.labelGROUPtotal.Location = new System.Drawing.Point(177, 8);
+            this.labelGROUPtotal.Location = new System.Drawing.Point(213, 8);
             this.labelGROUPtotal.Name = "labelGROUPtotal";
-            this.labelGROUPtotal.Size = new System.Drawing.Size(16, 13);
+            this.labelGROUPtotal.Size = new System.Drawing.Size(17, 12);
             this.labelGROUPtotal.TabIndex = 5;
             this.labelGROUPtotal.Text = "of";
             // 
@@ -1907,20 +1900,20 @@ namespace SDAT
             this.labelGROUPcurrent.AutoSize = true;
             this.labelGROUPcurrent.Location = new System.Drawing.Point(8, 8);
             this.labelGROUPcurrent.Name = "labelGROUPcurrent";
-            this.labelGROUPcurrent.Size = new System.Drawing.Size(77, 13);
+            this.labelGROUPcurrent.Size = new System.Drawing.Size(95, 12);
             this.labelGROUPcurrent.TabIndex = 4;
             this.labelGROUPcurrent.Text = "Current record:";
             // 
             // numericGROUPrecord
             // 
-            this.numericGROUPrecord.Location = new System.Drawing.Point(91, 6);
+            this.numericGROUPrecord.Location = new System.Drawing.Point(116, 6);
             this.numericGROUPrecord.Maximum = new decimal(new int[] {
             -1,
             0,
             0,
             0});
             this.numericGROUPrecord.Name = "numericGROUPrecord";
-            this.numericGROUPrecord.Size = new System.Drawing.Size(80, 20);
+            this.numericGROUPrecord.Size = new System.Drawing.Size(80, 21);
             this.numericGROUPrecord.TabIndex = 3;
             this.numericGROUPrecord.Value = new decimal(new int[] {
             1,
@@ -1931,13 +1924,13 @@ namespace SDAT
             // 
             // InfoForm
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(384, 316);
             this.Controls.Add(this.btnAccept);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "InfoForm";
             this.Text = "INFO section";

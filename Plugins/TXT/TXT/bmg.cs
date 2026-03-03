@@ -110,7 +110,7 @@ namespace TXT
 
                     if (c == '\x1A') // TODO: Información extra aún no investigada
                     {
-                        br.ReadBytes(br.ReadByte() - 0x2);
+                        br.ReadBytes(br.ReadByte() - 0x3);
                         continue;
                     }
                     if (c == '\x0A')

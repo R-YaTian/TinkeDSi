@@ -59,40 +59,5 @@ namespace SDAT.Properties {
                 resourceCulture = value;
             }
         }
-        
-        internal static System.Drawing.Bitmap accept {
-            get {
-                object obj = ResourceManager.GetObject("accept", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap information {
-            get {
-                object obj = ResourceManager.GetObject("information", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap package_add {
-            get {
-                object obj = ResourceManager.GetObject("package_add", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap sound_add {
-            get {
-                object obj = ResourceManager.GetObject("sound_add", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap tag_blue_edit {
-            get {
-                object obj = ResourceManager.GetObject("tag_blue_edit", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
     }
 }

@@ -25,6 +25,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Ekona;
 
 namespace SDAT
 {
@@ -36,9 +37,13 @@ namespace SDAT
         {
             InitializeComponent();
         }
+
         public InfoForm(Info info)
         {
             InitializeComponent();
+
+            this.btnAccept.Image = Ekona.Helper.SVGLoader.LoadSvg("accept", 16);
+            this.Icon = Ekona.Helper.SVGLoader.LoadSvgToIcon("information", 32);
 
             this.info = info;
             ReadInfo();
@@ -151,6 +156,7 @@ namespace SDAT
             }
             ReadRecord(7);
         }
+
         private void ReadRecord(int page)
         {
             switch (page)

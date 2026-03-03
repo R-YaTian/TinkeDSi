@@ -97,11 +97,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\sound_add.png" />
-    <None Include="Resources\information.png" />
-    <None Include="Resources\accept.png" />
-    <None Include="Resources\package_add.png" />
-    <None Include="Resources\tag_blue_edit.png" />
     <Content Include="SDATLang.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

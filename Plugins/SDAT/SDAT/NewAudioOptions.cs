@@ -27,9 +27,12 @@ namespace SDAT
         {
             InitializeComponent();
         }
+
         public NewAudioOptions(IPluginHost pluginHost, bool isSWAV)
         {
             InitializeComponent();
+            this.btnAccept.Image = Ekona.Helper.SVGLoader.LoadSvg("accept", 16);
+            this.Icon = Ekona.Helper.SVGLoader.LoadSvgToIcon("information", 32);
             this.pluginHost = pluginHost;
 
             ReadLanguage();
