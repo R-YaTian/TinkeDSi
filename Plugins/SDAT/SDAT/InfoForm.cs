@@ -475,7 +475,7 @@ namespace SDAT
 
             Info.PLAYER player = new Info.PLAYER();
             player.unknown = (byte)numericPLAYERunknown.Value;
-            player.unknown2 = (byte)numericPLAYERunknown2.Value;
+            player.unknown2 = (uint)numericPLAYERunknown2.Value;
             player.padding = new byte[3];
             info.block[4].entries[(int)numericPLAYERrecord.Value] = player;
         }

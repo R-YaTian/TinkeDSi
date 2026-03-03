@@ -221,6 +221,7 @@ namespace SDAT
             }
         }
     }
+
     public enum WaveFormat : ushort
     {
         WAVE_FORMAT_PCM = 0x0001,
@@ -229,5 +230,4 @@ namespace SDAT
         IBM_FORMAT_ALAW = 0x0006,
         WAVE_FORMAT_EXTENSIBLE = 0xFFFE
     }
-
 }
