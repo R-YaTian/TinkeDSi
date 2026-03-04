@@ -51,12 +51,41 @@ namespace SDAT
 
             this.sdat = sdat;
             this.pluginHost = pluginHost;
-            this.btnChangeFile.Image = Ekona.Helper.SVGLoader.LoadSvg("package_add", 24);
-            this.btnUncompress.Image = Ekona.Helper.SVGLoader.LoadSvg("package", 24);
-            this.btnExtract.Image = Ekona.Helper.SVGLoader.LoadSvg("package_go", 24);
-            this.btnInfo.Image = Ekona.Helper.SVGLoader.LoadSvg("information", 24);
-            this.btnImport.Image = Ekona.Helper.SVGLoader.LoadSvg("music", 24);
-            this.btnInfoSect.Image = Ekona.Helper.SVGLoader.LoadSvg("pencil", 24);
+
+            int realSize = Ekona.Helper.SVGLoader.GetRealIconSize(24);
+            imageList.Images.Clear();
+            imageList.ImageSize = new Size(realSize, realSize);
+            imageList.ColorDepth = ColorDepth.Depth32Bit;
+
+            string[] keys = new string[]
+            {
+                "folder.png",
+                "music.png",
+                "package_add.png",
+                "package_go.png",
+                "information.png",
+                "play.png",
+                "stop.png",
+                "package.png",
+                "page_white.png",
+                "pencil.png"
+            };
+
+            foreach (string key in keys)
+            {
+                string svgFile = key.Substring(0, key.Length - 4);
+                var bmp = Ekona.Helper.SVGLoader.LoadSvg(svgFile, 24);
+                imageList.Images.Add(key, bmp);
+            }
+
+            this.btnChangeFile.Image = imageList.Images["package_add.png"];
+            this.btnUncompress.Image = imageList.Images["package.png"];
+            this.btnExtract.Image = imageList.Images["package_go.png"];
+            this.btnInfo.Image = imageList.Images["information.png"];
+            this.btnImport.Image = imageList.Images["music.png"];
+            this.btnInfoSect.Image = imageList.Images["pencil.png"];
+            this.btnReproducir.Image = imageList.Images["play.png"];
+            this.btnStop.Image = imageList.Images["stop.png"];
             ReadLanguage();
 
             if (sdat.files.root.name == "SWAV" || sdat.files.root.name == "STRM")
@@ -136,13 +165,10 @@ namespace SDAT
             switch (formato)
             {
                 case FormatSound.SSEQ:
-                    //return 2; No soportado este formato aún
                     return 8;
                 case FormatSound.SSAR:
-                    //return 2; No soportado este formato aún
                     return 8;
                 case FormatSound.SBNK:
-                    //return 4; No soportado este formato aún
                     return 8;
                 case FormatSound.SWAV:
                     return 1;
@@ -713,7 +739,9 @@ namespace SDAT
                     if (dialog.ShowDialog() != DialogResult.OK)
                         return;
 
-                    sSWAV swav = SWAV.ConvertToSWAV(wav, dialog.Compression, dialog.Volume);
+                    sSWAV swav = SWAV.ConvertToSWAV(wav, dialog.Compression,
+                                                    dialog.IgnoreInitial ? 0 : BitConverter.ToUInt16(oldSwav.data.data, 0),
+                                                    dialog.IgnoreInitial ? 0 : BitConverter.ToUInt16(oldSwav.data.data, 2));
 
                     swav.data.info.bLoop = (byte)(dialog.Loop ? 0x01 : 0x00);
                     swav.data.info.nLoopOffset = (ushort)dialog.LoopOffset;

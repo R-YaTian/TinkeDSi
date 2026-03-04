@@ -46,6 +46,7 @@
       <S0A>Seconds</S0A>
       <S0B>Milliseconds</S0B>
       <S0C>Samples</S0C>
+      <S0D>Ignore initial samples/stepsize</S0D>
     </NewAudioOptions>
     <Information>
       <S00>/bSection</S00>
@@ -121,6 +122,7 @@
       <S0A>Segundos</S0A>
       <S0B>Milisegundos</S0B>
       <S0C>Muestras</S0C>
+      <S0D>Ignore initial samples/stepsize</S0D>
     </NewAudioOptions>
     <Information>
       <S00>/bSección</S00>
@@ -196,6 +198,7 @@
       <S0A>Secondes</S0A>
       <S0B>Millisecondes</S0B>
       <S0C>Échantillons</S0C>
+      <S0D>Ignore initial samples/stepsize</S0D>
     </NewAudioOptions>
     <Information>
       <S00>/bSection</S00>
@@ -271,6 +274,7 @@
       <S0A>Seconds</S0A>
       <S0B>Milliseconds</S0B>
       <S0C>Samples</S0C>
+      <S0D>Ignore initial samples/stepsize</S0D>
     </NewAudioOptions>
     <Information>
       <S00>/bSection</S00>
@@ -346,6 +350,7 @@
       <S0A>秒</S0A>
       <S0B>毫秒</S0B>
       <S0C>采样</S0C>
+      <S0D>忽略初始采样值与步进</S0D>
     </NewAudioOptions>
     <Information>
       <S00>/b段</S00>

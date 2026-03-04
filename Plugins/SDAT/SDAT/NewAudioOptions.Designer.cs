@@ -45,6 +45,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.numericVolume = new System.Windows.Forms.NumericUpDown();
             this.label5 = new System.Windows.Forms.Label();
+            this.checkIgnoreOrigin = new System.Windows.Forms.CheckBox();
             this.groupLoop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericLoopLength)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericLoopOffset)).BeginInit();
@@ -60,7 +61,7 @@
             "PCM-8",
             "PCM-16",
             "IMA-ADPCM"});
-            this.comboEncoding.Location = new System.Drawing.Point(16, 29);
+            this.comboEncoding.Location = new System.Drawing.Point(16, 24);
             this.comboEncoding.Name = "comboEncoding";
             this.comboEncoding.Size = new System.Drawing.Size(130, 20);
             this.comboEncoding.TabIndex = 0;
@@ -69,7 +70,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 13);
+            this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(23, 12);
             this.label1.TabIndex = 1;
@@ -92,7 +93,7 @@
             this.checkLoop.AutoSize = true;
             this.checkLoop.Checked = true;
             this.checkLoop.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkLoop.Location = new System.Drawing.Point(16, 69);
+            this.checkLoop.Location = new System.Drawing.Point(14, 72);
             this.checkLoop.Name = "checkLoop";
             this.checkLoop.Size = new System.Drawing.Size(42, 16);
             this.checkLoop.TabIndex = 3;
@@ -267,12 +268,24 @@
             this.label5.Text = "S07";
             this.label5.Visible = false;
             // 
+            // checkIgnoreOrigin
+            // 
+            this.checkIgnoreOrigin.AutoSize = true;
+            this.checkIgnoreOrigin.Enabled = false;
+            this.checkIgnoreOrigin.Location = new System.Drawing.Point(14, 50);
+            this.checkIgnoreOrigin.Name = "checkIgnoreOrigin";
+            this.checkIgnoreOrigin.Size = new System.Drawing.Size(42, 16);
+            this.checkIgnoreOrigin.TabIndex = 9;
+            this.checkIgnoreOrigin.Text = "S0D";
+            this.checkIgnoreOrigin.UseVisualStyleBackColor = true;
+            // 
             // NewAudioOptions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(262, 327);
+            this.Controls.Add(this.checkIgnoreOrigin);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.numericVolume);
             this.Controls.Add(this.label4);
@@ -318,5 +331,6 @@
         private System.Windows.Forms.RadioButton radioSam;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.RadioButton radioMSec;
+        private System.Windows.Forms.CheckBox checkIgnoreOrigin;
     }
 }

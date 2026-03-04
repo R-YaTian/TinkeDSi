@@ -87,17 +87,7 @@ namespace SDAT
             // 
             // imageList
             // 
-            this.imageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList.ImageStream")));
             this.imageList.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList.Images.SetKeyName(0, "folder.png");
-            this.imageList.Images.SetKeyName(1, "music.png");
-            this.imageList.Images.SetKeyName(2, "sound.png");
-            this.imageList.Images.SetKeyName(3, "package_go.png");
-            this.imageList.Images.SetKeyName(4, "bell.png");
-            this.imageList.Images.SetKeyName(5, "resultset_next.png");
-            this.imageList.Images.SetKeyName(6, "stop.png");
-            this.imageList.Images.SetKeyName(7, "package.png");
-            this.imageList.Images.SetKeyName(8, "page_white.png");
             // 
             // listProp
             // 
@@ -223,8 +213,6 @@ namespace SDAT
             // 
             // btnStop
             // 
-            this.btnStop.ImageIndex = 6;
-            this.btnStop.ImageList = this.imageList;
             this.btnStop.Location = new System.Drawing.Point(357, 432);
             this.btnStop.Name = "btnStop";
             this.btnStop.Size = new System.Drawing.Size(45, 34);
@@ -235,8 +223,6 @@ namespace SDAT
             // btnReproducir
             // 
             this.btnReproducir.Enabled = false;
-            this.btnReproducir.ImageIndex = 5;
-            this.btnReproducir.ImageList = this.imageList;
             this.btnReproducir.Location = new System.Drawing.Point(357, 392);
             this.btnReproducir.Name = "btnReproducir";
             this.btnReproducir.Size = new System.Drawing.Size(45, 34);

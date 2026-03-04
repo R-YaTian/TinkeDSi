@@ -63,6 +63,7 @@ namespace SDAT
                 radioSec.Text = xml.Element("S0A").Value;
                 radioMSec.Text = xml.Element("S0B").Value;
                 radioSam.Text = xml.Element("S0C").Value;
+                checkIgnoreOrigin.Text = xml.Element("S0D").Value;
             }
             catch { throw new Exception("There was an error reading the language file"); }
         }
@@ -108,6 +109,10 @@ namespace SDAT
             set { sampleRate = value; }
             get { return sampleRate; }
         }
+        public bool IgnoreInitial
+        {
+            get { return checkIgnoreOrigin.Checked; }
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -117,7 +122,9 @@ namespace SDAT
         private void comboEncoding_SelectedIndexChanged(object sender, EventArgs e)
         {
             compressFormat = comboEncoding.SelectedIndex;
+            checkIgnoreOrigin.Enabled = compressFormat == 2;
         }
+
         private void numericLoopOffset_ValueChanged(object sender, EventArgs e)
         {
             if (radioSam.Checked)

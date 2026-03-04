@@ -134,13 +134,17 @@ namespace SDAT
             return resul.ToArray();
         }
 
-        public static byte[] Compress(byte[] data)
+        public static byte[] Compress(byte[] data, int sample, int stepindex)
         {
             List<Byte> result = new List<byte>();
 
             #region Preinitialized variables
-            int predictedSample = 0;
-            int index = 0;
+            int predictedSample = sample;
+            int index = stepindex;
+            if (index < 0)
+                index = 0;
+            else if (index > 88)
+                index = 88;
             int stepsize = stepsizeTable[index];
             #endregion
 

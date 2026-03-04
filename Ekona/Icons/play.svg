@@ -1,0 +1,12 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<!-- LICENSE: CC0 License. Uploaded to: SVG Repo, www.svgrepo.com, Transformed by: SVG Repo Mixer Tools -->
+<svg width="64px" height="64px" viewBox="0 0 1024 1024" class="icon" version="1.1"
+    xmlns="http://www.w3.org/2000/svg" fill="#000000">
+    <g id="SVGRepo_bgCarrier" stroke-width="0"/>
+    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+    <g id="SVGRepo_iconCarrier">
+        <path d="M512 1024C229.7 1024 0 794.3 0 512S229.7 0 512 0s512 229.7 512 512-229.7 512-512 512z m0-938.7C276.7 85.3 85.3 276.7 85.3 512S276.7 938.7 512 938.7 938.7 747.3 938.7 512 747.3 85.3 512 85.3z" fill="#3688FF"/>
+        <path d="M434.8 688.2c-7.4 0-14.7-1.9-21.3-5.7-13.2-7.6-21.3-21.7-21.3-37V384c0-15.2 8.1-29.3 21.3-37 13.2-7.6 29.5-7.6 42.7 0l226.5 130.8c13.2 7.6 21.3 21.7 21.3 37 0 15.2-8.1 29.3-21.3 37L456.1 682.5c-6.6 3.9-13.9 5.7-21.3 5.7z m42.7-230.3v113.8l98.5-56.9-98.5-56.9z" fill="#5F6379"/>
+    </g>
+</svg>

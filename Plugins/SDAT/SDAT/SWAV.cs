@@ -193,7 +193,7 @@ namespace SDAT
             }
             return wav;
         }
-        public static sSWAV ConvertToSWAV(sWAV wav, int waveType, int volume = 150)
+        public static sSWAV ConvertToSWAV(sWAV wav, int waveType, int sample, int stepindex)
         {
             sSWAV swav = new sSWAV();
             swav.header.type = "SWAV".ToCharArray();
@@ -211,14 +211,14 @@ namespace SDAT
             if (wav.wave.fmt.numChannels > 1)
                 wav.wave.data.data = WAV.ConvertToMono(wav.wave.data.data, wav.wave.fmt.numChannels, wav.wave.fmt.bitsPerSample);
 
-            //wav.wave.data.data = ChangeVolume(wav.wave.data.data, volume, wav.wave.fmt.bitsPerSample);
             if (waveType == 0)
                 swav.data.data = PCM.PCM16ToPCM8(wav.wave.data.data);
             else if (waveType == 2)
             {
                 List<byte> temp = new List<byte>();
-                temp.AddRange(new Byte[] { 0x00, 0x00, 0x00, 0x00 });
-                temp.AddRange(Compression_ADPCM.Compress(wav.wave.data.data));
+                temp.AddRange(BitConverter.GetBytes((UInt16)sample));
+                temp.AddRange(BitConverter.GetBytes((UInt16)stepindex));
+                temp.AddRange(Compression_ADPCM.Compress(wav.wave.data.data, sample, stepindex));
                 swav.data.data = temp.ToArray();
             }
             else

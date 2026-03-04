@@ -187,6 +187,8 @@
     <EmbeddedResource Include="Icons\open_file.svg" />
     <EmbeddedResource Include="Icons\refresh.svg" />
     <EmbeddedResource Include="Icons\terminal.svg" />
+    <EmbeddedResource Include="Icons\play.svg" />
+    <EmbeddedResource Include="Icons\stop.svg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
