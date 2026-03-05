@@ -191,10 +191,10 @@ namespace Tinke.Nitro
             public byte[] reservedDsi;  // 0x800 bytes reserved for Title 8..15
             public byte[] aniIconData;  // 0x1180 bytes (8 * tiles + 8 * palette + 8 * 16 bytes of animation sequence)
             // padding bytes
-            //public byte[] padding1;   // 1C0h Unused/padding (FFh-filled) in Version 0001h
+            // public byte[] padding1;   // 1C0h Unused/padding (FFh-filled) in Version 0001h
             public byte[] padding2;     // C0h  Unused/padding (FFh-filled) in Version 0002h
             public byte[] padding3;     // 1C0h Unused/padding (FFh-filled) in Version 0003h
-            //public byte[] padding4;   // 40h  Unused/padding (FFh-filled) in Version 0103h
+            // public byte[] padding4;   // 40h  Unused/padding (FFh-filled) in Version 0103h
 
             public uint GetDefSize(uint hardBannerSize = 0, bool out_flag = false)
             {

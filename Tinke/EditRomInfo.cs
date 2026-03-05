@@ -60,6 +60,8 @@ namespace Tinke
             this.header = header;
             this.banner = banner;
             LoadValues();
+            this.comboBanTitles.Items.Remove(Tools.Helper.GetTranslation("EditRomInfo", "S2B"));
+            this.comboBanTitles.Items.Remove(Tools.Helper.GetTranslation("EditRomInfo", "S2C"));
             if (banner.version >= 2)
                 this.comboBanTitles.Items.Add(Tools.Helper.GetTranslation("EditRomInfo", "S2B"));
             if (banner.version >= 3)
@@ -67,6 +69,8 @@ namespace Tinke
             comboBanTitles.SelectedIndex = 0;
             if (banner.version > 3)
                 this.btnImportAdata.Enabled = true;
+            else
+                this.btnImportAdata.Enabled = false;
             if ((header.unitCode & 2) > 0 && (header.twlInternalFlags & 1) > 0 && Sistema.twl_flag != true)
                 this.btnImportiheader.Enabled = true;
         }
@@ -310,13 +314,6 @@ namespace Tinke
                     banner.tileData = br.ReadBytes(0x200);
                     banner.palette = br.ReadBytes(0x20);
                     br.Close();
-                    //PluginInterface.NCGR tile = Imagen_NCGR.BitmapToTile(o.FileName, PluginInterface.TileOrder.Horizontal);
-                    //if (tile.rahc.depth == ColorDepth.Depth8Bit)
-                    //    throw new NotSupportedException(Tools.Helper.GetTranslation("EditRomInfo", "S26"));
-                    //banner.tileData = Convertir.TilesToBytes(tile.rahc.tileData.tiles);
-                    //banner.tileData = Tools.Helper.Bits4ToBits8(banner.tileData);
-                    //// TODO: banner.palette = Convertir.ColorToBGR555(Imagen_NCLR.BitmapToPalette(o.FileName).pltt.palettes[0].colors);
-                    //txtImage.BackColor = Color.LightGreen;
                 }
                 catch (Exception ex)
                 {
@@ -420,8 +417,61 @@ namespace Tinke
             header.encryptionSeed = (byte)numericEncryptionSeed.Value;
         }
 
+        private void numericBanVer_ValueChanged(object sender, EventArgs e)
+        {
+            int value = (int)numericBanVer.Value;
+            if (value > 0x103)
+            {
+                value = 1;
+            }
+            else if (value == 0x102)
+            {
+                value = 3;
+            }
+            else if (value > 3 || value < 1)
+            {
+                value = 0x103;
+            }
 
-        byte[] nintendoLogo = {
+            numericBanVer.Value = value;
+            banner.version = (UInt16)numericBanVer.Value;
+            this.comboBanTitles.Items.Remove(Tools.Helper.GetTranslation("EditRomInfo", "S2B"));
+            this.comboBanTitles.Items.Remove(Tools.Helper.GetTranslation("EditRomInfo", "S2C"));
+            if (banner.version >= 2)
+            {
+                if (banner.chineseTitle == null)
+                {
+                    banner.chineseTitle = "";
+                }
+                this.comboBanTitles.Items.Add(Tools.Helper.GetTranslation("EditRomInfo", "S2B"));
+            }
+            if (banner.version >= 3)
+            {
+                if (banner.koreanTitle == null)
+                {
+                    banner.koreanTitle = "";
+                }
+                this.comboBanTitles.Items.Add(Tools.Helper.GetTranslation("EditRomInfo", "S2C"));
+            }
+            comboBanTitles.SelectedIndex = 0;
+            if (banner.version > 3)
+            {
+                this.btnImportAdata.Enabled = true;
+                byte[] zbyte = new byte[0x800];
+                banner.reservedDsi = zbyte;
+                if (banner.aniIconData == null)
+                {
+                    byte[] anibyte = new byte[0x1180];
+                    banner.aniIconData = anibyte;
+                }
+            }
+            else
+            {
+                this.btnImportAdata.Enabled = false;
+            }
+        }
+
+        private readonly byte[] nintendoLogo = {
 	        0x24, 0xFF, 0xAE, 0x51, 0x69, 0x9A, 0xA2, 0x21, 0x3D, 0x84, 0x82, 0x0A,
 	        0x84, 0xE4, 0x09, 0xAD, 0x11, 0x24, 0x8B, 0x98, 0xC0, 0x81, 0x7F, 0x21,
 	        0xA3, 0x52, 0xBE, 0x19, 0x93, 0x09, 0xCE, 0x20, 0x10, 0x46, 0x4A, 0x4A,
@@ -435,7 +485,7 @@ namespace Tinke
 	        0xF9, 0xA2, 0x34, 0xFF, 0xBB, 0x3E, 0x03, 0x44, 0x78, 0x00, 0x90, 0xCB,
 	        0x88, 0x11, 0x3A, 0x94, 0x65, 0xC0, 0x7C, 0x63, 0x87, 0xF0, 0x3C, 0xAF,
 	        0xD6, 0x25, 0xE4, 0x8B, 0x38, 0x0A, 0xAC, 0x72, 0x21, 0xD4, 0xF8, 0x07
-            };
+        };
 
         private void btnShowMakerCode_Click(object sender, EventArgs e)
         {

@@ -747,13 +747,19 @@ namespace Tinke
             this.numericBanVer.Hexadecimal = true;
             this.numericBanVer.Location = new System.Drawing.Point(96, 83);
             this.numericBanVer.Maximum = new decimal(new int[] {
-            65535,
+            260,
             0,
             0,
             0});
             this.numericBanVer.Name = "numericBanVer";
             this.numericBanVer.Size = new System.Drawing.Size(84, 21);
             this.numericBanVer.TabIndex = 9;
+            this.numericBanVer.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericBanVer.ValueChanged += new System.EventHandler(this.numericBanVer_ValueChanged);
             // 
             // txtBanReserved
             // 

@@ -1249,7 +1249,6 @@ namespace Tinke
                 currFile.name.EndsWith(".SRL") || currFile.name.EndsWith(".NDS") || currFile.name == "ARM9I.BIN" || currFile.name == "ARM7I.BIN")
                 return Format.System;
 
-
             FileStream fs = File.OpenRead(currFile.path);
             fs.Position = currFile.offset;
             if (new String(Encoding.ASCII.GetChars(ext)) == "LZ77") // LZ77

@@ -86,7 +86,6 @@ namespace Tinke
             label2.Text = xml.Element("S04").Value;
             label4.Text = xml.Element("S05").Value;
             lblGameTitle.Text = xml.Element("S41").Value;
-            //comboBannerLang.Text = xml.Element("S06").Value;
             comboBannerLang.Items[0] = xml.Element("S06").Value;
             comboBannerLang.Items[1] = xml.Element("S07").Value;
             comboBannerLang.Items[2] = xml.Element("S08").Value;
@@ -143,13 +142,6 @@ namespace Tinke
             btnDumpicondata.Text = xml.Element("S3E").Value;
             btnDumpAdata.Text = xml.Element("S3F").Value;
             btnDumpiheader.Text = xml.Element("S40").Value;
-            //Place these code here to fix compilation error...
-            if (banner.version >= 2)
-                this.comboBannerLang.Items.Add(Tools.Helper.GetTranslation("RomInfo", "S3C"));
-            if (banner.version >= 3)
-                this.comboBannerLang.Items.Add(Tools.Helper.GetTranslation("RomInfo", "S3D"));
-            if (banner.version > 3 && (banner.GetDefSize(Cabecera.banner_size, true) != 0x840))
-                this.btnDumpAdata.Enabled = true;
         }
         public void Refresh_flag()
         {
@@ -249,6 +241,16 @@ namespace Tinke
                 titulos = new string[] { banner.japaneseTitle, banner.englishTitle, banner.frenchTitle, banner.germanTitle, banner.italianTitle, banner.spanishTitle};
             txtBannerTitle.Text = titulos[0];
             comboBannerLang.SelectedIndex = 0;
+            this.comboBannerLang.Items.Remove(Tools.Helper.GetTranslation("RomInfo", "S3C"));
+            this.comboBannerLang.Items.Remove(Tools.Helper.GetTranslation("RomInfo", "S3D"));
+            if (banner.version >= 2)
+                this.comboBannerLang.Items.Add(Tools.Helper.GetTranslation("RomInfo", "S3C"));
+            if (banner.version >= 3)
+                this.comboBannerLang.Items.Add(Tools.Helper.GetTranslation("RomInfo", "S3D"));
+            if (banner.version > 3 && (banner.GetDefSize(Cabecera.banner_size, true) != 0x840))
+                this.btnDumpAdata.Enabled = true;
+            else
+                this.btnDumpAdata.Enabled = false;
             #endregion
         }
 
@@ -341,11 +343,6 @@ namespace Tinke
             else
                 picIcon.Image = picBanner;
         }
-
-        //private void RomInfo_Resize(object sender, EventArgs e)
-        //{
-            //btnEdit.Location = new Point(groupBanner.Location.X + 5, 313);
-        //}
 
         private void RomInfo_FormClosing(object sender, FormClosingEventArgs e)
         {

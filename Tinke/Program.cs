@@ -146,7 +146,6 @@ namespace Tinke
                 if (Type.GetType("Mono.Runtime") == null && curCommand == 0)
                 {
                     FreeConsole();
-                    SendKeys.SendWait("{ENTER}");
                 }
             }
 

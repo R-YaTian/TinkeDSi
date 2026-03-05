@@ -116,7 +116,6 @@ namespace Tinke
                 if (!isMono && Program.bOpenDefault)
                 {
                     Program.FreeConsole();
-                    SendKeys.SendWait("{ENTER}");
                 }
                 OpenFileDialog o = new OpenFileDialog();
                 o.CheckFileExists = true;
@@ -135,7 +134,6 @@ namespace Tinke
                 if (!isMono)
                 {
                     Program.FreeConsole();
-                    SendKeys.SendWait("{ENTER}");
                 }
                 if (Program.bIsFolder || !string.IsNullOrWhiteSpace(Program.openDirPath))
                 {
@@ -208,7 +206,6 @@ namespace Tinke
                 if (!isMono)
                 {
                     Program.FreeConsole();
-                    SendKeys.SendWait("{ENTER}");
                 }
                 this.Close();
                 Application.Exit();
@@ -235,7 +232,6 @@ namespace Tinke
                 if (!isMono)
                 {
                     Program.FreeConsole();
-                    SendKeys.SendWait("{ENTER}");
                 }
                 this.Close();
                 Application.Exit();

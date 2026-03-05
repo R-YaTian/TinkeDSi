@@ -478,7 +478,6 @@ namespace Tinke.Nitro
             bn.spanishTitle = TitleToString(br.ReadBytes(0x100));
 
             // Version 2-3
-            //byte v = (byte)(bn.version & 0xFF);
             if (bn.version >= 2) bn.chineseTitle = TitleToString(br.ReadBytes(0x100));
             if (bn.version >= 3) bn.koreanTitle = TitleToString(br.ReadBytes(0x100));
             if (bn.version == 2) bn.padding2 = br.ReadBytes(0xC0);
@@ -526,8 +525,6 @@ namespace Tinke.Nitro
             if ((banner.version >> 8) == 1)
             {
                 bw.Write(banner.reservedDsi);
-                //byte[] zbyte = new byte[0x800];
-                //bw.Write(zbyte);
                 bw.Write(banner.aniIconData);
             }
 
@@ -539,7 +536,7 @@ namespace Tinke.Nitro
                 bw.Write((byte)0xFF);
                 rem++;
             }
-            
+
             Console.WriteLine(Tools.Helper.GetTranslation("Messages", "S09"), bw.BaseStream.Length);
             bw.Flush();
             bw.Close();
