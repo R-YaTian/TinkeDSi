@@ -97,17 +97,19 @@ You can help translate TinkeDSi on [Crowdin](https://crwd.in/tinkedsi). If you'd
  * The world end with you (AWLJ)
  * Tetris DS (YLUP)
  * Tokimeki Memorial Girl's Side 3rd Story (B3SJ)
+ * Tokimeki Memorial Girl's Side: 1st Love Plus (C4GJ)
  * Jump! Ultimate Stars (ALAR, DSIG, DSCP)
  * Time Ace (AE3E) (Also works for Powerbike (C2BE))
  * Cake Mania 2 (CAKX)
  * Sonic Rush Adventure (ASCx, A3Yx, BXSx)
- * Inazuma Eleven
- * Tales Of The Tempest
- * A Witch's Tale
- * Death Note: Kira Game
- * Gakuen Hetalia DS
- * Club Penguin
- * Big Hero 6
+ * The Prince of Tennis Games (BTGJ and TENJ)
+ * Inazuma Eleven Games
+ * Tales Of The Tempest (ALEJ)
+ * A Witch's Tale (USA: CW3E)
+ * Death Note: Kira Game (YDNJ)
+ * Gakuen Hetalia DS (THTJ)
+ * Club Penguin (CLPE, CY9P)
+ * Big Hero 6 (TB6X)
 
 ----
 

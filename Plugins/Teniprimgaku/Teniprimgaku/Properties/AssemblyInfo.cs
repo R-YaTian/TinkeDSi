@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // conjunto de atributos. Cambie estos atributos para modificar la información
 // asociada con un ensamblado.
 [assembly: AssemblyTitle("Teniprimgaku")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("The Prince of Tennis Games")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Teniprimgaku")]
-[assembly: AssemblyCopyright("Copyright ©  2013")]
+[assembly: AssemblyProduct("TinkeDSi")]
+[assembly: AssemblyCopyright("pleoNeX")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

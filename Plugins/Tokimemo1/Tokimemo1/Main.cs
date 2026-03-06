@@ -3,58 +3,58 @@
 // Copyright (C) 2013
 //
 //   This program is free software: you can redistribute it and/or modify
-//   it under the terms of the GNU General Public License as published by 
+//   it under the terms of the GNU General Public License as published by
 //   the Free Software Foundation, either version 3 of the License, or
 //   (at your option) any later version.
 //
-//   This program is distributed in the hope that it will be useful, 
+//   This program is distributed in the hope that it will be useful,
 //   but WITHOUT ANY WARRANTY; without even the implied warranty of
 //   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-//   GNU General Public License for more details. 
+//   GNU General Public License for more details.
 //
 //   You should have received a copy of the GNU General Public License
-//   along with this program.  If not, see "http://www.gnu.org/licenses/". 
+//   along with this program.  If not, see "http://www.gnu.org/licenses/".
 // </copyright>
 // <author>pleoNeX</author>
 // <email>benito356@gmail.com</email>
 // <date>01/03/2013</date>
 //-----------------------------------------------------------------------
+using System;
+using Ekona;
+
 namespace Tokimemo1
 {
-    using System;
-    using Ekona;
-    
     public class Main : IGamePlugin
     {
         IPluginHost pluginHost;
         string gameCode;
-        
+
         public void Initialize(IPluginHost pluginHost, string gameCode)
         {
             this.pluginHost = pluginHost;
             this.gameCode = gameCode;
         }
-        
+
         public bool IsCompatible()
         {
             if (this.gameCode == "C4GJ")
             {
                 return true;
             }
-            
+
             return false;
         }
-        
+
         public Format Get_Format(sFile file, byte[] magic)
         {
             if (file.name.EndsWith(".pack") || IsPack(file.id))
             {
                 return Format.Pack;
             }
-            
+
             return Format.Unknown;
         }
-        
+
         private bool IsPack(int id)
         {
             // Folder: /command
@@ -77,7 +77,7 @@ namespace Tokimemo1
                 else
                     return true;
             }
-            
+
             // Folder: /mail
             if (id >= 0x2B9 && id <= 0x2D0)
             {
@@ -87,7 +87,7 @@ namespace Tokimemo1
                 else
                     return false;
             }
-            
+
             // Folder: /mini
             if (id >= 0x2D1 && id <= 0x3B8)
             {
@@ -99,13 +99,13 @@ namespace Tokimemo1
                 else
                     return true;
             }
-            
+
             // Folder: /omake
             if (id >= 0x3B9 && id <= 0x3CA)
             {
                 return true;
             }
-            
+
             // Folder: /script
             if (id >= 0x3CB && id <= 0x76D)
             {
@@ -114,7 +114,7 @@ namespace Tokimemo1
                 else
                     return true;
             }
-            
+
             // Folder: /skinship
             if (id >= 0x1CB0 && id <= 0x1CBF)
             {
@@ -124,7 +124,7 @@ namespace Tokimemo1
                 else
                     return false;
             }
-            
+
             // Folder: /staffroll
             if (id >= 0x1CC0 && id <= 0x1CC8)
             {
@@ -134,7 +134,7 @@ namespace Tokimemo1
                 else
                     return true;
             }
-            
+
             // Folder: /sys
             if (id >= 0x1CC9 && id <= 0x1CCE)
             {
@@ -143,11 +143,11 @@ namespace Tokimemo1
                 else
                     return true;
             }
-            
+
             // Folder: /title
             if (id >= 0x1CCF && id <= 0x1CD4)
                 return true;
-            
+
             // Folder: /web
             if (id >= 0x1CD8 && id <= 0x1CEF)
             {
@@ -157,30 +157,30 @@ namespace Tokimemo1
                 else
                     return true;
             }
-            
+
             return false;
         }
-        
+
         public System.Windows.Forms.Control Show_Info(sFile file)
         {
             throw new NotImplementedException();
         }
-        
+
         public void Read(sFile file)
         {
             throw new NotImplementedException();
         }
-        
+
         public sFolder Unpack(sFile file)
         {
             if (!IsPack(file.id) && !file.name.EndsWith(".pack"))
             {
                 return new sFolder();
             }
-            
+
             return Packer.Unpack(file, this.pluginHost);
         }
-        
+
         public string Pack(ref sFolder unpacked, sFile file)
         {
             throw new NotImplementedException();

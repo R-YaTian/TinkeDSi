@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // set di attributi. Per modificare le informazioni associate a un assembly
 // occorre quindi modificare i valori di questi attributi.
 [assembly: AssemblyTitle("WITCHTALE")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("A Witch's Tale")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Microsoft")]
-[assembly: AssemblyProduct("WITCHTALE")]
-[assembly: AssemblyCopyright("Copyright © Microsoft 2012")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("TinkeDSi")]
+[assembly: AssemblyCopyright("Daviex94")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

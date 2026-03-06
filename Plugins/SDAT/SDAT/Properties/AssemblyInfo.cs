@@ -31,7 +31,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Tinke")]
-[assembly: AssemblyCopyright("rafael1193, pleoNeX")]
+[assembly: AssemblyCopyright("rafael1193, pleoNeX, R-YaTian")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

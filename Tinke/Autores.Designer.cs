@@ -282,6 +282,7 @@ namespace Tinke
             this.listPlugin.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.listPlugin.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listPlugin.FormattingEnabled = true;
+            this.listPlugin.HorizontalScrollbar = true;
             this.listPlugin.ItemHeight = 15;
             this.listPlugin.Location = new System.Drawing.Point(506, 23);
             this.listPlugin.Name = "listPlugin";

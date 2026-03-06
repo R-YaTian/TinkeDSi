@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Tinke")]
-[assembly: AssemblyCopyright("pleoNeX, CUE, Lyan53, MetLob, chyyran")]
+[assembly: AssemblyCopyright("pleoNeX, CUE, Lyan53, MetLob, chyyran, R-YaTian")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

@@ -14,7 +14,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Tinke")]
-[assembly: AssemblyCopyright("pleoNeX, MetLob")]
+[assembly: AssemblyCopyright("pleoNeX, MetLob, R-YaTian")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

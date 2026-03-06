@@ -51,6 +51,7 @@ namespace Tinke
         bool stop;
         private Espera espera;
         public static bool twl_flag;
+        private static int baseWindowWidth;
 
         public Sistema()
         {
@@ -350,6 +351,7 @@ namespace Tinke
             if (!isMono)
                 debug.ShowInTaskbar = true;
             romInfo.ShowInTaskbar = true;
+            baseWindowWidth = this.Width;
             this.Activate();
         }
         private void Sistema_FormClosing(object sender, FormClosingEventArgs e)
@@ -2603,7 +2605,7 @@ namespace Tinke
             }
             else
             {
-                this.Width -= (panelObj.Width + 7);
+                this.Width = baseWindowWidth;
                 btnDesplazar.Text = ">>>>>";
             }
         }

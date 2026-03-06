@@ -119,11 +119,9 @@ namespace Tinke
             {
                 try
                 {
-
-                    if (fileName.EndsWith("Ekona.dll"))
+                    if (fileName.EndsWith("Ekona.dll") || fileName.EndsWith("Fizzler.dll") || fileName.EndsWith("Svg.dll"))
                         continue;
 
-                    
                     Assembly assembly = Assembly.LoadFile(fileName);
                     object[] attributes =  assembly.GetCustomAttributes(typeof(AssemblyCopyrightAttribute), false);
                     if (attributes.Length == 0)
@@ -131,7 +129,6 @@ namespace Tinke
 
                     listPlugin.Items.Add(Path.GetFileNameWithoutExtension(fileName) + "  -->  " +
                         ((AssemblyCopyrightAttribute)attributes[0]).Copyright);
-                       
                 }
                 catch { continue; }
             }
