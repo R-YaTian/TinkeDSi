@@ -58,6 +58,7 @@
             this.columnValue});
             this.listProp.Dock = System.Windows.Forms.DockStyle.Right;
             this.listProp.FullRowSelect = true;
+            this.listProp.HideSelection = false;
             this.listProp.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
             listViewItem1,
             listViewItem2,
@@ -115,14 +116,13 @@
             this.checkLoop.Enabled = false;
             this.checkLoop.Location = new System.Drawing.Point(145, 16);
             this.checkLoop.Name = "checkLoop";
-            this.checkLoop.Size = new System.Drawing.Size(45, 17);
+            this.checkLoop.Size = new System.Drawing.Size(42, 16);
             this.checkLoop.TabIndex = 5;
             this.checkLoop.Text = "S04";
             this.checkLoop.UseVisualStyleBackColor = true;
             // 
             // btnStop
             // 
-            this.btnStop.Image = global::Sounds.Properties.Resources.stop;
             this.btnStop.Location = new System.Drawing.Point(99, 49);
             this.btnStop.Name = "btnStop";
             this.btnStop.Size = new System.Drawing.Size(40, 40);
@@ -132,7 +132,6 @@
             // 
             // btnPlay
             // 
-            this.btnPlay.Image = global::Sounds.Properties.Resources.resultset_next;
             this.btnPlay.Location = new System.Drawing.Point(99, 3);
             this.btnPlay.Name = "btnPlay";
             this.btnPlay.Size = new System.Drawing.Size(40, 40);
@@ -142,7 +141,9 @@
             // 
             // SoundControl
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Transparent;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.checkLoop);

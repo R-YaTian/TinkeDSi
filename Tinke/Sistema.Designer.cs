@@ -107,33 +107,7 @@ namespace Tinke
             // 
             // iconos
             // 
-            this.iconos.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("iconos.ImageStream")));
             this.iconos.TransparentColor = System.Drawing.Color.Transparent;
-            this.iconos.Images.SetKeyName(0, "folder.png");
-            this.iconos.Images.SetKeyName(1, "page_white.png");
-            this.iconos.Images.SetKeyName(2, "palette.png");
-            this.iconos.Images.SetKeyName(3, "picture.png");
-            this.iconos.Images.SetKeyName(4, "page_white_text.png");
-            this.iconos.Images.SetKeyName(5, "compress.png");
-            this.iconos.Images.SetKeyName(6, "package.png");
-            this.iconos.Images.SetKeyName(7, "folder_go.png");
-            this.iconos.Images.SetKeyName(8, "pictures.png");
-            this.iconos.Images.SetKeyName(9, "picture_link.png");
-            this.iconos.Images.SetKeyName(10, "photo.png");
-            this.iconos.Images.SetKeyName(11, "picture_save.png");
-            this.iconos.Images.SetKeyName(12, "picture_delete.png");
-            this.iconos.Images.SetKeyName(13, "film.png");
-            this.iconos.Images.SetKeyName(14, "music.png");
-            this.iconos.Images.SetKeyName(15, "picture_go.png");
-            this.iconos.Images.SetKeyName(16, "font.png");
-            this.iconos.Images.SetKeyName(17, "script.png");
-            this.iconos.Images.SetKeyName(18, "folder_add.png");
-            this.iconos.Images.SetKeyName(19, "disk.png");
-            this.iconos.Images.SetKeyName(20, "page_gear.png");
-            this.iconos.Images.SetKeyName(21, "image.png");
-            this.iconos.Images.SetKeyName(22, "map.png");
-            this.iconos.Images.SetKeyName(23, "package_go.png");
-            this.iconos.Images.SetKeyName(24, "package_add.png");
             // 
             // btnExtract
             // 

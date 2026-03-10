@@ -62,18 +62,19 @@ namespace PSL
             // 
             // spriteControl1
             // 
+            this.spriteControl1.AutoSize = true;
             this.spriteControl1.BackColor = System.Drawing.Color.Transparent;
             this.spriteControl1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.spriteControl1.Location = new System.Drawing.Point(0, 0);
             this.spriteControl1.Name = "spriteControl1";
-            this.spriteControl1.Size = new System.Drawing.Size(512, 512);
+            this.spriteControl1.Size = new System.Drawing.Size(523, 477);
             this.spriteControl1.TabIndex = 0;
             // 
             // btnExtract
             // 
-            this.btnExtract.Location = new System.Drawing.Point(6, 34);
+            this.btnExtract.Location = new System.Drawing.Point(6, 31);
             this.btnExtract.Name = "btnExtract";
-            this.btnExtract.Size = new System.Drawing.Size(101, 23);
+            this.btnExtract.Size = new System.Drawing.Size(101, 21);
             this.btnExtract.TabIndex = 7;
             this.btnExtract.Text = "Extract all";
             this.btnExtract.UseVisualStyleBackColor = true;
@@ -82,33 +83,34 @@ namespace PSL
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(152, 10);
+            this.label2.Location = new System.Drawing.Point(184, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(19, 13);
+            this.label2.Size = new System.Drawing.Size(23, 12);
             this.label2.TabIndex = 6;
             this.label2.Text = "of ";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 10);
+            this.label1.Location = new System.Drawing.Point(3, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 13);
+            this.label1.Size = new System.Drawing.Size(89, 12);
             this.label1.TabIndex = 5;
             this.label1.Text = "Image to load:";
             // 
             // numImg
             // 
-            this.numImg.Location = new System.Drawing.Point(83, 8);
+            this.numImg.Location = new System.Drawing.Point(115, 7);
             this.numImg.Name = "numImg";
-            this.numImg.Size = new System.Drawing.Size(63, 20);
+            this.numImg.Size = new System.Drawing.Size(63, 21);
             this.numImg.TabIndex = 4;
             this.numImg.ValueChanged += new System.EventHandler(this.numImg_ValueChanged);
             // 
             // TexSprites
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.btnExtract);
             this.Controls.Add(this.label2);
@@ -116,7 +118,7 @@ namespace PSL
             this.Controls.Add(this.numImg);
             this.Controls.Add(this.spriteControl1);
             this.Name = "TexSprites";
-            this.Size = new System.Drawing.Size(512, 512);
+            this.Size = new System.Drawing.Size(526, 480);
             ((System.ComponentModel.ISupportInitialize)(this.numImg)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

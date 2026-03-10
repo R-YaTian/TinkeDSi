@@ -17,13 +17,16 @@
  * By: pleoNeX
  * 
  */
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows.Forms;
-using System.IO;
 using Be.Windows.Forms;
 using Ekona;
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Drawing.Text;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
 
 namespace Tinke
 {
@@ -34,6 +37,17 @@ namespace Tinke
         bool fileEdited;
         IByteCharConverter bcc;
         bool allowEdit;
+        private PrivateFontCollection pfc;
+
+        private void LoadCustomFont()
+        {
+            pfc = new PrivateFontCollection();
+            string fontPath = Path.Combine(Application.StartupPath, "SarasaMono.ttf");
+            if (File.Exists(fontPath))
+            {
+                pfc.AddFontFile(fontPath);
+            }
+        }
 
         private void LoadImage()
         {
@@ -48,6 +62,12 @@ namespace Tinke
             InitializeComponent();
             LoadImage();
             ReadLanguage();
+            LoadCustomFont();
+            if (pfc.Families.Count() != 0)
+                hexBox1.Font = new Font(pfc.Families[0], 10F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
+            else
+                hexBox1.Font = new Font(FontFamily.GenericMonospace, 9F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
+
             this.id = id;
             this.hexFile = hexFile;
 
@@ -64,6 +84,11 @@ namespace Tinke
             InitializeComponent();
             LoadImage();
             ReadLanguage();
+            LoadCustomFont();
+            if (pfc.Families.Count() != 0)
+                hexBox1.Font = new Font(pfc.Families[0], 10F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
+            else
+                hexBox1.Font = new Font(FontFamily.GenericMonospace, 9F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
 
             hexFile = Path.GetTempFileName();
             BinaryReader br = new BinaryReader(File.OpenRead(file.path));
@@ -83,6 +108,8 @@ namespace Tinke
         {
             hexBox1.Dispose();
             ((DynamicFileByteProvider)hexBox1.ByteProvider).Dispose();
+            if (pfc != null)
+                pfc.Dispose();
             if (!allowEdit)
                 File.Delete(hexFile);
         }
@@ -153,10 +180,8 @@ namespace Tinke
         {
             if (encodingCombo.SelectedIndex == 0)
                 bcc = new DefaultByteCharConverter();
-            else if (encodingCombo.SelectedIndex == 1)
-                bcc = new EbcdicByteCharProvider();
             else
-                bcc = new ByteCharConveter(encodingCombo.Text);
+                bcc = new ByteCharConverter(encodingCombo.Text);
 
             hexBox1.ByteCharConverter = bcc;
         }
@@ -191,17 +216,26 @@ namespace Tinke
             {
                 this.Cursor = Cursors.WaitCursor;
 
-                List<byte> search = new List<byte>();
-                for (int i = 0; i < text.Length; i += 2)
-                    search.Add(Convert.ToByte(text.Substring(i, 2), 16));
-                if (!prv_flag)
-                    hexBox1.Find(search.ToArray(), hexBox1.SelectionStart + hexBox1.SelectionLength);
-                else
-                    hexBox1.Find_Prv(search.ToArray(), hexBox1.SelectionStart - hexBox1.SelectionLength);
-
-                this.Cursor = Cursors.Default;
+                try
+                {
+                    List<byte> search = new List<byte>();
+                    for (int i = 0; i < text.Length; i += 2)
+                        search.Add(Convert.ToByte(text.Substring(i, 2), 16));
+                    if (!prv_flag)
+                        hexBox1.Find(search.ToArray(), hexBox1.SelectionStart + hexBox1.SelectionLength);
+                    else
+                        hexBox1.Find_Prv(search.ToArray(), hexBox1.SelectionStart - hexBox1.SelectionLength);
+                }
+                catch (FormatException)
+                {
+                }
+                finally
+                {
+                    this.Cursor = Cursors.Default;
+                }
             }
         }
+
         private void ShiftjisText_Find(bool prv_flag)
         {
             string text = toolStripSearchBox.Text;
@@ -218,6 +252,24 @@ namespace Tinke
                 this.Cursor = Cursors.Default;
             }
         }
+
+        private void UTF8Text_Find(bool prv_flag)
+        {
+            string text = toolStripSearchBox.Text;
+            if (text != "")
+            {
+                this.Cursor = Cursors.WaitCursor;
+
+                byte[] search = Encoding.GetEncoding("utf-8").GetBytes(text.ToCharArray());
+                if (!prv_flag)
+                    hexBox1.Find(search, hexBox1.SelectionStart + hexBox1.SelectionLength);
+                else
+                    hexBox1.Find_Prv(search, hexBox1.SelectionStart - hexBox1.SelectionLength);
+
+                this.Cursor = Cursors.Default;
+            }
+        }
+
         private void DefaultChars_Find(bool prv_flag)
         {
             string text = toolStripSearchBox.Text;
@@ -421,6 +473,9 @@ namespace Tinke
                 case 4:
                     UnicodeBigEndianText_Find(true);
                     break;
+                case 5:
+                    UTF8Text_Find(true);
+                    break;
             }
         }
 
@@ -447,6 +502,9 @@ namespace Tinke
                     break;
                 case 4:
                     UnicodeBigEndianText_Find(false);
+                    break;
+                case 5:
+                    UTF8Text_Find(false);
                     break;
             }
         }
@@ -515,17 +573,15 @@ namespace Tinke
             return Encoding.Default;
         }
     }
-    public class ByteCharConveter : IByteCharConverter
+    public class ByteCharConverter : IByteCharConverter
     {
         Encoding encoding;
         List<byte> requiredChar;
-        List<char> requiredByte;
 
-        public ByteCharConveter(string encoding)
+        public ByteCharConverter(string encoding)
         {
             this.encoding = Encoding.GetEncoding(encoding);
             requiredChar = new List<byte>();
-            requiredByte = new List<char>();
         }
 
         public byte[] ToByte(char c)
@@ -533,6 +589,7 @@ namespace Tinke
             byte[] decoded = encoding.GetBytes(new char[] { c });
             return decoded.Length > 0 ? decoded : (new byte[1] { 0 });
         }
+
         public char ToChar(byte b)
         {
             if (encoding.WebName == "shift_jis" || encoding.WebName == "gb2312")

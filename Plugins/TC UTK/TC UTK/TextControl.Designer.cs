@@ -66,12 +66,12 @@ namespace TC_UTK
             // 
             // txtChar
             // 
-            this.txtChar.Location = new System.Drawing.Point(3, 24);
+            this.txtChar.Location = new System.Drawing.Point(3, 22);
             this.txtChar.Multiline = true;
             this.txtChar.Name = "txtChar";
             this.txtChar.ReadOnly = true;
             this.txtChar.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtChar.Size = new System.Drawing.Size(322, 439);
+            this.txtChar.Size = new System.Drawing.Size(322, 406);
             this.txtChar.TabIndex = 0;
             // 
             // label1
@@ -79,7 +79,7 @@ namespace TC_UTK
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(4, 5);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(31, 13);
+            this.label1.Size = new System.Drawing.Size(35, 12);
             this.label1.TabIndex = 1;
             this.label1.Text = "Text:";
             // 
@@ -90,10 +90,10 @@ namespace TC_UTK
             this.dataTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnCode,
             this.ColumnChar});
-            this.dataTable.Location = new System.Drawing.Point(331, 24);
+            this.dataTable.Location = new System.Drawing.Point(331, 22);
             this.dataTable.Name = "dataTable";
             this.dataTable.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dataTable.Size = new System.Drawing.Size(178, 439);
+            this.dataTable.Size = new System.Drawing.Size(178, 405);
             this.dataTable.TabIndex = 3;
             this.dataTable.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataTable_CellEndEdit);
             this.dataTable.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dataTable_RowsRemoved);
@@ -115,25 +115,25 @@ namespace TC_UTK
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(328, 5);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(37, 13);
+            this.label2.Size = new System.Drawing.Size(41, 12);
             this.label2.TabIndex = 4;
             this.label2.Text = "Table:";
             // 
             // btnSaveText
             // 
             this.btnSaveText.Enabled = false;
-            this.btnSaveText.Location = new System.Drawing.Point(429, 469);
+            this.btnSaveText.Location = new System.Drawing.Point(429, 433);
             this.btnSaveText.Name = "btnSaveText";
-            this.btnSaveText.Size = new System.Drawing.Size(80, 40);
+            this.btnSaveText.Size = new System.Drawing.Size(80, 37);
             this.btnSaveText.TabIndex = 5;
             this.btnSaveText.Text = "Save text";
             this.btnSaveText.UseVisualStyleBackColor = true;
             // 
             // btnSaveTable
             // 
-            this.btnSaveTable.Location = new System.Drawing.Point(343, 469);
+            this.btnSaveTable.Location = new System.Drawing.Point(343, 433);
             this.btnSaveTable.Name = "btnSaveTable";
-            this.btnSaveTable.Size = new System.Drawing.Size(80, 40);
+            this.btnSaveTable.Size = new System.Drawing.Size(80, 37);
             this.btnSaveTable.TabIndex = 6;
             this.btnSaveTable.Text = "Save table";
             this.btnSaveTable.UseVisualStyleBackColor = true;
@@ -141,9 +141,9 @@ namespace TC_UTK
             // 
             // btnExportText
             // 
-            this.btnExportText.Location = new System.Drawing.Point(257, 469);
+            this.btnExportText.Location = new System.Drawing.Point(257, 433);
             this.btnExportText.Name = "btnExportText";
-            this.btnExportText.Size = new System.Drawing.Size(80, 40);
+            this.btnExportText.Size = new System.Drawing.Size(80, 37);
             this.btnExportText.TabIndex = 7;
             this.btnExportText.Text = "Export text";
             this.btnExportText.UseVisualStyleBackColor = true;
@@ -151,8 +151,9 @@ namespace TC_UTK
             // 
             // TextControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.btnExportText);
             this.Controls.Add(this.btnSaveTable);
@@ -162,7 +163,7 @@ namespace TC_UTK
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtChar);
             this.Name = "TextControl";
-            this.Size = new System.Drawing.Size(512, 512);
+            this.Size = new System.Drawing.Size(512, 473);
             ((System.ComponentModel.ISupportInitialize)(this.dataTable)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

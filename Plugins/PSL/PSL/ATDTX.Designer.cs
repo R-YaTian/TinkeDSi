@@ -61,17 +61,18 @@ namespace PSL
             // 
             // imageControl1
             // 
+            this.imageControl1.AutoSize = true;
             this.imageControl1.BackColor = System.Drawing.Color.Transparent;
             this.imageControl1.Location = new System.Drawing.Point(0, 0);
             this.imageControl1.Name = "imageControl1";
-            this.imageControl1.Size = new System.Drawing.Size(512, 512);
+            this.imageControl1.Size = new System.Drawing.Size(562, 515);
             this.imageControl1.TabIndex = 0;
             // 
             // numFile
             // 
             this.numFile.Location = new System.Drawing.Point(409, 4);
             this.numFile.Name = "numFile";
-            this.numFile.Size = new System.Drawing.Size(60, 20);
+            this.numFile.Size = new System.Drawing.Size(60, 21);
             this.numFile.TabIndex = 1;
             this.numFile.ValueChanged += new System.EventHandler(this.numFile_ValueChanged);
             // 
@@ -80,15 +81,15 @@ namespace PSL
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(366, 6);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(26, 13);
+            this.label1.Size = new System.Drawing.Size(35, 12);
             this.label1.TabIndex = 2;
             this.label1.Text = "File:";
             // 
             // btnExtract
             // 
-            this.btnExtract.Location = new System.Drawing.Point(369, 56);
+            this.btnExtract.Location = new System.Drawing.Point(369, 52);
             this.btnExtract.Name = "btnExtract";
-            this.btnExtract.Size = new System.Drawing.Size(140, 23);
+            this.btnExtract.Size = new System.Drawing.Size(140, 21);
             this.btnExtract.TabIndex = 3;
             this.btnExtract.Text = "Extract all";
             this.btnExtract.UseVisualStyleBackColor = true;
@@ -96,18 +97,18 @@ namespace PSL
             // 
             // numSprite
             // 
-            this.numSprite.Location = new System.Drawing.Point(409, 30);
+            this.numSprite.Location = new System.Drawing.Point(409, 28);
             this.numSprite.Name = "numSprite";
-            this.numSprite.Size = new System.Drawing.Size(60, 20);
+            this.numSprite.Size = new System.Drawing.Size(60, 21);
             this.numSprite.TabIndex = 4;
             this.numSprite.ValueChanged += new System.EventHandler(this.numSprite_ValueChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(366, 32);
+            this.label2.Location = new System.Drawing.Point(354, 30);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(37, 13);
+            this.label2.Size = new System.Drawing.Size(47, 12);
             this.label2.TabIndex = 5;
             this.label2.Text = "Sprite:";
             // 
@@ -116,23 +117,24 @@ namespace PSL
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(475, 6);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(19, 13);
+            this.label3.Size = new System.Drawing.Size(23, 12);
             this.label3.TabIndex = 6;
             this.label3.Text = "of ";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(475, 32);
+            this.label4.Location = new System.Drawing.Point(475, 30);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(19, 13);
+            this.label4.Size = new System.Drawing.Size(23, 12);
             this.label4.TabIndex = 7;
             this.label4.Text = "of ";
             // 
             // ATDTX
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -143,7 +145,7 @@ namespace PSL
             this.Controls.Add(this.numFile);
             this.Controls.Add(this.imageControl1);
             this.Name = "ATDTX";
-            this.Size = new System.Drawing.Size(512, 512);
+            this.Size = new System.Drawing.Size(565, 518);
             ((System.ComponentModel.ISupportInitialize)(this.numFile)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numSprite)).EndInit();
             this.ResumeLayout(false);

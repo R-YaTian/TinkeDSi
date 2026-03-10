@@ -339,6 +339,12 @@
     <EmbeddedResource Include="VisorHexBasic.resx">
       <DependentUpon>VisorHexBasic.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Sarasa-Gothic.LICENSE">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="SarasaMono.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Be.Windows.Forms.HexBox\Be.Windows.Forms.HexBox.csproj">

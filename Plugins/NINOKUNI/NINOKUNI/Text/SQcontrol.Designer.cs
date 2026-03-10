@@ -107,7 +107,6 @@ namespace NINOKUNI
             // 
             // btnSave
             // 
-            this.btnSave.Image = global::NINOKUNI.Properties.Resources.page_white_edit;
             this.btnSave.Location = new System.Drawing.Point(429, 423);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(80, 40);

@@ -36,7 +36,6 @@
             // 
             // btnImport
             // 
-            this.btnImport.Image = global::NINOKUNI.Properties.Resources.picture_edit;
             this.btnImport.Location = new System.Drawing.Point(323, 478);
             this.btnImport.Name = "btnImport";
             this.btnImport.Size = new System.Drawing.Size(90, 30);
@@ -48,7 +47,6 @@
             // 
             // btnSave
             // 
-            this.btnSave.Image = global::NINOKUNI.Properties.Resources.picture_save;
             this.btnSave.Location = new System.Drawing.Point(419, 478);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(90, 30);

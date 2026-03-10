@@ -57,6 +57,7 @@ namespace NINOKUNI
             original = Read(file);
             translated = Read(file);
 
+            this.btnSave.Image = Ekona.Helper.SVGLoader.LoadSvg("disk", 24);
             ReadLanguage();
             radio_CheckedChanged(null, null);
         }

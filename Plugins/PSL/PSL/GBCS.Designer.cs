@@ -57,34 +57,35 @@ namespace PSL
             // 
             // imgControl
             // 
+            this.imgControl.AutoSize = true;
             this.imgControl.BackColor = System.Drawing.Color.Transparent;
             this.imgControl.Location = new System.Drawing.Point(0, 0);
             this.imgControl.Name = "imgControl";
-            this.imgControl.Size = new System.Drawing.Size(512, 512);
+            this.imgControl.Size = new System.Drawing.Size(562, 515);
             this.imgControl.TabIndex = 0;
             // 
             // numImg
             // 
-            this.numImg.Location = new System.Drawing.Point(408, 244);
+            this.numImg.Location = new System.Drawing.Point(408, 225);
             this.numImg.Name = "numImg";
-            this.numImg.Size = new System.Drawing.Size(58, 20);
+            this.numImg.Size = new System.Drawing.Size(58, 21);
             this.numImg.TabIndex = 1;
             this.numImg.ValueChanged += new System.EventHandler(this.numImg_ValueChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(328, 246);
+            this.label1.Location = new System.Drawing.Point(307, 227);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 13);
+            this.label1.Size = new System.Drawing.Size(89, 12);
             this.label1.TabIndex = 2;
             this.label1.Text = "Image to load:";
             // 
             // btnExtract
             // 
-            this.btnExtract.Location = new System.Drawing.Point(226, 241);
+            this.btnExtract.Location = new System.Drawing.Point(205, 223);
             this.btnExtract.Name = "btnExtract";
-            this.btnExtract.Size = new System.Drawing.Size(96, 23);
+            this.btnExtract.Size = new System.Drawing.Size(96, 21);
             this.btnExtract.TabIndex = 3;
             this.btnExtract.Text = "Extract all";
             this.btnExtract.UseVisualStyleBackColor = true;
@@ -93,16 +94,17 @@ namespace PSL
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(472, 246);
+            this.label2.Location = new System.Drawing.Point(472, 227);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(19, 13);
+            this.label2.Size = new System.Drawing.Size(23, 12);
             this.label2.TabIndex = 4;
             this.label2.Text = "of ";
             // 
             // GBCS
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnExtract);
@@ -110,7 +112,7 @@ namespace PSL
             this.Controls.Add(this.numImg);
             this.Controls.Add(this.imgControl);
             this.Name = "GBCS";
-            this.Size = new System.Drawing.Size(512, 512);
+            this.Size = new System.Drawing.Size(565, 518);
             ((System.ComponentModel.ISupportInitialize)(this.numImg)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

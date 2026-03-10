@@ -102,7 +102,7 @@ namespace NINOKUNI.Text
             // 
             // numBlock
             // 
-            this.numBlock.Location = new System.Drawing.Point(82, 321);
+            this.numBlock.Location = new System.Drawing.Point(114, 321);
             this.numBlock.Maximum = new decimal(new int[] {
             65535,
             0,
@@ -125,7 +125,7 @@ namespace NINOKUNI.Text
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(148, 323);
+            this.label3.Location = new System.Drawing.Point(180, 323);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(29, 12);
             this.label3.TabIndex = 6;

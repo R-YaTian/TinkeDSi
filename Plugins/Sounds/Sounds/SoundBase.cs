@@ -268,16 +268,15 @@ namespace Sounds
             wav.wave.fmt.bitsPerSample = br.ReadUInt16();
             br.BaseStream.Position = 0x14 + wav.wave.fmt.chunkSize;
             String dataID = new String(br.ReadChars(4));
-            while (dataID != "data")
+            if (dataID != "data")
             {
-                br.BaseStream.Position += br.ReadUInt32() + 0x04;
-                dataID = new String(br.ReadChars(4));
+                throw new NotSupportedException();
             }
             // data sub-chunk
             br.BaseStream.Position -= 4;
             wav.wave.data.chunkID = br.ReadChars(4);
             wav.wave.data.chunkSize = br.ReadUInt32();
-            wav.wave.data.data = br.ReadBytes((int)wav.wave.data.chunkSize - 0x08);
+            wav.wave.data.data = br.ReadBytes((int)wav.wave.data.chunkSize);
             br.Close();
 
             // Convert the data to PCM16

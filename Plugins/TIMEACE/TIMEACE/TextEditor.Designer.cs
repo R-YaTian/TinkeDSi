@@ -40,15 +40,15 @@
             this.txtText.Multiline = true;
             this.txtText.Name = "txtText";
             this.txtText.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtText.Size = new System.Drawing.Size(503, 445);
+            this.txtText.Size = new System.Drawing.Size(503, 411);
             this.txtText.TabIndex = 0;
             this.txtText.WordWrap = false;
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(432, 455);
+            this.btnSave.Location = new System.Drawing.Point(432, 420);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 52);
+            this.btnSave.Size = new System.Drawing.Size(75, 48);
             this.btnSave.TabIndex = 1;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -56,9 +56,9 @@
             // 
             // btnExport
             // 
-            this.btnExport.Location = new System.Drawing.Point(3, 484);
+            this.btnExport.Location = new System.Drawing.Point(3, 447);
             this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(75, 23);
+            this.btnExport.Size = new System.Drawing.Size(75, 21);
             this.btnExport.TabIndex = 2;
             this.btnExport.Text = "Export";
             this.btnExport.UseVisualStyleBackColor = true;
@@ -66,9 +66,9 @@
             // 
             // btnImport
             // 
-            this.btnImport.Location = new System.Drawing.Point(3, 455);
+            this.btnImport.Location = new System.Drawing.Point(3, 420);
             this.btnImport.Name = "btnImport";
-            this.btnImport.Size = new System.Drawing.Size(75, 23);
+            this.btnImport.Size = new System.Drawing.Size(75, 21);
             this.btnImport.TabIndex = 3;
             this.btnImport.Text = "Import";
             this.btnImport.UseVisualStyleBackColor = true;
@@ -76,15 +76,16 @@
             // 
             // TextEditor
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.btnImport);
             this.Controls.Add(this.btnExport);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txtText);
             this.Name = "TextEditor";
-            this.Size = new System.Drawing.Size(512, 512);
+            this.Size = new System.Drawing.Size(512, 473);
             this.ResumeLayout(false);
             this.PerformLayout();
 

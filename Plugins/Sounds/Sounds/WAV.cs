@@ -35,7 +35,7 @@ namespace Sounds
             // data sub-chunk
             wav.wave.data.chunkID = br.ReadChars(4);
             wav.wave.data.chunkSize = br.ReadUInt32();
-            wav.wave.data.data = br.ReadBytes((int)wav.wave.data.chunkSize - 0x08);
+            wav.wave.data.data = br.ReadBytes((int)wav.wave.data.chunkSize);
 
             br.Close();
             return wav;

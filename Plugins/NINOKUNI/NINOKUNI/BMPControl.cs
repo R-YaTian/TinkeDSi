@@ -30,6 +30,8 @@ namespace NINOKUNI
             File.Copy(image, imagePath, true);
             picBox.ImageLocation = imagePath;
 
+            this.btnImport.Image = Ekona.Helper.SVGLoader.LoadSvg("picture_edit", 24);
+            this.btnSave.Image = Ekona.Helper.SVGLoader.LoadSvg("picture_save", 24);
             ReadLanguage();
         }
 

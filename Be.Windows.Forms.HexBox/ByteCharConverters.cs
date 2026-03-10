@@ -59,7 +59,7 @@ namespace Be.Windows.Forms
         /// <returns></returns>
         public override string ToString()
         {
-            return "ANSI (Default)";
+            return "ASCII (Default)";
         }
 
         public Encoding ToEncoding()

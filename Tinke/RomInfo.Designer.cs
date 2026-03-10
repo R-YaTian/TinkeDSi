@@ -303,7 +303,6 @@ namespace Tinke
             // 
             // btnBannerGuardar
             // 
-            this.btnBannerGuardar.ImageKey = "(none)";
             this.btnBannerGuardar.Location = new System.Drawing.Point(65, 18);
             this.btnBannerGuardar.Name = "btnBannerGuardar";
             this.btnBannerGuardar.Size = new System.Drawing.Size(127, 30);

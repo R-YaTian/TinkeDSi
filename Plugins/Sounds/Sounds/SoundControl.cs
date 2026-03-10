@@ -46,6 +46,8 @@ namespace Sounds
             checkLoop.Enabled = soundBase.CanLoop;
             btnImport.Enabled = soundBase.CanEdit;
 
+            this.btnPlay.Image = Ekona.Helper.SVGLoader.LoadSvg("play", 24);
+            this.btnStop.Image = Ekona.Helper.SVGLoader.LoadSvg("stop", 24);
             ReadLanguage();
             Information();
         }

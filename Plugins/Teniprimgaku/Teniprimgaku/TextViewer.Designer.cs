@@ -38,19 +38,20 @@
             this.txtBox.Multiline = true;
             this.txtBox.Name = "txtBox";
             this.txtBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtBox.Size = new System.Drawing.Size(510, 510);
+            this.txtBox.Size = new System.Drawing.Size(510, 471);
             this.txtBox.TabIndex = 0;
             this.txtBox.WordWrap = false;
             // 
             // TextViewer
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Transparent;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.txtBox);
             this.Name = "TextViewer";
-            this.Size = new System.Drawing.Size(510, 510);
+            this.Size = new System.Drawing.Size(510, 471);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -56,34 +56,34 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(380, 443);
+            this.label1.Location = new System.Drawing.Point(380, 409);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(39, 13);
+            this.label1.Size = new System.Drawing.Size(41, 12);
             this.label1.TabIndex = 1;
             this.label1.Text = "Image:";
             // 
             // numImgs
             // 
-            this.numImgs.Location = new System.Drawing.Point(425, 441);
+            this.numImgs.Location = new System.Drawing.Point(425, 407);
             this.numImgs.Name = "numImgs";
-            this.numImgs.Size = new System.Drawing.Size(53, 20);
+            this.numImgs.Size = new System.Drawing.Size(53, 21);
             this.numImgs.TabIndex = 2;
             this.numImgs.ValueChanged += new System.EventHandler(this.numImgs_ValueChanged);
             // 
             // lblTotal
             // 
             this.lblTotal.AutoSize = true;
-            this.lblTotal.Location = new System.Drawing.Point(484, 443);
+            this.lblTotal.Location = new System.Drawing.Point(484, 409);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(25, 13);
+            this.lblTotal.Size = new System.Drawing.Size(29, 12);
             this.lblTotal.TabIndex = 3;
             this.lblTotal.Text = "of 0";
             // 
             // btnExport
             // 
-            this.btnExport.Location = new System.Drawing.Point(429, 469);
+            this.btnExport.Location = new System.Drawing.Point(429, 433);
             this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(80, 40);
+            this.btnExport.Size = new System.Drawing.Size(80, 37);
             this.btnExport.TabIndex = 4;
             this.btnExport.Text = "Export";
             this.btnExport.UseVisualStyleBackColor = true;
@@ -92,7 +92,7 @@
             // picBox2
             // 
             this.picBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picBox2.Location = new System.Drawing.Point(3, 275);
+            this.picBox2.Location = new System.Drawing.Point(3, 254);
             this.picBox2.Name = "picBox2";
             this.picBox2.Size = new System.Drawing.Size(272, 208);
             this.picBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -104,16 +104,16 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(4, 4);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(48, 13);
+            this.label2.Size = new System.Drawing.Size(53, 12);
             this.label2.TabIndex = 6;
             this.label2.Text = "Image 1:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(4, 259);
+            this.label3.Location = new System.Drawing.Point(4, 239);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(48, 13);
+            this.label3.Size = new System.Drawing.Size(53, 12);
             this.label3.TabIndex = 7;
             this.label3.Text = "Image 2:";
             // 
@@ -121,15 +121,16 @@
             // 
             this.panel1.AutoScroll = true;
             this.panel1.Controls.Add(this.picBox);
-            this.panel1.Location = new System.Drawing.Point(7, 20);
+            this.panel1.Location = new System.Drawing.Point(7, 18);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(278, 236);
+            this.panel1.Size = new System.Drawing.Size(278, 218);
             this.panel1.TabIndex = 8;
             // 
             // ScrnControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Transparent;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.panel1);
@@ -141,7 +142,7 @@
             this.Controls.Add(this.numImgs);
             this.Controls.Add(this.label1);
             this.Name = "ScrnControl";
-            this.Size = new System.Drawing.Size(512, 512);
+            this.Size = new System.Drawing.Size(516, 473);
             ((System.ComponentModel.ISupportInitialize)(this.picBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numImgs)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox2)).EndInit();

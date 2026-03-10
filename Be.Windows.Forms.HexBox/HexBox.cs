@@ -2458,7 +2458,6 @@ namespace Be.Windows.Forms
 				PaintColumnSeparator(e.Graphics);
 		}
 
-
 		void PaintLineInfo(Graphics g, long startByte, long endByte)
 		{
 			// Ensure endByte isn't > length of array.
@@ -2585,36 +2584,25 @@ namespace Be.Windows.Forms
 			g.DrawString(sB.Substring(1,1), Font, brush, bytePointF, _stringFormat);
 		}
 
-        static bool IsCjkCharacter(char ch)
-        {
-            int codePoint = ch;
+		private int IsValidCharacterByWidth(Graphics g, string single)
+		{
+			SizeF singleSize = g.MeasureString(single, Font);
+			SizeF asciiSize = g.MeasureString(".", Font);
 
-            // CJK Unified Ideographs
-            if (codePoint >= 0x4E00 && codePoint <= 0x9FFF)
-                return true;
-
-            // CJK Unified Ideographs Extension A
-            if (codePoint >= 0x3400 && codePoint <= 0x4DBF)
-                return true;
-
-            // CJK Compatibility Ideographs
-            if (codePoint >= 0xF900 && codePoint <= 0xFAFF)
-                return true;
-
-            // Additional ranges for CJK (surrogate pairs)
-            // Note: Surrogate pairs are required for characters beyond U+FFFF
-            if (char.IsHighSurrogate(ch) || char.IsLowSurrogate(ch))
-            {
-                // Handle surrogate pairs
-                return false;
-            }
-
-            return false;
-        }
+			if (singleSize.Width >= asciiSize.Width * 1.8 || singleSize.Width < asciiSize.Width)
+                return -1;
+			else if (singleSize.Width >= asciiSize.Width * 1.4)
+				return 1;
+			else
+				return 0;
+		}
 
         void PaintHexAndStringView(Graphics g, long startByte, long endByte)
 		{
-			System.Diagnostics.Debug.WriteLine(ByteCharConverter.ToString(), "PaintHexAndStringView()", "HexBox");
+            float unicode_ofs = 0;
+            if (ByteCharConverter.ToString() == "Unicode")
+                unicode_ofs = _charSize.Width;
+
             Brush brush = new SolidBrush(GetDefaultForeColor());
 			Brush selBrush = new SolidBrush(_selectionForeColor);
 			Brush selBrushBack = new SolidBrush(_selectionBackColor);
@@ -2643,22 +2631,24 @@ namespace Be.Windows.Forms
 					PaintHexString(g, b, brush, gridPoint);
 				}
 
-                string s = new String(ByteCharConverter.ToChar(b), 1);
-				float cjk_ofs = 0;
-				if (IsCjkCharacter(s.ToCharArray()[0]))
-					cjk_ofs = _charSize.Width / 2;
-
                 if (isSelectedByte && isStringKeyInterpreterActive)
 				{
                     g.FillRectangle(selBrushBack, byteStringPointF.X, byteStringPointF.Y, _charSize.Width, _charSize.Height);
-                    byteStringPointF.X -= cjk_ofs;
-                    g.DrawString(s, Font, selBrush, byteStringPointF, _stringFormat);
 				}
-				else
-				{
-					byteStringPointF.X -= cjk_ofs;
-                    g.DrawString(s, Font, brush, byteStringPointF, _stringFormat);
-				}
+
+                float x_ofs = 0;
+                string s = new String(ByteCharConverter.ToChar(b), 1);
+                if (s != "\x20" && s != ".")
+                {
+                    int ret = IsValidCharacterByWidth(g, s);
+                    if (ret == -1)
+                        continue;
+                    else if (ret == 1 && unicode_ofs == 0)
+                        x_ofs = _charSize.Width;
+                }
+
+                byteStringPointF.X -= (x_ofs + unicode_ofs);
+                g.DrawString(s, Font, (isSelectedByte && isStringKeyInterpreterActive) ? selBrush : brush, byteStringPointF, _stringFormat);
 			}
         }
 
