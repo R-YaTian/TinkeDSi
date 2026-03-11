@@ -384,7 +384,7 @@ namespace _3DModels
             big.Controls[0].Dock = DockStyle.Fill;
             big.WindowState = FormWindowState.Maximized;
             big.Text = "TinkeDSi";
-            big.Icon = Properties.Resources.nintendo_ds;
+            big.Icon = Ekona.Helper.SVGLoader.LoadSvgToIcon("zoom", 32);
             big.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FullWindow_close);
             big.Show();
             GL.Viewport(new Size(big.Width, big.Height));

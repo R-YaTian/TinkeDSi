@@ -113,7 +113,7 @@ namespace Fonts
             // 
             // btnApply
             // 
-            this.btnApply.Location = new System.Drawing.Point(432, 290);
+            this.btnApply.Location = new System.Drawing.Point(432, 427);
             this.btnApply.Name = "btnApply";
             this.btnApply.Size = new System.Drawing.Size(75, 46);
             this.btnApply.TabIndex = 4;
@@ -155,7 +155,6 @@ namespace Fonts
             // 
             // btnPalette
             // 
-            this.btnPalette.Image = global::Fonts.Properties.Resources.palette;
             this.btnPalette.Location = new System.Drawing.Point(4, 483);
             this.btnPalette.Name = "btnPalette";
             this.btnPalette.Size = new System.Drawing.Size(149, 26);
@@ -167,7 +166,6 @@ namespace Fonts
             // 
             // btnSave
             // 
-            this.btnSave.Image = global::Fonts.Properties.Resources.disk;
             this.btnSave.Location = new System.Drawing.Point(0, 0);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(163, 26);
@@ -189,7 +187,6 @@ namespace Fonts
             // 
             // btnChangeMap
             // 
-            this.btnChangeMap.Image = global::Fonts.Properties.Resources.font_go;
             this.btnChangeMap.Location = new System.Drawing.Point(159, 483);
             this.btnChangeMap.Name = "btnChangeMap";
             this.btnChangeMap.Size = new System.Drawing.Size(142, 26);
@@ -201,7 +198,6 @@ namespace Fonts
             // 
             // btnAddChar
             // 
-            this.btnAddChar.Image = global::Fonts.Properties.Resources.font_add;
             this.btnAddChar.Location = new System.Drawing.Point(2, 342);
             this.btnAddChar.Name = "btnAddChar";
             this.btnAddChar.Size = new System.Drawing.Size(130, 23);
@@ -213,7 +209,6 @@ namespace Fonts
             // 
             // btnRemoveChar
             // 
-            this.btnRemoveChar.Image = global::Fonts.Properties.Resources.font_delete;
             this.btnRemoveChar.Location = new System.Drawing.Point(135, 342);
             this.btnRemoveChar.Name = "btnRemoveChar";
             this.btnRemoveChar.Size = new System.Drawing.Size(130, 23);
@@ -265,7 +260,9 @@ namespace Fonts
             // 
             // FontControl
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.btnInversePalette);
             this.Controls.Add(this.btnFromImage);

@@ -42,15 +42,26 @@ namespace Images
         bool isAni;         // If there are animations
         int imgShow;
 
+        private void LoadImages()
+        {
+            this.btnPrevious.Image = Ekona.Helper.SVGLoader.LoadSvg("previous", 16);
+            this.btnNext.Image = Ekona.Helper.SVGLoader.LoadSvg("next", 16);
+            this.btnStop.Image = Ekona.Helper.SVGLoader.LoadSvg("stop", 16);
+            this.btnPlay.Image = Ekona.Helper.SVGLoader.LoadSvg("play", 16);
+        }
+
         public AnimationControl()
         {
             InitializeComponent();
             Read_Language();
+            LoadImages();
         }
+
         public AnimationControl(Bitmap[] anis, int interval)
         {
             InitializeComponent();
             Read_Language();
+            LoadImages();
 
             //groupBox1.Hide();
             groupBox2.Hide();
@@ -73,10 +84,12 @@ namespace Images
             tempo.Enabled = true;
             tempo.Start();
         }
+
         public AnimationControl(IPluginHost pluginHost, NANR ani)
         {
             InitializeComponent();
             Read_Language();
+            LoadImages();
 
             this.pluginHost = pluginHost;
             this.palette = pluginHost.Get_Palette();

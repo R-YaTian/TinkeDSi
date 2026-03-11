@@ -64,10 +64,9 @@ namespace LAYTON
             // 
             // btnSave
             // 
-            this.btnSave.Image = global::LAYTON.Properties.Resources.picture_save;
-            this.btnSave.Location = new System.Drawing.Point(4, 462);
+            this.btnSave.Location = new System.Drawing.Point(4, 426);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(130, 45);
+            this.btnSave.Size = new System.Drawing.Size(130, 42);
             this.btnSave.TabIndex = 1;
             this.btnSave.Text = "S03";
             this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -76,14 +75,15 @@ namespace LAYTON
             // 
             // InfoBG
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Transparent;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.pic);
             this.Name = "InfoBG";
-            this.Size = new System.Drawing.Size(510, 510);
+            this.Size = new System.Drawing.Size(510, 471);
             ((System.ComponentModel.ISupportInitialize)(this.pic)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

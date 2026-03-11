@@ -76,7 +76,7 @@ namespace INAZUMA11
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(3, 5);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(76, 13);
+            this.label1.Size = new System.Drawing.Size(89, 12);
             this.label1.TabIndex = 0;
             this.label1.Text = "Num. of block:";
             // 
@@ -85,7 +85,7 @@ namespace INAZUMA11
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(199, 5);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(19, 13);
+            this.label2.Size = new System.Drawing.Size(23, 12);
             this.label2.TabIndex = 1;
             this.label2.Text = "of ";
             // 
@@ -98,7 +98,7 @@ namespace INAZUMA11
             0,
             0});
             this.numBlock.Name = "numBlock";
-            this.numBlock.Size = new System.Drawing.Size(90, 20);
+            this.numBlock.Size = new System.Drawing.Size(90, 21);
             this.numBlock.TabIndex = 2;
             this.numBlock.ValueChanged += new System.EventHandler(this.numBlock_ValueChanged);
             // 
@@ -112,9 +112,9 @@ namespace INAZUMA11
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.numUnk);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Location = new System.Drawing.Point(6, 29);
+            this.groupBox1.Location = new System.Drawing.Point(6, 27);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(506, 184);
+            this.groupBox1.Size = new System.Drawing.Size(506, 170);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Block data";
@@ -122,89 +122,88 @@ namespace INAZUMA11
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(220, 21);
+            this.label6.Location = new System.Drawing.Point(220, 19);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(36, 13);
+            this.label6.Size = new System.Drawing.Size(41, 12);
             this.label6.TabIndex = 7;
             this.label6.Text = "Index:";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(253, 55);
+            this.label5.Location = new System.Drawing.Point(253, 51);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(37, 13);
+            this.label5.Size = new System.Drawing.Size(41, 12);
             this.label5.TabIndex = 6;
             this.label5.Text = "Text 2";
             // 
             // numIndex
             // 
-            this.numIndex.Location = new System.Drawing.Point(304, 19);
+            this.numIndex.Location = new System.Drawing.Point(304, 18);
             this.numIndex.Maximum = new decimal(new int[] {
             65535,
             0,
             0,
             0});
             this.numIndex.Name = "numIndex";
-            this.numIndex.Size = new System.Drawing.Size(90, 20);
+            this.numIndex.Size = new System.Drawing.Size(90, 21);
             this.numIndex.TabIndex = 5;
             this.numIndex.ValueChanged += new System.EventHandler(this.numIndex_ValueChanged);
             // 
             // txtText2
             // 
-            this.txtText2.Location = new System.Drawing.Point(252, 71);
+            this.txtText2.Location = new System.Drawing.Point(252, 66);
             this.txtText2.Multiline = true;
             this.txtText2.Name = "txtText2";
-            this.txtText2.Size = new System.Drawing.Size(240, 100);
+            this.txtText2.Size = new System.Drawing.Size(240, 93);
             this.txtText2.TabIndex = 4;
             this.txtText2.TextChanged += new System.EventHandler(this.txtText2_TextChanged);
             // 
             // txtText1
             // 
-            this.txtText1.Location = new System.Drawing.Point(6, 71);
+            this.txtText1.Location = new System.Drawing.Point(6, 66);
             this.txtText1.Multiline = true;
             this.txtText1.Name = "txtText1";
-            this.txtText1.Size = new System.Drawing.Size(240, 100);
+            this.txtText1.Size = new System.Drawing.Size(240, 93);
             this.txtText1.TabIndex = 3;
             this.txtText1.TextChanged += new System.EventHandler(this.txtText1_TextChanged);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 55);
+            this.label4.Location = new System.Drawing.Point(6, 51);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(37, 13);
+            this.label4.Size = new System.Drawing.Size(41, 12);
             this.label4.TabIndex = 2;
             this.label4.Text = "Text 1";
             // 
             // numUnk
             // 
-            this.numUnk.Location = new System.Drawing.Point(98, 19);
+            this.numUnk.Location = new System.Drawing.Point(98, 18);
             this.numUnk.Maximum = new decimal(new int[] {
             65535,
             0,
             0,
             0});
             this.numUnk.Name = "numUnk";
-            this.numUnk.Size = new System.Drawing.Size(90, 20);
+            this.numUnk.Size = new System.Drawing.Size(90, 21);
             this.numUnk.TabIndex = 1;
             this.numUnk.ValueChanged += new System.EventHandler(this.numUnk_ValueChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(7, 21);
+            this.label3.Location = new System.Drawing.Point(7, 19);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(56, 13);
+            this.label3.Size = new System.Drawing.Size(53, 12);
             this.label3.TabIndex = 0;
             this.label3.Text = "Unknown:";
             // 
             // btnWrite
             // 
-            this.btnWrite.Image = global::INAZUMA11.Properties.Resources.page_white_edit;
-            this.btnWrite.Location = new System.Drawing.Point(6, 219);
+            this.btnWrite.Location = new System.Drawing.Point(6, 202);
             this.btnWrite.Name = "btnWrite";
-            this.btnWrite.Size = new System.Drawing.Size(80, 40);
+            this.btnWrite.Size = new System.Drawing.Size(80, 37);
             this.btnWrite.TabIndex = 4;
             this.btnWrite.Text = "Write file";
             this.btnWrite.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -213,8 +212,9 @@ namespace INAZUMA11
             // 
             // BlogpostControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.btnWrite);
             this.Controls.Add(this.groupBox1);
@@ -222,7 +222,7 @@ namespace INAZUMA11
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "BlogpostControl";
-            this.Size = new System.Drawing.Size(512, 512);
+            this.Size = new System.Drawing.Size(515, 473);
             ((System.ComponentModel.ISupportInitialize)(this.numBlock)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

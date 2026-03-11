@@ -63,10 +63,10 @@ namespace LAYTON
             // 
             // txtAnchoP
             // 
-            this.txtAnchoP.Location = new System.Drawing.Point(82, 27);
+            this.txtAnchoP.Location = new System.Drawing.Point(82, 25);
             this.txtAnchoP.Name = "txtAnchoP";
             this.txtAnchoP.ReadOnly = true;
-            this.txtAnchoP.Size = new System.Drawing.Size(75, 20);
+            this.txtAnchoP.Size = new System.Drawing.Size(75, 21);
             this.txtAnchoP.TabIndex = 40;
             // 
             // txtPos
@@ -74,15 +74,15 @@ namespace LAYTON
             this.txtPos.Location = new System.Drawing.Point(82, 1);
             this.txtPos.Name = "txtPos";
             this.txtPos.ReadOnly = true;
-            this.txtPos.Size = new System.Drawing.Size(75, 20);
+            this.txtPos.Size = new System.Drawing.Size(75, 21);
             this.txtPos.TabIndex = 36;
             // 
             // txtAltoP
             // 
-            this.txtAltoP.Location = new System.Drawing.Point(249, 27);
+            this.txtAltoP.Location = new System.Drawing.Point(249, 25);
             this.txtAltoP.Name = "txtAltoP";
             this.txtAltoP.ReadOnly = true;
-            this.txtAltoP.Size = new System.Drawing.Size(75, 20);
+            this.txtAltoP.Size = new System.Drawing.Size(75, 21);
             this.txtAltoP.TabIndex = 42;
             // 
             // lblPos
@@ -90,16 +90,16 @@ namespace LAYTON
             this.lblPos.AutoSize = true;
             this.lblPos.Location = new System.Drawing.Point(3, 4);
             this.lblPos.Name = "lblPos";
-            this.lblPos.Size = new System.Drawing.Size(26, 13);
+            this.lblPos.Size = new System.Drawing.Size(23, 12);
             this.lblPos.TabIndex = 35;
             this.lblPos.Text = "S01";
             // 
             // lblAltoP
             // 
             this.lblAltoP.AutoSize = true;
-            this.lblAltoP.Location = new System.Drawing.Point(182, 30);
+            this.lblAltoP.Location = new System.Drawing.Point(182, 28);
             this.lblAltoP.Name = "lblAltoP";
-            this.lblAltoP.Size = new System.Drawing.Size(26, 13);
+            this.lblAltoP.Size = new System.Drawing.Size(23, 12);
             this.lblAltoP.TabIndex = 41;
             this.lblAltoP.Text = "S04";
             // 
@@ -108,7 +108,7 @@ namespace LAYTON
             this.lblTamanoP.AutoSize = true;
             this.lblTamanoP.Location = new System.Drawing.Point(182, 4);
             this.lblTamanoP.Name = "lblTamanoP";
-            this.lblTamanoP.Size = new System.Drawing.Size(26, 13);
+            this.lblTamanoP.Size = new System.Drawing.Size(23, 12);
             this.lblTamanoP.TabIndex = 37;
             this.lblTamanoP.Text = "S02";
             // 
@@ -117,56 +117,57 @@ namespace LAYTON
             this.txtTamanoP.Location = new System.Drawing.Point(249, 1);
             this.txtTamanoP.Name = "txtTamanoP";
             this.txtTamanoP.ReadOnly = true;
-            this.txtTamanoP.Size = new System.Drawing.Size(75, 20);
+            this.txtTamanoP.Size = new System.Drawing.Size(75, 21);
             this.txtTamanoP.TabIndex = 38;
             // 
             // lblAnchoP
             // 
             this.lblAnchoP.AutoSize = true;
-            this.lblAnchoP.Location = new System.Drawing.Point(3, 30);
+            this.lblAnchoP.Location = new System.Drawing.Point(3, 28);
             this.lblAnchoP.Name = "lblAnchoP";
-            this.lblAnchoP.Size = new System.Drawing.Size(26, 13);
+            this.lblAnchoP.Size = new System.Drawing.Size(23, 12);
             this.lblAnchoP.TabIndex = 39;
             this.lblAnchoP.Text = "S03";
             // 
             // txtPosY
             // 
-            this.txtPosY.Location = new System.Drawing.Point(249, 53);
+            this.txtPosY.Location = new System.Drawing.Point(249, 49);
             this.txtPosY.Name = "txtPosY";
             this.txtPosY.ReadOnly = true;
-            this.txtPosY.Size = new System.Drawing.Size(75, 20);
+            this.txtPosY.Size = new System.Drawing.Size(75, 21);
             this.txtPosY.TabIndex = 44;
             // 
             // txtPosX
             // 
-            this.txtPosX.Location = new System.Drawing.Point(82, 55);
+            this.txtPosX.Location = new System.Drawing.Point(82, 51);
             this.txtPosX.Name = "txtPosX";
             this.txtPosX.ReadOnly = true;
-            this.txtPosX.Size = new System.Drawing.Size(75, 20);
+            this.txtPosX.Size = new System.Drawing.Size(75, 21);
             this.txtPosX.TabIndex = 45;
             // 
             // lblPosY
             // 
             this.lblPosY.AutoSize = true;
-            this.lblPosY.Location = new System.Drawing.Point(182, 56);
+            this.lblPosY.Location = new System.Drawing.Point(182, 52);
             this.lblPosY.Name = "lblPosY";
-            this.lblPosY.Size = new System.Drawing.Size(26, 13);
+            this.lblPosY.Size = new System.Drawing.Size(23, 12);
             this.lblPosY.TabIndex = 46;
             this.lblPosY.Text = "S06";
             // 
             // lblPosX
             // 
             this.lblPosX.AutoSize = true;
-            this.lblPosX.Location = new System.Drawing.Point(3, 58);
+            this.lblPosX.Location = new System.Drawing.Point(3, 54);
             this.lblPosX.Name = "lblPosX";
-            this.lblPosX.Size = new System.Drawing.Size(26, 13);
+            this.lblPosX.Size = new System.Drawing.Size(23, 12);
             this.lblPosX.TabIndex = 47;
             this.lblPosX.Text = "S05";
             // 
             // InfoParte
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.Controls.Add(this.lblPosX);
             this.Controls.Add(this.lblPosY);
@@ -181,7 +182,7 @@ namespace LAYTON
             this.Controls.Add(this.txtTamanoP);
             this.Controls.Add(this.lblAnchoP);
             this.Name = "InfoParte";
-            this.Size = new System.Drawing.Size(327, 77);
+            this.Size = new System.Drawing.Size(327, 78);
             this.ResumeLayout(false);
             this.PerformLayout();
 

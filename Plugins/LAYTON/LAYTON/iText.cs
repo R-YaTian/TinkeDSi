@@ -18,12 +18,6 @@
  * 
  */
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
 using System.IO;
 using System.Windows.Forms;
 using Ekona;
@@ -38,13 +32,15 @@ namespace LAYTON
         public iText(IPluginHost pluginHost, string text, int id)
         {
             InitializeComponent();
-            this.pluginHost = pluginHost; ;
+            this.btnSave.Image = Ekona.Helper.SVGLoader.LoadSvg("disk", 24);
+            this.pluginHost = pluginHost;
             this.id = id;
             LeerIdioma();
 
             text = Convertir_Especiales(text, true);
             txtBox.Text = text;
         }
+
         private void LeerIdioma()
         {
             try

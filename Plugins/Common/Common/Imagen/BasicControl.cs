@@ -39,17 +39,21 @@ namespace Common
         {
             InitializeComponent();
         }
+
         public BasicControl(Bitmap imagen, IPluginHost pluginHost)
         {
             InitializeComponent();
+            this.btnSave.Image = Ekona.Helper.SVGLoader.LoadSvg("picture_save", 16);
             this.pluginHost = pluginHost;
             ReadLanguage();
 
             picBox.Image = imagen;
         }
+
         public BasicControl(String imagen, IPluginHost pluginHost)
         {
             InitializeComponent();
+            this.btnSave.Image = Ekona.Helper.SVGLoader.LoadSvg("picture_save", 16);
             this.pluginHost = pluginHost;
             ReadLanguage();
 
@@ -57,6 +61,7 @@ namespace Common
             File.Copy(imagen, image, true);
             picBox.ImageLocation = image;
         }
+
         private void ReadLanguage()
         {
             try

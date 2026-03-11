@@ -53,10 +53,9 @@ namespace Common
             // 
             // btnPlay
             // 
-            this.btnPlay.Image = global::Common.Properties.Resources.control_play_blue;
             this.btnPlay.Location = new System.Drawing.Point(3, 3);
             this.btnPlay.Name = "btnPlay";
-            this.btnPlay.Size = new System.Drawing.Size(108, 23);
+            this.btnPlay.Size = new System.Drawing.Size(108, 21);
             this.btnPlay.TabIndex = 0;
             this.btnPlay.Text = "S00";
             this.btnPlay.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -65,10 +64,9 @@ namespace Common
             // 
             // btnStop
             // 
-            this.btnStop.Image = global::Common.Properties.Resources.control_stop_blue;
-            this.btnStop.Location = new System.Drawing.Point(3, 32);
+            this.btnStop.Location = new System.Drawing.Point(3, 30);
             this.btnStop.Name = "btnStop";
-            this.btnStop.Size = new System.Drawing.Size(108, 23);
+            this.btnStop.Size = new System.Drawing.Size(108, 21);
             this.btnStop.TabIndex = 1;
             this.btnStop.Text = "S01";
             this.btnStop.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -77,13 +75,14 @@ namespace Common
             // 
             // iWav
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.btnStop);
             this.Controls.Add(this.btnPlay);
             this.Name = "iWav";
-            this.Size = new System.Drawing.Size(267, 108);
+            this.Size = new System.Drawing.Size(267, 100);
             this.ResumeLayout(false);
 
         }

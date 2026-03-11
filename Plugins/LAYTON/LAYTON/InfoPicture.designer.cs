@@ -63,35 +63,35 @@ namespace LAYTON
             // lblTipo
             // 
             this.lblTipo.AutoSize = true;
-            this.lblTipo.Location = new System.Drawing.Point(6, 22);
+            this.lblTipo.Location = new System.Drawing.Point(6, 20);
             this.lblTipo.Name = "lblTipo";
-            this.lblTipo.Size = new System.Drawing.Size(26, 13);
+            this.lblTipo.Size = new System.Drawing.Size(23, 12);
             this.lblTipo.TabIndex = 40;
             this.lblTipo.Text = "S02";
             // 
             // lblNImgs
             // 
             this.lblNImgs.AutoSize = true;
-            this.lblNImgs.Location = new System.Drawing.Point(167, 22);
+            this.lblNImgs.Location = new System.Drawing.Point(167, 20);
             this.lblNImgs.Name = "lblNImgs";
-            this.lblNImgs.Size = new System.Drawing.Size(26, 13);
+            this.lblNImgs.Size = new System.Drawing.Size(23, 12);
             this.lblNImgs.TabIndex = 41;
             this.lblNImgs.Text = "S03";
             // 
             // txtNImgs
             // 
-            this.txtNImgs.Location = new System.Drawing.Point(277, 19);
+            this.txtNImgs.Location = new System.Drawing.Point(277, 18);
             this.txtNImgs.Name = "txtNImgs";
             this.txtNImgs.ReadOnly = true;
-            this.txtNImgs.Size = new System.Drawing.Size(80, 20);
+            this.txtNImgs.Size = new System.Drawing.Size(80, 21);
             this.txtNImgs.TabIndex = 42;
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.tabImags);
-            this.groupBox1.Location = new System.Drawing.Point(6, 45);
+            this.groupBox1.Location = new System.Drawing.Point(6, 42);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(373, 245);
+            this.groupBox1.Size = new System.Drawing.Size(373, 226);
             this.groupBox1.TabIndex = 43;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "S04";
@@ -99,10 +99,10 @@ namespace LAYTON
             // tabImags
             // 
             this.tabImags.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabImags.Location = new System.Drawing.Point(3, 16);
+            this.tabImags.Location = new System.Drawing.Point(3, 17);
             this.tabImags.Name = "tabImags";
             this.tabImags.SelectedIndex = 0;
-            this.tabImags.Size = new System.Drawing.Size(367, 226);
+            this.tabImags.Size = new System.Drawing.Size(367, 206);
             this.tabImags.TabIndex = 0;
             this.tabImags.SelectedIndexChanged += new System.EventHandler(this.tabImags_SelectedIndexChanged);
             // 
@@ -115,37 +115,38 @@ namespace LAYTON
             this.groupImage.Controls.Add(this.lblTipo);
             this.groupImage.Location = new System.Drawing.Point(0, 0);
             this.groupImage.Name = "groupImage";
-            this.groupImage.Size = new System.Drawing.Size(385, 292);
+            this.groupImage.Size = new System.Drawing.Size(385, 270);
             this.groupImage.TabIndex = 41;
             this.groupImage.TabStop = false;
             this.groupImage.Text = "S01";
             // 
             // txtTipo
             // 
-            this.txtTipo.Location = new System.Drawing.Point(81, 19);
+            this.txtTipo.Location = new System.Drawing.Point(81, 18);
             this.txtTipo.Name = "txtTipo";
             this.txtTipo.ReadOnly = true;
-            this.txtTipo.Size = new System.Drawing.Size(80, 20);
+            this.txtTipo.Size = new System.Drawing.Size(80, 21);
             this.txtTipo.TabIndex = 44;
             // 
             // pictureBox1
             // 
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Location = new System.Drawing.Point(9, 298);
+            this.pictureBox1.Location = new System.Drawing.Point(9, 275);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(367, 215);
+            this.pictureBox1.Size = new System.Drawing.Size(367, 199);
             this.pictureBox1.TabIndex = 54;
             this.pictureBox1.TabStop = false;
             // 
             // InfoPicture
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.groupImage);
             this.Name = "InfoPicture";
-            this.Size = new System.Drawing.Size(387, 521);
+            this.Size = new System.Drawing.Size(388, 481);
             this.groupBox1.ResumeLayout(false);
             this.groupImage.ResumeLayout(false);
             this.groupImage.PerformLayout();

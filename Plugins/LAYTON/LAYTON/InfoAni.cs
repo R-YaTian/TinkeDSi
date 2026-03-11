@@ -38,14 +38,27 @@ namespace LAYTON
         Bitmap[] imagenes;
         int frameIndex = 0;
 
+        private void LoadImages()
+        {
+            this.btnImport.Image = Ekona.Helper.SVGLoader.LoadSvg("picture_edit", 24);
+            this.btnSave.Image = Ekona.Helper.SVGLoader.LoadSvg("picture_save", 24);
+            this.btnSaveAni.Image = Ekona.Helper.SVGLoader.LoadSvg("picture_go", 24);
+            this.btnPrevious.Image = Ekona.Helper.SVGLoader.LoadSvg("previous", 16);
+            this.btnNext.Image = Ekona.Helper.SVGLoader.LoadSvg("next", 16);
+            this.btnStop.Image = Ekona.Helper.SVGLoader.LoadSvg("stop", 16);
+            this.btnPlay.Image = Ekona.Helper.SVGLoader.LoadSvg("play", 16);
+        }
+
         public InfoAni()
         {
             InitializeComponent();
+            LoadImages();
         }
 
         public InfoAni(Ani.Todo info, IPluginHost pluginHost, int id)
         {
             InitializeComponent();
+            LoadImages();
 
             this.pluginHost = pluginHost;
             this.id = id;

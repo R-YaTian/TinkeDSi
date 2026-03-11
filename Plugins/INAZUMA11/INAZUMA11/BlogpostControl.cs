@@ -42,9 +42,11 @@ namespace INAZUMA11
         {
             InitializeComponent();
         }
+
         public BlogpostControl(string file, int id, IPluginHost pluginHost)
         {
             InitializeComponent();
+            this.btnWrite.Image = Ekona.Helper.SVGLoader.LoadSvg("disk", 24);
             this.pluginHost = pluginHost;
             this.id = id;
             enc = Encoding.GetEncoding("shift_jis");

@@ -112,10 +112,10 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <metadata name="ColumnImage.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -123,29 +123,4 @@
   <metadata name="ColumnCharCode.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        AAABAAEAEBAAAAAAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAA
-        AAD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8AAH0h6wN7Hv8AeRUE////AP//
-        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AAGDK+tDoV//AHsfzAB5
-        GQb///8A////AP///wD///8A////AP///wD///8A////ACGXUf0bkUn9FY9D/Q+LO/06n17/gMGW/0aj
-        Yv8AfR/RAHkZB////wDOaDiu2o9d/tuQYP/Xg1DtxFArjb1CIxApm1v/kMqp/43Ipf+KxqH/iMWe/2q2
-        hf+Cwpf/SKVm/wB9IdcAeRsJylwvCstfMEThpHX/2oxY7MZSLD3///8AMZ9j/5TNrf9vuo7/a7iJ/2a2
-        hf9hs4D/Z7WC/4PCmP88oFz/AH8l+f///wDLXTAB03Q/m+KpfP/MZjeZ////ADeja/+WzrD/lM2t/5HL
-        qv+Qy6j/dLyQ/4rHof9GpWj/B4c1+wGDLQH///8A////AMxjMhXbk17q4qd5/9iDStM9pW//OaJs/jWh
-        Z/4ynWL/Va98/5HLqv9Pq3T/F49F+xGLPQH///8A////AP///wD///8Az2o2XN+daPbai1LRy18xTsdZ
-        LirNZzeg4aZ6/z2dYv5as4H/KJhX/////wD///8A////AP///wD///8A////ANBqNQPXgEKq359q981m
-        NGbJXS8KzGEziOGmef9BoGn7MZ9l/////wD///8A////AP///wD///8A////AP///wD///8A0XE4It6b
-        Y+Lcll7fz2k1VM9pNYDiqXz/0Ww6pf///wD///8A////AP///wD///8A////AP///wD///8A////AP//
-        /wDUeTx34qZw99qIR63WfkOg5K6C/89tOpn///8A////AP///wD///8A////AP///wD///8A////AP//
-        /wD///8A1n07HN2WVrrjqXPy4ahz9eGkcffTdz6Yy18wCP///wD///8A////AP///wD///8A////AP//
-        /wD///8A////ANeDPlPip2ze6byR/+e6j//nt4v/4qRx+9Z+QrbLXC8K////AP///wD///8A////AP//
-        /wD///8A////AP///wDYh0BA2ItDhdqOSZTZiUOP2IRAkNiEQZrTczqKzGIyDclbLgH///8A////AP//
-        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
-        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
-        /wD///8A/8cAAP/DAAD8AQAAAAAAAAQAAACEAAAAwAEAAOAHAADgDwAA8B8AAPgfAAD4DwAA+AcAAPgD
-        AAD//wAA//8AAA==
-</value>
-  </data>
 </root>

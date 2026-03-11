@@ -77,10 +77,10 @@ namespace _3DModels
             this.listPalettes = new System.Windows.Forms.ListBox();
             this.panelTex = new System.Windows.Forms.Panel();
             this.btnSave = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.importToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label3 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picTex)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPalette)).BeginInit();
             this.panelTex.SuspendLayout();
@@ -112,7 +112,7 @@ namespace _3DModels
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(175, 386);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(26, 13);
+            this.label1.Size = new System.Drawing.Size(23, 12);
             this.label1.TabIndex = 3;
             this.label1.Text = "S10";
             // 
@@ -121,7 +121,7 @@ namespace _3DModels
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(175, 259);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(26, 13);
+            this.label2.Size = new System.Drawing.Size(23, 12);
             this.label2.TabIndex = 5;
             this.label2.Text = "S0F";
             // 
@@ -130,6 +130,7 @@ namespace _3DModels
             this.listProp.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnProperty,
             this.columnValue});
+            this.listProp.HideSelection = false;
             this.listProp.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
             listViewItem1,
             listViewItem2,
@@ -174,17 +175,19 @@ namespace _3DModels
             // listTextures
             // 
             this.listTextures.FormattingEnabled = true;
+            this.listTextures.ItemHeight = 12;
             this.listTextures.Location = new System.Drawing.Point(173, 275);
             this.listTextures.Name = "listTextures";
-            this.listTextures.Size = new System.Drawing.Size(170, 108);
+            this.listTextures.Size = new System.Drawing.Size(170, 100);
             this.listTextures.TabIndex = 11;
             // 
             // listPalettes
             // 
             this.listPalettes.FormattingEnabled = true;
+            this.listPalettes.ItemHeight = 12;
             this.listPalettes.Location = new System.Drawing.Point(174, 401);
             this.listPalettes.Name = "listPalettes";
-            this.listPalettes.Size = new System.Drawing.Size(169, 108);
+            this.listPalettes.Size = new System.Drawing.Size(169, 100);
             this.listPalettes.TabIndex = 12;
             // 
             // panelTex
@@ -200,7 +203,6 @@ namespace _3DModels
             // btnSave
             // 
             this.btnSave.ContextMenuStrip = this.contextMenuStrip1;
-            this.btnSave.Image = global::_3DModels.Properties.Resources.disk;
             this.btnSave.Location = new System.Drawing.Point(349, 470);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(77, 37);
@@ -210,18 +212,31 @@ namespace _3DModels
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.importToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(117, 26);
+            // 
+            // importToolStripMenuItem
+            // 
+            this.importToolStripMenuItem.Name = "importToolStripMenuItem";
+            this.importToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.importToolStripMenuItem.Text = "Import";
+            this.importToolStripMenuItem.Click += new System.EventHandler(this.importToolStripMenuItem_Click);
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(346, 259);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(26, 13);
+            this.label3.Size = new System.Drawing.Size(23, 12);
             this.label3.TabIndex = 14;
             this.label3.Text = "S11";
             // 
             // button1
             // 
-            this.button1.Image = global::_3DModels.Properties.Resources.disk;
             this.button1.Location = new System.Drawing.Point(430, 470);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(77, 37);
@@ -231,23 +246,11 @@ namespace _3DModels
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.PalSave_Click);
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.importToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 48);
-            // 
-            // importToolStripMenuItem
-            // 
-            this.importToolStripMenuItem.Name = "importToolStripMenuItem";
-            this.importToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.importToolStripMenuItem.Text = "Import";
-            this.importToolStripMenuItem.Click += new System.EventHandler(this.importToolStripMenuItem_Click);
-            // 
             // TextureControl
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label3);
@@ -261,7 +264,7 @@ namespace _3DModels
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "TextureControl";
-            this.Size = new System.Drawing.Size(512, 512);
+            this.Size = new System.Drawing.Size(515, 513);
             ((System.ComponentModel.ISupportInitialize)(this.picTex)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPalette)).EndInit();
             this.panelTex.ResumeLayout(false);

@@ -68,11 +68,6 @@
       <DependentUpon>NewAudioOptions.cs</DependentUpon>
     </Compile>
     <Compile Include="PCM.cs" />
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Include="SDAT.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SSEQ.cs" />
@@ -90,10 +85,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NewAudioOptions.resx">
       <DependentUpon>NewAudioOptions.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

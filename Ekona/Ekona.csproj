@@ -119,11 +119,6 @@
     <Compile Include="Images\RawData.cs" />
     <Compile Include="Mathematics\NvMath.cs" />
     <Compile Include="Mathematics\Vector3.cs" />
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Include="Structures.cs" />
     <Compile Include="IGamePlugin.cs" />
     <Compile Include="IPluginHost.cs" />
@@ -142,10 +137,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Images\PaletteControl.resx">
       <DependentUpon>PaletteControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -189,6 +180,10 @@
     <EmbeddedResource Include="Icons\terminal.svg" />
     <EmbeddedResource Include="Icons\play.svg" />
     <EmbeddedResource Include="Icons\stop.svg" />
+    <EmbeddedResource Include="Icons\add.svg" />
+    <EmbeddedResource Include="Icons\delete.svg" />
+    <EmbeddedResource Include="Icons\next.svg" />
+    <EmbeddedResource Include="Icons\previous.svg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

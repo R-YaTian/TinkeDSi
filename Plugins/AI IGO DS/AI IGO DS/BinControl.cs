@@ -40,9 +40,11 @@ namespace AI_IGO_DS
         {
             InitializeComponent();
         }
+
         public BinControl(IPluginHost pluginHost, BIN bin)
         {
             InitializeComponent();
+            this.btnSave.Image = Ekona.Helper.SVGLoader.LoadSvg("picture_save", 24);
             this.bin = bin;
             this.pluginHost = pluginHost;
 

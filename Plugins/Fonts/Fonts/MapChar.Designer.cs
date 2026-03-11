@@ -47,7 +47,6 @@ namespace Fonts
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MapChar));
             this.btnSave = new System.Windows.Forms.Button();
             this.numericSection = new System.Windows.Forms.NumericUpDown();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -93,7 +92,7 @@ namespace Fonts
             0,
             0});
             this.numericSection.Name = "numericSection";
-            this.numericSection.Size = new System.Drawing.Size(50, 20);
+            this.numericSection.Size = new System.Drawing.Size(50, 21);
             this.numericSection.TabIndex = 1;
             this.numericSection.ValueChanged += new System.EventHandler(this.numericSection_ValueChanged);
             // 
@@ -167,7 +166,7 @@ namespace Fonts
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(235, 26);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(26, 13);
+            this.label4.Size = new System.Drawing.Size(23, 12);
             this.label4.TabIndex = 5;
             this.label4.Text = "S07";
             // 
@@ -180,7 +179,7 @@ namespace Fonts
             0,
             0});
             this.numericLastChar.Name = "numericLastChar";
-            this.numericLastChar.Size = new System.Drawing.Size(50, 20);
+            this.numericLastChar.Size = new System.Drawing.Size(50, 21);
             this.numericLastChar.TabIndex = 4;
             this.numericLastChar.ValueChanged += new System.EventHandler(this.numericChar_ValueChanged);
             // 
@@ -193,7 +192,7 @@ namespace Fonts
             0,
             0});
             this.numericFirstChar.Name = "numericFirstChar";
-            this.numericFirstChar.Size = new System.Drawing.Size(50, 20);
+            this.numericFirstChar.Size = new System.Drawing.Size(50, 21);
             this.numericFirstChar.TabIndex = 3;
             this.numericFirstChar.ValueChanged += new System.EventHandler(this.numericChar_ValueChanged);
             // 
@@ -202,7 +201,7 @@ namespace Fonts
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(98, 26);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(26, 13);
+            this.label3.Size = new System.Drawing.Size(23, 12);
             this.label3.TabIndex = 2;
             this.label3.Text = "S06";
             // 
@@ -216,7 +215,7 @@ namespace Fonts
             0});
             this.numericType.Name = "numericType";
             this.numericType.ReadOnly = true;
-            this.numericType.Size = new System.Drawing.Size(50, 20);
+            this.numericType.Size = new System.Drawing.Size(50, 21);
             this.numericType.TabIndex = 1;
             this.numericType.ValueChanged += new System.EventHandler(this.numericType_ValueChanged);
             // 
@@ -225,7 +224,7 @@ namespace Fonts
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(6, 26);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(26, 13);
+            this.label2.Size = new System.Drawing.Size(23, 12);
             this.label2.TabIndex = 0;
             this.label2.Text = "S05";
             // 
@@ -234,7 +233,7 @@ namespace Fonts
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(26, 13);
+            this.label1.Size = new System.Drawing.Size(23, 12);
             this.label1.TabIndex = 3;
             this.label1.Text = "S01";
             // 
@@ -243,13 +242,15 @@ namespace Fonts
             this.lblTotalSec.AutoSize = true;
             this.lblTotalSec.Location = new System.Drawing.Point(120, 9);
             this.lblTotalSec.Name = "lblTotalSec";
-            this.lblTotalSec.Size = new System.Drawing.Size(26, 13);
+            this.lblTotalSec.Size = new System.Drawing.Size(23, 12);
             this.lblTotalSec.TabIndex = 4;
             this.lblTotalSec.Text = "S02";
             // 
             // MapChar
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(380, 243);
             this.Controls.Add(this.lblTotalSec);
@@ -257,7 +258,6 @@ namespace Fonts
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.numericSection);
             this.Controls.Add(this.btnSave);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MapChar";
             this.ShowInTaskbar = false;
             this.Text = "S00";

@@ -1,16 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
 using System.Text;
 using System.Windows.Forms;
 
 namespace LAYTON
 {
     using System.IO;
-    using System.Security.Permissions;
-
     using Ekona;
 
     public partial class NazoTextControl : UserControl
@@ -29,6 +24,7 @@ namespace LAYTON
         public NazoTextControl(IPluginHost pluginHost, string fileIn, int id)
         {
             InitializeComponent();
+            this.btnSave.Image = Ekona.Helper.SVGLoader.LoadSvg("disk", 24);
             this.pluginHost = pluginHost;
             this.id = id;
             LeerIdioma();

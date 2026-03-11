@@ -70,14 +70,23 @@
     <Compile Include="USearchControl.Designer.cs">
       <DependentUpon>USearchControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Properties\Resources.Designer.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\page_white_edit.png" />
-    <None Include="Properties\Resources.resx" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Licence.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="BlogpostControl.resx">
+      <DependentUpon>BlogpostControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BlogresControl.resx">
+      <DependentUpon>BlogresControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubtitlesControl.resx">
+      <DependentUpon>SubtitlesControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="USearchControl.resx">
+      <DependentUpon>USearchControl.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

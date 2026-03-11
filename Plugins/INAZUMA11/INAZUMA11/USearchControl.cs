@@ -40,9 +40,11 @@ namespace INAZUMA11
         {
             InitializeComponent();
         }
+
         public USearchControl(string file, int id, IPluginHost pluginHost)
         {
             InitializeComponent();
+            this.btnWrite.Image = Ekona.Helper.SVGLoader.LoadSvg("disk", 24);
             this.id = id;
             this.pluginHost = pluginHost;
 

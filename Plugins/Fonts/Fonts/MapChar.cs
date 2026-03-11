@@ -19,11 +19,7 @@
  */
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace Fonts
@@ -32,16 +28,17 @@ namespace Fonts
     {
         List<sNFTR.PAMC> maps;
 
-
         public MapChar(List<sNFTR.PAMC> maps, string lang)
         {
             InitializeComponent();
+            this.Icon = Ekona.Helper.SVGLoader.LoadSvgToIcon("font", 32);
             this.maps = maps;
             numericSection.Maximum = maps.Count - 1;
             MapInfo();
 
             ReadLanguage(lang);
         }
+
         private void ReadLanguage(string lang)
         {
             try
@@ -65,8 +62,6 @@ namespace Fonts
             }
             catch { throw new NotSupportedException("There was an error reading the language file"); }
         }
-
-
 
         private void MapInfo()
         {
@@ -106,6 +101,7 @@ namespace Fonts
                 return maps;
             }
         }
+
         private void Recalculate_Size()
         {
             for (int i = 0; i < maps.Count; i++)
@@ -137,9 +133,9 @@ namespace Fonts
 
         private void MapChar_Resize(object sender, EventArgs e)
         {
-            groupBox1.Height = this.Height - 80;
-            btnSave.Location = new Point(this.Width - 91, 7);
-            dataGridMapInfo.Height = groupBox1.Height - 82;
+            groupBox1.Height = this.Height - Ekona.Helper.SVGLoader.GetRealIconSize(80);
+            btnSave.Location = new Point(this.Width - Ekona.Helper.SVGLoader.GetRealIconSize(91), 7);
+            dataGridMapInfo.Height = groupBox1.Height - Ekona.Helper.SVGLoader.GetRealIconSize(82);
         }
 
         private void btnSave_Click(object sender, EventArgs e)

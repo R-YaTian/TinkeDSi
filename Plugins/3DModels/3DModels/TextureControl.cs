@@ -19,11 +19,7 @@
  */
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
 using System.IO;
 using System.Windows.Forms;
 using Ekona;
@@ -42,9 +38,13 @@ namespace _3DModels
         {
             InitializeComponent();
         }
+
         public TextureControl(IPluginHost pluginHost, sBTX0 btx0)
         {
             InitializeComponent();
+
+            this.btnSave.Image = Ekona.Helper.SVGLoader.LoadSvg("disk", 24);
+            this.button1.Image = Ekona.Helper.SVGLoader.LoadSvg("palette", 24);
 
             this.pluginHost = pluginHost;
             this.btx0 = btx0;
@@ -63,9 +63,13 @@ namespace _3DModels
 
             UpdateTexture(0, 0);
         }
+
         public TextureControl(IPluginHost pluginHost, sBTX0.Texture tex, uint texOffset, string filePath)
         {
             InitializeComponent();
+
+            this.btnSave.Image = Ekona.Helper.SVGLoader.LoadSvg("disk", 24);
+            this.button1.Image = Ekona.Helper.SVGLoader.LoadSvg("palette", 24);
 
             sBTX0 btx0 = new sBTX0();
             btx0.texture = tex;
@@ -149,8 +153,8 @@ namespace _3DModels
             }
             else
                 listPalettes.SelectedIndex = num_pal;
-
         }
+
         private void UpdateTexture(int num_tex, int num_pal)
         {
             sBTX0.Texture.TextInfo texInfo = (sBTX0.Texture.TextInfo)btx0.texture.texInfo.infoBlock.infoData[num_tex];

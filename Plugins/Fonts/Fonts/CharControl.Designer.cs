@@ -84,33 +84,33 @@ namespace Fonts
             // 
             // numericWidth
             // 
-            this.numericWidth.Location = new System.Drawing.Point(55, 207);
+            this.numericWidth.Location = new System.Drawing.Point(55, 191);
             this.numericWidth.Maximum = new decimal(new int[] {
             65535,
             0,
             0,
             0});
             this.numericWidth.Name = "numericWidth";
-            this.numericWidth.Size = new System.Drawing.Size(50, 20);
+            this.numericWidth.Size = new System.Drawing.Size(50, 21);
             this.numericWidth.TabIndex = 1;
             this.numericWidth.ValueChanged += new System.EventHandler(this.numericWidth_ValueChanged);
             // 
             // numericLength
             // 
-            this.numericLength.Location = new System.Drawing.Point(55, 234);
+            this.numericLength.Location = new System.Drawing.Point(55, 216);
             this.numericLength.Maximum = new decimal(new int[] {
             65535,
             0,
             0,
             0});
             this.numericLength.Name = "numericLength";
-            this.numericLength.Size = new System.Drawing.Size(50, 20);
+            this.numericLength.Size = new System.Drawing.Size(50, 21);
             this.numericLength.TabIndex = 2;
             this.numericLength.ValueChanged += new System.EventHandler(this.numericLength_ValueChanged);
             // 
             // numericStart
             // 
-            this.numericStart.Location = new System.Drawing.Point(190, 206);
+            this.numericStart.Location = new System.Drawing.Point(190, 190);
             this.numericStart.Maximum = new decimal(new int[] {
             127,
             0,
@@ -122,14 +122,14 @@ namespace Fonts
             0,
             -2147483648});
             this.numericStart.Name = "numericStart";
-            this.numericStart.Size = new System.Drawing.Size(50, 20);
+            this.numericStart.Size = new System.Drawing.Size(50, 21);
             this.numericStart.TabIndex = 3;
             this.numericStart.ValueChanged += new System.EventHandler(this.numericStart_ValueChanged);
             // 
             // trackPalette
             // 
             this.trackPalette.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.trackPalette.Location = new System.Drawing.Point(55, 260);
+            this.trackPalette.Location = new System.Drawing.Point(55, 240);
             this.trackPalette.Name = "trackPalette";
             this.trackPalette.Size = new System.Drawing.Size(104, 45);
             this.trackPalette.TabIndex = 5;
@@ -137,54 +137,54 @@ namespace Fonts
             // 
             // picPaletteColour
             // 
-            this.picPaletteColour.Location = new System.Drawing.Point(4, 260);
+            this.picPaletteColour.Location = new System.Drawing.Point(4, 240);
             this.picPaletteColour.Name = "picPaletteColour";
-            this.picPaletteColour.Size = new System.Drawing.Size(45, 45);
+            this.picPaletteColour.Size = new System.Drawing.Size(45, 42);
             this.picPaletteColour.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picPaletteColour.TabIndex = 6;
             this.picPaletteColour.TabStop = false;
             // 
             // txtCharCode
             // 
-            this.txtCharCode.Location = new System.Drawing.Point(190, 233);
+            this.txtCharCode.Location = new System.Drawing.Point(190, 215);
             this.txtCharCode.Name = "txtCharCode";
             this.txtCharCode.ReadOnly = true;
-            this.txtCharCode.Size = new System.Drawing.Size(49, 20);
+            this.txtCharCode.Size = new System.Drawing.Size(49, 21);
             this.txtCharCode.TabIndex = 7;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 209);
+            this.label1.Location = new System.Drawing.Point(3, 193);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(26, 13);
+            this.label1.Size = new System.Drawing.Size(23, 12);
             this.label1.TabIndex = 8;
             this.label1.Text = "S00";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 236);
+            this.label2.Location = new System.Drawing.Point(3, 218);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(26, 13);
+            this.label2.Size = new System.Drawing.Size(23, 12);
             this.label2.TabIndex = 9;
             this.label2.Text = "S02";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(113, 209);
+            this.label3.Location = new System.Drawing.Point(113, 193);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(26, 13);
+            this.label3.Size = new System.Drawing.Size(23, 12);
             this.label3.TabIndex = 10;
             this.label3.Text = "S01";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(113, 236);
+            this.label4.Location = new System.Drawing.Point(113, 218);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(26, 13);
+            this.label4.Size = new System.Drawing.Size(23, 12);
             this.label4.TabIndex = 11;
             this.label4.Text = "S03";
             // 
@@ -194,13 +194,14 @@ namespace Fonts
             this.panelPic.Controls.Add(this.picFont);
             this.panelPic.Location = new System.Drawing.Point(0, 0);
             this.panelPic.Name = "panelPic";
-            this.panelPic.Size = new System.Drawing.Size(243, 203);
+            this.panelPic.Size = new System.Drawing.Size(243, 187);
             this.panelPic.TabIndex = 12;
             // 
             // CharControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Transparent;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.panelPic);
@@ -214,9 +215,9 @@ namespace Fonts
             this.Controls.Add(this.numericStart);
             this.Controls.Add(this.numericLength);
             this.Controls.Add(this.numericWidth);
-            this.MinimumSize = new System.Drawing.Size(243, 308);
+            this.MinimumSize = new System.Drawing.Size(243, 284);
             this.Name = "CharControl";
-            this.Size = new System.Drawing.Size(243, 308);
+            this.Size = new System.Drawing.Size(246, 288);
             ((System.ComponentModel.ISupportInitialize)(this.picFont)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericWidth)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericLength)).EndInit();

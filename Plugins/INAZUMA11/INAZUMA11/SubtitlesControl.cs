@@ -42,9 +42,11 @@ namespace INAZUMA11
         {
             InitializeComponent();
         }
+
         public SubtitlesControl(string fileIn, IPluginHost pluginHost, int id)
         {
             InitializeComponent();
+            this.btnWrite.Image = Ekona.Helper.SVGLoader.LoadSvg("disk", 24);
             this.pluginHost = pluginHost;
             this.id = id;
 

@@ -38,6 +38,8 @@ namespace Common
         public iWav(string archivo, IPluginHost pluginHost)
         {
             InitializeComponent();
+            this.btnStop.Image = Ekona.Helper.SVGLoader.LoadSvg("stop", 16);
+            this.btnPlay.Image = Ekona.Helper.SVGLoader.LoadSvg("play", 16);
             this.pluginHost = pluginHost;
             ReadLanguage();
 
@@ -49,6 +51,7 @@ namespace Common
 
             btnPlay.PerformClick();
         }
+
         private void ReadLanguage()
         {
             try

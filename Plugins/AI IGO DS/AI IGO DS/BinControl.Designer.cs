@@ -81,10 +81,9 @@ namespace AI_IGO_DS
             // 
             // btnSave
             // 
-            this.btnSave.Image = global::AI_IGO_DS.Properties.Resources.picture_save;
-            this.btnSave.Location = new System.Drawing.Point(399, 472);
+            this.btnSave.Location = new System.Drawing.Point(399, 436);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(108, 35);
+            this.btnSave.Size = new System.Drawing.Size(108, 32);
             this.btnSave.TabIndex = 1;
             this.btnSave.Text = "S08";
             this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -94,40 +93,40 @@ namespace AI_IGO_DS
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(309, 275);
+            this.label1.Location = new System.Drawing.Point(309, 254);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(26, 13);
+            this.label1.Size = new System.Drawing.Size(23, 12);
             this.label1.TabIndex = 2;
             this.label1.Text = "S00";
             // 
             // numericImage
             // 
-            this.numericImage.Location = new System.Drawing.Point(387, 273);
+            this.numericImage.Location = new System.Drawing.Point(387, 252);
             this.numericImage.Maximum = new decimal(new int[] {
             65535,
             0,
             0,
             0});
             this.numericImage.Name = "numericImage";
-            this.numericImage.Size = new System.Drawing.Size(60, 20);
+            this.numericImage.Size = new System.Drawing.Size(60, 21);
             this.numericImage.TabIndex = 3;
             this.numericImage.ValueChanged += new System.EventHandler(this.numericImage_ValueChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(309, 327);
+            this.label2.Location = new System.Drawing.Point(309, 302);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(26, 13);
+            this.label2.Size = new System.Drawing.Size(23, 12);
             this.label2.TabIndex = 9;
             this.label2.Text = "S02";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(309, 301);
+            this.label3.Location = new System.Drawing.Point(309, 278);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(26, 13);
+            this.label3.Size = new System.Drawing.Size(23, 12);
             this.label3.TabIndex = 8;
             this.label3.Text = "S01";
             // 
@@ -138,7 +137,7 @@ namespace AI_IGO_DS
             0,
             0,
             0});
-            this.numericWidth.Location = new System.Drawing.Point(387, 299);
+            this.numericWidth.Location = new System.Drawing.Point(387, 276);
             this.numericWidth.Maximum = new decimal(new int[] {
             65535,
             0,
@@ -150,7 +149,7 @@ namespace AI_IGO_DS
             0,
             0});
             this.numericWidth.Name = "numericWidth";
-            this.numericWidth.Size = new System.Drawing.Size(60, 20);
+            this.numericWidth.Size = new System.Drawing.Size(60, 21);
             this.numericWidth.TabIndex = 7;
             this.numericWidth.Value = new decimal(new int[] {
             8,
@@ -166,7 +165,7 @@ namespace AI_IGO_DS
             0,
             0,
             0});
-            this.numericHeight.Location = new System.Drawing.Point(387, 325);
+            this.numericHeight.Location = new System.Drawing.Point(387, 300);
             this.numericHeight.Maximum = new decimal(new int[] {
             65535,
             0,
@@ -178,7 +177,7 @@ namespace AI_IGO_DS
             0,
             0});
             this.numericHeight.Name = "numericHeight";
-            this.numericHeight.Size = new System.Drawing.Size(60, 20);
+            this.numericHeight.Size = new System.Drawing.Size(60, 21);
             this.numericHeight.TabIndex = 6;
             this.numericHeight.Value = new decimal(new int[] {
             8,
@@ -191,12 +190,12 @@ namespace AI_IGO_DS
             // 
             this.trackZoom.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.trackZoom.LargeChange = 100;
-            this.trackZoom.Location = new System.Drawing.Point(453, 239);
+            this.trackZoom.Location = new System.Drawing.Point(453, 221);
             this.trackZoom.Maximum = 800;
             this.trackZoom.Minimum = 50;
             this.trackZoom.Name = "trackZoom";
             this.trackZoom.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.trackZoom.Size = new System.Drawing.Size(45, 227);
+            this.trackZoom.Size = new System.Drawing.Size(45, 210);
             this.trackZoom.SmallChange = 50;
             this.trackZoom.TabIndex = 10;
             this.trackZoom.TickFrequency = 50;
@@ -206,18 +205,18 @@ namespace AI_IGO_DS
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(450, 223);
+            this.label4.Location = new System.Drawing.Point(450, 206);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(26, 13);
+            this.label4.Size = new System.Drawing.Size(23, 12);
             this.label4.TabIndex = 11;
             this.label4.Text = "S07";
             // 
             // checkTransparency
             // 
             this.checkTransparency.AutoSize = true;
-            this.checkTransparency.Location = new System.Drawing.Point(312, 351);
+            this.checkTransparency.Location = new System.Drawing.Point(312, 324);
             this.checkTransparency.Name = "checkTransparency";
-            this.checkTransparency.Size = new System.Drawing.Size(45, 17);
+            this.checkTransparency.Size = new System.Drawing.Size(42, 16);
             this.checkTransparency.TabIndex = 12;
             this.checkTransparency.Text = "S03";
             this.checkTransparency.UseVisualStyleBackColor = true;
@@ -225,9 +224,9 @@ namespace AI_IGO_DS
             // 
             // btnBgd
             // 
-            this.btnBgd.Location = new System.Drawing.Point(312, 374);
+            this.btnBgd.Location = new System.Drawing.Point(312, 345);
             this.btnBgd.Name = "btnBgd";
-            this.btnBgd.Size = new System.Drawing.Size(135, 31);
+            this.btnBgd.Size = new System.Drawing.Size(135, 29);
             this.btnBgd.TabIndex = 13;
             this.btnBgd.Text = "S04";
             this.btnBgd.UseVisualStyleBackColor = true;
@@ -235,9 +234,9 @@ namespace AI_IGO_DS
             // 
             // btnBgdRem
             // 
-            this.btnBgdRem.Location = new System.Drawing.Point(312, 412);
+            this.btnBgdRem.Location = new System.Drawing.Point(312, 380);
             this.btnBgdRem.Name = "btnBgdRem";
-            this.btnBgdRem.Size = new System.Drawing.Size(135, 31);
+            this.btnBgdRem.Size = new System.Drawing.Size(135, 29);
             this.btnBgdRem.TabIndex = 14;
             this.btnBgdRem.Text = "S05";
             this.btnBgdRem.UseVisualStyleBackColor = true;
@@ -246,16 +245,17 @@ namespace AI_IGO_DS
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(266, 472);
+            this.label5.Location = new System.Drawing.Point(266, 436);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(26, 13);
+            this.label5.Size = new System.Drawing.Size(23, 12);
             this.label5.TabIndex = 15;
             this.label5.Text = "S08";
             // 
             // BinControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Transparent;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.label5);
@@ -273,7 +273,7 @@ namespace AI_IGO_DS
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.picBox);
             this.Name = "BinControl";
-            this.Size = new System.Drawing.Size(510, 510);
+            this.Size = new System.Drawing.Size(510, 471);
             ((System.ComponentModel.ISupportInitialize)(this.picBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericWidth)).EndInit();

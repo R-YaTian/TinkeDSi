@@ -59,16 +59,15 @@ namespace LAYTON
             this.txtBox.Multiline = true;
             this.txtBox.Name = "txtBox";
             this.txtBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtBox.Size = new System.Drawing.Size(512, 471);
+            this.txtBox.Size = new System.Drawing.Size(512, 435);
             this.txtBox.TabIndex = 0;
             this.txtBox.WordWrap = false;
             // 
             // btnSave
             // 
-            this.btnSave.Image = global::LAYTON.Properties.Resources.disk;
-            this.btnSave.Location = new System.Drawing.Point(427, 477);
+            this.btnSave.Location = new System.Drawing.Point(427, 440);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(82, 32);
+            this.btnSave.Size = new System.Drawing.Size(82, 30);
             this.btnSave.TabIndex = 1;
             this.btnSave.Text = "S00";
             this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -77,14 +76,15 @@ namespace LAYTON
             // 
             // iText
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Transparent;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txtBox);
             this.Name = "iText";
-            this.Size = new System.Drawing.Size(512, 512);
+            this.Size = new System.Drawing.Size(512, 473);
             this.ResumeLayout(false);
             this.PerformLayout();
 

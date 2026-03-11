@@ -68,18 +68,17 @@ namespace LAYTON
             // 
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(390, 12);
+            this.comboBox1.Location = new System.Drawing.Point(390, 11);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(117, 21);
+            this.comboBox1.Size = new System.Drawing.Size(117, 20);
             this.comboBox1.TabIndex = 4;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_1);
             // 
             // btnSaveAni
             // 
-            this.btnSaveAni.Image = global::LAYTON.Properties.Resources.picture_go;
-            this.btnSaveAni.Location = new System.Drawing.Point(390, 129);
+            this.btnSaveAni.Location = new System.Drawing.Point(390, 119);
             this.btnSaveAni.Name = "btnSaveAni";
-            this.btnSaveAni.Size = new System.Drawing.Size(117, 34);
+            this.btnSaveAni.Size = new System.Drawing.Size(117, 31);
             this.btnSaveAni.TabIndex = 6;
             this.btnSaveAni.Text = "S04";
             this.btnSaveAni.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -88,10 +87,10 @@ namespace LAYTON
             // 
             // maskedTextBox1
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(447, 39);
+            this.maskedTextBox1.Location = new System.Drawing.Point(447, 36);
             this.maskedTextBox1.Mask = "99999";
             this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(35, 20);
+            this.maskedTextBox1.Size = new System.Drawing.Size(35, 21);
             this.maskedTextBox1.TabIndex = 7;
             this.maskedTextBox1.Text = "320";
             this.maskedTextBox1.ValidatingType = typeof(int);
@@ -100,27 +99,26 @@ namespace LAYTON
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(388, 42);
+            this.label1.Location = new System.Drawing.Point(388, 39);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(26, 13);
+            this.label1.Size = new System.Drawing.Size(23, 12);
             this.label1.TabIndex = 8;
             this.label1.Text = "S01";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(488, 42);
+            this.label2.Location = new System.Drawing.Point(488, 39);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(20, 13);
+            this.label2.Size = new System.Drawing.Size(17, 12);
             this.label2.TabIndex = 9;
             this.label2.Text = "ms";
             // 
             // btnNext
             // 
-            this.btnNext.Image = global::LAYTON.Properties.Resources.resultset_last;
-            this.btnNext.Location = new System.Drawing.Point(483, 77);
+            this.btnNext.Location = new System.Drawing.Point(483, 71);
             this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(25, 23);
+            this.btnNext.Size = new System.Drawing.Size(25, 21);
             this.btnNext.TabIndex = 10;
             this.btnNext.UseVisualStyleBackColor = true;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
@@ -132,30 +130,27 @@ namespace LAYTON
             // 
             // btnPrevious
             // 
-            this.btnPrevious.Image = global::LAYTON.Properties.Resources.resultset_first;
-            this.btnPrevious.Location = new System.Drawing.Point(390, 77);
+            this.btnPrevious.Location = new System.Drawing.Point(390, 71);
             this.btnPrevious.Name = "btnPrevious";
-            this.btnPrevious.Size = new System.Drawing.Size(25, 23);
+            this.btnPrevious.Size = new System.Drawing.Size(25, 21);
             this.btnPrevious.TabIndex = 11;
             this.btnPrevious.UseVisualStyleBackColor = true;
             this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
             // 
             // btnStop
             // 
-            this.btnStop.Image = global::LAYTON.Properties.Resources.stop1;
-            this.btnStop.Location = new System.Drawing.Point(421, 77);
+            this.btnStop.Location = new System.Drawing.Point(421, 71);
             this.btnStop.Name = "btnStop";
-            this.btnStop.Size = new System.Drawing.Size(25, 23);
+            this.btnStop.Size = new System.Drawing.Size(25, 21);
             this.btnStop.TabIndex = 12;
             this.btnStop.UseVisualStyleBackColor = true;
             this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
             // 
             // btnPlay
             // 
-            this.btnPlay.Image = global::LAYTON.Properties.Resources.resultset_next;
-            this.btnPlay.Location = new System.Drawing.Point(452, 77);
+            this.btnPlay.Location = new System.Drawing.Point(452, 71);
             this.btnPlay.Name = "btnPlay";
-            this.btnPlay.Size = new System.Drawing.Size(25, 23);
+            this.btnPlay.Size = new System.Drawing.Size(25, 21);
             this.btnPlay.TabIndex = 13;
             this.btnPlay.UseVisualStyleBackColor = true;
             this.btnPlay.Click += new System.EventHandler(this.btnPlay_Click);
@@ -163,9 +158,9 @@ namespace LAYTON
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(391, 106);
+            this.checkBox1.Location = new System.Drawing.Point(391, 98);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(45, 17);
+            this.checkBox1.Size = new System.Drawing.Size(42, 16);
             this.checkBox1.TabIndex = 14;
             this.checkBox1.Text = "S02";
             this.checkBox1.UseVisualStyleBackColor = true;
@@ -173,10 +168,9 @@ namespace LAYTON
             // 
             // btnImport
             // 
-            this.btnImport.Image = global::LAYTON.Properties.Resources.picture_edit;
-            this.btnImport.Location = new System.Drawing.Point(390, 437);
+            this.btnImport.Location = new System.Drawing.Point(390, 403);
             this.btnImport.Name = "btnImport";
-            this.btnImport.Size = new System.Drawing.Size(117, 34);
+            this.btnImport.Size = new System.Drawing.Size(117, 31);
             this.btnImport.TabIndex = 58;
             this.btnImport.Text = "S05";
             this.btnImport.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -185,10 +179,9 @@ namespace LAYTON
             // 
             // btnSave
             // 
-            this.btnSave.Image = global::LAYTON.Properties.Resources.picture_save;
-            this.btnSave.Location = new System.Drawing.Point(390, 477);
+            this.btnSave.Location = new System.Drawing.Point(390, 440);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(117, 34);
+            this.btnSave.Size = new System.Drawing.Size(117, 31);
             this.btnSave.TabIndex = 57;
             this.btnSave.Text = "S03";
             this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -197,17 +190,20 @@ namespace LAYTON
             // 
             // infoPicture1
             // 
+            this.infoPicture1.AutoSize = true;
             this.infoPicture1.BackColor = System.Drawing.Color.Transparent;
+            this.infoPicture1.Imagen_Seleccionada = -1;
             this.infoPicture1.Location = new System.Drawing.Point(0, 0);
             this.infoPicture1.Name = "infoPicture1";
-            this.infoPicture1.Size = new System.Drawing.Size(384, 518);
+            this.infoPicture1.Size = new System.Drawing.Size(388, 478);
             this.infoPicture1.TabIndex = 2;
             this.infoPicture1.Tipo = "";
             // 
             // InfoAni
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoSize = true;
             this.Controls.Add(this.btnImport);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.checkBox1);
@@ -222,7 +218,7 @@ namespace LAYTON
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.infoPicture1);
             this.Name = "InfoAni";
-            this.Size = new System.Drawing.Size(511, 514);
+            this.Size = new System.Drawing.Size(511, 481);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -48,11 +48,9 @@ namespace Images
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AnimationControl));
             this.aniBox = new System.Windows.Forms.PictureBox();
             this.tempo = new System.Windows.Forms.Timer(this.components);
             this.btnPlay = new System.Windows.Forms.Button();
-            this.imageMedia = new System.Windows.Forms.ImageList(this.components);
             this.comboAni = new System.Windows.Forms.ComboBox();
             this.btnNext = new System.Windows.Forms.Button();
             this.btnPrevious = new System.Windows.Forms.Button();
@@ -89,24 +87,12 @@ namespace Images
             // 
             // btnPlay
             // 
-            this.btnPlay.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnPlay.ImageIndex = 0;
-            this.btnPlay.ImageList = this.imageMedia;
             this.btnPlay.Location = new System.Drawing.Point(104, 244);
             this.btnPlay.Name = "btnPlay";
             this.btnPlay.Size = new System.Drawing.Size(25, 21);
             this.btnPlay.TabIndex = 2;
             this.btnPlay.UseVisualStyleBackColor = true;
             this.btnPlay.Click += new System.EventHandler(this.btnPlay_Click);
-            // 
-            // imageMedia
-            // 
-            this.imageMedia.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageMedia.ImageStream")));
-            this.imageMedia.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageMedia.Images.SetKeyName(0, "resultset_next.png");
-            this.imageMedia.Images.SetKeyName(1, "resultset_first.png");
-            this.imageMedia.Images.SetKeyName(2, "resultset_last.png");
-            this.imageMedia.Images.SetKeyName(3, "stop.png");
             // 
             // comboAni
             // 
@@ -120,8 +106,6 @@ namespace Images
             // 
             // btnNext
             // 
-            this.btnNext.ImageIndex = 2;
-            this.btnNext.ImageList = this.imageMedia;
             this.btnNext.Location = new System.Drawing.Point(135, 244);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(35, 21);
@@ -131,8 +115,6 @@ namespace Images
             // 
             // btnPrevious
             // 
-            this.btnPrevious.ImageIndex = 1;
-            this.btnPrevious.ImageList = this.imageMedia;
             this.btnPrevious.Location = new System.Drawing.Point(32, 244);
             this.btnPrevious.Name = "btnPrevious";
             this.btnPrevious.Size = new System.Drawing.Size(35, 21);
@@ -143,8 +125,6 @@ namespace Images
             // btnStop
             // 
             this.btnStop.Enabled = false;
-            this.btnStop.ImageIndex = 3;
-            this.btnStop.ImageList = this.imageMedia;
             this.btnStop.Location = new System.Drawing.Point(73, 244);
             this.btnStop.Name = "btnStop";
             this.btnStop.Size = new System.Drawing.Size(25, 21);
@@ -314,7 +294,6 @@ namespace Images
         private System.Windows.Forms.Timer tempo;
         private System.Windows.Forms.Button btnPlay;
         private System.Windows.Forms.ComboBox comboAni;
-        private System.Windows.Forms.ImageList imageMedia;
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Button btnPrevious;
         private System.Windows.Forms.Button btnStop;

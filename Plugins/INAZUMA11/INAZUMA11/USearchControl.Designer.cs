@@ -72,7 +72,7 @@ namespace INAZUMA11
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(3, 5);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(76, 13);
+            this.label1.Size = new System.Drawing.Size(89, 12);
             this.label1.TabIndex = 0;
             this.label1.Text = "Num. of block:";
             // 
@@ -81,7 +81,7 @@ namespace INAZUMA11
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(201, 5);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(19, 13);
+            this.label2.Size = new System.Drawing.Size(23, 12);
             this.label2.TabIndex = 1;
             this.label2.Text = "of ";
             // 
@@ -94,62 +94,62 @@ namespace INAZUMA11
             0,
             0});
             this.numBlock.Name = "numBlock";
-            this.numBlock.Size = new System.Drawing.Size(90, 20);
+            this.numBlock.Size = new System.Drawing.Size(90, 21);
             this.numBlock.TabIndex = 2;
             this.numBlock.ValueChanged += new System.EventHandler(this.numBlock_ValueChanged);
             // 
             // txtText1
             // 
-            this.txtText1.Location = new System.Drawing.Point(9, 38);
+            this.txtText1.Location = new System.Drawing.Point(9, 35);
             this.txtText1.Multiline = true;
             this.txtText1.Name = "txtText1";
-            this.txtText1.Size = new System.Drawing.Size(240, 40);
+            this.txtText1.Size = new System.Drawing.Size(240, 37);
             this.txtText1.TabIndex = 3;
             this.txtText1.TextChanged += new System.EventHandler(this.txtText1_TextChanged);
             // 
             // txtUnk
             // 
             this.txtUnk.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUnk.Location = new System.Drawing.Point(9, 112);
+            this.txtUnk.Location = new System.Drawing.Point(9, 103);
             this.txtUnk.Multiline = true;
             this.txtUnk.Name = "txtUnk";
             this.txtUnk.ReadOnly = true;
-            this.txtUnk.Size = new System.Drawing.Size(486, 80);
+            this.txtUnk.Size = new System.Drawing.Size(486, 74);
             this.txtUnk.TabIndex = 4;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 22);
+            this.label3.Location = new System.Drawing.Point(6, 20);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(40, 13);
+            this.label3.Size = new System.Drawing.Size(47, 12);
             this.label3.TabIndex = 5;
             this.label3.Text = "Text 1:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(11, 96);
+            this.label4.Location = new System.Drawing.Point(11, 89);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(80, 13);
+            this.label4.Size = new System.Drawing.Size(83, 12);
             this.label4.TabIndex = 6;
             this.label4.Text = "Unknown data:";
             // 
             // txtText2
             // 
-            this.txtText2.Location = new System.Drawing.Point(255, 38);
+            this.txtText2.Location = new System.Drawing.Point(255, 35);
             this.txtText2.Multiline = true;
             this.txtText2.Name = "txtText2";
-            this.txtText2.Size = new System.Drawing.Size(240, 40);
+            this.txtText2.Size = new System.Drawing.Size(240, 37);
             this.txtText2.TabIndex = 7;
             this.txtText2.TextChanged += new System.EventHandler(this.txtText2_TextChanged);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(252, 22);
+            this.label5.Location = new System.Drawing.Point(252, 20);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(40, 13);
+            this.label5.Size = new System.Drawing.Size(47, 12);
             this.label5.TabIndex = 8;
             this.label5.Text = "Text 2:";
             // 
@@ -161,19 +161,18 @@ namespace INAZUMA11
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.txtText2);
-            this.groupBox1.Location = new System.Drawing.Point(6, 29);
+            this.groupBox1.Location = new System.Drawing.Point(6, 27);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(503, 198);
+            this.groupBox1.Size = new System.Drawing.Size(503, 183);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Block data:";
             // 
             // btnWrite
             // 
-            this.btnWrite.Image = global::INAZUMA11.Properties.Resources.page_white_edit;
-            this.btnWrite.Location = new System.Drawing.Point(6, 233);
+            this.btnWrite.Location = new System.Drawing.Point(6, 215);
             this.btnWrite.Name = "btnWrite";
-            this.btnWrite.Size = new System.Drawing.Size(80, 40);
+            this.btnWrite.Size = new System.Drawing.Size(80, 37);
             this.btnWrite.TabIndex = 10;
             this.btnWrite.Text = "Write";
             this.btnWrite.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -182,8 +181,9 @@ namespace INAZUMA11
             // 
             // USearchControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.btnWrite);
             this.Controls.Add(this.groupBox1);
@@ -191,7 +191,7 @@ namespace INAZUMA11
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "USearchControl";
-            this.Size = new System.Drawing.Size(512, 512);
+            this.Size = new System.Drawing.Size(512, 473);
             ((System.ComponentModel.ISupportInitialize)(this.numBlock)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

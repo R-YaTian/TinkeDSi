@@ -40,14 +40,20 @@ namespace Fonts
         const int MAX_WIDTH = 260;
         bool inversePalette = true;
 
-
         public FontControl()
         {
             InitializeComponent();
         }
+
         public FontControl(IPluginHost pluginHost, sNFTR font)
         {
             InitializeComponent();
+
+            this.btnSave.Image = Ekona.Helper.SVGLoader.LoadSvg("disk", 16);
+            this.btnAddChar.Image = Ekona.Helper.SVGLoader.LoadSvg("add", 16);
+            this.btnRemoveChar.Image = Ekona.Helper.SVGLoader.LoadSvg("delete", 16);
+            this.btnPalette.Image = Ekona.Helper.SVGLoader.LoadSvg("palette", 16);
+            this.btnChangeMap.Image = Ekona.Helper.SVGLoader.LoadSvg("font", 16);
 
             this.pluginHost = pluginHost;
             this.font = font;

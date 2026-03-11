@@ -65,7 +65,6 @@ namespace LAYTON
             archivo = pluginHost.Get_Files().files[0].path;
             File.Delete(temp);
 
-            
             InfoAni control = new InfoAni();
             if (archivo.EndsWith(".arcnn"))
                 control = new InfoAni(Obtener_ARC(), pluginHost, id);

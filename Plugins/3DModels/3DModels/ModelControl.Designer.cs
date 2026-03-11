@@ -62,7 +62,7 @@ namespace _3DModels
             this.glControl1.BackColor = System.Drawing.Color.Black;
             this.glControl1.Location = new System.Drawing.Point(3, 3);
             this.glControl1.Name = "glControl1";
-            this.glControl1.Size = new System.Drawing.Size(506, 382);
+            this.glControl1.Size = new System.Drawing.Size(506, 353);
             this.glControl1.TabIndex = 0;
             this.glControl1.VSync = false;
             this.glControl1.Paint += new System.Windows.Forms.PaintEventHandler(this.glControl1_Paint);
@@ -77,17 +77,17 @@ namespace _3DModels
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(3, 388);
+            this.label1.Location = new System.Drawing.Point(3, 358);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new System.Drawing.Size(41, 12);
             this.label1.TabIndex = 1;
             this.label1.Text = "label1";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(429, 469);
+            this.button1.Location = new System.Drawing.Point(429, 433);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(80, 40);
+            this.button1.Size = new System.Drawing.Size(80, 37);
             this.button1.TabIndex = 2;
             this.button1.Text = "Show textures";
             this.button1.UseVisualStyleBackColor = true;
@@ -96,26 +96,26 @@ namespace _3DModels
             // numericPoly
             // 
             this.numericPoly.Enabled = false;
-            this.numericPoly.Location = new System.Drawing.Point(110, 483);
+            this.numericPoly.Location = new System.Drawing.Point(110, 446);
             this.numericPoly.Name = "numericPoly";
-            this.numericPoly.Size = new System.Drawing.Size(63, 20);
+            this.numericPoly.Size = new System.Drawing.Size(63, 21);
             this.numericPoly.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 485);
+            this.label2.Location = new System.Drawing.Point(3, 448);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(81, 13);
+            this.label2.Size = new System.Drawing.Size(95, 12);
             this.label2.TabIndex = 4;
             this.label2.Text = "Number of poly:";
             // 
             // checkManual
             // 
             this.checkManual.AutoSize = true;
-            this.checkManual.Location = new System.Drawing.Point(4, 457);
+            this.checkManual.Location = new System.Drawing.Point(4, 422);
             this.checkManual.Name = "checkManual";
-            this.checkManual.Size = new System.Drawing.Size(68, 17);
+            this.checkManual.Size = new System.Drawing.Size(72, 16);
             this.checkManual.TabIndex = 5;
             this.checkManual.Text = "Manually";
             this.checkManual.UseVisualStyleBackColor = true;
@@ -123,9 +123,9 @@ namespace _3DModels
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(343, 469);
+            this.button2.Location = new System.Drawing.Point(343, 433);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(80, 40);
+            this.button2.Size = new System.Drawing.Size(80, 37);
             this.button2.TabIndex = 6;
             this.button2.Text = "Open in Full Screen";
             this.button2.UseVisualStyleBackColor = true;
@@ -133,8 +133,9 @@ namespace _3DModels
             // 
             // ModelControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.Controls.Add(this.button2);
             this.Controls.Add(this.checkManual);
@@ -144,7 +145,7 @@ namespace _3DModels
             this.Controls.Add(this.label1);
             this.Controls.Add(this.glControl1);
             this.Name = "ModelControl";
-            this.Size = new System.Drawing.Size(512, 512);
+            this.Size = new System.Drawing.Size(512, 473);
             this.Load += new System.EventHandler(this.ModelControl_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericPoly)).EndInit();
             this.ResumeLayout(false);

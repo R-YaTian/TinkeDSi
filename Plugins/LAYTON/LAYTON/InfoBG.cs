@@ -36,11 +36,13 @@ namespace LAYTON
         public InfoBG(IPluginHost pluginHost,Bitmap imagen)
         {
             InitializeComponent();
+            this.btnSave.Image = Ekona.Helper.SVGLoader.LoadSvg("picture_save", 24);
             this.pluginHost = pluginHost;
             LeerIdioma();
 
             pic.Image = imagen;
         }
+
         private void LeerIdioma()
         {
             try
