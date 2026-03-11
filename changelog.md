@@ -1,5 +1,5 @@
-TinkeDSi 0.9.5 (Made by R-YaTian)
-* Project update to .NET Framework 4.8 (GitHub Actions build and future release will keep on .NET 4.5)
+### TinkeDSi 0.9.5 (Made by R-YaTian)
+* Project update to .NET Framework 4.8
 * Add public rsaFontKey
 * Fix packing Utility.bin (should work on all SDK versions of WiFi data files)
 * Set Topmost for waiting window, add "Please wait..." message
@@ -16,23 +16,43 @@ TinkeDSi 0.9.5 (Made by R-YaTian)
 * Improve ARM9BLZ compression logic
 * Add McDonalds Maker Code to Estructuras.makerCode
 * Image: Set gimp_error to default false, hope this will fix palette exporting for anything that's not GIMP
-* 3DModels: Update to OpenTK 3.3.3, fix bug on fullscreen btn
+* 3DModels: Update to OpenTK 3.3.3, fix bug on fullscreen button
 * Improved SF Feather Plugin (By @mn1712trungson)
 * Core: Improve Nitrocode check when saving rom
 * Saveoptions: Add an option to "Recompress ARM9 binary"
-* Saveoptions: Add an option to parse the header of flashcart firmware
 * Implement command line support
 * Update Be.Windows.Forms.HexBox to 1.6.0
-TODO: full i18n support (include plugins)
+* Added Simplified Chinese language support (include plugins)
+* HexBox now support more encoding (UTF-8, UTF-16, Shift-JIS)
+* Images: Fix Inaccurate color palettes (By @SombrAbsol)
+* GUI: Implement High DPI support
+* GUI: Implement SVG icon support, replace all image icons with svg icons
+* Eknoa: Bug fix for multiple palettes mode
+* Remove the special case handling for "rom.nds"
+* Images: Added a context menu to the OAM selection box to support Select All, Deselect All, and Invert Selection
+* JUS plugin: Add DTX support (By @priverop)
+* Images: Remove residual tiles from the previous image after importing a new one (By @japgarrido)
+* INAZUMA11 plugin: Enhance PKB unpacking functionality with content identification (By @retrohead)
+* Pack: align file offsets to 4-byte in NARC format (issue #16)
+* TXT plugin: enhance BMG file parsing with flexible message type handling
+* SDAT plugin: Improve and fix file structure parsing (issue #14)
+* SDAT plugin: Correctly supported the import and export of WAV files in IMA-ADPCM format (issue #14)
+* SDAT plugin: Added a new option to ignore the initial sample value and step size of the original SWAV when importing WAV files
+* SDAT plugin: Fix PLAYER info block, cleanup resources
+* Add PopCap Games to maker codes
+* Core: Added support for banner version modification
+* Fixed an issue causing certain plugins to fail loading in x64 builds
+* Implemented loading of a custom font for the hex box display (Included SarasaMono.ttf and its license in the project)
+* Hexbox: Support UTF-8 search
+* Improve UI display in Mono environment
 
-TinkeDSi 0.9.4
-*** This version number is a version that fetches changes from upstream "MetLob/tinke", "pleonex/tinke" and their forks.
-*** It will not be released because many tasks have not been finished on the main branch of TinkeDSi.
-*** So please wait for version "v0.9.5", but you can still get the nightly build from GitHub Actions.
-** Ekona: multiple palettes support for map generation (By @MetLob)
+### TinkeDSi 0.9.4
+This version number is a version that fetches changes from upstream "MetLob/tinke", "pleonex/tinke" and their forks.  
+It will not be released because many tasks have not been finished on the main branch of TinkeDSi.
+* Ekona: multiple palettes support for map generation (By @MetLob)
 * Images: fixes in NTR formats (By @MetLob)
 * 3DModel: import texture (experimental) (By @MetLob)
-* Add support for Jump Ultimate Star (By @priverop)
+* Added "Jump Ultimate Star" plugin (By @priverop)
 * Improvements in Layton plugin (support games and formats) (By @KerJoe)
 * Fix build scripts for Linux (By @pleonex)
 * TIMEACE Plugin: Add support for powerbike (By @TheBestNSMB)
@@ -42,27 +62,27 @@ TinkeDSi 0.9.4
 * Fonts: Improve NFTR plugins (By @chyyran)
 * Images: Implemented cropping functionality to image export (By @Aspharon)
 
-TinkeDSi 0.9.3 (Made by R-YaTian)
-*** Add "DSi header fix" feature (via import donor iheader data)
+### TinkeDSi 0.9.3 (Made by R-YaTian)
+* Add "DSi header fix" feature (via import donor iheader data)  
 (*Then you can import arm9/7i file to fix "DSi binary file missing error" for romhacks and/or bad dumps*)
-*** Add "DSi banner edit/fix" feature
-** Fix Espera bugs!
-** Add "Change by dir" feature
-** Add "Change icon" feature (via import icon data)
+* Add "DSi banner edit/fix" feature
+* Fix Espera bugs!
+* Add "Change by dir" feature
+* Add "Change icon" feature (via import icon data)
 * Fix "banner_size" if rom edited using CrystalTile2 before...
 * Improve trimmedRom check for DSi roms
 * Improve Header2Data reading for DSi roms
 * Improve UI to enhance the user's experience
 
-0.9.2i (Made by MetLob)
-*** Add DSi/DSi-Enchanced/DSiWare mode rom support!
+### 0.9.2i (Made by MetLob)
+#### Add DSi/DSi-Enchanced/DSiWare mode rom support!
 * Auto decription arm7i.bin and arm9i.bin
 * Auto decription and Re-encrypt Secure Area of arm9.bin
 * Show corrected SA CRC in RomInfo
 * Update CRC if GameCode has been changed
 
-0.9.2
-** Improve Hexadecimal Viewer for Mono. (Linux and Mac OS)
+### 0.9.2:
+* Improve Hexadecimal Viewer for Mono. (Linux and Mac OS)
 * Fix crash opening HexViewer from FAT dialog on Mono.
 * Fix project files and compile script for Windows.
 * Support HTML, CSS, JS and DTD files in text plugin.
@@ -72,8 +92,8 @@ TinkeDSi 0.9.3 (Made by R-YaTian)
 * Fixes for NFTR.
 * Fixes for decompression (autoformat) and unpacking with non-zero relative offset.
 
-0.9.1
-** Support partition cell sections (#18, #19).
+### 0.9.1:
+* Support partition cell sections (#18, #19).
 * Add basic hexadecimal viewer for mono.
 * Add support for WARIO7 ARC pack file.
 * Add support for Layton2 Dutch version.
@@ -85,15 +105,15 @@ TinkeDSi 0.9.3 (Made by R-YaTian)
 * Fix mono issues.
 * Upgrade to .NET Framework 4.5.
 
-0.9.0 (first GitHub release)
-*** Improve performance.
-*** Alpha 3D model viewer.
-*** OAM Editor and importer.
-** Add support for ADX sound files.
-** Add support for Procyon codec for sound files.
-** Add support for Layton London Life game.
-** Add support for Pokemon Conquest.
-** New options to import images.
+### 0.9.0 (first GitHub release):
+* Improve performance.
+* Added Alpha 3D model viewer.
+* Added OAM Editor and importer.
+* Add support for ADX sound files.
+* Add support for Procyon codec for sound files.
+* Add support for Layton London Life game.
+* Add support for Pokemon Conquest.
+* New options to import images.
 * New window in "Open as->" to force to use a plugin to open the file.
 * Show more info about SDAT files.
 * Add shortcut F3 in hex viewer to search next value.
@@ -131,24 +151,23 @@ TinkeDSi 0.9.3 (Made by R-YaTian)
 * Clean a lot of code.
 * Fixed many, many bugs.
 
-
-0.8.3
-*** 3D Model viewer for BMD0 (nsbmd)
-** Improved the perfomance reading roms
-** Improved image plugin.
-** Fixed problem packing two or more times the same file.
-** Support for NCCL, NCCG and NCSC files
-** Support ADX sound files.
-** Support for Procyon audio encoding (in SAD files)
-** Support script files in Layton1 (gds)
-** Support Death Note game
-** Support MEGA MAN STAR FORCE 3 - BLACK ACE game
-** Support INAZUMA11 game
-** Encoding support in NFTR fonts
-** Layton London Life supported:
-   - Unpack files DARC and DENC (by CUE)
-   - Decode LZSS files
-   - Unpack file kihira.archive
+### 0.8.3:
+* 3D Model viewer for BMD0 (nsbmd)
+* Improved the perfomance reading roms
+* Improved image plugin.
+* Fixed problem packing two or more times the same file.
+* Support for NCCL, NCCG and NCSC files
+* Support ADX sound files.
+* Support for Procyon audio encoding (in SAD files)
+* Support script files in Layton1 (gds)
+* Support Death Note game
+* Support MEGA MAN STAR FORCE 3 - BLACK ACE game
+* Support INAZUMA11 game
+* Encoding support in NFTR fonts
+* Layton London Life supported:
+  - Unpack files DARC and DENC (by CUE)
+  - Decode LZSS files
+  - Unpack file kihira.archive
 * Support for INFO section in SDAT
 * Show GROUP record in SDAT
 * Added table support in hexadecimal editor.
@@ -159,35 +178,34 @@ TinkeDSi 0.9.3 (Made by R-YaTian)
 * Fixed problems with "Open as->Pack"
 * New search pattern: "Header: XXXX" where XX are a byte in hexadecimal.
 
-
-0.8.2 public release (rev117)
-*** Improved Hexadecimal editor -> Now using Be.HexEditor (by Bernhard Elbl)
-*** Read BMD0 files and show the textures (if any)
-** Game GYAKUKEN (Gyajuten kenji 2) - Unpacker
-** Game DBK ULTIMATE (Dragon Ball Kai Ultimate Butouden) - Unpacker for "archiveDBK.dsa"
-** Game MAPLESTORYDS (Maple Story DS) - Unpacker for "RESOURCE.NXARC"
-** Game NINOKUNI (Ninokuni Shikkoku no Madoushi) supported
+### 0.8.2 public release (rev117):
+* Improved Hexadecimal editor -> Now using Be.HexEditor (by Bernhard Elbl)
+* Read BMD0 files and show the textures (if any)
+* Game GYAKUKEN (Gyajuten kenji 2) - Unpacker
+* Game DBK ULTIMATE (Dragon Ball Kai Ultimate Butouden) - Unpacker for "archiveDBK.dsa"
+* Game MAPLESTORYDS (Maple Story DS) - Unpacker for "RESOURCE.NXARC"
+* Game NINOKUNI (Ninokuni Shikkoku no Madoushi) supported
   - Unpacker for NPCK and KPCN files
   - Packer for NPCK and KPCN files
   - Text translator for SQ files
   - Credits images supported
-** Game SUBARASHIKI (The world end with you) - Unpacker
-** Game TOKIMEKIGS3S supported (LZS and RESC)
-** Game BLOODBAHAMUT supported (.DPK by Tricky Upgrade)
-** Game RUNFACTORY3 supported (unpacker and packer)
-** Game SF FEATHER supported (unpacker for pac, support for CGx, SCx)
-** Improved Font plugin
+* Game SUBARASHIKI (The world end with you) - Unpacker
+* Game TOKIMEKIGS3S supported (LZS and RESC)
+* Game BLOODBAHAMUT supported (.DPK by Tricky Upgrade)
+* Game RUNFACTORY3 supported (unpacker and packer)
+* Game SF FEATHER supported (unpacker for pac, support for CGx, SCx)
+* Improved Font plugin
   - Fixed problem with rotated Font
   - Fixed problem with char codes
   - Change info map char (PMAC section)
   - Fixed problems saving new fonts
   - Add new chars
-** Fixed problem reading NCER files
-** Added new method to set the transparency color.
-** Added method to create NSCR files of NCGR subimages
-** Add button Pack (instead of using controls from button "View")
-** Improved perfomance reading ROMs
-** Supported SRL files (wifi download files)
+* Fixed problem reading NCER files
+* Added new method to set the transparency color.
+* Added method to create NSCR files of NCGR subimages
+* Add button Pack (instead of using controls from button "View")
+* Improved perfomance reading ROMs
+* Supported SRL files (wifi download files)
 * Fixed problem with textures with format 2
 * Fixed problems in SDAT plugin
 * Added support for PMCP section in NCLR
@@ -195,13 +213,13 @@ TinkeDSi 0.9.3 (Made by R-YaTian)
 * Improved support for Mono 2.10
 * Fixed minor bugs
 
-0.8.1 (public release) rev100
-*** BTX0 textures supported (view only)
-** Game 999HRPERDOOR (Nine Hours, Nine Persons, Nine Doors) supported
-   - SIR0 files in folder /cha
-** Game EDGEWORTH (Ace Attorney Investigation Miles Edgeworth) supported
-   - Unpack and pack support to the file romfile.bin
-** Improved Image plugin: import and export palette in Window Palette format
+### 0.8.1 (public release) rev100:
+* BTX0 textures supported (view only)
+* Game 999HRPERDOOR (Nine Hours, Nine Persons, Nine Doors) supported
+  - SIR0 files in folder /cha
+* Game EDGEWORTH (Ace Attorney Investigation Miles Edgeworth) supported
+  - Unpack and pack support to the file romfile.bin
+* Improved Image plugin: import and export palette in Window Palette format
 * Improved plugins NARC and LASTWINDOW, now the extract function is faster
 * Added multifile importer function
 * Improved plugin Font
@@ -221,43 +239,43 @@ TinkeDSi 0.9.3 (Made by R-YaTian)
 * Fixed hotkeys
 * Fixed important bugs
 
-0.8.0 (public release) rev90
-*** Support for font files NFTR (edit and view)
-*** Support to write Game plugins in other languages (like C/C++)
-*** Improved the speed of the program, now the program it's so much faster opening roms and files.
+### 0.8.0 (public release) rev90:
+* Support for font files NFTR (edit and view)
+* Support to write Game plugins in other languages (like C/C++)
+* Improved the speed of the program, now the program it's so much faster opening roms and files
 * Fixed important errors in SDAT plugin
 * Add "change volume" to imported WAV to SWAV audio
 * New hotkeys (T to "Open as->Tile", P to "Open as->Palette", M to "Open as->Map", D to decompress)
 * New search term: "Length: XXXX" to search files with XXXX bytes of length
-* Improved "offset" in NSCR files.
+* Improved "offset" in NSCR files
 
-0.7.7
-*** Interface to unpack "big files"
-** Improved SDAT plugin:
-   - Information dialog about sound files (STRM, SWAV and SWAR)
-   - WAV -> SWAV
-   - Play SWAV files in loop
-   - Create new SWAR
-   - Fixed some bugs
-** Improved decompress methods, now it's so much faster.
+### 0.7.7
+* Interface to unpack "big files"
+* Improved SDAT plugin:
+  - Information dialog about sound files (STRM, SWAV and SWAR)
+  - WAV -> SWAV
+  - Play SWAV files in loop
+  - Create new SWAR
+  - Fixed some bugs
+* Improved decompress methods, now it's so much faster
 * Improved plugin TETRIS DS
 * New option in menu "Open as..." -> Compress (you can select the start offset)
 * Command to set a new transparent color in NCGR and NCER files
 * Improved Images plugin and TGA support
-* Improved "offset" value in files NCGR.
+* Improved "offset" value in files NCGR
 
-0.7.6 (public release)
-*** Import images from NCER files
+### 0.7.6 (public release):
+* Support import images from NCER files
 * Add support for the game TETRIS DS
 * Fixed problems with No_Tiled images
 * Support for the game LAYTON2 (*.arc, *.plz)
 * Fixed problem with NCER files
 
-0.7.5 (public release)
-*** Improved the plugin of Nitro compression (DSDecmp proyect by Barubary)
-*** Sound plugin added with SADL audio support
-*** Added control to compress NARC files
-*** Added control to compress Nitro compress format files
+### 0.7.5 (public release):
+* Improved the plugin of Nitro compression (DSDecmp proyect by Barubary)  
+* Sound plugin added with SADL audio support  
+* Added control to compress NARC files  
+* Added control to compress Nitro compress format files
 * Added support to japanese file names (it fixes the error opening some NDS games)
 * Added control with options of new maps
 * Added button in SDAT plugin to change files
@@ -267,10 +285,10 @@ TinkeDSi 0.9.3 (Made by R-YaTian)
 * Fixed problems saving new NCLR files
 * Fixed minors problems
 
-0.7.4 (public release):
-*** Import BitMaP images and convert it to NCLR,NCGR,NSCR files
-*** Header and banner editor
-*** WAV to STRM converter
+### 0.7.4 (public release):
+* Support import BitMaP images and convert it to NCLR,NCGR,NSCR files  
+* Added Header and banner editor  
+* Added WAV to STRM converter
 * Added option to save modified SDAT files
 * New methods and functions in IPluginHost interface
 * Added new file format in "Open As..." -> Extract FAT (files with offsets at the beggining)
@@ -280,7 +298,7 @@ TinkeDSi 0.9.3 (Made by R-YaTian)
 * Fixed problem with the priority in NCER files.
 * Fixed minor problems.
 
-0.7.3 (Contest release):
+### 0.7.3 (Contest release):
 * Fixed problem with some SDAT and SWAV files
 * Added option to open external files
 * Added new format file: Script
@@ -289,7 +307,7 @@ TinkeDSi 0.9.3 (Made by R-YaTian)
 * Added Shift-jis, UTF-7, UTF-32 and ASCII encodings to TXT plugin.
 * Added wordwrap option to TXT plugin.
 
-0.7.2 (public release):
+### 0.7.2 (public release):
 * AI IGO DS game plugin support completed!
 * LASTWINDOW game support
 * Support for reading a NDS file from an console argument
@@ -302,8 +320,8 @@ TinkeDSi 0.9.3 (Made by R-YaTian)
 * Play looping option in STRM sound files
 * Improved Unicode support in TXT plugin and titles in banner
 
-0.7.1 (public release):
-*** Now plugins can change files in the rom
+### 0.7.1 (public release):
+#### Now plugins can change files in the rom
 * TXT plugin can change text files.
 * SWAV sound files with IMA-ADPCM supported.
 * STRM sound files supported.
@@ -315,9 +333,8 @@ TinkeDSi 0.9.3 (Made by R-YaTian)
 * Fixed problems with strage NCLR files
 * Minor problems fixed
 
-0.7.0:
-*** Import files and save the new ROM
-*** 100% compatibility with MONO
+### 0.7.0:
+#### Import files and save the new ROM. 100% compatibility with MONO
 * Add new format file: 'System' (ie: overlays, FAT, FNT...)
 * Add support for the game AIIJ
 * Add support for SDAT files
