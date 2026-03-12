@@ -26,6 +26,10 @@ To run the program you must have installed **[.NET Framework 4.5](https://www.mi
     * Step 2: Open "bad dump" and import iheader on ROM info window, then save the ROM as a new file.
     * Step 3: Open the new ROM file, replace arm9/7i.bin on nitrofs window then save the ROM.
 
+# Translating
+
+You can help translate TinkeDSi on [Crowdin](https://crwd.in/tinkedsi). If you'd like to request a new language be added please open an issue for that.
+
 # File Format Used by TinkeDSi
 
 ## Tinke Icon Data (`.idat`)
@@ -52,9 +56,21 @@ The `.ihdr` file contains DSi-specific header information extracted from the ROM
 
 ### Structure
 
+<style>
+  details[open] summary span {
+    display: none;
+  }
+</style>
+
 | Offset | Size | Description |
 |--------|------|-------------|
 | `0x0000` | 4 | **Gamecode** Game identifier (4 ASCII characters) |
+
+<details>
+<summary><span><code>0x0004</code>&emsp;0xE80&emsp;<strong>From DSi ROM header offset 0x180–0x1000</strong></span></summary>
+
+|        |      |             |
+|--------|------|-------------|
 | `0x0004` | 20 | **Global MBK1 – MBK5 Settings** WRAM slot configuration |
 | `0x0018` | 12 | **ARM9 Local MBK6 – MBK8** WRAM areas for ARM9 |
 | `0x0024` | 12 | **ARM7 Local MBK6 – MBK8** WRAM areas for ARM7 |
@@ -115,15 +131,11 @@ The `.ihdr` file contains DSi-specific header information extracted from the ROM
 | `0x0238` | 2636 | **Reserved** Zero-filled |
 | `0x0C84` | 384 | **Debug Arguments** |
 | `0x0E04` | 128 | **RSA-SHA1 Signature** |
+</details>
 
-**Technical Notes:**
+#### Notes:
 - File size: 0x0E84 bytes (3716 bytes)
-- This format is based on DSi ROM header structure (offset 0x180–0x1000 in ROM)
 - Parts of the above structural description are sourced from GBATEK
-
-# Translating
-
-You can help translate TinkeDSi on [Crowdin](https://crwd.in/tinkedsi). If you'd like to request a new language be added please open an issue for that.
 
 # Supported formats
 
