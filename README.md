@@ -56,12 +56,6 @@ The `.ihdr` file contains DSi-specific header information extracted from the ROM
 
 ### Structure
 
-<style>
-  details[open] summary span {
-    display: none;
-  }
-</style>
-
 | Offset | Size | Description |
 |--------|------|-------------|
 | `0x0000` | 4 | **Gamecode** Game identifier (4 ASCII characters) |
@@ -69,7 +63,7 @@ The `.ihdr` file contains DSi-specific header information extracted from the ROM
 <details>
 <summary><span><code>0x0004</code>&emsp;0xE80&emsp;<strong>From DSi ROM header offset 0x180–0x1000</strong></span></summary>
 
-|        |      |             |
+| Offset | Size | Description |
 |--------|------|-------------|
 | `0x0004` | 20 | **Global MBK1 – MBK5 Settings** WRAM slot configuration |
 | `0x0018` | 12 | **ARM9 Local MBK6 – MBK8** WRAM areas for ARM9 |
