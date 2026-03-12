@@ -26,7 +26,102 @@ To run the program you must have installed **[.NET Framework 4.5](https://www.mi
     * Step 2: Open "bad dump" and import iheader on ROM info window, then save the ROM as a new file.
     * Step 3: Open the new ROM file, replace arm9/7i.bin on nitrofs window then save the ROM.
 
-#  Translating
+# File Format Used by TinkeDSi
+
+## Tinke Icon Data (`.idat`)
+
+| Offset | Size | Description |
+|--------|------|-------------|
+| `0x0000` | `0x200` | **Icon Bitmap** 32×32 pixels, 4×4 tiles, 4-bit depth, 4×8 bytes per tile |
+| `0x0200` | `0x20` | **Icon Palette** 16 colors, 16-bit format, range 0x0000 – 0x7FFF |
+
+**Technical Notes (From GBATEK):**
+- Color 0 is transparent, so the 1st palette entry is ignored
+
+## Tinke Animation Data (`.adat`)
+
+| Offset | Size | Description |
+|--------|------|-------------|
+| `0x0000` | `0x1000` | **Icon Animation Bitmaps 0 – 7** 8 bitmaps, 0x200 bytes each (same format as `.idat` bitmap) |
+| `0x1000` | `0x100` | **Icon Animation Palettes 0 – 7** 8 palettes, 0x20 bytes each (same format as `.idat` palette) |
+| `0x1100` | `0x80` | **Icon Animation Sequence** 16-bit animation tokens |
+
+## Tinke Donor iHeader (`.ihdr`)
+
+The `.ihdr` file contains DSi-specific header information extracted from the ROM header. This file is used to fix DSi binaries in ROM hacks or bad dumps.
+
+### Structure
+
+| Offset | Size | Description |
+|--------|------|-------------|
+| `0x0000` | 4 | **Gamecode** Game identifier (4 ASCII characters) |
+| `0x0004` | 20 | **Global MBK1 – MBK5 Settings** WRAM slot configuration |
+| `0x0018` | 12 | **ARM9 Local MBK6 – MBK8** WRAM areas for ARM9 |
+| `0x0024` | 12 | **ARM7 Local MBK6 – MBK8** WRAM areas for ARM7 |
+| `0x0030` | 3 | **Global MBK9 Setting** WRAM slot write protection |
+| `0x0033` | 1 | **Global WRAMCNT** WRAM control setting |
+| `0x0034` | 4 | **Region Flags** `bit0=JPN, bit1=USA, bit2=EUR, bit3=AUS, bit4=CHN, bit5=KOR, bit6-31=Reserved` (0xFFFFFFFF = Region Free) |
+| `0x0038` | 4 | **Access Control** AES key select |
+| `0x003C` | 4 | **ARM7 SCFG_EXT7** |
+| `0x0040` | 4 | **App Flags** |
+| `0x0044` | 4 | **ARM9i ROM Offset** |
+| `0x0048` | 4 | **Reserved** (zero) |
+| `0x004C` | 4 | **ARM9i RAM Address** |
+| `0x0050` | 4 | **ARM9i Size** |
+| `0x0054` | 4 | **ARM7i ROM Offset** |
+| `0x0058` | 4 | **SD/MMC Device List ARM7 Address** |
+| `0x005C` | 4 | **ARM7i RAM Address** |
+| `0x0060` | 4 | **ARM7i Size** |
+| `0x0064` | 4 | **Digest NTR Offset** Usually same as ARM9 rom offset |
+| `0x0068` | 4 | **Digest NTR Length** |
+| `0x006C` | 4 | **Digest TWL Offset** usually same as ARM9i rom offset |
+| `0x0070` | 4 | **Digest TWL Length** |
+| `0x0074` | 4 | **Digest Sector Hashtable Offset** |
+| `0x0078` | 4 | **Digest Sector Hashtable Length** |
+| `0x007C` | 4 | **Digest Block Hashtable Offset** |
+| `0x0080` | 4 | **Digest Block Hashtable Length** |
+| `0x0084` | 4 | **Digest Sector Size** |
+| `0x0088` | 4 | **Digest Block Sector Count** |
+| `0x008C` | 4 | **Icon/Title Size** Usually 0x23C0 for DSi |
+| `0x0090` | 1 | **SD/MMC shared2\0000 Size** In 32KB units |
+| `0x0091` | 1 | **SD/MMC shared2\0001 Size** In 32KB units |
+| `0x0092` | 1 | **EULA Version** |
+| `0x0093` | 1 | **Use Ratings** |
+| `0x0094` | 4 | **Total Used ROM Size** Including DSi area (optional, can be 0) |
+| `0x0098` | 1 | **SD/MMC shared2\0002 Size** In 32KB units |
+| `0x0099` | 1 | **SD/MMC shared2\0003 Size** In 32KB units |
+| `0x009A` | 1 | **SD/MMC shared2\0004 Size** In 32KB units |
+| `0x009B` | 1 | **SD/MMC shared2\0005 Size** In 32KB units |
+| `0x009C` | 4 | **ARM9i Parameters Table Offset** |
+| `0x00A0` | 4 | **ARM7i Parameters Table Offset** |
+| `0x00A4` | 4 | **Modcrypt Area 1 Offset** Usually same as ARM9i ROM offset |
+| `0x00A8` | 4 | **Modcrypt Area 1 Size** |
+| `0x00AC` | 4 | **Modcrypt Area 2 Offset** (0 = None) |
+| `0x00B0` | 4 | **Modcrypt Area 2 Size** (0 = None) |
+| `0x00B4` | 4 | **Title ID Low** Emagcode (aka Gamecode spelled backwards) |
+| `0x00B8` | 4 | **Title ID High** |
+| `0x00BC` | 4 | **DSiWare public.sav Size** In bytes (0 = none) |
+| `0x00C0` | 4 | **DSiWare private.sav Size** In bytes (0 = none) |
+| `0x00C4` | 176 | **Reserved** Zero-filled |
+| `0x0174` | 16 | **Parental Control Age Ratings** |
+| `0x0184` | 32 | **SHA1-HMAC ARM9** With encrypted secure area |
+| `0x0198` | 32 | **SHA1-HMAC ARM7** |
+| `0x01AC` | 32 | **SHA1-HMAC Digest Master** |
+| `0x01C0` | 32 | **SHA1-HMAC Icon/Title** (also in newer NDS titles) |
+| `0x01D4` | 32 | **SHA1-HMAC ARM9i** Decrypted |
+| `0x01E8` | 32 | **SHA1-HMAC ARM7i** Decrypted |
+| `0x01FC` | 64 | **Reserved** Zero-filled (but used by non-whitelisted NDS titles) |
+| `0x0224` | 32 | **SHA1-HMAC ARM9 (no secure)** Without 16KB secure area |
+| `0x0238` | 2636 | **Reserved** Zero-filled |
+| `0x0C84` | 384 | **Debug Arguments** |
+| `0x0E04` | 128 | **RSA-SHA1 Signature** |
+
+**Technical Notes:**
+- File size: 0x0E84 bytes (3716 bytes)
+- This format is based on DSi ROM header structure (offset 0x180–0x1000 in ROM)
+- Parts of the above structural description are sourced from GBATEK
+
+# Translating
 
 You can help translate TinkeDSi on [Crowdin](https://crwd.in/tinkedsi). If you'd like to request a new language be added please open an issue for that.
 
