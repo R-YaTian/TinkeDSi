@@ -181,7 +181,7 @@ namespace Tinke
             if (encodingCombo.SelectedIndex == 0)
                 bcc = new DefaultByteCharConverter();
             else
-                bcc = new ByteCharConverter(encodingCombo.Text);
+                bcc = new MultiByteCharConverter(encodingCombo.Text);
 
             hexBox1.ByteCharConverter = bcc;
         }
@@ -536,6 +536,7 @@ namespace Tinke
                 tableByte.Add(chara, code);
             }
         }
+
         public ByteCharTable(byte[] codes, char[] charas)
         {
             tableByte = new Dictionary<char, byte>();
@@ -557,6 +558,7 @@ namespace Tinke
             else
                 return '.';
         }
+
         public byte[] ToByte(char c)
         {
             byte[] bytes = new byte[1];
@@ -568,124 +570,15 @@ namespace Tinke
             else
                 return (new byte[1] { 0 });
         }
+
+        public override string ToString()
+        {
+            return "Custom Table";
+        }
+
         public Encoding ToEncoding()
         {
             return Encoding.Default;
         }
     }
-    public class ByteCharConverter : IByteCharConverter
-    {
-        Encoding encoding;
-        List<byte> requiredChar;
-
-        public ByteCharConverter(string encoding)
-        {
-            this.encoding = Encoding.GetEncoding(encoding);
-            requiredChar = new List<byte>();
-        }
-
-        public byte[] ToByte(char c)
-        {
-            byte[] decoded = encoding.GetBytes(new char[] { c });
-            return decoded.Length > 0 ? decoded : (new byte[1] { 0 });
-        }
-
-        public char ToChar(byte b)
-        {
-            if (encoding.WebName == "shift_jis" || encoding.WebName == "gb2312")
-                return ToCharShiftJisOrGBK(b);
-            if (encoding.WebName == "utf-8")
-                return ToCharUtf8(b);
-            if (encoding.WebName == "utf-16")
-                return ToCharUtf16Le(b);
-            if (encoding.WebName == "utf-16BE")
-                return ToCharUtf16Be(b);
-
-            return encoding.GetChars(new byte[] { b })[0];
-        }
-
-        public char ToCharShiftJisOrGBK(byte b)
-        {
-            if (requiredChar.Count == 0 && b > 0x7F)
-            {
-                requiredChar.Add(b);
-                return '\x20';
-            }
-
-            requiredChar.Add(b);
-            string c = new String(encoding.GetChars(requiredChar.ToArray()));
-            requiredChar.Clear();
-            return (c[0] > '\x1F' ? c[0] : '.');
-        }
-
-        public char ToCharUtf16Le(byte b)
-        {
-            requiredChar.Add(b);
-
-            if (requiredChar.Count == 2)
-            {
-                char c = BitConverter.ToChar(requiredChar.ToArray(), 0);
-                requiredChar.Clear();
-                return (c > '\x1F' ? c : '.');
-            }
-
-            return '\x20';
-        }
-
-        public char ToCharUtf16Be(byte b)
-        {
-            requiredChar.Add(b);
-
-            if (requiredChar.Count == 2)
-            {
-                byte[] bytes = requiredChar.ToArray();
-                Array.Reverse(bytes);
-                char c = BitConverter.ToChar(bytes, 0);
-                requiredChar.Clear();
-                return (c > '\x1F' ? c : '.');
-            }
-
-            return '\x20';
-        }
-
-        public char ToCharUtf8(byte b)
-        {
-            if (requiredChar.Count == 0 && !((b & 0x80) == 0))
-            {
-                requiredChar.Add(b);
-                return '\x20';
-            }
-            else if (requiredChar.Count == 1 && !((requiredChar[0] & 0xE0) == 0xC0))
-            {
-                requiredChar.Add(b);
-                return '\x20';
-            }
-            else if (requiredChar.Count == 2 && !((requiredChar[0] & 0xF0) == 0xE0))
-            {
-                requiredChar.Add(b);
-                return '\x20';
-            }
-
-            requiredChar.Add(b);
-            string c = new String(encoding.GetChars(requiredChar.ToArray()));
-            requiredChar.Clear();
-            return (c[0] > '\x1F' ? c[0] : '.');
-        }
-
-        public override string ToString()
-        {
-            if (encoding.WebName == "utf-16" || encoding.WebName == "utf-16BE")
-            {
-                requiredChar.Clear();
-                return "Unicode";
-            }
-            return encoding.WebName;
-        }
-
-        public Encoding ToEncoding()
-        {
-            return this.encoding;
-        }
-    }
-
 }

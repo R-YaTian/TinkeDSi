@@ -2603,6 +2603,12 @@ namespace Be.Windows.Forms
             if (ByteCharConverter.ToString() == "Unicode")
                 unicode_ofs = _charSize.Width;
 
+            var multiConverter = _byteCharConverter as MultiByteCharConverter;
+            if (multiConverter != null)
+            {
+                multiConverter.ClearCache();
+            }
+
             Brush brush = new SolidBrush(GetDefaultForeColor());
 			Brush selBrush = new SolidBrush(_selectionForeColor);
 			Brush selBrushBack = new SolidBrush(_selectionBackColor);
