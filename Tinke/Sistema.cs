@@ -2173,6 +2173,7 @@ namespace Tinke
         {
             string execPath = Application.ExecutablePath;
             string moduleFileName = System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName;
+            Console.WriteLine("moduleFileName: " + moduleFileName);
             if (isMono && !moduleFileName.Contains("mono"))
             {
                 // In mkbundle environment, use the current process executable path instead of Application.ExecutablePath
