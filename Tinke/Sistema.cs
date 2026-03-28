@@ -2172,8 +2172,11 @@ namespace Tinke
         private void toolStripOpen_Click(object sender, EventArgs e)
         {
             string execPath = Application.ExecutablePath;
-            string moduleFileName = System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName;
+            System.Diagnostics.ProcessModule module = System.Diagnostics.Process.GetCurrentProcess().MainModule;
+            string moduleFileName = module.FileName;
             Console.WriteLine("moduleFileName: " + moduleFileName);
+            Console.WriteLine("moduleBaseName: " + module.ModuleName);
+            Console.WriteLine("Application.ExecutablePath: " + execPath);
             if (isMono && !moduleFileName.Contains("mono"))
             {
                 // In mkbundle environment, use the current process executable path instead of Application.ExecutablePath
