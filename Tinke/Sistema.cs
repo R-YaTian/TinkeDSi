@@ -2171,16 +2171,12 @@ namespace Tinke
         }
         private void toolStripOpen_Click(object sender, EventArgs e)
         {
-            string execPath = Application.ExecutablePath;
             System.Diagnostics.ProcessModule module = System.Diagnostics.Process.GetCurrentProcess().MainModule;
-            string moduleFileName = module.FileName;
-            Console.WriteLine("moduleFileName: " + moduleFileName);
-            Console.WriteLine("moduleBaseName: " + module.ModuleName);
-            Console.WriteLine("Application.ExecutablePath: " + execPath);
-            if (isMono && !moduleFileName.Contains("mono"))
+            string execPath = Application.ExecutablePath;
+            if (isMono && Path.GetFileName(execPath) != module.ModuleName)
             {
-                // In mkbundle environment, use the current process executable path instead of Application.ExecutablePath
-                execPath = moduleFileName;
+                // In mono bundle environment, use the current process executable path instead of Application.ExecutablePath
+                execPath = module.FileName;
             }
             System.Diagnostics.Process.Start(execPath);
         }
@@ -2739,12 +2735,12 @@ namespace Tinke
                     else
                         inFile = "open ";
                     inFile += String.Format("\"{0}\"", item);
+                    System.Diagnostics.ProcessModule module = System.Diagnostics.Process.GetCurrentProcess().MainModule;
                     string execPath = Application.ExecutablePath;
-                    string moduleFileName = System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName;
-                    if (isMono && !moduleFileName.Contains("mono"))
+                    if (isMono && Path.GetFileName(execPath) != module.ModuleName)
                     {
-                        // In mkbundle environment, use the current process executable path instead of Application.ExecutablePath
-                        execPath = moduleFileName;
+                        // In mono bundle environment, use the current process executable path instead of Application.ExecutablePath
+                        execPath = module.FileName;
                     }
                     System.Diagnostics.Process.Start(execPath, inFile);
                 }
