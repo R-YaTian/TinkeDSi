@@ -1916,7 +1916,14 @@ namespace Tinke
 
                 if (selectFile.name.ToUpper().EndsWith(".SRL") || selectFile.name.ToUpper().EndsWith(".NDS"))
                 {
-                    System.Diagnostics.Process.Start(Application.ExecutablePath, '\"' + tempFile + '\"');
+                    string execPath = Application.ExecutablePath;
+                    string moduleFileName = System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName;
+                    if (Type.GetType("Mono.Runtime") != null && !moduleFileName.Contains("mono"))
+                    {
+                        // In mkbundle environment, use the current process executable path instead of Application.ExecutablePath
+                        execPath = moduleFileName;
+                    }
+                    System.Diagnostics.Process.Start(execPath, '\"' + tempFile + '\"');
                     return new Control();
                 }
             }

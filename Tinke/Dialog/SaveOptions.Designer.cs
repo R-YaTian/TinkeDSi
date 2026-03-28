@@ -38,20 +38,18 @@
             // 
             // checkBox1
             // 
-            this.checkBox1.AutoSize = true;
             this.checkBox1.Location = new System.Drawing.Point(12, 12);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(42, 16);
+            this.checkBox1.Size = new System.Drawing.Size(215, 16);
             this.checkBox1.TabIndex = 0;
             this.checkBox1.Text = "S1E";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // checkBox2
             // 
-            this.checkBox2.AutoSize = true;
             this.checkBox2.Location = new System.Drawing.Point(12, 37);
             this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(42, 16);
+            this.checkBox2.Size = new System.Drawing.Size(215, 16);
             this.checkBox2.TabIndex = 2;
             this.checkBox2.Text = "S1F";
             this.checkBox2.UseVisualStyleBackColor = true;
@@ -82,10 +80,9 @@
             // 
             // checkBox3
             // 
-            this.checkBox3.AutoSize = true;
             this.checkBox3.Location = new System.Drawing.Point(12, 62);
             this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(42, 16);
+            this.checkBox3.Size = new System.Drawing.Size(215, 16);
             this.checkBox3.TabIndex = 5;
             this.checkBox3.Text = "S20";
             this.checkBox3.UseVisualStyleBackColor = true;
@@ -93,11 +90,10 @@
             // 
             // checkBox4
             // 
-            this.checkBox4.AutoSize = true;
             this.checkBox4.Enabled = false;
             this.checkBox4.Location = new System.Drawing.Point(12, 87);
             this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(42, 16);
+            this.checkBox4.Size = new System.Drawing.Size(215, 16);
             this.checkBox4.TabIndex = 6;
             this.checkBox4.Text = "S21";
             this.checkBox4.UseVisualStyleBackColor = true;
@@ -124,8 +120,6 @@
             this.Text = "S07";
             this.TopMost = true;
             this.ResumeLayout(false);
-            this.PerformLayout();
-
         }
 
         #endregion

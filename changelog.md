@@ -1,3 +1,9 @@
+### TinkeDSi 0.9.6 (Made by R-YaTian)
+* core: Move `MultiByteCharConverter` implementation from `VisorHex` to `Be.Windows.Forms.HexBox`
+* mono: Fix the issue where text in the `SaveOptions` dialog is not fully displayed
+* mono: Fix `DragDrop` and `OpenFiles` not working correctly in Mono bundle
+* mono: Fix incorrect `gameTitle` length in rom header after editing ROM info, caused by incorrect `ToCharArray` behavior on Mono environment (issue #18)
+
 ### TinkeDSi 0.9.5 (Made by R-YaTian)
 * Project update to .NET Framework 4.8
 * Add public rsaFontKey

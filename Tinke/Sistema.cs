@@ -2171,7 +2171,14 @@ namespace Tinke
         }
         private void toolStripOpen_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start(Application.ExecutablePath);
+            string execPath = Application.ExecutablePath;
+            string moduleFileName = System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName;
+            if (isMono && !moduleFileName.Contains("mono"))
+            {
+                // In mkbundle environment, use the current process executable path instead of Application.ExecutablePath
+                execPath = moduleFileName;
+            }
+            System.Diagnostics.Process.Start(execPath);
         }
 
         void romInfo_FormClosing(object sender, FormClosingEventArgs e)
@@ -2728,7 +2735,14 @@ namespace Tinke
                     else
                         inFile = "open ";
                     inFile += String.Format("\"{0}\"", item);
-                    System.Diagnostics.Process.Start(Application.ExecutablePath, inFile);
+                    string execPath = Application.ExecutablePath;
+                    string moduleFileName = System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName;
+                    if (isMono && !moduleFileName.Contains("mono"))
+                    {
+                        // In mkbundle environment, use the current process executable path instead of Application.ExecutablePath
+                        execPath = moduleFileName;
+                    }
+                    System.Diagnostics.Process.Start(execPath, inFile);
                 }
             }
         }

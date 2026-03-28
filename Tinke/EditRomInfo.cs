@@ -326,7 +326,8 @@ namespace Tinke
 
         private void txtGameTitle_TextChanged(object sender, EventArgs e)
         {
-            header.gameTitle = txtGameTitle.Text.ToCharArray();
+            Array.Clear(header.gameTitle, 0, header.gameTitle.Length);
+            txtGameTitle.Text.CopyTo(0, header.gameTitle, 0, Math.Min(txtGameTitle.Text.Length, header.gameTitle.Length));
         }
         private void txtGameCode_TextChanged(object sender, EventArgs e)
         {
@@ -334,7 +335,8 @@ namespace Tinke
                 if (!Char.IsLetterOrDigit(txtGameCode.Text, i))
                     return;
 
-            header.gameCode = txtGameCode.Text.ToCharArray();
+            Array.Clear(header.gameCode, 0, header.gameCode.Length);
+            txtGameCode.Text.CopyTo(0, header.gameCode, 0, Math.Min(txtGameCode.Text.Length, header.gameCode.Length));
         }
         private void txtMakerCode_TextChanged(object sender, EventArgs e)
         {
@@ -342,7 +344,8 @@ namespace Tinke
                 if (!Char.IsLetterOrDigit(txtMakerCode.Text, i))
                     return;
 
-            header.makerCode = txtMakerCode.Text.ToCharArray();
+            Array.Clear(header.makerCode, 0, header.makerCode.Length);
+            txtMakerCode.Text.CopyTo(0, header.makerCode, 0, Math.Min(txtMakerCode.Text.Length, header.makerCode.Length));
         }
         private void numericUnitCode_ValueChanged(object sender, EventArgs e)
         {
