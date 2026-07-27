@@ -29,6 +29,7 @@ namespace Tinke
     {
         Nitro.Estructuras.ROMHeader cabecera;
         Nitro.Estructuras.Banner banner;
+        Nitro.Estructuras.DownLoadPlaySignature dlpSignature;
         Bitmap picBanner;
         string[] titulos;
 
@@ -61,6 +62,7 @@ namespace Tinke
                     archivo,
                     cabecera.bannerOffset,
                     cabecera.banner_size);
+                this.dlpSignature = Nitro.NDS.LeerDlpSignature(archivo, cabecera);
                 Mostrar_Informacion(cabecera, banner);
                 this.checkTrans.Checked = true;
             }
@@ -263,6 +265,11 @@ namespace Tinke
         {
             get { return banner; }
             set { banner = value; }
+        }
+        public Nitro.Estructuras.DownLoadPlaySignature DlpSignature
+        {
+            get { return dlpSignature; }
+            set { dlpSignature = value; }
         }
         private void btnBannerGuardar_Click(object sender, EventArgs e)
         {

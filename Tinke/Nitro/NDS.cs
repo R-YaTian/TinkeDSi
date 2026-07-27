@@ -172,6 +172,7 @@ namespace Tinke.Nitro
                 nds.doublePadding |= (nds.fileNameTableSize % 0x400) < 0x200 && nds.FAToffset % 0x400 == 0;
                 nds.doublePadding |= (nds.FATsize % 0x400) < 0x200 && nds.bannerOffset % 0x400 == 0;
             }
+
             if (nds.total_rom_size != 0)
                 nds.trimmedRom = (nds.total_rom_size - br.BaseStream.Length >= 0);
             else
@@ -195,6 +196,36 @@ namespace Tinke.Nitro
 
             return nds;
         }
+
+        public static Estructuras.DownLoadPlaySignature LeerDlpSignature(string file, Estructuras.ROMHeader header)
+        {
+            Estructuras.DownLoadPlaySignature dlpsign = new Estructuras.DownLoadPlaySignature();
+            dlpsign.hasDlpSignature = false;
+            dlpsign.ID = 0;
+            dlpsign.RSA = null;
+            dlpsign.Seed = 0;
+
+            using (BinaryReader br = new BinaryReader(File.OpenRead(file)))
+            {
+                if (header.ROMsize + 0x88 <= br.BaseStream.Length)
+                {
+                    br.BaseStream.Position = header.ROMsize;
+                    byte[] sig = br.ReadBytes(0x88);
+                    if (!sig.All(b => b == 0xFF) && !sig.All(b => b == 0x00))
+                    {
+                        dlpsign.hasDlpSignature = true;
+                        br.BaseStream.Position = header.ROMsize;
+                        dlpsign.ID = br.ReadUInt32();
+                        dlpsign.RSA = br.ReadBytes(0x80);
+                        dlpsign.Seed = br.ReadUInt32();
+                        Console.WriteLine("Download Play signature detected at offset 0x" + header.ROMsize.ToString("X8"));
+                    }
+                }
+            }
+
+            return dlpsign;
+        }
+
         public static void EscribirCabecera(string salida, Estructuras.ROMHeader cabecera, string romFile)
         {
             BinaryWriter bw = new BinaryWriter(File.OpenWrite(salida));

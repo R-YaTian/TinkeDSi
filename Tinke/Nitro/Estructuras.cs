@@ -282,5 +282,14 @@ namespace Tinke.Nitro
             public UInt32 reserved;
             public bool ARM9;           // Si es true es ARM9, sino es ARM7
         }
+        
+        public struct DownLoadPlaySignature
+        {
+            public UInt32 ID;                    // Download Play ID (4 bytes)
+            public byte[] RSA;                   // RSA signature (0x80 bytes)
+            public UInt32 Seed;                  // Seed (4 bytes)
+            
+            public bool hasDlpSignature;        // Whether the ROM has Download Play signature
+        }
     }
 }
