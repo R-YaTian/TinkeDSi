@@ -42,7 +42,7 @@ namespace Tinke.Nitro
             {
                 overlays[i] = new Estructuras.ARMOverlay();
 
-                overlays[i].fileID = br.ReadUInt32();
+                overlays[i].OverlayID = br.ReadUInt32();
                 overlays[i].RAM_Adress = br.ReadUInt32();
                 overlays[i].RAM_Size = br.ReadUInt32();
                 overlays[i].BSS_Size = br.ReadUInt32();
